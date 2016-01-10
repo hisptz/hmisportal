@@ -3,7 +3,7 @@
  */
 angular.module("hmisPortal")
     .run( function($rootScope, $location) {
-          // register listener to watch route changes
+        // register listener to watch route changes
         $rootScope.$on( "$routeChangeStart", function(event, next, current) {
             Pace.restart()
         });
@@ -106,8 +106,8 @@ angular.module("hmisPortal")
             controller: 'planningCtrl'
         });
         $routeProvider.when("/mortalities",{
-            templateUrl: 'views/mortalities.html',
-            controller: 'mortalitiesCtrl'
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
         });
         $routeProvider.when("/familyPlaning",{
             templateUrl: 'views/familyPlaning.html',
@@ -122,36 +122,36 @@ angular.module("hmisPortal")
             controller: 'indicatorsCtrl'
         });
         $routeProvider.when("/ancIntegration",{
-            templateUrl: 'views/ancIntegration.html',
-            controller: 'ancIntegrationCtrl'
+            templateUrl: 'views/indicatorsView.html',
+                controller: 'indicatorsCtrl'
         });
         $routeProvider.when("/laborDelivery",{
-            templateUrl: 'views/laborDelivery.html',
-            controller: 'laborDeliveryCtrl'
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
         });
         $routeProvider.when("/ldIntegration",{
             templateUrl: 'views/ldIntegration.html',
             controller: 'ldIntegrationCtrl'
         });
         $routeProvider.when("/newbornCare",{
-            templateUrl: 'views/newbornCare.html',
-            controller: 'newbornCareCtrl'
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
         });
-        $routeProvider.when("/postnal",{
-            templateUrl: 'views/postnal.html',
-            controller: 'postnalCtrl'
+        $routeProvider.when("/postnatalCare",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
         });
         $routeProvider.when("/pncIntegration",{
             templateUrl: 'views/pncIntegration.html',
             controller: 'pncIntegrationCtrl'
         });
         $routeProvider.when("/gbvVac",{
-            templateUrl: 'views/gbvVac.html',
-            controller: 'gbvVacCtrl'
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
         });
         $routeProvider.when("/cervicalCancer",{
-            templateUrl: 'views/cervicalCancer.html',
-            controller: 'cervicalCancerCtrl'
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
         });
         $routeProvider.when("/book10",{
             templateUrl: 'views/book10.html',
@@ -215,4 +215,4 @@ angular.module("hmisPortal")
 
 
 
-});
+    });
