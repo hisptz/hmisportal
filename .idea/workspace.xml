@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaa8b7a4-f174-4934-84e4-1f5bff911dfd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/indicators/hivaids.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/indicators/ivd.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/indicators/malaria.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/indicators/nutrition.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/indicators/tb.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/indicators/tracer_medicine.json" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/hivadsCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/ivdCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/malariaCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/nutritionCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/tbCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/tracermedicineCtrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/familyPlaningCtrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/fpIntegrationCtrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/ldIntegrationCtrl.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/routes.js" afterPath="$PROJECT_DIR$/assets/js/routes.js" />
     </list>
     <ignored path="hmisportal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,7 +32,7 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="518" max-vertical-offset="3270">
+            <state vertical-scroll-proportion="0.0" vertical-offset="518" max-vertical-offset="3285">
               <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
               <folding />
             </state>
@@ -71,16 +61,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="antenatalCare.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/indicators/antenatalCare.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1335">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="malaria.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/indicators/malaria.json">
           <provider selected="true" editor-type-id="text-editor">
@@ -91,19 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="30.208334" vertical-offset="2735" max-vertical-offset="5625">
-              <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.608229" vertical-offset="4715" max-vertical-offset="5625">
+              <caret line="337" column="0" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tracerCtrl.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tracerCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/tracerCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1350">
@@ -146,6 +128,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -396,14 +379,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/newbornCareCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48542023" vertical-offset="7337" max-vertical-offset="8490">
-          <caret line="508" column="0" selection-start-line="508" selection-start-column="0" selection-end-line="508" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/indicators/nutrition.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="240">
@@ -446,21 +421,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="30.208334" vertical-offset="2735" max-vertical-offset="5625">
-          <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/tracerCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1350">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.608229" vertical-offset="4715" max-vertical-offset="5625">
+          <caret line="337" column="0" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
