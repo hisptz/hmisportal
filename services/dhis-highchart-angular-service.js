@@ -94,13 +94,8 @@ chartServices.factory('chartsManager',function(){
       var index = this.getTitleIndex(analyticsObject.headers,metadataType);
       var metadataArray = [];
       var checkArr = [];
-      if(metadataType === 'dx' || metadataType === 'value'){
-        angular.forEach(analyticsObject.rows,function(value){
-          if(checkArr.indexOf(value[index]) === -1){
-            metadataArray.push(value[index]);
-            checkArr.push(value[index]);
-          }
-        });
+      if(metadataType === 'dx'){
+        metadataArray = analyticsObject.metaData.dx;
       }else if(metadataType === 'ou'){
         metadataArray = analyticsObject.metaData.ou;
       }else if(metadataType === 'co'){

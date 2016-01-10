@@ -24,11 +24,14 @@ angular.module("hmisPortal")
             controller: 'mainCtrl'
         });
 
-
-
         $routeProvider.when("/maternal",{
             templateUrl: 'views/maternal.html',
             controller: 'maternalCtrl'
+        });
+
+        $routeProvider.when("/dataset/:uid",{
+            templateUrl: 'views/dataset.html',
+            controller: 'dataCtrl'
         });
 
         $routeProvider.when("/morbidity",{

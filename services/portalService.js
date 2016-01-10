@@ -14,7 +14,7 @@ angular.module("hmisPortal")
         this.denominator='';
         this.indicatorType='';
         this.header='';
-        this.base = "http://139.162.204.124/dhis/";
+        this.base = "https://139.162.204.124/dhis/";
         this.icons = [
             {name: 'table', image: 'table.jpg', action: ''},
             {name: 'bar', image: 'bar.png', action: ''},
@@ -60,21 +60,32 @@ angular.module("hmisPortal")
         };
 
         this.authenticateDHIS = function () {
-            var promise = $.post( self.base + "dhis-web-commons-security/login.action?authOnly=true", {
-                j_username: "portal", j_password: "Portal123"
-            },function(response){
-                console.log(response);
-            });
-            return promise;
+            var deferred = $q.defer();
+            //var promise = $.post( self.base + "dhis-web-commons-security/login.action?authOnly=true", {
+            //    j_username: "portal", j_password: "Portal123"
+            //},function(response){
+            //    deferred.resolve(response);
+            //},function(){
+            //    deferred.reject();
+            //});
+
+            $http.post(self.base + "dhis-web-commons-security/login.action?authOnly=true", { j_username: "portal", j_password: "Portal123" })
+                .success(function(response){
+                    deferred.resolve(response);
+                })
+                .error(function(errorMessageData){
+                    deferred.reject();
+                });
+            return deferred.promise;
         };
 
         this.getAnalyticsObject = function(dataElements,year,orgUnit){
             if(orgUnit === 'm0frOspS7JY'){
-                var url = self.base+"/api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&dimension=pe:"+year+";"+year+"Q1;"+year+"Q2;"+year+"Q3;"+year+"Q4&displayProperty=NAME";
+                //var url = self.base+"/api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&dimension=pe:"+year+";"+year+"Q1;"+year+"Q2;"+year+"Q3;"+year+"Q4&displayProperty=NAME";
             }else{
-                var url = self.base+"/api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;LEVEL-3;"+orgUnit+"&dimension=pe:"+year+";"+year+"Q1;"+year+"Q2;"+year+"Q3;"+year+"Q4&displayProperty=NAME";
+                //var url = self.base+"/api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;LEVEL-3;"+orgUnit+"&dimension=pe:"+year+";"+year+"Q1;"+year+"Q2;"+year+"Q3;"+year+"Q4&displayProperty=NAME";
             }
-            //var url = 'data.json';
+            var url = 'data.json';
             var deferred = $q.defer();
             $http.get(url)
                 .success(function(analyticsObject){
