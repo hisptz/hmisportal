@@ -24,28 +24,11 @@ angular.module("hmisPortal")
             controller: 'mainCtrl'
         });
 
-        $routeProvider.when("/malaria",{
-            templateUrl: 'views/malaria.html',
-            controller: 'malariaCtrl'
-        });
+
 
         $routeProvider.when("/maternal",{
             templateUrl: 'views/maternal.html',
             controller: 'maternalCtrl'
-        });
-        $routeProvider.when("/hivads",{
-            templateUrl: 'views/hivads.html',
-            controller: 'hivadsCtrl'
-        });
-
-        $routeProvider.when("/ivd",{
-            templateUrl: 'views/ivd.html',
-            controller: 'ivdCtrl'
-        });
-
-        $routeProvider.when("/nutrition",{
-            templateUrl: 'views/nutrition.html',
-            controller: 'nutritionCtrl'
         });
 
         $routeProvider.when("/morbidity",{
@@ -57,22 +40,10 @@ angular.module("hmisPortal")
             templateUrl: 'views/mortality.html',
             controller: 'mortalityCtrl'
         });
-
-        $routeProvider.when("/tracer_medicine",{
-            templateUrl: 'views/tracer_medicine.html',
-            controller: 'tracermedicineCtrl'
-        });
-
         $routeProvider.when("/hiv",{
             templateUrl: 'views/hiv.html',
             controller: 'mainCtrl'
         });
-
-        $routeProvider.when("/tb",{
-            templateUrl: 'views/tb.html',
-            controller: 'tbCtrl'
-        });
-
         $routeProvider.when("/updates",{
             templateUrl: 'views/updates.html',
             controller: 'mainCtrl'
@@ -118,6 +89,30 @@ angular.module("hmisPortal")
             controller: 'fpIntegrationCtrl'
         });
         $routeProvider.when("/antenatalCare",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
+        });
+        $routeProvider.when("/malaria",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
+        });
+        $routeProvider.when("/ivd",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
+        });
+        $routeProvider.when("/nutrition",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
+        });
+        $routeProvider.when("/hivaids",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
+        });
+        $routeProvider.when("/tracer_medicine",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
+        });
+        $routeProvider.when("/tb",{
             templateUrl: 'views/indicatorsView.html',
             controller: 'indicatorsCtrl'
         });
