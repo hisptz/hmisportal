@@ -6,7 +6,7 @@ angular.module("hmisPortal")
     .run(function() {
 
     })
-    .controller("mainCtrl",function ($rootScope,$scope,$q,$http,$timeout) {
+    .controller("mainCtrl",function ($rootScope,$scope,$q,$http,$timeout,portalService) {
 
         $rootScope.showLoader = false;
         $rootScope.currentDownloading = false;
@@ -29,7 +29,7 @@ angular.module("hmisPortal")
         var dataTextToSend={};
         $scope.showLoading=false;
         $scope.messageSend=false;
-        var messageUrl='http://139.162.204.124/dhis/api/messageConversations';
+        var messageUrl=portalService.base+'api/messageConversations';
         $scope.sendMessage=function(subject,textMessage,mail,phone){
             $scope.showLoading=true;
             userGroups.length=0;
