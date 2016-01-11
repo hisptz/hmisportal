@@ -34,7 +34,7 @@ angular.module("hmisPortal")
                 $.post( base + "dhis-web-commons-security/login.action?authOnly=true", {
                     j_username: "portal", j_password: "Portal123"
                 },function(){
-                    $http.get($scope.datasetUrl,function(data){
+                    $http.get($scope.datasetUrl).success(function(data){
                         console.log(data);
                     });
                     //$http.get($scope.datasetUrl).success(function (dataset) {
