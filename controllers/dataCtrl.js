@@ -18,10 +18,7 @@ angular.module("hmisPortal")
                 $rootScope.showLoader = false
             });
 
-        //run authentication code first
-        $rootScope.progressMessage = "Authenticating portal ...";
-        $rootScope.showProgressMessage = true;
-        portalService.authenticateDHIS().then(function(){
+
             $rootScope.showProgressMessage = false;
             //find dataset uid
             $scope.dataSetId = $routeParams.uid;
@@ -33,24 +30,30 @@ angular.module("hmisPortal")
                 $scope.loadingImage = true;
                 $rootScope.progressMessage = "Preparing form details ...";
                 $rootScope.showProgressMessage = true;
-                $http.get($scope.datasetUrl).success(function (dataset) {
-                    $scope.dataSetName  = dataset.shortName;
-                    $scope.dataserObject = dataset;
-                    var dataElements = $scope.prepareDataElements(dataset);
-                    $rootScope.progressMessage = "Getting form data ...";
-                    var dataUrl = "http://139.162.204.124/dhis/api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;"+ $scope.selectedOrgUnit +"&filter=pe:" + $scope.selectedPeriod + "&displayProperty=NAME"
-                    //var dataUrl = "datasetData.json";
-                    $http.get(dataUrl).success(function (metaData){
-                        $rootScope.showProgressMessage = false;
-                        $scope.metaData = metaData;
-                        $scope.table = chartsManager.drawChart(metaData,'ou',[],'dx',[],'none',"",dataset.shortName,'table');
-                        $scope.loadingImage = false;
-                        $scope.rows = 'ou';
-                    }).error(function(error){
-                        $rootScope.progressMessage = "Error during getting data...";
-                        $timeout( function(){ $rootScope.showProgressMessage = false; }, 10000);
+                portalService.authenticateDHIS().then(function(){
+                    $http.get($scope.datasetUrl).success(function (dataset) {
+                        $scope.dataSetName  = dataset.shortName;
+                        $scope.dataserObject = dataset;
+                        var dataElements = $scope.prepareDataElements(dataset);
+                        $rootScope.progressMessage = "Getting form data ...";
+                        var dataUrl = "http://139.162.204.124/dhis/api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;"+ $scope.selectedOrgUnit +"&filter=pe:" + $scope.selectedPeriod + "&displayProperty=NAME"
+                        //var dataUrl = "datasetData.json";
+                        $http.get(dataUrl).success(function (metaData){
+                            $rootScope.showProgressMessage = false;
+                            $scope.metaData = metaData;
+                            $scope.table = chartsManager.drawChart(metaData,'ou',[],'dx',[],'none',"",dataset.shortName,'table');
+                            $scope.loadingImage = false;
+                            $scope.rows = 'ou';
+                        }).error(function(error){
+                            $rootScope.progressMessage = "Error during getting data...";
+                            $timeout( function(){ $rootScope.showProgressMessage = false; }, 10000);
+                        });
                     });
-                });
+                },function(){
+                    $rootScope.progressMessage = "Error during getting data...";
+                    $timeout( function(){ $rootScope.showProgressMessage = false; }, 10000);
+                })
+
             };
 
             //switch column and rows
@@ -103,11 +106,6 @@ angular.module("hmisPortal")
             };
             $scope.firstClick();
 
-
-        },function(){
-            $rootScope.progressMessage = "Error during portal authentication ...";
-            $timeout( function(){ $rootScope.showProgressMessage = false; }, 10000);
-        });
 
         $scope.getPeriodName = function(period){
             if(period.length == 4){

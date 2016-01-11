@@ -62,6 +62,9 @@
             position: fixed;
             z-index: 10000;
         }
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
     </style>
 
     <link type="text/css" rel="stylesheet" href="assets/libs/materialize/css/materialize.min.css"  media="screen,projection"/>
@@ -77,7 +80,7 @@
 <body>
 <!--information toast-->
 <div id="toast-container" ng-show="$root.showProgressMessage" ng-if="!showLoader">
-    <div class="toast" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 121, 107, 0); top: 0px; opacity: 1;" ng-cloak=""> {{ $root.progressMessage }}</div>
+    <div class="toast ng-cloak" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 121, 107, 0); top: 0px; opacity: 1;" > {{ $root.progressMessage }}</div>
 </div>
 
 <!--excel download message-->

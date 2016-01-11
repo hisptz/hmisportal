@@ -20,9 +20,6 @@ angular.module('hmisPortal')
         portalService.orgUnitId = $rootScope.selectedOrgUnit;
         portalService.period = $rootScope.selectedPeriod;
         $scope.selectedOrgUnitLevel = "2";
-        $rootScope.progressMessage = "Authenticating portal ...";
-        $rootScope.showProgressMessage = true;
-        portalService.authenticateDHIS().then(function(){
         //getting indicators for specified card
         $scope.getSpecifiedIndicators = function (name) {
             var deferred = $q.defer();
@@ -223,10 +220,4 @@ angular.module('hmisPortal')
 
         $rootScope.firstClick();
 
-    },function() {
-            $rootScope.progressMessage = "Error during portal authentication ...";
-            $timeout(function () {
-                $rootScope.showProgressMessage = false;
-            }, 10000);
-        });
     });
