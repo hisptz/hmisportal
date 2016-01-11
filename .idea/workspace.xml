@@ -72,8 +72,8 @@
       <file leaf-file-name="dataCtrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/dataCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48303935" vertical-offset="418" max-vertical-offset="3078">
-              <caret line="43" column="45" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.72727275" vertical-offset="418" max-vertical-offset="3078">
+              <caret line="53" column="31" selection-start-line="38" selection-start-column="26" selection-end-line="53" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -754,8 +754,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/dataCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48303935" vertical-offset="418" max-vertical-offset="3078">
-          <caret line="43" column="45" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.72727275" vertical-offset="418" max-vertical-offset="3078">
+          <caret line="53" column="31" selection-start-line="38" selection-start-column="26" selection-end-line="53" selection-end-column="31" />
           <folding />
         </state>
       </provider>
