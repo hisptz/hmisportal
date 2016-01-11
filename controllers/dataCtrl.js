@@ -35,7 +35,22 @@ angular.module("hmisPortal")
                     j_username: "portal", j_password: "Portal123"
                 },function(){
                     $http.get($scope.datasetUrl).success(function(data){
-                        console.log(data);
+                        $scope.dataSetName  = data.shortName;
+                            $scope.dataserObject = data;
+                            var dataElements = $scope.prepareDataElements(data);
+                            $rootScope.progressMessage = "Getting form data ...";
+                            var dataUrl = portalService.base+"api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;"+ $scope.selectedOrgUnit +"&filter=pe:" + $scope.selectedPeriod + "&displayProperty=NAME"
+                            //var dataUrl = "datasetData.json";
+                            $http.get(dataUrl).success(function (metaData){
+                                $rootScope.showProgressMessage = false;
+                                $scope.metaData = metaData;
+                                $scope.table = chartsManager.drawChart(metaData,'ou',[],'dx',[],'none',"",data.shortName,'table');
+                                $scope.loadingImage = false;
+                                $scope.rows = 'ou';
+                            }).error(function(error){
+                                $rootScope.progressMessage = "Error during getting data...";
+                                $timeout( function(){ $rootScope.showProgressMessage = false; }, 10000);
+                            });
                     });
                     //$http.get($scope.datasetUrl).success(function (dataset) {
                     //    $scope.dataSetName  = dataset.shortName;
