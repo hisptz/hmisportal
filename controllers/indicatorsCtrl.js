@@ -214,7 +214,7 @@ angular.module('hmisPortal')
                         });
 
                     }, function (response) { // optional
-                        $rootScope.progressMessage = "!Problem has Occurred, system failed getting " + location + " indicators !";
+                        $rootScope.progressMessage = "Authentication Problem has Occurred, system failed getting " + location + " indicators !";
                         $timeout(function () {
                             $rootScope.showProgressMessage = false;
                         }, 10000);
