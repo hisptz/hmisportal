@@ -2,86 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaa8b7a4-f174-4934-84e4-1f5bff911dfd" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/HealthFacilities 2014.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/antenatalCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/book10Ctrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/childCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/completenesCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/deathCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/dtcCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/eyeCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/hbcCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/hctCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/ipdCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/labourCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/lep07Ctrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/lep09Ctrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/lep10Ctrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/maternalCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/metaData.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/mortalitiesCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/mortalityCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/opdCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/planningCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/pmtctCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/pncIntegrationCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/postnatalCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/stiCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/tb09Ctrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/tbo7Ctrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/todoArray.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/controllers/tracerCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dataset.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/datasetData.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hr.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/ancIntegration.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/antenatal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/antenatalCare.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/book10.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/cervicalCancer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/child.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/death.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/dtc.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/eye.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/familyPlaning.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/fpIntegration.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/gbvVac.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/hbc.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/hct.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/hiv.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/hivads.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/ipd.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/ivd.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/laborDelivery.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/labour.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/ldIntegration.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/lep07.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/lep09.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/lep10.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/malaria.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/maternal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/morbidity.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/mortalities.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/mortality.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/newbornCare.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/nutrition.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/opd.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/planning.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/pmtct.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/pncIntegration.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/postnal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/postnatal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/sti.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/tb.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/tb09.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/tbo7.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/tracer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/tracer_medicine.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/dashboardCtrl.js" afterPath="$PROJECT_DIR$/controllers/dashboardCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/mainCtrl.js" afterPath="$PROJECT_DIR$/controllers/mainCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/organisationUnits.geojson" afterPath="$PROJECT_DIR$/controllers/organisationUnits.geojson" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/jinsiCtrl.js" afterPath="$PROJECT_DIR$/controllers/jinsiCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/portalService.js" afterPath="$PROJECT_DIR$/services/portalService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hmisportal.iws" />
@@ -171,8 +93,8 @@
       <file leaf-file-name="portalService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/portalService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.048846677" vertical-offset="108" max-vertical-offset="4590">
-              <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.4871099" vertical-offset="2449" max-vertical-offset="4590">
+              <caret line="156" column="33" selection-start-line="156" selection-start-column="33" selection-end-line="156" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -181,7 +103,7 @@
       <file leaf-file-name="dashboardCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/dashboardCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-46.18033" vertical-offset="4275" max-vertical-offset="10224">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4214" max-vertical-offset="10224">
               <caret line="394" column="1" selection-start-line="394" selection-start-column="1" selection-end-line="394" selection-end-column="1" />
               <folding />
             </state>
@@ -201,8 +123,8 @@
       <file leaf-file-name="jinsiCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/jinsiCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="21708">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1586" max-vertical-offset="21708">
+              <caret line="440" column="1" selection-start-line="440" selection-start-column="1" selection-end-line="440" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -229,7 +151,6 @@
         <option value="$PROJECT_DIR$/services/dhis-highchart-angular-service.js" />
         <option value="$PROJECT_DIR$/views/indicatorsView.html" />
         <option value="$PROJECT_DIR$/views/dataset.html" />
-        <option value="$PROJECT_DIR$/services/portalService.js" />
         <option value="$PROJECT_DIR$/controllers/dataCtrl.js" />
         <option value="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
         <option value="$PROJECT_DIR$/views/maternal.html" />
@@ -242,6 +163,8 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/controllers/mainCtrl.js" />
         <option value="$PROJECT_DIR$/controllers/dashboardCtrl.js" />
+        <option value="$PROJECT_DIR$/controllers/jinsiCtrl.js" />
+        <option value="$PROJECT_DIR$/services/portalService.js" />
       </list>
     </option>
   </component>
@@ -283,30 +206,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="hmisportal" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hmisportal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hmisportal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hmisportal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hmisportal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -718,14 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/jinsiCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="21708">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.62963" vertical-offset="5212" max-vertical-offset="6030">
@@ -770,16 +661,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/dashboardCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-46.18033" vertical-offset="4275" max-vertical-offset="10224">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4214" max-vertical-offset="10224">
           <caret line="394" column="1" selection-start-line="394" selection-start-column="1" selection-end-line="394" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/jinsiCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1586" max-vertical-offset="21708">
+          <caret line="440" column="1" selection-start-line="440" selection-start-column="1" selection-end-line="440" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/services/portalService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.048846677" vertical-offset="108" max-vertical-offset="4590">
-          <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.4871099" vertical-offset="2449" max-vertical-offset="4590">
+          <caret line="156" column="33" selection-start-line="156" selection-start-column="33" selection-end-line="156" selection-end-column="33" />
           <folding />
         </state>
       </provider>
