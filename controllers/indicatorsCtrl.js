@@ -200,7 +200,7 @@ angular.module('hmisPortal')
                     $.post( base + "dhis-web-commons-security/login.action?authOnly=true", {
                        j_username: "portal", j_password: "Portal123"
                     },function(){
-                        $http.get(base + "me.json",function(data){
+                        $http.get(base + "api/me.json",function(data){
                             console.log(data);
                         });
 
