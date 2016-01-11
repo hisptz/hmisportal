@@ -36,7 +36,7 @@ angular.module("hmisPortal")
                         $scope.dataserObject = dataset;
                         var dataElements = $scope.prepareDataElements(dataset);
                         $rootScope.progressMessage = "Getting form data ...";
-                        var dataUrl = "http://139.162.204.124/dhis/api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;"+ $scope.selectedOrgUnit +"&filter=pe:" + $scope.selectedPeriod + "&displayProperty=NAME"
+                        var dataUrl = portalService.base+"api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;"+ $scope.selectedOrgUnit +"&filter=pe:" + $scope.selectedPeriod + "&displayProperty=NAME"
                         //var dataUrl = "datasetData.json";
                         $http.get(dataUrl).success(function (metaData){
                             $rootScope.showProgressMessage = false;
