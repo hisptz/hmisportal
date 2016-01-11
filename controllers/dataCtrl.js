@@ -30,7 +30,10 @@ angular.module("hmisPortal")
                 $scope.loadingImage = true;
                 $rootScope.progressMessage = "Preparing form details ...";
                 $rootScope.showProgressMessage = true;
-                portalService.authenticateDHIS().then(function(){
+                var base = portalService.base;
+                $.post( base + "dhis-web-commons-security/login.action?authOnly=true", {
+                    j_username: "portal", j_password: "Portal123"
+                },function(){
                     $http.get($scope.datasetUrl).success(function (dataset) {
                         $scope.dataSetName  = dataset.shortName;
                         $scope.dataserObject = dataset;

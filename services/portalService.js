@@ -218,7 +218,7 @@ angular.module("hmisPortal")
                                 cardObject.table.colums.push({name: val.name, value: parseInt(val.value)});
                             });
                         } else if (chart == 'map') {
-                            console.log(dataToUse);
+
                             if (self.orgUnitId == "m0frOspS7JY") {
                                 self.drawMap(self.base,self.orgUnitId,2,cardObject,cardObject.title,dataToUse);
                             } else {

@@ -114,7 +114,6 @@ chartServices.factory('chartsManager',function(){
     //x axisItems and yAxisItems are specified if you want few data type array['uid1','uid2']
     prepareCategories : function(analyticsObject,xAxis,xAxisItems,yAxis,yAxisItems){
       var structure = {'xAxisItems':[],'yAxisItems':[]};
-      console.log(yAxisItems);
       if(xAxisItems.length === 0){
         angular.forEach(this.getMetadataArray(analyticsObject,xAxis),function(val){
           structure.xAxisItems.push({'name':analyticsObject.metaData.names[val],'uid':val});

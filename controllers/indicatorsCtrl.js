@@ -95,11 +95,9 @@ angular.module('hmisPortal')
                 card.displayMap = false;
                 card.displayTable = false;
                 card.chart = type;
-                console.log("nimefika");
-                console.log("object is " + $scope.analyticsObject);
                 card.chartObject = chartsManager.drawChart($scope.analyticsObject, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, card.chart);
 
-                card.chartObject.loading = false;
+
             }
 
         }
@@ -169,7 +167,6 @@ angular.module('hmisPortal')
                 angular.forEach(orgUnits, function (value) {
 
                     if (uid === value.id) {
-                        console.log(uid + "===" + value.id)
                         name = value.name;
                     }
                 })
@@ -203,7 +200,6 @@ angular.module('hmisPortal')
                         $rootScope.progressMessage = " getting " + location + " data ...";
                         portalService.getAnalyticsObject(dataElements,portalService.period,portalService.orgUnitId).then(function(analyticsObject){
                             $scope.analyticsObject = analyticsObject;
-                            console.log(analyticsObject);
                            $rootScope.showProgressMessage = false;
                            angular.forEach(data, function (value) {
                                $scope.changeChart(value.chart, value)
