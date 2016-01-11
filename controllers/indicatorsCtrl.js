@@ -192,10 +192,12 @@ angular.module('hmisPortal')
             $scope.year = "2014";
             $scope.getSpecifiedIndicators(location)
                 .then(function (data) {
-                    $rootScope.progressMessage = " getting " + location + " data ...";
+
+                    $rootScope.progressMessage = " authenticating portal...";
                     $scope.cards.data = data;
                     var dataElements = $scope.prepareDataElements(data);
                     portalService.authenticateDHIS().then(function(){
+                        $rootScope.progressMessage = " getting " + location + " data ...";
                         portalService.getAnalyticsObject(dataElements, $scope.year, $rootScope.orgUnitId).then(function (analyticsObject) {
                             $scope.analyticsObject = analyticsObject;
                             console.log(analyticsObject);
