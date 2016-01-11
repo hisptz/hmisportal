@@ -201,7 +201,11 @@ angular.module('hmisPortal')
                     $.post( base + "dhis-web-commons-security/login.action?authOnly=true", {
                         j_username: "portal", j_password: "Portal123"
                     },function(response){
+                        alert('imefika hapa');
                         $rootScope.progressMessage = " getting " + location + " data ...";
+
+
+
                         portalService.getAnalyticsObject(dataElements, $scope.year, $rootScope.orgUnitId).then(function (analyticsObject) {
                             $scope.analyticsObject = analyticsObject;
                             console.log(analyticsObject);
