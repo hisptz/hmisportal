@@ -55,7 +55,7 @@
       <file leaf-file-name="indicatorsCtrl.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="197" column="56" selection-start="8725" selection-end="8725" vertical-scroll-proportion="0.2275281" vertical-offset="3384" max-vertical-offset="4302">
+            <state line="201" column="92" selection-start="8925" selection-end="8925" vertical-scroll-proportion="0.14044943" vertical-offset="3518" max-vertical-offset="4284">
               <folding />
             </state>
           </provider>
@@ -91,7 +91,7 @@
       <file leaf-file-name="dashboardCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/dashboardCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10224">
+            <state line="88" column="25" selection-start="3382" selection-end="3382" vertical-scroll-proportion="0.0" vertical-offset="1404" max-vertical-offset="10224">
               <folding />
             </state>
           </provider>
@@ -629,13 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/dashboardCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/jinsiCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -671,9 +664,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/dashboardCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="25" selection-start="3382" selection-end="3382" vertical-scroll-proportion="0.0" vertical-offset="1404" max-vertical-offset="10224">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="197" column="56" selection-start="8725" selection-end="8725" vertical-scroll-proportion="0.2275281" vertical-offset="3384" max-vertical-offset="4302">
+        <state line="201" column="92" selection-start="8925" selection-end="8925" vertical-scroll-proportion="0.14044943" vertical-offset="3518" max-vertical-offset="4284">
           <folding />
         </state>
       </provider>
