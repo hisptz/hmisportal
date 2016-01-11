@@ -80,13 +80,13 @@ angular.module("hmisPortal")
         };
 
         this.getAnalyticsObject = function(dataElements,year,orgUnit){
-
+            var deferred = $q.defer();
             if(orgUnit === 'm0frOspS7JY'){
                 var url = self.base+"/api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&dimension=pe:"+year+";"+year+"Q1;"+year+"Q2;"+year+"Q3;"+year+"Q4&displayProperty=NAME";
             }else{
                 var url = self.base+"/api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;LEVEL-3;"+orgUnit+"&dimension=pe:"+year+";"+year+"Q1;"+year+"Q2;"+year+"Q3;"+year+"Q4&displayProperty=NAME";
             }
-            self.authenticateDHIS().then(function () {
+
                 //var url = 'data.json';
                 var deferred = $q.defer();
                 $http.get(url)
@@ -97,7 +97,7 @@ angular.module("hmisPortal")
                         deferred.reject();
                     });
                 return deferred.promise;
-            });
+
         };
 
         this.prepareData = function (jsonObject) {

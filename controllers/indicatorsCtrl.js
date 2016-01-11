@@ -195,27 +195,30 @@ angular.module('hmisPortal')
                     $rootScope.progressMessage = " getting " + location + " data ...";
                     $scope.cards.data = data;
                     var dataElements = $scope.prepareDataElements(data);
-                    portalService.getAnalyticsObject(dataElements, $scope.year, $rootScope.orgUnitId).then(function (analyticsObject) {
-                        $scope.analyticsObject = analyticsObject;
-                        console.log(analyticsObject);
-                        $rootScope.showProgressMessage = false;
-                        angular.forEach(data, function (value) {
-                            $scope.changeChart(value.chart, value)
+                    portalService.authenticateDHIS().then(function(){
+                        portalService.getAnalyticsObject(dataElements, $scope.year, $rootScope.orgUnitId).then(function (analyticsObject) {
+                            $scope.analyticsObject = analyticsObject;
+                            console.log(analyticsObject);
+                            $rootScope.showProgressMessage = false;
+                            angular.forEach(data, function (value) {
+                                $scope.changeChart(value.chart, value)
+                            });
+                        }, function (response) { // optional
+                            $rootScope.progressMessage = "!Problem has Occurred, system failed getting " + location + " data !";
+                            $timeout(function () {
+                                $rootScope.showProgressMessage = false;
+
+                            }, 10000);
                         });
+
                     }, function (response) { // optional
-                        $rootScope.progressMessage = "!Problem has Occurred, system failed getting " + location + " data !";
+                        $rootScope.progressMessage = "!Problem has Occurred, system failed getting " + location + " indicators !";
                         $timeout(function () {
                             $rootScope.showProgressMessage = false;
-
                         }, 10000);
                     });
+                    });
 
-                }, function (response) { // optional
-                    $rootScope.progressMessage = "!Problem has Occurred, system failed getting " + location + " indicators !";
-                    $timeout(function () {
-                        $rootScope.showProgressMessage = false;
-                    }, 10000);
-                });
         };
 
         $rootScope.firstClick();
