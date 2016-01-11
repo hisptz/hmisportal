@@ -23,7 +23,7 @@ angular.module("hmisPortal")
             //find dataset uid
             $scope.dataSetId = $routeParams.uid;
             //pull dataset details
-            $scope.datasetUrl = "https://dhis.moh.go.tz/api/dataSets/"+$scope.dataSetId+".json?fields=id,name,shortName,dataElements[id,name]";
+            $scope.datasetUrl = portalService.base+"api/dataSets/"+$scope.dataSetId+".json?fields=id,name,shortName,dataElements[id,name]";
             //$scope.datasetUrl = "dataset.json";
 
             $scope.lastCard = function(){
@@ -34,7 +34,7 @@ angular.module("hmisPortal")
                 $.post( base + "dhis-web-commons-security/login.action?authOnly=true", {
                     j_username: "portal", j_password: "Portal123"
                 },function(){
-                    $http.get(base + "api/me.json",function(data){
+                    $http.get($scope.datasetUrl,function(data){
                         console.log(data);
                     });
                     //$http.get($scope.datasetUrl).success(function (dataset) {
