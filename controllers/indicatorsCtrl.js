@@ -195,6 +195,7 @@ angular.module('hmisPortal')
 
                     $rootScope.progressMessage = " authenticating portal...";
                     $scope.cards.data = data;
+                    console.log("Yess it reaches here");
                     var dataElements = $scope.prepareDataElements(data);
                     var base = portalService.base;
 
