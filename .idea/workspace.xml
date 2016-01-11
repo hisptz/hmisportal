@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eaa8b7a4-f174-4934-84e4-1f5bff911dfd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/indicatorsCtrl.js" afterPath="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/portalService.js" afterPath="$PROJECT_DIR$/services/portalService.js" />
     </list>
     <ignored path="hmisportal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.5753053" vertical-offset="3230" max-vertical-offset="4752">
-              <caret line="203" column="105" selection-start-line="203" selection-start-column="105" selection-end-line="203" selection-end-column="105" />
+              <caret line="203" column="90" selection-start-line="203" selection-start-column="90" selection-end-line="203" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -90,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/services/portalService.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="1242" max-vertical-offset="4590">
-              <caret line="85" column="37" selection-start-line="85" selection-start-column="37" selection-end-line="85" selection-end-column="37" />
+              <caret line="83" column="148" selection-start-line="83" selection-start-column="148" selection-end-line="83" selection-end-column="148" />
               <folding />
             </state>
           </provider>
@@ -674,14 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/morbidityCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/mainCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -741,7 +734,15 @@
     <entry file="file://$PROJECT_DIR$/services/portalService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1242" max-vertical-offset="4590">
-          <caret line="85" column="37" selection-start-line="85" selection-start-column="37" selection-end-line="85" selection-end-column="37" />
+          <caret line="83" column="148" selection-start-line="83" selection-start-column="148" selection-end-line="83" selection-end-column="148" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/morbidityCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -749,7 +750,7 @@
     <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5753053" vertical-offset="3230" max-vertical-offset="4752">
-          <caret line="203" column="105" selection-start-line="203" selection-start-column="105" selection-end-line="203" selection-end-column="105" />
+          <caret line="203" column="90" selection-start-line="203" selection-start-column="90" selection-end-line="203" selection-end-column="90" />
           <folding />
         </state>
       </provider>

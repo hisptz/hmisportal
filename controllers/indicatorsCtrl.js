@@ -201,7 +201,7 @@ angular.module('hmisPortal')
                        j_username: "portal", j_password: "Portal123"
                     },function(){
                         $rootScope.progressMessage = " getting " + location + " data ...";
-                        portalService.getAnalyticsObject(dataElements,$scope.year,portalService.orgUnitId).then(function(analyticsObject){
+                        portalService.getAnalyticsObject(dataElements,portalService.period,portalService.orgUnitId).then(function(analyticsObject){
                             $scope.analyticsObject = analyticsObject;
                             console.log(analyticsObject);
                            $rootScope.showProgressMessage = false;
