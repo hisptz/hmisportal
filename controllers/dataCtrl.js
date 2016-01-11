@@ -34,24 +34,24 @@ angular.module("hmisPortal")
                 $.post( base + "dhis-web-commons-security/login.action?authOnly=true", {
                     j_username: "portal", j_password: "Portal123"
                 },function(){
-                    $http.get($scope.datasetUrl,function(data){
-                        console.log(data);
+                    $http.get($scope.datasetUrl,function(dataset){
+                        console.log(dataset);
                         $scope.dataSetName  = dataset.shortName;
                         $scope.dataserObject = dataset;
                         var dataElements = $scope.prepareDataElements(dataset);
                         $rootScope.progressMessage = "Getting form data ...";
                         var dataUrl = portalService.base+"api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;"+ $scope.selectedOrgUnit +"&filter=pe:" + $scope.selectedPeriod + "&displayProperty=NAME"
-                        //var dataUrl = "datasetData.json";
-                        $http.get(dataUrl).success(function (metaData){
-                            $rootScope.showProgressMessage = false;
-                            $scope.metaData = metaData;
-                            $scope.table = chartsManager.drawChart(metaData,'ou',[],'dx',[],'none',"",dataset.shortName,'table');
-                            $scope.loadingImage = false;
-                            $scope.rows = 'ou';
-                        }).error(function(error){
-                            $rootScope.progressMessage = "Error during getting data...";
-                            $timeout( function(){ $rootScope.showProgressMessage = false; }, 10000);
-                        });
+                        console.log(dataUrl);
+                        //$http.get(dataUrl).success(function (metaData){
+                        //    $rootScope.showProgressMessage = false;
+                        //    $scope.metaData = metaData;
+                        //    $scope.table = chartsManager.drawChart(metaData,'ou',[],'dx',[],'none',"",dataset.shortName,'table');
+                        //    $scope.loadingImage = false;
+                        //    $scope.rows = 'ou';
+                        //}).error(function(error){
+                        //    $rootScope.progressMessage = "Error during getting data...";
+                        //    $timeout( function(){ $rootScope.showProgressMessage = false; }, 10000);
+                        //});
                     });
                     //$http.get($scope.datasetUrl).success(function (dataset) {
                     //    $scope.dataSetName  = dataset.shortName;
