@@ -76,7 +76,7 @@ angular.module("hmisPortal")
             //    .error(function(errorMessageData){
             //        deferred.reject();
             //    });
-            //return deferred.promise;
+            return deferred.promise;
         };
 
         this.getAnalyticsObject = function(dataElements,year,orgUnit){
