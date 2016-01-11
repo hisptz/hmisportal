@@ -39,7 +39,7 @@ angular.module("hmisPortal")
                             $scope.dataserObject = data;
                             var dataElements = $scope.prepareDataElements(data);
                             $rootScope.progressMessage = "Getting form data ...";
-                        if(orgUnit === 'm0frOspS7JY'){
+                        if($scope.selectedOrgUnit === 'm0frOspS7JY'){
                             var dataUrl = portalService.base+"api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;"+ $scope.selectedOrgUnit +"&filter=pe:" + $scope.selectedPeriod + "&displayProperty=NAME"
                         }else{
                             var dataUrl = portalService.base+"api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-3;"+ $scope.selectedOrgUnit +"&filter=pe:" + $scope.selectedPeriod + "&displayProperty=NAME"
