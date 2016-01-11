@@ -196,7 +196,11 @@ angular.module('hmisPortal')
                     $rootScope.progressMessage = " authenticating portal...";
                     $scope.cards.data = data;
                     var dataElements = $scope.prepareDataElements(data);
-                    portalService.authenticateDHIS().then(function(){
+                    var base = portalService.base;
+
+                    $.post( base + "dhis-web-commons-security/login.action?authOnly=true", {
+                        j_username: "portal", j_password: "Portal123"
+                    },function(response){
                         $rootScope.progressMessage = " getting " + location + " data ...";
                         portalService.getAnalyticsObject(dataElements, $scope.year, $rootScope.orgUnitId).then(function (analyticsObject) {
                             $scope.analyticsObject = analyticsObject;

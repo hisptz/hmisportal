@@ -87,17 +87,16 @@ angular.module("hmisPortal")
                 var url = self.base+"/api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;LEVEL-3;"+orgUnit+"&dimension=pe:"+year+";"+year+"Q1;"+year+"Q2;"+year+"Q3;"+year+"Q4&displayProperty=NAME";
             }
 
-                //var url = 'data.json';
-                var deferred = $q.defer();
-                $http.get(url)
-                    .success(function (analyticsObject) {
-                        deferred.resolve(analyticsObject);
-                    })
-                    .error(function (errorMessageData) {
-                        deferred.reject();
-                    });
-                return deferred.promise;
-
+            //var url = 'data.json';
+            var deferred = $q.defer();
+            $http.get(url)
+                .success(function (analyticsObject) {
+                    deferred.resolve(analyticsObject);
+                })
+                .error(function (errorMessageData) {
+                    deferred.reject();
+                });
+            return deferred.promise;
         };
 
         this.prepareData = function (jsonObject) {
