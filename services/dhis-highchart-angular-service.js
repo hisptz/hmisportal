@@ -299,8 +299,6 @@ chartServices.factory('chartsManager',function(){
       });
       return chartObject;
     }
-
-
   };
   return chartsManager;
 });

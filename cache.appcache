@@ -23,13 +23,12 @@ assets/js/angular-resource.js
 assets/js/angular-route.js
 assets/js/jquery-2.1.4.min.js
 assets/js/routes.js
-libs/materialize/css/materialize.css
-libs/materialize/css/materialize.min.css
-libs/materialize/js/jquery-2.1.4.min.js
-libs/materialize/js/materialize.js
-libs/materialize/js/materialize.min.js
-libs/materialize/jqueryui/css/cupertino/jquery-ui-1.10.4.custom.min.css
-libs/materialize/jqueryui/js/jquery-ui-1.10.4.custom.js
+assets/libs/materialize/css/materialize.css
+assets/libs/materialize/css/materialize.min.css
+assets/libs/materialize/js/jquery-2.1.4.min.js
+assets/libs/materialize/js/materialize.js
+assets/libs/materialize/js/materialize.min.js
+assets/libs/materialize/jqueryui/js/jquery-ui-1.10.4.custom.js
 
 bower_components/angular/angular.js
 bower_components/angular/angular.min.js
