@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaa8b7a4-f174-4934-84e4-1f5bff911dfd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache.appcache" afterPath="$PROJECT_DIR$/cache.appcache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/dhis-highchart-angular-service.js" afterPath="$PROJECT_DIR$/services/dhis-highchart-angular-service.js" />
     </list>
     <ignored path="hmisportal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dhis-highchart-angular-service.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dhis-highchart-angular-service.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/dhis-highchart-angular-service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="5000" max-vertical-offset="5706">
-              <caret line="299" column="16" selection-start-line="299" selection-start-column="12" selection-end-line="299" selection-end-column="16" />
+            <state vertical-scroll-proportion="-1.0515604" vertical-offset="4879" max-vertical-offset="5616">
+              <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -89,17 +89,17 @@
       <file leaf-file-name="dashboardCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/dashboardCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1404" max-vertical-offset="10224">
-              <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2700" max-vertical-offset="10224">
+              <caret line="169" column="72" selection-start-line="156" selection-start-column="23" selection-end-line="169" selection-end-column="72" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cache.appcache" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cache.appcache" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cache.appcache">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.832" vertical-offset="582" max-vertical-offset="1332">
+            <state vertical-scroll-proportion="0.0" vertical-offset="582" max-vertical-offset="1332">
               <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding />
             </state>
@@ -130,13 +130,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/services/dhis-highchart-angular-service.js" />
         <option value="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
         <option value="$PROJECT_DIR$/controllers/dataCtrl.js" />
         <option value="$PROJECT_DIR$/controllers/jinsiCtrl.js" />
         <option value="$PROJECT_DIR$/services/portalService.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/cache.appcache" />
+        <option value="$PROJECT_DIR$/services/dhis-highchart-angular-service.js" />
       </list>
     </option>
   </component>
@@ -666,26 +666,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/dhis-highchart-angular-service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5000" max-vertical-offset="5706">
-          <caret line="299" column="16" selection-start-line="299" selection-start-column="12" selection-end-line="299" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3852" max-vertical-offset="4680">
           <caret line="214" column="24" selection-start-line="214" selection-start-column="24" selection-end-line="216" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/dashboardCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1404" max-vertical-offset="10224">
-          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -737,8 +721,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cache.appcache">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.832" vertical-offset="582" max-vertical-offset="1332">
+        <state vertical-scroll-proportion="0.0" vertical-offset="582" max-vertical-offset="1332">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/dashboardCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2700" max-vertical-offset="10224">
+          <caret line="169" column="72" selection-start-line="156" selection-start-column="23" selection-end-line="169" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/dhis-highchart-angular-service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.0515604" vertical-offset="4879" max-vertical-offset="5616">
+          <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
           <folding />
         </state>
       </provider>

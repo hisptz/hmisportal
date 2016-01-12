@@ -226,30 +226,25 @@ chartServices.factory('chartsManager',function(){
       },
     //hacks for pie chart
     drawPieChart : function(analyticsObject, xAxisType,xAxisItems,yAxisType,yAxisItems,filterType,filterUid,title){
+
       var chartObject = angular.copy(this.defaultChartObject);
       chartObject.title.text = title;
-
 
       //chartObject.yAxis.title.text = title.toLowerCase();
       var pieSeries = [];
       var metaDataObject = this.prepareCategories(analyticsObject, xAxisType,xAxisItems,yAxisType,yAxisItems);
       var currentService = this;
-      //set x-axis categories
-      angular.forEach(metaDataObject.xAxisItems, function (val) {
-        chartObject.xAxis.categories.push(val.name);
-      });
+      var serie = [];
       angular.forEach(metaDataObject.yAxisItems,function(yAxis){
         angular.forEach(metaDataObject.xAxisItems,function(xAxis){
           var number = currentService.getDataValue(analyticsObject,xAxisType,xAxis.uid,yAxisType,yAxis.uid,filterType,filterUid);
-          pieSeries.push({name: yAxis.name+' - '+ xAxis.name , y: parseFloat(number)});
+          serie.push({name: yAxis.name+' - '+ xAxis.name , y: parseFloat(number)});
         });
       });
-
-      chartObject.series = {type: 'pie', name:title , data: pieSeries,showInLegend: true,
+      chartObject.series.push({type: 'pie', name:title , data: serie,showInLegend: true,
         dataLabels: {
           enabled: false
-        }
-      };
+        } });
       return chartObject;
     },
 
