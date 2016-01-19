@@ -473,7 +473,7 @@ angular.module("hmisPortal")
                         });
                         $scope.subCategory = useThisData.elements;
                         cardObject.chartObject.xAxis.categories = $scope.area;
-
+                        console.warn($scope.area);
                         $scope.normalseries = [];
                         if($scope.data.chartType == "pie"){
                             delete cardObject.chartObject.chart;
@@ -539,6 +539,7 @@ angular.module("hmisPortal")
                                 $scope.normalseries.push({type: chart, name: value.name, data: serie})
                             });
                             cardObject.chartObject.series = $scope.normalseries;
+                            console.info($scope.normalseries);
                         }
                         cardObject.chartObject.loading = false
                     }else{
