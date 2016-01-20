@@ -63,9 +63,8 @@ angular.module('hmisPortal')
 
         $scope.changeChart = function (type, card) {
              card.chartObject.loading = true;
-            var base="https://hmisportal.moh.go.tz/dhis/";
-            var indicatorApi=
-                $resource(base+"api/indicators/"+card.data+".json");
+             var indicatorApi=
+                $resource(portalService.base+"api/indicators/"+card.data+".json");
             var indicatorResult=indicatorApi.get(function(indicatorObject){
                 card.indicatorType=indicatorObject.indicatorType.name;
                 var expApi=
