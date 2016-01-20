@@ -62,12 +62,14 @@ angular.module('hmisPortal')
         };
 
         $scope.changeChart = function (type, card) {
+             card.chartObject.loading = true;
+            var base="https://hmisportal.moh.go.tz/dhis/";
             var indicatorApi=
-                $resource(self.base+"api/indicators/"+card.data+".json");
+                $resource(base+"api/indicators/"+card.data+".json");
             var indicatorResult=indicatorApi.get(function(indicatorObject){
                 card.indicatorType=indicatorObject.indicatorType.name;
                 var expApi=
-                    $resource(self.base+'api/expressions/description',{get:{method:"JSONP"}});
+                    $resource(base+'api/expressions/description',{get:{method:"JSONP"}});
                 var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
                     card.numerator=numeratorText.description;
                 });
@@ -75,9 +77,6 @@ angular.module('hmisPortal')
                     card.denominator=denominatorText.description;
                 });
             });
-            //displaying loading message
-            card.chartObject.loading = true;
-
             //setting orgunit and period for service to use
             portalService.orgUnitId = $rootScope.selectedOrgUnit;
             portalService.period = $rootScope.selectedPeriod;
