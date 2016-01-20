@@ -5,7 +5,7 @@ angular.module('hmisPortal')
     .config(function($httpProvider) {
         $httpProvider.defaults.withCredentials = true;
     })
-    .controller('indicatorsCtrl',function ($rootScope,$scope,$http,$q,$location,$timeout,olData,olHelpers,shared,portalService,chartsManager) {
+    .controller('indicatorsCtrl',function ($rootScope,$scope,$http,$q,$location,$timeout,$resource,olData,olHelpers,shared,portalService,chartsManager) {
         //displaying loading during page change
         $rootScope.$on("$routeChangeStart",
             function (event, current, previous, rejection) {
@@ -15,7 +15,6 @@ angular.module('hmisPortal')
             function (event, current, previous, rejection) {
                 $rootScope.showLoader = false
             });
-
         $rootScope.periodType = 'years';
         portalService.orgUnitId = $rootScope.selectedOrgUnit;
         portalService.period = $rootScope.selectedPeriod;
@@ -65,7 +64,19 @@ angular.module('hmisPortal')
 
             //displaying loading message
             card.chartObject.loading = true;
-
+            var indicatorApi=
+                $resource(portalService.base+"api/indicators/"+card.data+".json");
+            var indicatorResult=indicatorApi.get(function(indicatorObject){
+                card.indicatorType=indicatorObject.indicatorType.name;
+                var expApi=
+                    $resource(base+'api/expressions/description',{get:{method:"JSONP"}});
+                var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
+                    card.numerator=numeratorText.description;
+                });
+                var denominator=expApi.get({expression:indicatorObject.denominator},function(denominatorText){
+                    card.denominator=denominatorText.description;
+                });
+            });
             //setting orgunit and period for service to use
             portalService.orgUnitId = $rootScope.selectedOrgUnit;
             portalService.period = $rootScope.selectedPeriod;
