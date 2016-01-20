@@ -288,18 +288,6 @@ angular.module("hmisPortal")
         //
         $scope.cards.malaria = [
 
-            //{
-            //    title:'FACILITY BY TYPES AND OWNERSHIP',
-            //    description:'FACILITY BY TYPES AND OWNERSHIP',
-            //    cardClass:"col m12 s12",
-            //    data:'pNKhRlFZJbW;F7rOwHs03bE;eLBxCVGSC84;UXtq3G5o5iR;q9uFxOgNr5O;pocBJUp9dbX;mPK50J06lEV;Z0poM2BaIYt;M20Cu1g6VQm;Ahd4CO1qBtW;vDpgaeM5NLo;bcl3yz5Wa1T',
-            //    icons:angular.copy($scope.icons),
-            //    displayTable:false,
-            //    displayMap:false,
-            //    chart:'bar',
-            //    chartObject:angular.copy($scope.defaultObject)
-            //
-            //},
             {
                 title:'FACILITY BY TYPES',
                 description:'FACILITY BY TYPES',
@@ -382,7 +370,7 @@ angular.module("hmisPortal")
 
                  elements.push({'name':name,'uid':val})
             });
-            data.push({'name': jsonObject.metaData.names[$rootScope.selectedOrgUnit], 'id': $rootScope.selectedOrgUnit});
+            //data.push({'name': jsonObject.metaData.names[$rootScope.selectedOrgUnit], 'id': $rootScope.selectedOrgUnit});
             angular.forEach(jsonObject.metaData.ou,function(region){
                 if(region != $rootScope.selectedOrgUnit ) {
                     data.push({'name': jsonObject.metaData.names[region], 'id': region});
@@ -459,7 +447,7 @@ angular.module("hmisPortal")
 
                 if($scope.selectedOrgUnit == "m0frOspS7JY"){
 
-                    $scope.url = portalService.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-1;LEVEL-2;"+$scope.selectedOrgUnit+"&filter=pe:"+$scope.selectedPeriod+"&displayProperty=NAME";
+                    $scope.url = portalService.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-2;"+$scope.selectedOrgUnit+"&filter=pe:"+$scope.selectedPeriod+"&displayProperty=NAME";
                 }else{
                     $scope.url = portalService.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-2;LEVEL-3;"+$scope.selectedOrgUnit+"&filter=pe:"+$scope.selectedPeriod+"&displayProperty=NAME";
                 }
