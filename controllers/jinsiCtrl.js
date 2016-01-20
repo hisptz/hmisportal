@@ -309,6 +309,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
+                showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
             },{
@@ -320,6 +321,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
+                showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
             },{
@@ -332,6 +334,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
+                showParent:true,
                 chartObject:angular.copy($scope.defaultObject)
 
             },
@@ -344,6 +347,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
+                showParent:true,
                 chartObject:angular.copy($scope.defaultObject)
 
             },
@@ -356,6 +360,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
+                showParent:true,
                 chartObject:angular.copy($scope.defaultObject)
 
             },
@@ -368,6 +373,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
+                showParent:true,
                 chartObject:angular.copy($scope.defaultObject)
 
             }
@@ -382,7 +388,9 @@ angular.module("hmisPortal")
 
                  elements.push({'name':name,'uid':val})
             });
-            data.push({'name': jsonObject.metaData.names[$rootScope.selectedOrgUnit], 'id': $rootScope.selectedOrgUnit});
+            if(card.showParent == true){
+                data.push({'name': jsonObject.metaData.names[$rootScope.selectedOrgUnit], 'id': $rootScope.selectedOrgUnit});
+            }
             angular.forEach(jsonObject.metaData.ou,function(region){
                 if(region != $rootScope.selectedOrgUnit ) {
                     data.push({'name': jsonObject.metaData.names[region], 'id': region});
