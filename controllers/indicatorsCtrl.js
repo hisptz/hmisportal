@@ -69,7 +69,7 @@ angular.module('hmisPortal')
             var indicatorResult=indicatorApi.get(function(indicatorObject){
                 card.indicatorType=indicatorObject.indicatorType.name;
                 var expApi=
-                    $resource(base+'api/expressions/description',{get:{method:"JSONP"}});
+                    $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
                 var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
                     card.numerator=numeratorText.description;
                 });
@@ -211,14 +211,14 @@ angular.module('hmisPortal')
                         $rootScope.progressMessage = " getting " + location + " data ...";
                         portalService.getAnalyticsObject(dataElements,portalService.period,portalService.orgUnitId).then(function(analyticsObject){
                             $scope.analyticsObject = analyticsObject;
-                           $rootScope.showProgressMessage = false;
+                            $rootScope.showProgressMessage = false;
                            angular.forEach(data, function (value) {
                                var indicatorApi=
                                    $resource(portalService.base+"api/indicators/"+value.data+".json");
                                var indicatorResult=indicatorApi.get(function(indicatorObject){
                                    value.indicatorType=indicatorObject.indicatorType.name;
                                    var expApi=
-                                       $resource(base+'api/expressions/description',{get:{method:"JSONP"}});
+                                       $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
                                    var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
                                        value.numerator=numeratorText.description;
                                    });
