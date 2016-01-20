@@ -5,7 +5,7 @@ angular.module('hmisPortal')
     .config(function($httpProvider) {
         $httpProvider.defaults.withCredentials = true;
     })
-    .controller('indicatorsCtrl',function ($rootScope,$scope,$http,$q,$location,$timeout,olData,olHelpers,shared,portalService,chartsManager) {
+    .controller('indicatorsCtrl',function ($rootScope,$scope,$http,$q,$location,$timeout,$resource,olData,olHelpers,shared,portalService,chartsManager) {
         //displaying loading during page change
         $rootScope.$on("$routeChangeStart",
             function (event, current, previous, rejection) {
