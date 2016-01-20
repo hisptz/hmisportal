@@ -41,7 +41,7 @@ angular.module('hmisPortal')
                 .error(function (errorMessageData) {
                     deferred.reject();
                 });
-            return deferred.promise;
+            return defrred.promise;
         };
 
         //defining cards
@@ -62,7 +62,19 @@ angular.module('hmisPortal')
         };
 
         $scope.changeChart = function (type, card) {
-
+            var indicatorApi=
+                $resource(self.base+"api/indicators/"+card.data+".json");
+            var indicatorResult=indicatorApi.get(function(indicatorObject){
+                card.indicatorType=indicatorObject.indicatorType.name;
+                var expApi=
+                    $resource(self.base+'api/expressions/description',{get:{method:"JSONP"}});
+                var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
+                    card.numerator=numeratorText.description;
+                });
+                var denominator=expApi.get({expression:indicatorObject.denominator},function(denominatorText){
+                    card.denominator=denominatorText.description;
+                });
+            });
             //displaying loading message
             card.chartObject.loading = true;
 
@@ -202,6 +214,7 @@ angular.module('hmisPortal')
                             $scope.analyticsObject = analyticsObject;
                            $rootScope.showProgressMessage = false;
                            angular.forEach(data, function (value) {
+
                                $scope.changeChart(value.chart, value)
                             });
                         }, function (response) { // optional
