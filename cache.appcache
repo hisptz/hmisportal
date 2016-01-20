@@ -28,7 +28,7 @@ assets/libs/materialize/css/materialize.min.css
 assets/libs/materialize/js/jquery-2.1.4.min.js
 assets/libs/materialize/js/materialize.js
 assets/libs/materialize/js/materialize.min.js
-assets/libs/materialize/jqueryui/js/jquery-ui-1.10.4.custom.js
+assets/libs/jqueryui/js/jquery-ui-1.10.4.custom.js
 
 bower_components/angular/angular.js
 bower_components/angular/angular.min.js

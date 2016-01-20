@@ -288,18 +288,6 @@ angular.module("hmisPortal")
         //
         $scope.cards.malaria = [
 
-            //{
-            //    title:'FACILITY BY TYPES AND OWNERSHIP',
-            //    description:'FACILITY BY TYPES AND OWNERSHIP',
-            //    cardClass:"col m12 s12",
-            //    data:'pNKhRlFZJbW;F7rOwHs03bE;eLBxCVGSC84;UXtq3G5o5iR;q9uFxOgNr5O;pocBJUp9dbX;mPK50J06lEV;Z0poM2BaIYt;M20Cu1g6VQm;Ahd4CO1qBtW;vDpgaeM5NLo;bcl3yz5Wa1T',
-            //    icons:angular.copy($scope.icons),
-            //    displayTable:false,
-            //    displayMap:false,
-            //    chart:'bar',
-            //    chartObject:angular.copy($scope.defaultObject)
-            //
-            //},
             {
                 title:'FACILITY BY TYPES',
                 description:'FACILITY BY TYPES',

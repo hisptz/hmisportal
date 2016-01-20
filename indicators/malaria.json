@@ -37,14 +37,15 @@
     "cardClass":"col m6 s12",
     "data":"xrYmEc4LCCo"
 
-  },
-  {
-    "title":"Proportional of Malaria cases in IPD",
-    "description":"Proportional of Malaria cases in OPD",
-    "indicatorType":"",
-    "numerator":"",
-    "denominator":"",
-    "cardClass":"col m6 s12",
-    "data":"CaPhxP3hIHD"
   }
+ //,
+//  {
+//    "title":"Proportional of Malaria cases in IPD",
+//    "description":"Proportional of Malaria cases in OPD",
+//    "indicatorType":"",
+//    "numerator":"",
+//    "denominator":"",
+//    "cardClass":"col m6 s12",
+//    "data":"CaPhxP3hIHD"
+//  }
 ]
