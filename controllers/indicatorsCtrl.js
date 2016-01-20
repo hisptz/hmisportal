@@ -5,7 +5,7 @@ angular.module('hmisPortal')
     .config(function($httpProvider) {
         $httpProvider.defaults.withCredentials = true;
     })
-    .controller('indicatorsCtrl',function ($rootScope,$scope,$http,$q,$location,$timeout,$resource,olData,olHelpers,shared,portalService,chartsManager) {
+    .controller('indicatorsCtrl',function ($rootScope,$scope,$http,$q,$location,$timeout,olData,olHelpers,shared,portalService,chartsManager) {
         //displaying loading during page change
         $rootScope.$on("$routeChangeStart",
             function (event, current, previous, rejection) {
@@ -41,7 +41,7 @@ angular.module('hmisPortal')
                 .error(function (errorMessageData) {
                     deferred.reject();
                 });
-            return defrred.promise;
+            return deferred.promise;
         };
 
         //defining cards
@@ -62,8 +62,11 @@ angular.module('hmisPortal')
         };
 
         $scope.changeChart = function (type, card) {
-             card.chartObject.loading = true;
-             //setting orgunit and period for service to use
+
+            //displaying loading message
+            card.chartObject.loading = true;
+
+            //setting orgunit and period for service to use
             portalService.orgUnitId = $rootScope.selectedOrgUnit;
             portalService.period = $rootScope.selectedPeriod;
             card.displayTable = false;
@@ -199,7 +202,6 @@ angular.module('hmisPortal')
                             $scope.analyticsObject = analyticsObject;
                            $rootScope.showProgressMessage = false;
                            angular.forEach(data, function (value) {
-
                                $scope.changeChart(value.chart, value)
                             });
                         }, function (response) { // optional
