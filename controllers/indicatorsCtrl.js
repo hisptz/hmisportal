@@ -216,14 +216,14 @@ angular.module('hmisPortal')
                                var indicatorApi=
                                    $resource(portalService.base+"api/indicators/"+value.data+".json");
                                var indicatorResult=indicatorApi.get(function(indicatorObject){
-                                   card.indicatorType=indicatorObject.indicatorType.name;
+                                   value.indicatorType=indicatorObject.indicatorType.name;
                                    var expApi=
                                        $resource(base+'api/expressions/description',{get:{method:"JSONP"}});
                                    var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
-                                       card.numerator=numeratorText.description;
+                                       value.numerator=numeratorText.description;
                                    });
                                    var denominator=expApi.get({expression:indicatorObject.denominator},function(denominatorText){
-                                       card.denominator=denominatorText.description;
+                                       value.denominator=denominatorText.description;
                                    });
                                });
                                $scope.changeChart(value.chart, value)
