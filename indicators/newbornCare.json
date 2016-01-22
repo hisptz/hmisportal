@@ -157,21 +157,7 @@
     "chart":"bar",
     "chartObject":""
   },
-//  {
-//    "title":"PNC watoto wenye jaundice",
-//    "description":"PNC watoto wenye jaundice",
-//    "indicatorType":"",
-//    "numerator":"",
-//    "denominator":"",
-//    "cardClass":"col m6 s12",
-//    "data":"rlH65dJ48zb",
-//    "icons":"",
-//    "displayTable":false,
-//    "displayMap":false,
-//    "chart":"bar",
-//    "chartObject":""
-//  },
-  {
+   {
     "title":"Vifo vya Watoto Wachanga Waliozaliwa Nyumbani (Perinatal)  Neonatal",
     "description":"Vifo vya Watoto Wachanga Waliozaliwa Nyumbani (Perinatal)  Neonatal",
     "indicatorType":"",
@@ -437,20 +423,6 @@
     "chart":"bar",
     "chartObject":""
   },
-//  {
-//    "title":"Watoto mapacha waliosaidiwa kupumua - simulation",
-//    "description":"Watoto mapacha waliosaidiwa kupumua - simulation",
-//    "indicatorType":"",
-//    "numerator":"",
-//    "denominator":"",
-//    "cardClass":"col m6 s12",
-//    "data":"pa8UbdA2aHj",
-//    "icons":"",
-//    "displayTable":false,
-//    "displayMap":false,
-//    "chart":"bar",
-//    "chartObject":""
-//  },
   {
     "title":"Birth Asphyxia",
     "description":"Birth Asphyxia",

@@ -372,9 +372,9 @@ angular.module("hmisPortal")
             });
             //data.push({'name': jsonObject.metaData.names[$rootScope.selectedOrgUnit], 'id': $rootScope.selectedOrgUnit});
             angular.forEach(jsonObject.metaData.ou,function(region){
-                if(region != $rootScope.selectedOrgUnit ) {
+                //if(region != $rootScope.selectedOrgUnit ) {
                     data.push({'name': jsonObject.metaData.names[region], 'id': region});
-                }
+               // }
             });
             structure.regions = data;
             structure.elements = elements;
@@ -459,7 +459,8 @@ angular.module("hmisPortal")
                         angular.forEach(useThisData.regions,function(value){
                             $scope.area.push(value.name);
                         });
-                        $scope.subCategory = useThisData.elements;
+                        console.log(data);
+                        //$scope.subCategory = useThisData.elements;
                         cardObject.chartObject.xAxis.categories = $scope.area;
                         console.warn($scope.area);
                         $scope.normalseries = [];
