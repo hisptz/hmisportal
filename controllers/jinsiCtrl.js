@@ -297,6 +297,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
+                showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
             },{
@@ -308,6 +309,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
+                showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
             },{
@@ -320,6 +322,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
+                showParent:true,
                 chartObject:angular.copy($scope.defaultObject)
 
             },
@@ -332,6 +335,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
+                showParent:true,
                 chartObject:angular.copy($scope.defaultObject)
 
             },
@@ -344,6 +348,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
+                showParent:true,
                 chartObject:angular.copy($scope.defaultObject)
 
             },
@@ -356,6 +361,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
+                showParent:true,
                 chartObject:angular.copy($scope.defaultObject)
 
             }
@@ -370,7 +376,9 @@ angular.module("hmisPortal")
 
                  elements.push({'name':name,'uid':val})
             });
-            //data.push({'name': jsonObject.metaData.names[$rootScope.selectedOrgUnit], 'id': $rootScope.selectedOrgUnit});
+            if(card.showParent == true){
+                data.push({'name': jsonObject.metaData.names[$rootScope.selectedOrgUnit], 'id': $rootScope.selectedOrgUnit});
+            }
             angular.forEach(jsonObject.metaData.ou,function(region){
                 //if(region != $rootScope.selectedOrgUnit ) {
                     data.push({'name': jsonObject.metaData.names[region], 'id': region});
@@ -447,7 +455,7 @@ angular.module("hmisPortal")
 
                 if($scope.selectedOrgUnit == "m0frOspS7JY"){
 
-                    $scope.url = portalService.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-2;"+$scope.selectedOrgUnit+"&filter=pe:"+$scope.selectedPeriod+"&displayProperty=NAME";
+                    $scope.url = portalService.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-1;LEVEL-2;"+$scope.selectedOrgUnit+"&filter=pe:"+$scope.selectedPeriod+"&displayProperty=NAME";
                 }else{
                     $scope.url = portalService.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-2;LEVEL-3;"+$scope.selectedOrgUnit+"&filter=pe:"+$scope.selectedPeriod+"&displayProperty=NAME";
                 }
@@ -462,7 +470,7 @@ angular.module("hmisPortal")
                         console.log(data);
                         //$scope.subCategory = useThisData.elements;
                         cardObject.chartObject.xAxis.categories = $scope.area;
-                        console.warn($scope.area);
+
                         $scope.normalseries = [];
                         if($scope.data.chartType == "pie"){
                             delete cardObject.chartObject.chart;
@@ -528,7 +536,6 @@ angular.module("hmisPortal")
                                 $scope.normalseries.push({type: chart, name: value.name, data: serie})
                             });
                             cardObject.chartObject.series = $scope.normalseries;
-                            console.info($scope.normalseries);
                         }
                         cardObject.chartObject.loading = false
                     }else{
