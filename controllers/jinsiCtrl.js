@@ -322,7 +322,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
-                showParent:true,
+                showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
             },
@@ -335,7 +335,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
-                showParent:true,
+                showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
             },
@@ -348,7 +348,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
-                showParent:true,
+                showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
             },
@@ -361,7 +361,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'bar',
-                showParent:true,
+                showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
             }
