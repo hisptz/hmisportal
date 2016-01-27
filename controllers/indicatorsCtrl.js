@@ -94,7 +94,7 @@ angular.module('hmisPortal')
                 card.displayMap = true;
                 card.displayTable = false;
                 card.chart = 'map';
-                var dataToUse = portalService.prepareData($scope.analyticsObject);
+                var dataToUse = portalService.prepareData($scope.analyticsObject,card.data);
                 if ($rootScope.selectedOrgUnit == "m0frOspS7JY") {
                     portalService.drawMap(portalService.base, portalService.orgUnitId, 2, card, card.title, dataToUse);
                 } else {
@@ -242,34 +242,6 @@ angular.module('hmisPortal')
 
                     });
 
-
-//                    $.post( base + "dhis-web-commons-security/login.action?authOnly=true", {
-//                        j_username: "portal", j_password: "Portal123"
-//                    },function(){
-//                            $rootScope.progressMessage = " getting " + location + " data ...";
-//
-//                            portalService.getAnalyticsObject(dataElements, $scope.year, $rootScope.orgUnitId).then(function (analyticsObject) {
-//
-//                            $scope.analyticsObject = analyticsObject;
-//                            console.log(analyticsObject);
-//                            $rootScope.showProgressMessage = false;
-//                            angular.forEach(data, function (value) {
-//                                $scope.changeChart(value.chart, value)
-//                            });
-//                        }, function (response) { // optional
-//                            $rootScope.progressMessage = "!Problem has Occurred, system failed getting " + location + " data !";
-//                            $timeout(function () {
-//                                $rootScope.showProgressMessage = false;
-//
-//                            }, 10000);
-//                        });
-//
-//                    }, function (response) { // optional
-//                        $rootScope.progressMessage = "Authentication Problem has Occurred, system failed getting " + location + " indicators !";
-//                        $timeout(function () {
-//                            $rootScope.showProgressMessage = false;
-//                        }, 10000);
-//                    });
                    });
 
         };

@@ -14,7 +14,8 @@ angular.module("hmisPortal")
         this.denominator='';
         this.indicatorType='';
         this.header='';
-        this.base = "https://hmisportal.moh.go.tz/dhis/";
+        //this.base = "http://hmisportal.moh.go.tz/dhis/";
+        this.base = "http://127.0.0.1:9000/";
         this.icons = [
             {name: 'table', image: 'table.jpg', action: ''},
             {name: 'bar', image: 'bar.png', action: ''},
@@ -97,13 +98,13 @@ angular.module("hmisPortal")
             return deferred.promise;
         };
 
-        this.prepareData = function (jsonObject) {
+        this.prepareData = function (jsonObject,dx) {
             var data = [];
-            data.push({'name': jsonObject.metaData.names[self.orgUnitId], 'id': self.orgUnitId, 'value': getDataFromUrl(jsonObject.rows, self.orgUnitId)});
+            data.push({'name': jsonObject.metaData.names[self.orgUnitId], 'id': self.orgUnitId, 'value': self.getDataFromUrl(jsonObject.rows, self.orgUnitId,dx)});
 
             angular.forEach(jsonObject.metaData.ou, function (region) {
                 if (region != self.orgUnitId) {
-                    data.push({'name': jsonObject.metaData.names[region], 'id': region, 'value': getDataFromUrl(jsonObject.rows, region)});
+                    data.push({'name': jsonObject.metaData.names[region], 'id': region, 'value': self.getDataFromUrl(jsonObject.rows, region,dx)});
                 }
             });
             return data;
@@ -130,6 +131,16 @@ angular.module("hmisPortal")
         this.drawMap = function (baseUrl,orgUnit, level,card,cardtitle,valueTouseArray) {
             mapService.renderMap(baseUrl,orgUnit, level, card,cardtitle,valueTouseArray);
 
+        };
+
+        this.getDataFromUrl = function(arr,ou,de){
+            var num = 0
+            $.each(arr,function(k,v){
+                if(v[1] == ou && v[0] == de){
+                    num = parseInt(v[3])
+                }
+            });
+            return num;
         };
 
         this.prepareSeries = function (cardObject, chart) {
