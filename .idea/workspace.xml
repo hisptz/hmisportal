@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaa8b7a4-f174-4934-84e4-1f5bff911dfd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/indicatorsCtrl.js" afterPath="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/mapService.js" afterPath="$PROJECT_DIR$/services/mapService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/portalService.js" afterPath="$PROJECT_DIR$/services/portalService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hmisportal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,16 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="malaria.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/indicators/malaria.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="828">
-              <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -79,8 +72,18 @@
       <file leaf-file-name="portalService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/portalService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4864865" vertical-offset="54" max-vertical-offset="4788">
-              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.12211669" vertical-offset="234" max-vertical-offset="4788">
+              <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mapService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/services/mapService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="652" max-vertical-offset="7812">
+              <caret line="45" column="66" selection-start-line="45" selection-start-column="66" selection-end-line="45" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -89,8 +92,8 @@
       <file leaf-file-name="indicatorsCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.096774" vertical-offset="1601" max-vertical-offset="4608">
-              <caret line="96" column="54" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="4608">
+              <caret line="66" column="12" selection-start-line="66" selection-start-column="14" selection-end-line="78" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -99,7 +102,7 @@
       <file leaf-file-name="antenatalCare.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/indicators/antenatalCare.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="1602">
+            <state vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="1602">
               <caret line="16" column="9" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="9" />
               <folding />
             </state>
@@ -109,7 +112,7 @@
       <file leaf-file-name="dataset.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/dataset.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="2466">
+            <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="2466">
               <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
               <folding />
             </state>
@@ -147,6 +150,7 @@
         <option value="$PROJECT_DIR$/indicators/newbornCare.json" />
         <option value="$PROJECT_DIR$/controllers/jinsiCtrl.js" />
         <option value="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
+        <option value="$PROJECT_DIR$/services/mapService.js" />
         <option value="$PROJECT_DIR$/services/portalService.js" />
       </list>
     </option>
@@ -187,6 +191,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -249,7 +254,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -295,6 +299,11 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
       <method />
     </configuration>
     <list size="0" />
@@ -321,20 +330,20 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32820514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28471002" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32820514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -379,13 +388,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cache.appcache">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/jinsiCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -636,7 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="7" max-vertical-offset="1920">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -644,7 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1095">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -652,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -660,7 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4794" max-vertical-offset="6885">
           <caret line="425" column="2" selection-start-line="425" selection-start-column="2" selection-end-line="425" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -668,7 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="690">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -676,7 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="86" max-vertical-offset="690">
           <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,7 +710,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/dataset.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="2466">
+        <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="2466">
           <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
           <folding />
         </state>
@@ -722,16 +718,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/indicators/antenatalCare.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="1602">
+        <state vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="1602">
           <caret line="16" column="9" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.096774" vertical-offset="1601" max-vertical-offset="4608">
-          <caret line="96" column="54" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -744,10 +732,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="4608">
+          <caret line="66" column="12" selection-start-line="66" selection-start-column="14" selection-end-line="78" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/mapService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="652" max-vertical-offset="7812">
+          <caret line="45" column="66" selection-start-line="45" selection-start-column="66" selection-end-line="45" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/services/portalService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4864865" vertical-offset="54" max-vertical-offset="4788">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.12211669" vertical-offset="234" max-vertical-offset="4788">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
           <folding />
         </state>
       </provider>

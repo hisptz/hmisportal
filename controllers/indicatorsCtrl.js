@@ -64,19 +64,19 @@ angular.module('hmisPortal')
 
             //displaying loading message
             card.chartObject.loading = true;
-            var indicatorApi=
-                $resource(portalService.base+"api/indicators/"+card.data+".json");
-            var indicatorResult=indicatorApi.get(function(indicatorObject){
-                card.indicatorType=indicatorObject.indicatorType.name;
-                var expApi=
-                    $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
-                var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
-                    card.numerator=numeratorText.description;
-                });
-                var denominator=expApi.get({expression:indicatorObject.denominator},function(denominatorText){
-                    card.denominator=denominatorText.description;
-                });
-            });
+            //var indicatorApi=
+            //    $resource(portalService.base+"api/indicators/"+card.data+".json");
+            //var indicatorResult=indicatorApi.get(function(indicatorObject){
+            //    card.indicatorType=indicatorObject.indicatorType.name;
+            //    var expApi=
+            //        $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
+            //    var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
+            //        card.numerator=numeratorText.description;
+            //    });
+            //    var denominator=expApi.get({expression:indicatorObject.denominator},function(denominatorText){
+            //        card.denominator=denominatorText.description;
+            //    });
+            //});
             //setting orgunit and period for service to use
             portalService.orgUnitId = $rootScope.selectedOrgUnit;
             portalService.period = $rootScope.selectedPeriod;
