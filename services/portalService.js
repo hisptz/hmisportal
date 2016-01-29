@@ -15,6 +15,7 @@ angular.module("hmisPortal")
         this.indicatorType='';
         this.header='';
         this.base = "https://hmisportal.moh.go.tz/dhis/";
+        //this.base = "http://127.0.0.1:9000/";
         this.icons = [
             {name: 'table', image: 'table.jpg', action: ''},
             {name: 'bar', image: 'bar.png', action: ''},
@@ -97,13 +98,13 @@ angular.module("hmisPortal")
             return deferred.promise;
         };
 
-        this.prepareData = function (jsonObject) {
+        this.prepareData = function (jsonObject,dx) {
             var data = [];
-            data.push({'name': jsonObject.metaData.names[self.orgUnitId], 'id': self.orgUnitId, 'value': getDataFromUrl(jsonObject.rows, self.orgUnitId)});
+            data.push({'name': jsonObject.metaData.names[self.orgUnitId], 'id': self.orgUnitId, 'value': self.getDataFromUrl(jsonObject.rows, self.orgUnitId,dx)});
 
             angular.forEach(jsonObject.metaData.ou, function (region) {
                 if (region != self.orgUnitId) {
-                    data.push({'name': jsonObject.metaData.names[region], 'id': region, 'value': getDataFromUrl(jsonObject.rows, region)});
+                    data.push({'name': jsonObject.metaData.names[region], 'id': region, 'value': self.getDataFromUrl(jsonObject.rows, region,dx)});
                 }
             });
             return data;
@@ -132,6 +133,16 @@ angular.module("hmisPortal")
 
         };
 
+        this.getDataFromUrl = function(arr,ou,de){
+            var num = 0
+            $.each(arr,function(k,v){
+                if(v[1] == ou && v[0] == de){
+                    num = parseInt(v[3])
+                }
+            });
+            return num;
+        };
+
         this.prepareSeries = function (cardObject, chart) {
             cardObject.chartObject.loading = true;
             self.authenticateDHIS().then(function () {
@@ -152,19 +163,19 @@ angular.module("hmisPortal")
                 var url = '';
 //                var url = '/analytics.json';
                 if (self.orgUnitId == "m0frOspS7JY") {
-                    url = "https://139.162.204.124/dhis/api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&filter=pe:"+self.period+"&displayProperty=NAME";
+                    url = self.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&filter=pe:"+self.period+"&displayProperty=NAME";
                 } else {
-                    url = "https://139.162.204.124/dhis/api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-2;LEVEL-3;"+self.orgUnitId+"&filter=pe:"+self.period+"&displayProperty=NAME";
+                    url = self.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-2;LEVEL-3;"+self.orgUnitId+"&filter=pe:"+self.period+"&displayProperty=NAME";
                 }
                 cardObject.chartObject.loading = true;
                 $http.get(url).success(function (data) {
                        cardObject.header=data.metaData.names[cardObject.data];
                     var indicatorApi=
-                        $resource("http://139.162.204.124/dhis/api/indicators/"+cardObject.data+".json");
+                        $resource(self.base+"api/indicators/"+cardObject.data+".json");
                         var indicatorResult=indicatorApi.get(function(indicatorObject){
                             cardObject.indicatorType=indicatorObject.indicatorType.name;
                             var expApi=
-                            $resource('http://139.162.204.124/dhis/api/expressions/description',{get:{method:"JSONP"}});
+                            $resource(self.base+'api/expressions/description',{get:{method:"JSONP"}});
                              var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
                                cardObject.numerator=numeratorText.description;
                              });
