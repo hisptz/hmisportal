@@ -8,7 +8,7 @@
 
             </li>
             <li ng-click="activateLink('Registry')" ng-class="{'active' : linkValue == 'Registry'}">
-                <a  href=""><i class="mdi-editor-format-align-justify"></i>&nbsp;&nbsp;Registry</a>
+                <a  href=""><i class="mdi-editor-format-align-justify"></i>&nbsp;&nbsp;Registers and Tools</a>
 
             </li>
             <li ng-click="activateLink('Reports')" ng-class="{'active' : linkValue == 'Reports'}">
@@ -23,13 +23,14 @@
 </aside>
 </div>
 <section id="content">
-    <div class="col m10 s10">
-        <iframe ng-if="linkValue =='statistcs'" ng-init="linkValue =='statistcs'" src="https://drive.google.com/embeddedfolderview?id=0B-bCBa5DKlcsd0lxQnlxT3dVTEE&usp=drive_web#grid" width="100%" height="600" frameborder="0"></iframe>
-        <iframe ng-if="linkValue =='Registry'" src="https://drive.google.com/embeddedfolderview?id=0B-bCBa5DKlcsdUNJMHJWcXpndWc&usp=drive_web#grid" width="100%" height="600" frameborder="0"></iframe>
-        <iframe ng-if="linkValue =='Reports'" src="https://drive.google.com/embeddedfolderview?id=0B-bCBa5DKlcsNUxBWUg2TmRkSkU&usp=drive_web#grid" width="100%" height="600" frameborder="0"></iframe>
-        <iframe ng-if="linkValue =='Other'" src="https://drive.google.com/embeddedfolderview?id=0B-bCBa5DKlcsMkZmUXBWR2k0Nnc&usp=drive_web#grid" width="100%" height="600" frameborder="0"></iframe>
+    <div class="col m8 s8">
+        <iframe ng-if="linkValue =='statistcs'" ng-init="linkValue =='statistcs'" src="https://drive.google.com/embeddedfolderview?id=0B-bCBa5DKlcsd0lxQnlxT3dVTEE&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe ng-if="linkValue =='Registry'" src="https://drive.google.com/embeddedfolderview?id=0B-bCBa5DKlcsdUNJMHJWcXpndWc&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe ng-if="linkValue =='Reports'" src="https://drive.google.com/embeddedfolderview?id=0B-bCBa5DKlcsNUxBWUg2TmRkSkU&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe ng-if="linkValue =='Other'" src="https://drive.google.com/embeddedfolderview?id=0B-bCBa5DKlcsMkZmUXBWR2k0Nnc&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
     </div>
 </section>
+
 </div>
     </main>
 <style>
