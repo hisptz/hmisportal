@@ -356,7 +356,7 @@ angular.module("hmisPortal")
                 title:'NTLP DATA COMPLETENESS',
                 description:'NTLP DATA COMPLETENESS',
                 cardClass:"col m12 s12",
-                data:'UHDfKY2mUOQ;ykDbDeDvTcx;"O2V8r4UT8kB";IzUZXETYoyB',
+                data:'UHDfKY2mUOQ;ykDbDeDvTcx;O2V8r4UT8kB;IzUZXETYoyB',
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
