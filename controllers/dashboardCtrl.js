@@ -8,7 +8,7 @@ angular.module("hmisPortal")
         $httpProvider.defaults.withCredentials = true;
     })
     .controller("dashboardCtrl",function ($rootScope,$scope,$http,$location,$timeout,olData,olHelpers,shared,portalService) {
-        $scope.linkValue="statistcs"
+        $scope.linkValue="census"
         $scope.activateLink = function(linkValue){
             $scope.linkValue = linkValue;
 
