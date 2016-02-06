@@ -150,17 +150,7 @@ angular.module("hmisPortal")
                                 $scope.normalseries.push({type: 'column', name: value.name, data: serie});
                                 $scope.normalseries.push({type: 'spline', name: value.name, data: serie});
                             });
-                            $scope.normalseries.push({
-                                type: 'pie',
-                                name: $scope.UsedName,
-                                data: serie1,
-                                center: [100, 80],
-                                size: 150,
-                                showInLegend: false,
-                                dataLabels: {
-                                    enabled: false
-                                }
-                            })
+
                             $scope.jinsichartConfig.series = $scope.normalseries;
                         }
                         else if ($scope.data.chartType == 'table') {
@@ -502,10 +492,7 @@ angular.module("hmisPortal")
                                 $scope.normalseries.push({type: 'column', name: value.name, data: serie});
                                 $scope.normalseries.push({type: 'spline', name: value.name, data: serie});
                             });
-                            $scope.normalseries.push({type: 'pie', name: $scope.UsedName, data: serie1,center: [100, 80],size: 150,showInLegend: false,
-                                dataLabels: {
-                                    enabled: false
-                                }})
+
                             cardObject.chartObject.series = $scope.normalseries;
                         }
                         else if(chart == 'table'){
@@ -742,11 +729,7 @@ angular.module("hmisPortal")
                         $scope.normalseries.push({type: 'column', name: value.name, data: serie});
                         $scope.normalseries.push({type: 'spline', name: value.name, data: serie});
                     });
-                    $scope.normalseries.push({type: 'pie', name: $scope.UsedName, data: serie1,center: [100, 80],size: 150,showInLegend: false,
-                        dataLabels: {
-                            enabled: false
-                        }
-                    })
+
                     $scope.facilityOwnchartConfig.series = $scope.normalseries;
                 }
                 else if(chart == 'table'){
@@ -877,10 +860,7 @@ angular.module("hmisPortal")
                         $scope.normalseries.push({type: 'column', name: value.name, data: serie});
                         $scope.normalseries.push({type: 'spline', name: value.name, data: serie});
                     });
-                    $scope.normalseries.push({type: 'pie', name: $scope.UsedName, data: serie1,center: [100, 80],size: 150,showInLegend: false,
-                        dataLabels: {
-                            enabled: false
-                        }})
+
                         $scope.facilityTypechartConfig.series = $scope.normalseries;
                 }
                 else if(chart == 'table'){
@@ -1012,10 +992,7 @@ angular.module("hmisPortal")
                         $scope.HRnormalseries.push({type: 'column', name: value.name, data: serie});
                         $scope.HRnormalseries.push({type: 'spline', name: value.name, data: serie});
                     });
-                    $scope.HRnormalseries.push({type: 'pie', name: $scope.UsedName, data: serie1,center: [100, 80],size: 150,showInLegend: false,
-                        dataLabels: {
-                            enabled: false
-                        }})
+                    
                     $scope.HRchartConfig.series = $scope.HRnormalseries;
                 }
                 else if(chart == 'table'){
