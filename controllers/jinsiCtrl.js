@@ -992,7 +992,7 @@ angular.module("hmisPortal")
                         $scope.HRnormalseries.push({type: 'column', name: value.name, data: serie});
                         $scope.HRnormalseries.push({type: 'spline', name: value.name, data: serie});
                     });
-                    
+
                     $scope.HRchartConfig.series = $scope.HRnormalseries;
                 }
                 else if(chart == 'table'){
