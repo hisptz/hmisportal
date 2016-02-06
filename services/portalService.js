@@ -14,8 +14,8 @@ angular.module("hmisPortal")
         this.denominator='';
         this.indicatorType='';
         this.header='';
-        this.base = "https://hmisportal.moh.go.tz/dhis/";
-        //this.base = "http://127.0.0.1:9000/";
+        //this.base = "https://hmisportal.moh.go.tz/dhis/";
+        this.base = "http://127.0.0.1:9000/";
         this.icons = [
             {name: 'table', image: 'table.jpg', action: ''},
             {name: 'bar', image: 'bar.png', action: ''},
@@ -24,6 +24,17 @@ angular.module("hmisPortal")
             {name: 'column', image: 'column.png', action: ''},
             {name: 'area', image: 'area.jpg', action: ''},
             {name: 'pie', image: 'pie.png', action: ''},
+            {name: 'map', image: 'map.jpg', action: ''}
+        ];
+        this.icons1 = [
+            {name: 'table', image: 'table.jpg', action: ''},
+            {name: 'bar', image: 'bar.png', action: ''},
+            {name: 'line', image: 'line.png', action: ''},
+            {name: 'combined', image: 'combined.jpg', action: ''},
+            {name: 'column', image: 'column.png', action: ''},
+            {name: 'area', image: 'area.jpg', action: ''},
+            {name: 'pie', image: 'pie.png', action: ''},
+            {name: 'spider', image: 'spider.png', action: ''},
             {name: 'map', image: 'map.jpg', action: ''}
         ];
         self.chartObject = {

@@ -19,6 +19,7 @@ angular.module("hmisPortal")
             });
 
 
+
             $rootScope.showProgressMessage = false;
             //find dataset uid
             $scope.dataSetId = $routeParams.uid;
@@ -35,6 +36,7 @@ angular.module("hmisPortal")
                     j_username: "portal", j_password: "Portal123"
                 },function(){
                     $http.get($scope.datasetUrl).success(function(data){
+                        $scope.CurrentSection = data.name.replace("NACP_", " ").replace("HMIS_", " ").replace("NTLP_", " ");
                         $scope.dataSetName  = data.shortName;
                             $scope.dataserObject = data;
                             var dataElements = $scope.prepareDataElements(data);
