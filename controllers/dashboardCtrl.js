@@ -8,10 +8,12 @@ angular.module("hmisPortal")
         $httpProvider.defaults.withCredentials = true;
     })
     .controller("dashboardCtrl",function ($rootScope,$scope,$http,$location,$timeout,olData,olHelpers,shared,portalService) {
-        $scope.linkValue="statistcs"
-        $scope.activateLink = function(linkValue){
-            $scope.linkValue = linkValue;
 
+        $scope.linkValue="census"
+        $scope.activateLink = function(linkValue){
+            $timeout(function(){
+            $scope.linkValue = linkValue;
+            },2000);
         }
         $rootScope.periodType = 'years';
          //displaying loading during page change

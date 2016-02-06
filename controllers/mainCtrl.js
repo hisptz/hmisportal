@@ -114,7 +114,7 @@ angular.module("hmisPortal")
             $scope.showFilter = true;
         };
 
-        $scope.linkValue = 'statistcs';
+        $scope.linkValue = 'census';
 
         $scope.activateLink = function(linkValue){
             $scope.linkValue = linkValue;
