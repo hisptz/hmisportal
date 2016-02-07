@@ -11,7 +11,6 @@ angular.module("hmisPortal")
         map.shared = shared;
         shared.facility =3029;
         var url = baseUrl+'api/organisationUnits.geojson?parent='+parentUid+'&level='+level;
-//        var url = "/organisationUnits.geojson";
         card.chartObject.loading = true;
             $http.get(url
                 ,
@@ -115,7 +114,6 @@ angular.module("hmisPortal")
                             font: 'Arial',
                             text: formatText(valueTouseArray,feature.getId()),//districtProperties[feature.getId()],
                             fill: new ol.style.Fill({color: "#000000"}),
-                            //stroke: new ol.style.Stroke({color: "#000000", width: 0}),
                             offsetX: 0,
                             offsetY: 0,
                             rotation: 0
@@ -326,93 +324,7 @@ angular.module("hmisPortal")
             return [max,min,individuals];
         }
     }
-//        function getMaxAndMin(card){
-//
-//        var count = card.length;
-//        var individuals = [];
-//        if(count==27){
-////            console.log(" In Legend Here comes the pressure:"+count);
-//            var array_of_data = "";
-//            angular.forEach(card[0].data,function(value,index){
-//
-//                if(index==card[0].data.length-1){
-//                    array_of_data = array_of_data+value;
-//                }else{
-//                    array_of_data=array_of_data+value+",";
-//                }
-//
-//            });
-//
-//            angular.forEach(card,function(value,index){
-//
-//                if(value.name.split(" ").indexOf("Region")>=0){
-////                        if(index>1){
-//                    individuals.push(value);
-////                        }
-//                }
-//
-//
-//            });
-//
-//            var max = Math.max.apply(Math, array_of_data.split(","));
-//            var min = Math.min.apply(Math, array_of_data.split(","));
-//            return [max,min,individuals];
-//        }else if(count==26){
-////            console.log(" In Legend Here comes the pressure:"+count);
-//            var array_of_data = "";
-//            angular.forEach(card[0].data,function(value,index){
-//                if(index==card[0].data.length-1){
-//                    array_of_data = array_of_data+value;
-//                }else{
-//                    array_of_data=array_of_data+value+",";
-//                }
-//
-//            });
-//
-//
-//            angular.forEach(card,function(value,index){
-//                if(value.name.split(" ").indexOf("Region")>=0){
-////                        if(index>1){
-//                    individuals.push(value);
-////                        }
-//                }
-//
-//
-//            });
-//
-//            var max = Math.max.apply(Math, array_of_data.split(","));
-//            var min = Math.min.apply(Math, array_of_data.split(","));
-//            return [max,min,individuals];
-//
-//        }else{
-////            console.log(" In Legend Here comes the pressure:"+count);
-//            var array_of_data = "";
-//            var individuals = [];
-//            angular.forEach(card[0].data,function(value,index){
-//
-//                if(index==card[0].data.length-1){
-//                    array_of_data = array_of_data+value;
-//                }else{
-//                    array_of_data=array_of_data+value+",";
-//                }
-//
-//            });
-//
-//            angular.forEach(card,function(value,index){
-//
-//                if(value.name.split(" ").indexOf("Council")>=0){
-//                    if(index>1){
-//                        individuals.push(value);
-//                    }
-//                }
-//
-//            });
-//
-//            var max = Math.max.apply(Math, array_of_data.split(","));
-//            var min = Math.min.apply(Math, array_of_data.split(","));
-//            return [max,min,individuals];
-//        }
-//    }
+
     function getLegend(input){
         if(input){
             var legends = "";
@@ -442,35 +354,7 @@ angular.module("hmisPortal")
             return false;
         }
     }
-//    function getLegend(input){
-//        if(input){
-//            var legends = "";
-//            var max = parseInt(input[0]);
-//            var min = parseInt(input[1]);
-//            var data = input[2];
-//            var count = data.length;
-//            if(max==0){
-//                max=1;
-//            }
-//            var mins='';
-//            if(min==0){
-//                mins=0;
-//            }else{
-//                mins="0-"+min
-//            }
-//
-//            if(((max-min)/count)<1){
-//                legends = [{set:mins+"",color:"#FA090C",classfy:"min",members:0},{set:min+" - "+((max+min)/2).toFixed(0),color:"#CED11B",classfy:"medium",members:0},{set:((max+min)/2).toFixed(0)+" - "+(max),color:"#3BCF41",classfy:"inter",members:0},{set:(max)+"+",color:"#229C27",classfy:"max",members:0}];
-//            }else{
-//                var intervals = ((max-min)/count).toFixed(0);
-//                legends = [{set:mins+"",color:"#FA090C",classfy:"min",members:0},{set:min+" - "+((max+min)/2).toFixed(0),color:"#CED11B",classfy:"medium",members:0},{set:((max+min)/2).toFixed(0)+" - "+(max),color:"#3BCF41",classfy:"inter",members:0},{set:(max)+"+",color:"#229C27",classfy:"max",members:0}];
-//
-//            }
-//            return legends;
-//        }else{
-//            return false;
-//        }
-//    }
+
     function decideOnColor(max_and_min,legend,value,valueIndex,valueTouseArray){
 
         if(max_and_min[2].length==0){
@@ -531,28 +415,7 @@ angular.module("hmisPortal")
     }
 
     function removeDuplicatesInSeries(series){
-//
-//        var size = series.length;
-//        var i, n,p;
-//        var result = [];
-//
-//        if(size==26){
-//            p=0
-//        }else  if(size>26&&series[0].id.indexOf('series')>=0){
-//            p=0;
-//        }
-//        for (i = p, n = series.length; i < n; i++) {
-//            var item = series[i];
-//            result[ item.id ] = item;
-//        }
-//
-//        var i = 0;
-//        var nonDuplicatedArray = [];
-//        for(var item in result) {
-//            nonDuplicatedArray[i++] = result[item];
-//        }
-//
-//        return nonDuplicatedArray;
+
         return series;
     }
     return map;
