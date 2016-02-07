@@ -15,6 +15,34 @@ angular.module('hmisPortal')
             function (event, current, previous, rejection) {
                 $rootScope.showLoader = false
             });
+
+        //find the section where the user is now
+        $scope.getCurrentSection = function(){
+            var location = $location.path();
+            location = location.slice(1);
+            var name = "";
+            if(location == "malaria"){ name = "Malaria Indicators"; }
+            if(location == "ivd"){ name = "IVD Indicators"; }
+            if(location == "nutrition"){ name = "Nutrition Indicators"; }
+            if(location == "hivaids"){ name = "HIV AIDS Indicators"; }
+            if(location == "tracer_medicine"){ name = "Trace Medicine Indicators"; }
+            if(location == "tb"){ name = "TB Indicators"; }
+            if(location == "mortalities"){ name = "Mortalities Indicators"; }
+            if(location == "antenatalCare"){ name = "Antenatal Care Indicators"; }
+            if(location == "ancIntegration"){ name = "ANC Integration Indicators"; }
+            if(location == "laborDelivery"){ name = "Labour and Delivery Indicators"; }
+            if(location == "newbornCare"){ name = "Newborn Care Indicators"; }
+            if(location == "postnatalCare"){ name = "Postnatal Care Indicators"; }
+            if(location == "gbvVac"){ name = "GBV & VAC Indicators"; }
+            if(location == "cervicalCancer"){ name = "Cervical Cancer Indicators"; }
+
+            return name;
+        };
+
+        //find the section where the user is now
+
+
+
         $rootScope.periodType = 'years';
         portalService.orgUnitId = $rootScope.selectedOrgUnit;
         portalService.period = $rootScope.selectedPeriod;
@@ -29,7 +57,7 @@ angular.module('hmisPortal')
                          *displayTable,displayTable default to false define them only if you want different value
                          *chart default to bar, define it if you want the value to be otherwise
                          */
-                        value.icons = angular.copy(portalService.icons);
+                        value.icons = angular.copy(portalService.icons1);
                         value.chartObject = angular.copy(portalService.chartObject);
                         (value.hasOwnProperty('displayTable')) ? value.displayTable = value.displayTable : value.displayTable = false;
                         (value.hasOwnProperty('displayMap')) ? value.displayMap = value.displayMap : value.displayMap = false;
@@ -64,24 +92,13 @@ angular.module('hmisPortal')
 
             //displaying loading message
             card.chartObject.loading = true;
-            var indicatorApi=
-                $resource(portalService.base+"api/indicators/"+card.data+".json");
-            var indicatorResult=indicatorApi.get(function(indicatorObject){
-                card.indicatorType=indicatorObject.indicatorType.name;
-                var expApi=
-                    $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
-                var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
-                    card.numerator=numeratorText.description;
-                });
-                var denominator=expApi.get({expression:indicatorObject.denominator},function(denominatorText){
-                    card.denominator=denominatorText.description;
-                });
-            });
+
             //setting orgunit and period for service to use
             portalService.orgUnitId = $rootScope.selectedOrgUnit;
             portalService.period = $rootScope.selectedPeriod;
             card.displayTable = false;
             $scope.showReport = true;
+            card.displayColumn = false;
             if (type == 'table') {
                 card.displayTable = true;
                 card.displayMap = false;
@@ -94,13 +111,32 @@ angular.module('hmisPortal')
                 card.displayMap = true;
                 card.displayTable = false;
                 card.chart = 'map';
-                var dataToUse = portalService.prepareData($scope.analyticsObject);
+                var dataToUse = portalService.prepareData($scope.analyticsObject,card.data);
                 if ($rootScope.selectedOrgUnit == "m0frOspS7JY") {
                     portalService.drawMap(portalService.base, portalService.orgUnitId, 2, card, card.title, dataToUse);
                 } else {
                     portalService.drawMap(portalService.base, portalService.orgUnitId, 3, card, card.title, dataToUse);
                 }
                 card.chartObject.loading = false;
+            }
+            else if(type == 'spider'){
+                card.displayColumn = true;
+                card.displayMap = false;
+                card.displayTable = false;
+                card.chartObject = chartsManager.drawChart($scope.analyticsObject, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, "spider");
+                $(function() {
+                    $("#"+card.data).highcharts(card.chartObject);
+                });
+
+            } else if(type == 'column'){
+                card.displayColumn = true;
+                card.displayMap = false;
+                card.displayTable = false;
+                card.chartObject = chartsManager.drawChart($scope.analyticsObject, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, "column");
+                $(function() {
+                    $("#"+card.data).highcharts(card.chartObject);
+                });
+
             }
             else {
                 card.displayMap = false;
@@ -213,19 +249,19 @@ angular.module('hmisPortal')
                             $scope.analyticsObject = analyticsObject;
                             $rootScope.showProgressMessage = false;
                            angular.forEach(data, function (value) {
-                               var indicatorApi=
-                                   $resource(portalService.base+"api/indicators/"+value.data+".json");
-                               var indicatorResult=indicatorApi.get(function(indicatorObject){
-                                   value.indicatorType=indicatorObject.indicatorType.name;
-                                   var expApi=
-                                       $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
-                                   var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
-                                       value.numerator=numeratorText.description;
-                                   });
-                                   var denominator=expApi.get({expression:indicatorObject.denominator},function(denominatorText){
-                                       value.denominator=denominatorText.description;
-                                   });
-                               });
+                               //var indicatorApi=
+                               //    $resource(portalService.base+"api/indicators/"+value.data+".json");
+                               //var indicatorResult=indicatorApi.get(function(indicatorObject){
+                               //    value.indicatorType=indicatorObject.indicatorType.name;
+                               //    var expApi=
+                               //        $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
+                               //    var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
+                               //        value.numerator=numeratorText.description;
+                               //    });
+                               //    var denominator=expApi.get({expression:indicatorObject.denominator},function(denominatorText){
+                               //        value.denominator=denominatorText.description;
+                               //    });
+                               //});
                                $scope.changeChart(value.chart, value)
                             });
                         }, function (response) { // optional
@@ -242,34 +278,6 @@ angular.module('hmisPortal')
 
                     });
 
-
-//                    $.post( base + "dhis-web-commons-security/login.action?authOnly=true", {
-//                        j_username: "portal", j_password: "Portal123"
-//                    },function(){
-//                            $rootScope.progressMessage = " getting " + location + " data ...";
-//
-//                            portalService.getAnalyticsObject(dataElements, $scope.year, $rootScope.orgUnitId).then(function (analyticsObject) {
-//
-//                            $scope.analyticsObject = analyticsObject;
-//                            console.log(analyticsObject);
-//                            $rootScope.showProgressMessage = false;
-//                            angular.forEach(data, function (value) {
-//                                $scope.changeChart(value.chart, value)
-//                            });
-//                        }, function (response) { // optional
-//                            $rootScope.progressMessage = "!Problem has Occurred, system failed getting " + location + " data !";
-//                            $timeout(function () {
-//                                $rootScope.showProgressMessage = false;
-//
-//                            }, 10000);
-//                        });
-//
-//                    }, function (response) { // optional
-//                        $rootScope.progressMessage = "Authentication Problem has Occurred, system failed getting " + location + " indicators !";
-//                        $timeout(function () {
-//                            $rootScope.showProgressMessage = false;
-//                        }, 10000);
-//                    });
                    });
 
         };

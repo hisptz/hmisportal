@@ -3,7 +3,7 @@ angular.module("hmisPortal")
 
     var map = this;
     map.renderMap = function(baseUrl,parentUid,level,card,cardtitle,valueTouseArray){
-        localStorage.clear();
+        //localStorage.clear();
         var cardseries = removeDuplicatesInSeries( valueTouseArray );
         var max_and_min = getMaxAndMin(cardseries);
         var legend = getLegend(max_and_min);
@@ -85,7 +85,6 @@ angular.module("hmisPortal")
                 }
 
                 function formatText(orgunitObject,featureId){
-                    console.log(featureId);
                     var textArray = featureId.split("_");
                     var orgUnitId = textArray[1];
                     var theText = "";
@@ -171,13 +170,15 @@ angular.module("hmisPortal")
                     });
                     var overlayHidden = true;
                     // Mouse click function, called from the Leaflet Map Events
+
                     $scope.$on('openlayers.layers.geojson.mousemove', function(event, feature, olEvent) {
+
                         $scope.$apply(function(scope) {
 
                             card.selectedDistrictHover = feature ? card.districts[feature.getId()] : '';
                         });
 
-                        if (feature) {
+                        if (feature && card.districts[feature.getId()]) {
                             feature.setStyle(olHelpers.createStyle({
                                 fill: {
                                     color: getColor(card.districts[feature.getId()])
@@ -242,7 +243,6 @@ angular.module("hmisPortal")
         var count = valueToUse.length;
         var individuals = [];
         if(count==27){
-//            console.log(" In Legend Here comes the pressure:"+count);
             var array_of_data = "";
             angular.forEach(valueToUse,function(value,index){
 
@@ -269,7 +269,6 @@ angular.module("hmisPortal")
             var min = Math.min.apply(Math, array_of_data.split(","));
             return [max,min,individuals];
         }else if(count==26){
-//            console.log(" In Legend Here comes the pressure:"+count);
             var array_of_data = "";
             angular.forEach(valueToUse,function(value,index){
                 if(index==valueToUse.length-1){
@@ -296,7 +295,6 @@ angular.module("hmisPortal")
             return [max,min,individuals];
 
         }else{
-//            console.log(" In Legend Here comes the pressure:"+count);
             var array_of_data = "";
             var individuals = [];
             angular.forEach(valueToUse,function(value,index){

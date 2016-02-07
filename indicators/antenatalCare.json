@@ -2,7 +2,7 @@
 [
   {
     "title":"ANC Partners Syphilis +VE prevalance",
-    "description":"Maelezo ya ANC Partners Syphilis +VE prevalance",
+    "description":"Description of ANC Partners Syphilis +VE prevalance",
     "cardClass":"col s12 m6",
     "data":"BqowH5E3ytQ",
     "displayTable":false,
@@ -11,7 +11,7 @@
   },
   {
     "title":"ANC Malaria testing rate",
-    "description":"Maelezo ya ANC Malaria testing rate",
+    "description":"Description of ANC Malaria testing rate",
     "cardClass":"col m6 s12",
     "cardSize":"medium",
     "data":"FaooqUblXag"
@@ -19,7 +19,7 @@
   },
   {
     "title":"ANC Anaemia Prevalance",
-    "description":"Maelezo ya ANC Anaemia Prevalance",
+    "description":"Description of ANC Anaemia Prevalance",
     "cardClass":"col m12 s12",
     "data":"JT9AlIbDl1H",
     "chart":"combined"

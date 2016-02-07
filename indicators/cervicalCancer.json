@@ -1,7 +1,7 @@
 [
   {
     "title":"Clients who received VIA screening",
-    "description":"Maelezo ya Clients who received VIA screening",
+    "description":"Description of Clients who received VIA screening",
     "indicatorType":"",
     "numerator":"",
     "denominator":"",
@@ -10,7 +10,7 @@
   },
   {
     "title":"Clients with Positive VIA results",
-    "description":"Maelezo ya Clients with Positive VIA results",
+    "description":"Description of Clients with Positive VIA results",
     "indicatorType":"",
     "numerator":"",
     "denominator":"",

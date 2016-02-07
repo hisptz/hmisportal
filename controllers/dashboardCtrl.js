@@ -8,10 +8,12 @@ angular.module("hmisPortal")
         $httpProvider.defaults.withCredentials = true;
     })
     .controller("dashboardCtrl",function ($rootScope,$scope,$http,$location,$timeout,olData,olHelpers,shared,portalService) {
-        $scope.linkValue="statistcs"
-        $scope.activateLink = function(linkValue){
-            $scope.linkValue = linkValue;
 
+        $scope.linkValue="census"
+        $scope.activateLink = function(linkValue){
+            $timeout(function(){
+            $scope.linkValue = linkValue;
+            },2000);
         }
         $rootScope.periodType = 'years';
          //displaying loading during page change
@@ -183,10 +185,7 @@ angular.module("hmisPortal")
                             $scope.normalseries.push({type: 'column', name: value.name, data: serie});
                             $scope.normalseries.push({type: 'spline', name: value.name, data: serie});
                         });
-                        $scope.normalseries.push({type: 'pie', name: $scope.UsedName, data: serie1,center: [100, 80],size: 150,showInLegend: false,
-                            dataLabels: {
-                                enabled: false
-                            }})
+
                         $scope.chartConfig.series = $scope.normalseries;
                     }
                     else if($scope.data.chartType == 'table'){
@@ -449,10 +448,7 @@ angular.module("hmisPortal")
                         });
                         $scope.normalseries.push({type: 'column', name: cardObject.title, data: serie});
                         $scope.normalseries.push({type: 'spline', name: cardObject.title, data: serie});
-                        $scope.normalseries.push({type: 'pie', name: cardObject.title, data: serie1,center: [100, 80],size: 150,showInLegend: false,
-                            dataLabels: {
-                                enabled: false
-                            }})
+
                         cardObject.chartObject.series = $scope.normalseries;
                     }
                     else if(chart == 'table'){
