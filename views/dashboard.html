@@ -12,7 +12,7 @@
         -moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.75);
         box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.75);
         color: #111;
-        font-size: 13px;
+        font-size: 9px;
         position: absolute;
         bottom:30em;
         left: 15em;
@@ -43,7 +43,7 @@
         -moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.75);
         box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.75);
         color: #111;
-        font-size: 13px;
+        font-size: 9px;
         position: absolute;
         bottom:1.5em;
         left: 2em;
@@ -333,7 +333,8 @@
                 </div>
 
                 <div style="width: 100%" ng-if="card.displayMap">
-                    <p ng-if="card.chartObject.loading" class="center"><img src="assets/img/loading.gif">Loading ....</p>
+                    <!--<p ng-if="card.chartObject.loading" class="center"><img src="assets/img/loading.gif">Loading ....</p>-->
+                    <p ng-if="!card.layers" class="center">Loading ....</p>
                     <openlayers ng-if="!card.chartObject.loading" ol-center="card.Africa" ol-defaults="card.defaults" custom-layers="true"  height="400px" >
                         <ol-layer ol-layer-properties="layer" name="test" ng-repeat="layer in card.layers"></ol-layer>
                     </openlayers>

@@ -11,7 +11,6 @@ angular.module("hmisPortal")
         map.shared = shared;
         shared.facility =3029;
         var url = baseUrl+'api/organisationUnits.geojson?parent='+parentUid+'&level='+level;
-//        var url = "/organisationUnits.geojson";
         card.chartObject.loading = true;
             $http.get(url
                 ,
@@ -114,7 +113,6 @@ angular.module("hmisPortal")
                             font: 'Arial',
                             text: formatText(valueTouseArray,feature.getId()),//districtProperties[feature.getId()],
                             fill: new ol.style.Fill({color: "#000000"}),
-                            //stroke: new ol.style.Stroke({color: "#000000", width: 0}),
                             offsetX: 0,
                             offsetY: 0,
                             rotation: 0
