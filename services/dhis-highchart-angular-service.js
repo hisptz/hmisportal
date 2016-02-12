@@ -244,7 +244,7 @@ chartServices.factory('chartsManager',function(){
       angular.forEach(metaDataObject.yAxisItems,function(yAxis){
         angular.forEach(metaDataObject.xAxisItems,function(xAxis){
           var number = currentService.getDataValue(analyticsObject,xAxisType,xAxis.uid,yAxisType,yAxis.uid,filterType,filterUid);
-          serie.push({name: yAxis.name+' - '+ xAxis.name , y: parseFloat(number)});
+          serie.push({name: xAxis.name , y: parseFloat(number)});
         });
       });
       chartObject.series.push({type: 'pie', name:title , data: serie,showInLegend: true,
