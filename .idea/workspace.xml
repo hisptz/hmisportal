@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaa8b7a4-f174-4934-84e4-1f5bff911dfd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/dataset.html" afterPath="$PROJECT_DIR$/views/dataset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/indicatorsView.html" afterPath="$PROJECT_DIR$/views/indicatorsView.html" />
-    </list>
+    <list default="true" id="eaa8b7a4-f174-4934-84e4-1f5bff911dfd" name="Default" comment="" />
     <ignored path="hmisportal.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -110,7 +107,7 @@
       <file leaf-file-name="indicatorsView.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/indicatorsView.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48450705" vertical-offset="1906" max-vertical-offset="4284">
+            <state vertical-scroll-proportion="3.169014" vertical-offset="0" max-vertical-offset="4284">
               <caret line="125" column="96" selection-start-line="125" selection-start-column="96" selection-end-line="125" selection-end-column="96" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
@@ -301,7 +298,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fpportal" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="FullScreen" value="false" />
@@ -819,7 +816,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/indicatorsView.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48450705" vertical-offset="1906" max-vertical-offset="4284">
+        <state vertical-scroll-proportion="3.169014" vertical-offset="0" max-vertical-offset="4284">
           <caret line="125" column="96" selection-start-line="125" selection-start-column="96" selection-end-line="125" selection-end-column="96" />
           <folding>
             <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
