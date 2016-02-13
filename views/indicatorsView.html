@@ -270,6 +270,7 @@
                         <p>
                             <a ng-click="changeChart(icon.name,card)" ng-repeat="icon in card.icons" title="{{ icon.name }}" class="btn-floating btn-small waves-effect waves-light teal darken-2" style="padding-top: 5px;padding-left: 8px"><img src="assets/img/{{icon.image}}" style="height: 20px;width: 20px"/></i></a>
                             <a ng-click="downloadExcel(card.data)" target="_blank"  title="Download Excel" class="btn-floating btn-small waves-effect waves-light teal darken-2" style="padding-top: 5px;padding-left: 8px"><img src="assets/img/cvs.jpg" style="height: 20px;width: 20px"/></i></a>
+                            <a class="btn-floating btn-small waves-effect waves-light teal darken-2 right" modal href="#link{{ card.data }}"><i class="mdi-action-open-in-new"></i></a>
                             <!--<a class="btn modal-trigger waves-effect waves-block waves-light" href='#demoModal' modal>Show Modal</a>-->
                         </p>
                     </div>
@@ -283,6 +284,21 @@
                         </table>
                     </div>
                 </div>
+
+                <!--Model object for the card-->
+                <div id="link{{ card.data }}" class="modal" style="border-radius: 10px;width: 90%;max-height: 100%">
+                    <div class="modal-content">
+                        <h4>{{ card.title }}</h4>
+                        <div style="width: 100%">
+                            <highchart style="width: 86%" ng-if="!card.displayTable && !card.displayMap && !card.displayColumn" config="card.chartObject"></highchart>
+                            <div id="c{{ card.data }}" ng-show="card.displayColumn" style="margin: 0 auto;width: 86%"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class=" modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+                    </div>
+                </div>
+                <!--end of model object-->
             </div>
         </div>
     </div>

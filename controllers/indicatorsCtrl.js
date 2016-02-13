@@ -126,6 +126,7 @@ angular.module('hmisPortal')
                 card.chartObject = chartsManager.drawChart($scope.analyticsObject, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, "spider");
                 $(function() {
                     $("#"+card.data).highcharts(card.chartObject);
+                    $("#c"+card.data).highcharts(card.chartObject);
                 });
 
             } else if(type == 'column'){
@@ -135,6 +136,7 @@ angular.module('hmisPortal')
                 card.chartObject = chartsManager.drawChart($scope.analyticsObject, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, "column");
                 $(function() {
                     $("#"+card.data).highcharts(card.chartObject);
+                    $("#c"+card.data).highcharts(card.chartObject);
                 });
 
             }
