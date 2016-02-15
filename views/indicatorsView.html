@@ -292,6 +292,11 @@
                         <div style="width: 100%">
                             <highchart style="width: 86%" ng-if="!card.displayTable && !card.displayMap && !card.displayColumn" config="card.chartObject"></highchart>
                             <div id="c{{ card.data }}" ng-show="card.displayColumn" style="margin: 0 auto;width: 86%"></div>
+                            <div style="width: 100%" ng-if="card.displayTable" >
+                                <p ng-if="card.chartObject.loading" class="center"><img src="assets/img/loading.gif">Loading ....</p>
+                                <h5 class="center">{{ card.title }}</h5>
+                                <div ng-bind-html="card.table"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">

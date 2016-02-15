@@ -250,7 +250,7 @@ angular.module('hmisPortal')
                         portalService.getAnalyticsObject(dataElements,portalService.period,portalService.orgUnitId).then(function(analyticsObject){
                             $scope.analyticsObject = analyticsObject;
                             $rootScope.showProgressMessage = false;
-                           angular.forEach(data, function (value) {
+                            angular.forEach(data, function (value) {
                                var indicatorApi=
                                    $resource(portalService.base+"api/indicators/"+value.data+".json");
                                var indicatorResult=indicatorApi.get(function(indicatorObject){
