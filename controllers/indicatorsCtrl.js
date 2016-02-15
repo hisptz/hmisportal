@@ -251,19 +251,19 @@ angular.module('hmisPortal')
                             $scope.analyticsObject = analyticsObject;
                             $rootScope.showProgressMessage = false;
                            angular.forEach(data, function (value) {
-                               //var indicatorApi=
-                               //    $resource(portalService.base+"api/indicators/"+value.data+".json");
-                               //var indicatorResult=indicatorApi.get(function(indicatorObject){
-                               //    value.indicatorType=indicatorObject.indicatorType.name;
-                               //    var expApi=
-                               //        $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
-                               //    var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
-                               //        value.numerator=numeratorText.description;
-                               //    });
-                               //    var denominator=expApi.get({expression:indicatorObject.denominator},function(denominatorText){
-                               //        value.denominator=denominatorText.description;
-                               //    });
-                               //});
+                               var indicatorApi=
+                                   $resource(portalService.base+"api/indicators/"+value.data+".json");
+                               var indicatorResult=indicatorApi.get(function(indicatorObject){
+                                   value.indicatorType=indicatorObject.indicatorType.name;
+                                   var expApi=
+                                       $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
+                                   var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
+                                       value.numerator=numeratorText.description;
+                                   });
+                                   var denominator=expApi.get({expression:indicatorObject.denominator},function(denominatorText){
+                                       value.denominator=denominatorText.description;
+                                   });
+                               });
                                $scope.changeChart(value.chart, value)
                             });
                         }, function (response) { // optional
