@@ -1,322 +1,322 @@
 [{
-  "title":" ",
-  "description":" ",
+  "title":"Total Tracers available",
+  "description":"Total Tracers available",
   "indicatorType":" ",
   "numerator":" ",
   "denominator":" ",
   "cardClass":"col s12 m12",
-  "data":" "
- },
+  "data":"PlatsD7r6BI"
+},
   {
-    "title":" ",
-    "description":" ",
+    "title":"Normal saline Availability",
+    "description":"Normal saline Availability",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-     "data":" ",
+    "data":"Y6gfcTiQcis",
     "chart":"line"
   },
   {
-    "title":" ",
-    "description":" ",
+    "title":"Disposable Syringe Availability",
+    "description":"Disposable Syringe Availability",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"sZYr1CWDW8Y",
     "chart":"combined"
   },
   {
-    "title":" ",
-    "description":" ",
+    "title":"Depo-Prover Availability",
+    "description":"Depo-Prover Availability",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"TFORL9LBEDP",
     "chart":"table"
   },
   {
-    "title":" ",
-    "description":" ",
+    "title":"Oral Rehydration Availability",
+    "description":"Oral Rehydration Availability",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"Y0HAPpe3X8A",
     "chart":"map"
   },
   {
-    "title":" ",
-    "description":" ",
+    "title":"Penta Valent Availability",
+    "description":"Penta Valent Availability",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m12 s12",
-    "data":" ",
+    "data":"BRS6sUj8FJa",
     "chart":"combined"
   },
   {
-    "title":" ",
-    "description":" ",
+    "title":"Albendazole Availability",
+    "description":"Albendazole Availability",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"AHcdWDFaeZi",
     "chart":"area"
   },
   {
-    "title":" ",
-    "description":" ",
+    "title":"Ergometrine Availability",
+    "description":"Ergometrine Availability",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" "
+    "data":"EX233CR1k1T"
   },
   {
-    "title":" ",
-    "description":" ",
+    "title":"Amoxycillin Availability",
+    "description":"Amoxycillin Availability",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"KxS8b24bAZC",
     "chart":"line"
   },
   {
-    "title":" ",
-    "description":" ",
+    "title":"Artemether / Lumefantrine Oral Available",
+    "description":"Artemether / Lumefantrine Oral Available",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"wjGjt5bacv6",
     "chart":"pie"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Mean number of Tracers available By Quarter",
+    "description":"Mean number of Tracers available By Quarter",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m12 s12",
-    "data":" ",
+    "data":"YKtXjwwuFA3",
     "chart":"combined"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Mean Parastatal Facility Tracers available By Quarter",
+    "description":"Mean Parastatal Facility Tracers available By Quarter",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"UCmAgEwrtnL",
     "chart":"line"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Mean FBO Facility Tracers available By Quarter",
+    "description":"Mean FBO Facility Tracers available By Quarter",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"eRGYpbsCTjL",
     "chart":"area"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Mean Public Facility Tracers available By Quarter",
+    "description":"Mean Public Facility Tracers available By Quarter",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"GfA6IHXRUyb",
     "chart":"map"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"MRDT Availability",
+    "description":"Mean Private MRDT Availability",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" "
+    "data":"jr3NGLBd0um"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Magnesium Sulphate",
+    "description":"Magnesium Sulphate",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"gKuUBZzrHKn",
     "chart":"bar"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Zinc Sulphate",
+    "description":"Zinc Sulphate",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"nHkxJhedt45",
     "chart":"column"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Benzyl Pencilline Injection",
+    "description":"Benzyl Pencilline Injection",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"JMh8rqmUHFT",
     "chart":"table"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Ferrous + Folic Acid Tablets",
+    "description":"Ferrous + Folic Acid Tablets",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" "
+    "data":"x0yG6AUAqE0"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Metronidazole Tablets",
+    "description":"Metronidazole Tablets",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"VB95k7UUf5d",
     "chart":"combined"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Catgut Sutures",
+    "description":"Catgut Sutures",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"aoT6ct7Vfel",
     "chart":"line"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Tenofovir 300mg+Lamivudine 300mg+Efavirenz 600mg Tablets",
+    "description":"Tenofovir 300mg+Lamivudine 300mg+Efavirenz 600mg Tablets",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"CjNOYsGfIlO",
     "chart":"bar"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Zidovudine 60mg+Lamivudine 30mg+Nevirapine 50mg Tablets",
+    "description":"Zidovudine 60mg+Lamivudine 30mg+Nevirapine 50mg Tablets",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"oB0IISPgAz4",
     "chart":"table"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"UNIGOLD HIV 1/2",
+    "description":"UNIGOLD HIV 1/2",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
-     "chart":"pie"
+    "data":"LZHwfqERPiC",
+    "chart":"pie"
 
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"Determine HIV 1&2",
+    "description":"Determine HIV 1&2",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"UpQjua0Othb",
     "chart":"line"
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"FACS Count reagent",
+    "description":"FACS Count reagent",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"SiUdy5FzDSP",
     "chart":"pie"
-    
+
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"DBS",
+    "description":"DBS",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"J5hVzb8Mhwi",
     "chart":"column"
-   },
+  },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"RHZE Rifampicin 150mg/Isoniazide 75mg/Pyrazinamide/Etdambutol Tablets",
+    "description":"RHZE Rifampicin 150mg/Isoniazide 75mg/Pyrazinamide/Etdambutol Tablets",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":" ",
+    "data":"F08pnezPe17",
     "chart":"area"
-   },
-
-  {
-    "title":" ",
-    "description":" ",
-    "indicatorType":"",
-    "numerator":" ",
-    "denominator":" ",
-    "cardClass":"col m6 s12",
-    "data":" ",
-    "chart":"combined"
-  
   },
 
   {
-    "title":" ",
-    "description":" ",
+    "title":"RH Rifampicin 150MG/Isoniazide 75mg Tablets",
+    "description":"RH Rifampicin 150MG/Isoniazide 75mg Tablets",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":"",
+    "data":"amI2RHuAaE5",
+    "chart":"combined"
+
+  },
+
+  {
+    "title":"Sulphadoxine+pyrimetdamine tablets",
+    "description":"Sulphadoxine+pyrimetdamine tablets",
+    "indicatorType":"",
+    "numerator":" ",
+    "denominator":" ",
+    "cardClass":"col m6 s12",
+    "data":"Si3s2HTVelD",
     "chart":"pie"
-    
+
 
   }
 ]
