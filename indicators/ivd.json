@@ -1,32 +1,32 @@
 [
   {
-    "title":"Measles vaccination  coverage to children under 1 year",
-    "description":"Maelezo ya Measles vaccination  coverage to children under 1 year",
+    "title":" ",
+    "description":" ",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m12 s12",
-    "data":"c29EE9nH8gQ",
+    "data":" ",
     "chart":"line"
   },
   {
-    "title":"ANC Proportion of pregnant women receiving TT2+",
-    "description":"Maelezo ya ANC Proportion of pregnant women receiving TT2+",
+    "title":" ",
+    "description":" ",
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
     "cardClass":"col m6 s12",
-    "data":"DHP2lGgo4kH",
+    "data":" ",
     "chart":"combined"
   },
   {
-    "title": "PENTA 3 Vaccination coverage to children under 1 year",
-    "description": "Maelezo ya PENTA 3 Vaccination coverage to children under 1 year",
+    "title": " ",
+    "description": " ",
     "indicatorType": "",
     "numerator": " ",
     "denominator": " ",
     "cardClass": "col m6 s12",
-    "data": "WhsP7nsuwnz",
+    "data": " ",
     "chart": "table"
   }
 ]
