@@ -93,9 +93,9 @@ angular.module("hmisPortal")
 
         this.getAnalyticsObject = function(dataElements,year,orgUnit){
             if(orgUnit === 'm0frOspS7JY'){
-                var url = self.base+"api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&dimension=pe:"+year+"&displayProperty=NAME";
+                var url = self.base+"api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;m0frOspS7JY&dimension=pe:"+year+"&displayProperty=NAME";
             }else{
-                var url = self.base+"api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;LEVEL-3;"+orgUnit+"&dimension=pe:"+year+"&displayProperty=NAME";
+                var url = self.base+"api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-3;"+orgUnit+"&dimension=pe:"+year+"&displayProperty=NAME";
             }
             //var url = 'data.json';
             var deferred = $q.defer();
@@ -174,9 +174,9 @@ angular.module("hmisPortal")
                 var url = '';
 //                var url = '/analytics.json';
                 if (self.orgUnitId == "m0frOspS7JY") {
-                    url = self.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&filter=pe:"+self.period+"&displayProperty=NAME";
+                    url = self.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-2;m0frOspS7JY&filter=pe:"+self.period+"&displayProperty=NAME";
                 } else {
-                    url = self.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-2;LEVEL-3;"+self.orgUnitId+"&filter=pe:"+self.period+"&displayProperty=NAME";
+                    url = self.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-3;"+self.orgUnitId+"&filter=pe:"+self.period+"&displayProperty=NAME";
                 }
                 cardObject.chartObject.loading = true;
                 $http.get(url).success(function (data) {

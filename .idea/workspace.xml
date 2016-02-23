@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eaa8b7a4-f174-4934-84e4-1f5bff911dfd" name="Default" comment="" />
+    <list default="true" id="eaa8b7a4-f174-4934-84e4-1f5bff911dfd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/portalService.js" afterPath="$PROJECT_DIR$/services/portalService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="hmisportal.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="indicatorsCtrl.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="indicatorsCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61538464" vertical-offset="3426" max-vertical-offset="3855">
-              <caret line="296" column="9" selection-start-line="296" selection-start-column="9" selection-end-line="296" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="3855">
+              <caret line="254" column="102" selection-start-line="254" selection-start-column="102" selection-end-line="254" selection-end-column="102" />
               <folding>
                 <element signature="e#8027#10188#0" expanded="false" />
               </folding>
@@ -116,11 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="portalService.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="portalService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/portalService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1170" max-vertical-offset="4155">
-              <caret line="146" column="50" selection-start-line="146" selection-start-column="50" selection-end-line="146" selection-end-column="50" />
+            <state vertical-scroll-proportion="3.867133" vertical-offset="756" max-vertical-offset="4155">
+              <caret line="161" column="50" selection-start-line="161" selection-start-column="50" selection-end-line="161" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -164,8 +167,8 @@
         <option value="$PROJECT_DIR$/indicators/malaria.json" />
         <option value="$PROJECT_DIR$/indicators/tracer_medicine.json" />
         <option value="$PROJECT_DIR$/indicators/ivd.json" />
-        <option value="$PROJECT_DIR$/services/portalService.js" />
         <option value="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
+        <option value="$PROJECT_DIR$/services/portalService.js" />
       </list>
     </option>
   </component>
@@ -809,14 +812,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/portalService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1170" max-vertical-offset="4155">
-          <caret line="146" column="50" selection-start-line="146" selection-start-column="50" selection-end-line="146" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/dashboardCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5884" max-vertical-offset="8460">
@@ -827,11 +822,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61538464" vertical-offset="3426" max-vertical-offset="3855">
-          <caret line="296" column="9" selection-start-line="296" selection-start-column="9" selection-end-line="296" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="3855">
+          <caret line="254" column="102" selection-start-line="254" selection-start-column="102" selection-end-line="254" selection-end-column="102" />
           <folding>
             <element signature="e#8027#10188#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/portalService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.867133" vertical-offset="756" max-vertical-offset="4155">
+          <caret line="161" column="50" selection-start-line="161" selection-start-column="50" selection-end-line="161" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
