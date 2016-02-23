@@ -111,6 +111,10 @@ angular.module("hmisPortal")
             templateUrl: 'views/indicatorsView.html',
             controller: 'indicatorsCtrl'
         });
+        $routeProvider.when("/noncommunicabledisease",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
+        });
         $routeProvider.when("/tracer_medicine",{
             templateUrl: 'views/indicatorsView.html',
             controller: 'indicatorsCtrl'
