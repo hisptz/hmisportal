@@ -265,6 +265,8 @@ angular.module('hmisPortal')
                                    });
                                });
                                $scope.changeChart(value.chart, value)
+                               $scope.totalPop = numberWithCommas(getTotalDataFromUrl(analyticsObject.rows,value.data,$rootScope.selectedOrgUnit));
+
                             });
                         }, function (response) { // optional
                            $rootScope.progressMessage = "!Problem has Occurred, system failed getting " + location + " data !";
@@ -287,3 +289,13 @@ angular.module('hmisPortal')
         $rootScope.firstClick();
 
     });
+function getTotalDataFromUrl(arr,de,ou){
+    var num = 0;
+    $.each(arr,function(k,v){
+        if(v[1] == ou && v[0]==de){
+            num = Number(v[2])
+        }
+    });
+    console.info(num);
+    return num;
+}
