@@ -118,6 +118,7 @@
         <li><a href="./#ivd">IVD</a></li>
         <li><a href="./#nutrition">NUTRITION</a></li>
         <li><a href="./#hivaids">HIV/AIDS</a></li>
+        <li><a href="./#noncommicabledisease">NON-COMMUNICABLE DISEASE</a></li>
         <!--<li><a href="./#maternal">NTLP</a></li>-->
         <li><a href="./#tracer_medicine">TRACER MEDICINE</a></li>
         <li><a href="./#tb">TB&amp;LEPROSY</a></li>
@@ -131,12 +132,22 @@
         <li><a href="./#downloads">Health Reports</a></li>
         <li><a href="../dhpportal">District Health Profiles</a></li>
     </ul>
+    <!--<ul id="hivAids" class="dropdown-content">-->
+        <!--<li><a href="./#downloads">PMTCT</a></li>-->
+        <!--<li><a href="./dhpportal">HBC</a></li>-->
+        <!--<li><a href="./dhpportal">ART</a></li>-->
+        <!--<li><a href="./dhpportal">PEDIATRIC HIV</a></li>-->
+        <!--<li><a href="./dhpportal">TB&amp;HIV</a></li>-->
+        <!--<li><a href="./dhpportal">STI</a></li>-->
+        <!--<li><a href="./dhpportal">VMCC</a></li>-->
+    <!--</ul>-->
     <ul id="dropdown8" class="dropdown-content">
         <li><a href="./#malaria">MALARIA</a></li>
         <!--<li><a href="./#maternal">MATERNAL HEALTH</a></li>-->
         <li><a href="./#ivd">IVD</a></li>
         <li><a href="./#nutrition">NUTRITION</a></li>
         <li><a href="./#hivaids">HIV/AIDS</a></li>
+        <li><a href="./#noncommicabledisease">NON-COMMUNICABLE DISEASE</a></li>
         <!--<li><a href="./#morbidity">MORBIDITY</a></li>-->
         <!--<li><a href="./#mortality">MORTALITY</a></li>-->
         <li><a href="./#tracer_medicine">TRACER MEDICINE</a></li>
@@ -335,6 +346,15 @@
         $('select').material_select();
         $(".dropdown-button").dropdown();
         $('.modal-trigger').leanModal();
+        $(".dropdown-button1").dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, // Does not change width of dropdown to that of the activator
+            hover: true, // Activate on hover
+            gutter: 0, // Spacing from edge
+            belowOrigin: false, // Displays dropdown below the button
+            alignment: 'left' // Displays dropdown with edge aligned to the left of button
+        });
 
     })
 </script>
