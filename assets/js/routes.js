@@ -188,12 +188,12 @@ angular.module("hmisPortal")
             controller: 'hctCtrl'
         });
         $routeProvider.when("/pmtct",{
-            templateUrl: 'views/pmtct.html',
-            controller: 'pmtctCtrl'
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
         });
-        $routeProvider.when("/lep07",{
-            templateUrl: 'views/lep07.html',
-            controller: 'lep07Ctrl'
+        $routeProvider.when("/sti",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
         });
         $routeProvider.when("/lep09",{
             templateUrl: 'views/lep09.html',
