@@ -35,6 +35,7 @@ angular.module('hmisPortal')
             if(location == "postnatalCare"){ name = "Postnatal Care Indicators"; }
             if(location == "gbvVac"){ name = "GBV & VAC Indicators"; }
             if(location == "cervicalCancer"){ name = "Cervical Cancer Indicators"; }
+            if(location == "noncommunicabledisease"){ name = "Non Communicable Disease Indicators"; }
 
             return name;
         };
@@ -250,21 +251,23 @@ angular.module('hmisPortal')
                         portalService.getAnalyticsObject(dataElements,portalService.period,portalService.orgUnitId).then(function(analyticsObject){
                             $scope.analyticsObject = analyticsObject;
                             $rootScope.showProgressMessage = false;
-                           angular.forEach(data, function (value) {
-                               //var indicatorApi=
-                               //    $resource(portalService.base+"api/indicators/"+value.data+".json");
-                               //var indicatorResult=indicatorApi.get(function(indicatorObject){
-                               //    value.indicatorType=indicatorObject.indicatorType.name;
-                               //    var expApi=
-                               //        $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
-                               //    var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
-                               //        value.numerator=numeratorText.description;
-                               //    });
-                               //    var denominator=expApi.get({expression:indicatorObject.denominator},function(denominatorText){
-                               //        value.denominator=denominatorText.description;
-                               //    });
-                               //});
+                            angular.forEach(data, function (value) {
+                               var indicatorApi=
+                                   $resource(portalService.base+"api/indicators/"+value.data+".json");
+                               var indicatorResult=indicatorApi.get(function(indicatorObject){
+                                   value.indicatorType=indicatorObject.indicatorType.name;
+                                   var expApi=
+                                       $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
+                                   var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
+                                       value.numerator=numeratorText.description;
+                                   });
+                                   var denominator=expApi.get({expression:indicatorObject.denominator},function(denominatorText){
+                                       value.denominator=denominatorText.description;
+                                   });
+                               });
                                $scope.changeChart(value.chart, value)
+                               $scope.totalPop = numberWithCommas(getTotalDataFromUrl(analyticsObject.rows,value.data,$rootScope.selectedOrgUnit));
+
                             });
                         }, function (response) { // optional
                            $rootScope.progressMessage = "!Problem has Occurred, system failed getting " + location + " data !";
@@ -287,3 +290,13 @@ angular.module('hmisPortal')
         $rootScope.firstClick();
 
     });
+function getTotalDataFromUrl(arr,de,ou){
+    var num = 0;
+    $.each(arr,function(k,v){
+        if(v[1] == ou && v[0]==de){
+            num = Number(v[2])
+        }
+    });
+    console.info(num);
+    return num;
+}
