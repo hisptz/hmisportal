@@ -65,15 +65,11 @@
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
             display: none !important;
         }
-        #main-menu {
-            position:absolute;
-            top:0;
-            left:0;
-            z-index:9999;
-            width:8em;
-        }
-        #main-menu ul {
-            width:6em; /* fixed width only please - you can use the "subMenusMinWidth"/"subMenusMaxWidth" script options to override this if you like */
+        @media (min-width: 768px) {
+            #main-menu {
+                float: left;
+                width: 12em;
+            }
         }
         #dropdown8 {
             position:absolute;
@@ -89,6 +85,7 @@
 
     <link type="text/css" rel="stylesheet" href="assets/libs/materialize/css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" type="text/css" href="assets/css/sm-core-css.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/sm-simple.css">
     <link rel="stylesheet" type="text/css" href="bower_components/openlayers3/build/ol.css">
     <link rel="stylesheet" type="text/css" href="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.css">
     <link rel="stylesheet" type="text/css" href="assets/spinkit/angular-spinkit.min.css">
@@ -134,11 +131,11 @@
         <!--<li><a href="./#hiv">HIV/AIDS</a></li>-->
 
     </ul>
-    <ul id="main-menu" class="dropdown-content sm sm-vertical">
+    <ul id="main-menu" class="sm sm-vertical sm-simple" style="display: none;">
         <li><a href="./#malaria">MALARIA</a></li>
         <li><a href="./#ivd">IVD</a></li>
         <li><a href="./#nutrition">NUTRITION</a></li>
-        <li><a href="#!">HIV/AIDS
+        <li><a href="#!">HIV/AIDS</a>
         <ul>
         <li><a href="./#pmtct">PMTCT</a></li>
         <li><a href="./#hbc">HBC</a></li>
@@ -148,7 +145,7 @@
         <li><a href="./#sti">STI</a></li>
         <li><a href="./#vmcc">VMCC</a></li>
         </ul>
-        </a></li>
+        </li>
         <li><a href="./#noncommunicabledisease">NON-COMMUNICABLE DISEASE</a></li>
         <!--<li><a href="./#maternal">NTLP</a></li>-->
         <li><a href="./#tracer_medicine">TRACER MEDICINE</a></li>
@@ -164,12 +161,12 @@
         <li><a href="../dhpportal">District Health Profiles</a></li>
     </ul>
 
-    <ul id="dropdown8" class="dropdown-content">
+    <ul id="dropdown8" class="sm sm-vertical sm-simple" style="display: none;">
         <li><a href="./#malaria">MALARIA</a></li>
         <!--<li><a href="./#maternal">MATERNAL HEALTH</a></li>-->
         <li><a href="./#ivd">IVD</a></li>
         <li><a href="./#nutrition">NUTRITION</a></li>
-        <li><a href="#!">HIV/AIDS
+        <li><a href="#!">HIV/AIDS</a>
             <ul>
                 <li><a href="./#pmtct">PMTCT</a></li>
                 <li><a href="./#hbc">HBC</a></li>
@@ -179,7 +176,7 @@
                 <li><a href="./#sti">STI</a></li>
                 <li><a href="./#vmcc">VMCC</a></li>
             </ul>
-        </a></li>
+        </li>
         <li><a href="./#noncommunicabledisease">NON-COMMUNICABLE DISEASE</a></li>
         <!--<li><a href="./#morbidity">MORBIDITY</a></li>-->
         <!--<li><a href="./#mortality">MORTALITY</a></li>-->
@@ -374,6 +371,7 @@
 <script src="controllers/morbidityCtrl.js"></script>
 <script>
     $(document).ready(function(){
+        $("#main-menu").css({"display":"none"});
         $(".button-collapse").sideNav();
         $(".chat-collapse").sideNav();
         $('select').material_select();
@@ -394,7 +392,7 @@
                 mainMenuSubOffsetY: 0,
                 subMenusSubOffsetX: 10,
                 subMenusSubOffsetY: 0
-            });
+             });
             $('#dropdown8').smartmenus({
                 mainMenuSubOffsetX: 10,
                 mainMenuSubOffsetY: 0,
