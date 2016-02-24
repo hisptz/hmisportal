@@ -150,7 +150,23 @@ angular.module('hmisPortal')
 
             }
 
-        }
+        };
+
+        //prepare data for use in csv
+        $scope.prepareDataForCSV = function(card){
+            var chartObject = chartsManager.drawChart($scope.analyticsObject, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, 'bar');
+            var items = [];
+            angular.forEach(chartObject.series,function(value){
+                var obj = {name:value.name};
+                var i = 0;
+                angular.forEach(chartObject.xAxis.categories,function(val){
+                    obj[val] = value.data[i];
+                    i++;
+                })
+                items.push(obj);
+            })
+            return items;
+        };
 
         $scope.getPeriodName = function (period) {
             if (period.length == 4) {

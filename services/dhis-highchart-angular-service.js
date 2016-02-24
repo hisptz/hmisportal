@@ -183,7 +183,7 @@ chartServices.factory('chartsManager',function(){
       var currentService = this;
       switch (type){
         case 'bar':
-          return currentService.drawOtherCharts(analyticsObject, xAxisType,xAxisItems,yAxisType,yAxisItems, filterType, filterUid, title, type);
+          return currentService.drawOtherCharts(analyticsObject, xAxisType,xAxisItems,yAxisType,yAxisItems, filterType, filterUid, title, 'column');
           break;
         case 'column':
           return currentService.drawColumnChart(analyticsObject, xAxisType,xAxisItems,yAxisType,yAxisItems, filterType, filterUid, title, 'bar');

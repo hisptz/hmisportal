@@ -18,10 +18,10 @@ angular.module("hmisPortal")
         //this.base = "http://127.0.0.1:9000/";
         this.icons = [
             {name: 'table', image: 'table.jpg', action: ''},
-            {name: 'bar', image: 'bar.png', action: ''},
+            {name: 'column', image: 'bar.png', action: ''},
             {name: 'line', image: 'line.png', action: ''},
             {name: 'combined', image: 'combined.jpg', action: ''},
-            {name: 'column', image: 'column.png', action: ''},
+            {name: 'bar', image: 'column.png', action: ''},
             {name: 'area', image: 'area.jpg', action: ''},
             {name: 'pie', image: 'pie.png', action: ''},
             {name: 'map', image: 'map.jpg', action: ''}

@@ -27,7 +27,7 @@ angular.module("hmisPortal")
         $scope.jinsi.displayTable = false;
         $scope.icons=[
             {name:'table',image:'table.jpg',action:''},
-            {name:'bar',image:'bar.png',action:''},
+            {name:'column',image:'bar.png',action:''},
             {name:'line',image:'line.png',action:''},
             {name:'combined',image:'combined.jpg',action:''},
             {name:'column',image:'column.png',action:''},
@@ -286,7 +286,7 @@ angular.module("hmisPortal")
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
-                chart:'bar',
+                chart:'column',
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -298,7 +298,7 @@ angular.module("hmisPortal")
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
-                chart:'bar',
+                chart:'column',
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -311,7 +311,7 @@ angular.module("hmisPortal")
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
-                chart:'bar',
+                chart:'column',
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -324,7 +324,7 @@ angular.module("hmisPortal")
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
-                chart:'bar',
+                chart:'column',
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -337,7 +337,7 @@ angular.module("hmisPortal")
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
-                chart:'bar',
+                chart:'column',
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -350,7 +350,7 @@ angular.module("hmisPortal")
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
-                chart:'bar',
+                chart:'column',
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -1162,8 +1162,8 @@ angular.module("hmisPortal")
 
             $scope.preparejinsiSeries();
             $scope.prepareFacilitySeries('own','table');
-            $scope.prepareFacilityTypeSeries('bar');
-            $scope.prepareHRSeries('bar');
+            $scope.prepareFacilityTypeSeries('column');
+            $scope.prepareHRSeries('column');
             $rootScope.firstClick2();
             angular.forEach($scope.cards.malaria,function(value){
                 $scope.preparecompletenesSeries(value,value.chart);

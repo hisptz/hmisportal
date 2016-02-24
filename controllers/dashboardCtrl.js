@@ -35,7 +35,7 @@ angular.module("hmisPortal")
         $scope.population.displayTable = false;
         $scope.icons=[
             {name:'table',image:'table.jpg',action:''},
-            {name:'bar',image:'bar.png',action:''},
+            {name:'column',image:'bar.png',action:''},
             {name:'line',image:'line.png',action:''},
             {name:'combined',image:'combined.jpg',action:''},
             {name:'column',image:'column.png',action:''},
@@ -277,10 +277,10 @@ angular.module("hmisPortal")
             data:'ykShMtNgDB1',
             icons:[
                 {name:'table',image:'table.jpg',action:''},
-                {name:'bar',image:'bar.png',action:''},
+                {name:'column',image:'bar.png',action:''},
                 {name:'line',image:'line.png',action:''},
                 {name:'combined',image:'combined.jpg',action:''},
-                {name:'column',image:'column.png',action:''},
+                {name:'bar',image:'column.png',action:''},
                 {name:'area',image:'area.jpg',action:''},
                 {name:'pie',image:'pie.png',action:''},
                 {name:'map',image:'map.jpg',action:''}
@@ -289,7 +289,7 @@ angular.module("hmisPortal")
             size:'small',
             displayTable:false,
             displayMap:false,
-            chart:'bar',
+            chart:'column',
             chartObject:{
                 title: {
                     text: 'Combination chart'
