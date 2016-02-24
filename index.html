@@ -65,9 +65,30 @@
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
             display: none !important;
         }
+        #main-menu {
+            position:absolute;
+            top:0;
+            left:0;
+            z-index:9999;
+            width:8em;
+        }
+        #main-menu ul {
+            width:6em; /* fixed width only please - you can use the "subMenusMinWidth"/"subMenusMaxWidth" script options to override this if you like */
+        }
+        #dropdown8 {
+            position:absolute;
+            top:0;
+            left:0;
+            z-index:9999;
+            width:8em;
+        }
+        #dropdown8 ul {
+            width:6em; /* fixed width only please - you can use the "subMenusMinWidth"/"subMenusMaxWidth" script options to override this if you like */
+        }
     </style>
 
     <link type="text/css" rel="stylesheet" href="assets/libs/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/sm-core-css.css">
     <link rel="stylesheet" type="text/css" href="bower_components/openlayers3/build/ol.css">
     <link rel="stylesheet" type="text/css" href="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.css">
     <link rel="stylesheet" type="text/css" href="assets/spinkit/angular-spinkit.min.css">
@@ -113,11 +134,12 @@
         <!--<li><a href="./#hiv">HIV/AIDS</a></li>-->
 
     </ul>
-    <ul id="programindicator" class="dropdown-content">
+    <ul id="main-menu" class="dropdown-content sm sm-vertical">
         <li><a href="./#malaria">MALARIA</a></li>
         <li><a href="./#ivd">IVD</a></li>
         <li><a href="./#nutrition">NUTRITION</a></li>
-        <li><a href="./#hivaids">HIV/AIDS</a></li>
+        <li><a href="#!">HIV/AIDS
+        <ul>
         <li><a href="./#pmtct">PMTCT</a></li>
         <li><a href="./#hbc">HBC</a></li>
         <li><a href="./#art">ART</a></li>
@@ -125,6 +147,8 @@
         <li><a href="./#tbandhiv">TB&amp;HIV</a></li>
         <li><a href="./#sti">STI</a></li>
         <li><a href="./#vmcc">VMCC</a></li>
+        </ul>
+        </a></li>
         <li><a href="./#noncommunicabledisease">NON-COMMUNICABLE DISEASE</a></li>
         <!--<li><a href="./#maternal">NTLP</a></li>-->
         <li><a href="./#tracer_medicine">TRACER MEDICINE</a></li>
@@ -145,14 +169,17 @@
         <!--<li><a href="./#maternal">MATERNAL HEALTH</a></li>-->
         <li><a href="./#ivd">IVD</a></li>
         <li><a href="./#nutrition">NUTRITION</a></li>
-        <li><a href="./#hivaids">HIV/AIDS</a></li>
-        <li><a href="./#pmtct">PMTCT</a></li>
-        <li><a href="./#hbc">HBC</a></li>
-        <li><a href="./#art">ART</a></li>
-        <li><a href="./#pediatrichiv">PEDIATRIC HIV</a></li>
-        <li><a href="./#tbandhiv">TB&amp;HIV</a></li>
-        <li><a href="./#sti">STI</a></li>
-        <li><a href="./#vmcc">VMCC</a></li>
+        <li><a href="#!">HIV/AIDS
+            <ul>
+                <li><a href="./#pmtct">PMTCT</a></li>
+                <li><a href="./#hbc">HBC</a></li>
+                <li><a href="./#art">ART</a></li>
+                <li><a href="./#pediatrichiv">PEDIATRIC HIV</a></li>
+                <li><a href="./#tbandhiv">TB&amp;HIV</a></li>
+                <li><a href="./#sti">STI</a></li>
+                <li><a href="./#vmcc">VMCC</a></li>
+            </ul>
+        </a></li>
         <li><a href="./#noncommunicabledisease">NON-COMMUNICABLE DISEASE</a></li>
         <!--<li><a href="./#morbidity">MORBIDITY</a></li>-->
         <!--<li><a href="./#mortality">MORTALITY</a></li>-->
@@ -241,7 +268,7 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="./#home">Dashboard</a></li>
                 <li><a class="dropdown-button" href="#!" data-activates="rchandhmisindicator">RCH&amp;HMIS Indicators<i class="material-icons mdi-navigation-arrow-drop-down right"></i></a></li>
-                <li><a class="dropdown-button" href="#!" data-activates="programindicator">Program Indicators<i class="material-icons mdi-navigation-arrow-drop-down right"></i></a></li>
+                <li><a class="dropdown-button" href="#!" data-activates="main-menu">Program Indicators<i class="material-icons mdi-navigation-arrow-drop-down right"></i></a></li>
                 <li><a class="dropdown-button" href="#!" data-activates="dropdown6">Raw Data Coverage<i class="material-icons mdi-navigation-arrow-drop-down right"></i></a></li>
                 <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Downloads<i class="material-icons mdi-navigation-arrow-drop-down right"></i></a></li>
                 <li><a  href="./#updates"> Updates</a></li>
@@ -312,7 +339,7 @@
 <script src='assets/libs/pace/pace.min.js'></script>
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="assets/libs/materialize/js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="assets/libs/jqueryui/js/jquery-ui-1.10.4.custom.js"></script>
+<script type="text/javascript" src="assets/js/jquery.smartmenus.js"></script>
 <script type="text/javascript" src="assets/libs/materialize/js/materialize.min.js"></script>
 <script type="text/javascript" src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
@@ -360,6 +387,20 @@
             gutter: 0, // Spacing from edge
             belowOrigin: false, // Displays dropdown below the button
             alignment: 'left' // Displays dropdown with edge aligned to the left of button
+        });
+        $(function() {
+            $('#main-menu').smartmenus({
+                mainMenuSubOffsetX: 10,
+                mainMenuSubOffsetY: 0,
+                subMenusSubOffsetX: 10,
+                subMenusSubOffsetY: 0
+            });
+            $('#dropdown8').smartmenus({
+                mainMenuSubOffsetX: 10,
+                mainMenuSubOffsetY: 0,
+                subMenusSubOffsetX: 10,
+                subMenusSubOffsetY: 0
+            });
         });
 
     })
