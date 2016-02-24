@@ -163,26 +163,13 @@ angular.module("hmisPortal")
             templateUrl: 'views/death.html',
             controller: 'deathCtrl'
         });
-        $routeProvider.when("/sti",{
-            templateUrl: 'views/sti.html',
-            controller: 'stiCtrl'
-        });
-        $routeProvider.when("/tracer",{
-            templateUrl: 'views/tracer.html',
-            controller: 'tracerCtrl'
-        });
-        $routeProvider.when("/dtc",{
-            templateUrl: 'views/dtc.html',
-            controller: 'dtcCtrl'
-        });
+
+
         $routeProvider.when("/hbc",{
             templateUrl: 'views/hbc.html',
             controller: 'hbcCtrl'
         });
-        $routeProvider.when("/eye",{
-            templateUrl: 'views/eye.html',
-            controller: 'eyeCtrl'
-        });
+
         $routeProvider.when("/hct",{
             templateUrl: 'views/hct.html',
             controller: 'hctCtrl'
@@ -195,22 +182,7 @@ angular.module("hmisPortal")
             templateUrl: 'views/indicatorsView.html',
             controller: 'indicatorsCtrl'
         });
-        $routeProvider.when("/lep09",{
-            templateUrl: 'views/lep09.html',
-            controller: 'lep09Ctrl'
-        });
-        $routeProvider.when("/lep10",{
-            templateUrl: 'views/lep10.html',
-            controller: 'lep10Ctrl'
-        });
-        $routeProvider.when("/tbo7",{
-            templateUrl: 'views/tbo7.html',
-            controller: 'tbo7Ctrl'
-        });
-        $routeProvider.when("/tb09",{
-            templateUrl: 'views/tb09.html',
-            controller: 'tb09Ctrl'
-        });
+
         $routeProvider.otherwise({
             redirectTo: '/home'
         });
