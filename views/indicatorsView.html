@@ -276,13 +276,11 @@
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">{{ card.title }}<i class="material-icons right">close</i></span>
-                        <p class="flow-text">{{ card.description }}</p>
-                        <table class="bordered">
-                            <tr><td>Indicator Type</td><td>{{card.indicatorType}}</td></tr>
-                            <tr><td>Numerator</td><td>{{card.numerator}}</td></tr>
-                            <tr><td>Denominator</td><td>{{card.denominator}}</td></tr>
-                        </table>
-                    </div>
+                            <p class="flow-text"><b>Description:</b>&nbsp;&nbsp;{{ card.description }}</p>
+                            <p class="flow-text"><b>Indicator Type:</b> &nbsp;&nbsp;{{card.indicatorType}}</p>
+                            <p class="flow-text"><b>Numerator:</b> &nbsp;&nbsp;{{card.numerator}}</p>
+                            <p class="flow-text"><b>Denominator:</b> &nbsp;&nbsp;{{card.denominator}}</p>
+                     </div>
                 </div>
 
                 <!--Model object for the card-->

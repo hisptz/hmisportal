@@ -10,14 +10,6 @@
     "chart":"bar"
   },
   {
-    "title":"Amoxycillin Availability",
-    "description":"Amoxycillin Availability",
-    "cardClass":"col m6 s12",
-    "cardSize":"medium",
-    "data":"KxS8b24bAZC"
-
-  },
-  {
     "title":"ANC 1-4 visit Dropout Rate",
     "description":"Description of ANC Malaria testing rate",
     "cardClass":"col m6 s12",
