@@ -127,6 +127,8 @@ angular.module('hmisPortal')
                     card.chart = 'table';
                     console.warn(portalService.period);
                     console.info(objectData);
+                    console.info(card.data);
+                    console.info(card.chart);
                     card.table = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, card.chart);
 
                     //hiding loading message
@@ -149,6 +151,8 @@ angular.module('hmisPortal')
                     card.displayTable = false;
                     console.warn(portalService.period);
                     console.info(objectData);
+                    console.info(card.data);
+                    console.info(card.chart);
                     card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, "spider");
                     $(function() {
                         $("#"+card.data).highcharts(card.chartObject);
@@ -161,6 +165,8 @@ angular.module('hmisPortal')
                     card.displayTable = false;
                     console.warn(portalService.period);
                     console.info(objectData);
+                    console.info(card.data);
+                    console.info(card.chart);
                     card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, "column");
                     $(function() {
                         $("#"+card.data).highcharts(card.chartObject);
@@ -174,6 +180,9 @@ angular.module('hmisPortal')
                     card.chart = "bar";
                     console.warn(portalService.period);
                     console.info(objectData);
+                    console.info(card.data);
+                    console.info(card.chart);
+                    console.info(card.chartObject);
                     card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, card.chart);
 
 
