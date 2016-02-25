@@ -352,7 +352,6 @@ angular.module('hmisPortal')
                                    });
                                });
                                $scope.changeChart(value.chart, value)
-                               $scope.updateParent(value,$scope.checkbox);
                                $scope.totalPop = numberWithCommas(getTotalDataFromUrl(analyticsObject.rows,value.data,$rootScope.selectedOrgUnit));
 
                             });
