@@ -125,6 +125,8 @@ angular.module('hmisPortal')
                     card.displayTable = true;
                     card.displayMap = false;
                     card.chart = 'table';
+                    console.warn(portalService.period);
+                    console.info(objectData);
                     card.table = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, card.chart);
 
                     //hiding loading message
@@ -145,6 +147,8 @@ angular.module('hmisPortal')
                     card.displayColumn = true;
                     card.displayMap = false;
                     card.displayTable = false;
+                    console.warn(portalService.period);
+                    console.info(objectData);
                     card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, "spider");
                     $(function() {
                         $("#"+card.data).highcharts(card.chartObject);
@@ -155,6 +159,8 @@ angular.module('hmisPortal')
                     card.displayColumn = true;
                     card.displayMap = false;
                     card.displayTable = false;
+                    console.warn(portalService.period);
+                    console.info(objectData);
                     card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, "column");
                     $(function() {
                         $("#"+card.data).highcharts(card.chartObject);
@@ -166,6 +172,8 @@ angular.module('hmisPortal')
                     card.displayMap = false;
                     card.displayTable = false;
                     card.chart = "bar";
+                    console.warn(portalService.period);
+                    console.info(objectData);
                     card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, card.chart);
 
 
