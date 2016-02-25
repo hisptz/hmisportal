@@ -29,8 +29,8 @@
       <file leaf-file-name="indicatorsCtrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2310231" vertical-offset="4423" max-vertical-offset="5175">
-              <caret line="320" column="12" selection-start-line="320" selection-start-column="12" selection-end-line="320" selection-end-column="12" />
+            <state vertical-scroll-proportion="3.029703" vertical-offset="3642" max-vertical-offset="5160">
+              <caret line="354" column="31" selection-start-line="354" selection-start-column="31" selection-end-line="354" selection-end-column="31" />
               <folding>
                 <element signature="e#12734#14895#0" expanded="false" />
               </folding>
@@ -892,8 +892,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2310231" vertical-offset="4423" max-vertical-offset="5175">
-          <caret line="320" column="12" selection-start-line="320" selection-start-column="12" selection-end-line="320" selection-end-column="12" />
+        <state vertical-scroll-proportion="3.029703" vertical-offset="3642" max-vertical-offset="5160">
+          <caret line="354" column="31" selection-start-line="354" selection-start-column="31" selection-end-line="354" selection-end-column="31" />
           <folding>
             <element signature="e#12734#14895#0" expanded="false" />
           </folding>

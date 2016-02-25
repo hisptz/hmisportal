@@ -102,7 +102,7 @@ angular.module('hmisPortal')
             portalService.parent=value;
             portalService.period = $rootScope.selectedPeriod;
             var url='';
-            if(value==='true'){
+            if(value==true){
                 if (portalService.orgUnitId == "m0frOspS7JY") {
                     url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&filter=pe:"+portalService.period+"&displayProperty=NAME";
                 } else {
