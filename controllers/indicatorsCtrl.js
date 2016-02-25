@@ -125,7 +125,7 @@ angular.module('hmisPortal')
                     card.displayTable = true;
                     card.displayMap = false;
                     card.chart = 'table';
-                    card.table = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, card.chart);
+                    card.table = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, card.chart);
 
                     //hiding loading message
                     card.chartObject.loading = false;
@@ -145,7 +145,7 @@ angular.module('hmisPortal')
                     card.displayColumn = true;
                     card.displayMap = false;
                     card.displayTable = false;
-                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, "spider");
+                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, "spider");
                     $(function() {
                         $("#"+card.data).highcharts(card.chartObject);
                         $("#c"+card.data).highcharts(card.chartObject);
@@ -155,7 +155,7 @@ angular.module('hmisPortal')
                     card.displayColumn = true;
                     card.displayMap = false;
                     card.displayTable = false;
-                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, "column");
+                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, "column");
                     $(function() {
                         $("#"+card.data).highcharts(card.chartObject);
                         $("#c"+card.data).highcharts(card.chartObject);
@@ -166,7 +166,7 @@ angular.module('hmisPortal')
                     card.displayMap = false;
                     card.displayTable = false;
                     card.chart = "bar";
-                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, card.chart);
+                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, card.chart);
 
 
                 }
