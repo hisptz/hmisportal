@@ -16,6 +16,8 @@ angular.module('hmisPortal')
                 $rootScope.showLoader = false
             });
 
+        //$scope.checkbox="false";
+
         //find the section where the user is now
         $scope.getCurrentSection = function(){
             var location = $location.path();
@@ -48,6 +50,7 @@ angular.module('hmisPortal')
 
         $rootScope.periodType = 'years';
         portalService.orgUnitId = $rootScope.selectedOrgUnit;
+        portalService.parent=$scope.checkbox;
         portalService.period = $rootScope.selectedPeriod;
         $scope.selectedOrgUnitLevel = "2";
         //getting indicators for specified card
@@ -90,6 +93,86 @@ angular.module('hmisPortal')
             });
             return dataElements.join(";");
         };
+        $scope.checkbox="false"
+        $scope.updateParent=function(card,value){
+            card.chartObject.loading = true;
+
+            //setting orgunit and period for service to use
+            portalService.orgUnitId = $rootScope.selectedOrgUnit;
+            portalService.parent=value;
+            portalService.period = $rootScope.selectedPeriod;
+            var url='';
+            if(value==='true'){
+                if (portalService.orgUnitId == "m0frOspS7JY") {
+                    url = self.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&filter=pe:"+portalService.period+"&displayProperty=NAME";
+                } else {
+                    url = self.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-2;LEVEL-3;"+portalService.orgUnitId+"&filter=pe:"+portalService.period+"&displayProperty=NAME";
+                }
+            }else{
+                if (portalService.orgUnitId == "m0frOspS7JY") {
+                    url = self.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-2;m0frOspS7JY&filter=pe:"+portalService.period+"&displayProperty=NAME";
+                } else {
+                    url = self.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-3;"+portalService.orgUnitId+"&filter=pe:"+portalService.period+"&displayProperty=NAME";
+                }
+            }
+            $http.get(url).success(function (objectData) {
+                card.displayTable = false;
+                $scope.showReport = true;
+                card.displayColumn = false;
+                console.info(card);
+                console.log(value);
+                if (card.chart == 'table') {
+                    card.displayTable = true;
+                    card.displayMap = false;
+                    card.chart = 'table';
+                    card.table = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, card.chart);
+
+                    //hiding loading message
+                    card.chartObject.loading = false;
+                } else if (card.chart == 'map') {
+                    card.displayMap = true;
+                    card.displayTable = false;
+                    card.chart = 'map';
+                    var dataToUse = portalService.prepareData(objectData,card.data);
+                    if ($rootScope.selectedOrgUnit == "m0frOspS7JY") {
+                        portalService.drawMap(portalService.base, portalService.orgUnitId, 2, card, card.title, dataToUse);
+                    } else {
+                        portalService.drawMap(portalService.base, portalService.orgUnitId, 3, card, card.title, dataToUse);
+                    }
+                    card.chartObject.loading = false;
+                }
+                else if(card.chart == 'spider'){
+                    card.displayColumn = true;
+                    card.displayMap = false;
+                    card.displayTable = false;
+                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, "spider");
+                    $(function() {
+                        $("#"+card.data).highcharts(card.chartObject);
+                        $("#c"+card.data).highcharts(card.chartObject);
+                    });
+
+                } else if(card.chart == 'column'){
+                    card.displayColumn = true;
+                    card.displayMap = false;
+                    card.displayTable = false;
+                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, "column");
+                    $(function() {
+                        $("#"+card.data).highcharts(card.chartObject);
+                        $("#c"+card.data).highcharts(card.chartObject);
+                    });
+
+                }
+                else {
+                    card.displayMap = false;
+                    card.displayTable = false;
+                    card.chart = "bar";
+                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, card.chart);
+
+
+                }
+                //$scope.checkbox=value;
+            });
+        }
 
         $scope.changeChart = function (type, card) {
 
@@ -98,6 +181,7 @@ angular.module('hmisPortal')
 
             //setting orgunit and period for service to use
             portalService.orgUnitId = $rootScope.selectedOrgUnit;
+            portalService.parent=$scope.checkbox;
             portalService.period = $rootScope.selectedPeriod;
             card.displayTable = false;
             $scope.showReport = true;
@@ -232,6 +316,7 @@ angular.module('hmisPortal')
 
         $rootScope.firstClick = function () {
             portalService.orgUnitId = $rootScope.selectedOrgUnit;
+            portalService.parent=$scope.checkbox;
             portalService.period = $rootScope.selectedPeriod;
 
             var location = $location.path();
@@ -250,7 +335,7 @@ angular.module('hmisPortal')
                        j_username: "portal", j_password: "Portal123"
                     },function(){
                         $rootScope.progressMessage = " getting " + location + " data ...";
-                        portalService.getAnalyticsObject(dataElements,portalService.period,portalService.orgUnitId).then(function(analyticsObject){
+                        portalService.getAnalyticsObject(dataElements,portalService.period,portalService.orgUnitId,portalService.parent).then(function(analyticsObject){
                             $scope.analyticsObject = analyticsObject;
                             $rootScope.showProgressMessage = false;
                             angular.forEach(data, function (value) {
