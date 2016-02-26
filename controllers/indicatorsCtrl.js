@@ -187,8 +187,7 @@ angular.module('hmisPortal')
 
 
                 }
-                //$scope.checkbox=value;
-            });
+              });
         }
 
         $scope.changeChart = function (type, card) {
@@ -369,7 +368,7 @@ angular.module('hmisPortal')
                                    });
                                });
                                $scope.changeChart(value.chart, value)
-                               $scope.totalPop = numberWithCommas(getTotalDataFromUrl(analyticsObject.rows,value.data,$rootScope.selectedOrgUnit));
+                               //$scope.totalPop = numberWithCommas(getTotalDataFromUrl(analyticsObject.rows,value.data,$rootScope.selectedOrgUnit));
 
                             });
                         }, function (response) { // optional

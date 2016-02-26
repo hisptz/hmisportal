@@ -175,6 +175,7 @@ chartServices.factory('chartsManager',function(){
         }
 
       });
+      console.log(num)
       return num;
     },
 
