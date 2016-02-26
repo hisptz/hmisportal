@@ -153,7 +153,7 @@ angular.module('hmisPortal')
                     console.info(objectData);
                     console.info(card.data);
                     console.info(card.chart);
-                    card.chartObject = chartsManager.drawChart(objectData, 'dx',[card.data] ,'ou',[] , 'pe', portalService.period, card.title, "spider");
+                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, "spider");
                     $(function() {
                         $("#"+card.data).highcharts(card.chartObject);
                         $("#c"+card.data).highcharts(card.chartObject);
@@ -167,7 +167,7 @@ angular.module('hmisPortal')
                     console.info(objectData);
                     console.info(card.data);
                     console.info(card.chart);
-                    card.chartObject = chartsManager.drawChart(objectData, 'dx',[card.data] ,'ou',[] , 'pe', portalService.period, card.title, "column");
+                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, "column");
                     $(function() {
                         $("#"+card.data).highcharts(card.chartObject);
                         $("#c"+card.data).highcharts(card.chartObject);
@@ -178,12 +178,7 @@ angular.module('hmisPortal')
                     card.displayMap = false;
                     card.displayTable = false;
                     card.chart = "bar";
-                    console.warn(portalService.period);
-                    console.info(objectData);
-                    console.info(card.data);
-                    console.info(card.chart);
-                    console.info(card.chartObject);
-                    card.chartObject = chartsManager.drawChart(objectData, 'dx',[card.data] ,'ou',[] , 'pe', portalService.period, card.title, card.chart);
+                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, card.chart);
 
 
                 }
