@@ -162,8 +162,7 @@ chartServices.factory('chartsManager',function(){
       console.log(yAxisUid);
       console.info(xAxisUid);
       $.each(analyticsObject.rows,function(key,value){
-        console.warn(value[currentService.getTitleIndex(analyticsObject.headers,yAxisType)]+"==="+yAxisUid);
-        if(filterType === 'none'){
+       if(filterType === 'none'){
           if(value[currentService.getTitleIndex(analyticsObject.headers,yAxisType)] === yAxisUid &&
             value[currentService.getTitleIndex(analyticsObject.headers,xAxisType)] === xAxisUid ){
             num = parseFloat(value[currentService.getTitleIndex(analyticsObject.headers,'value')]);
