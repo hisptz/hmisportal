@@ -175,8 +175,7 @@ chartServices.factory('chartsManager',function(){
         }
 
       });
-      console.log(num)
-      return num;
+     return num;
     },
 
     //drawing some charts
