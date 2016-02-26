@@ -104,15 +104,15 @@ angular.module('hmisPortal')
             var url='';
             if(value==true){
                 if (portalService.orgUnitId == "m0frOspS7JY") {
-                    url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&filter=pe:"+portalService.period+"&displayProperty=NAME";
+                    url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&dimension=pe:"+portalService.period+"&displayProperty=NAME";
                 } else {
-                    url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-2;LEVEL-3;"+portalService.orgUnitId+"&filter=pe:"+portalService.period+"&displayProperty=NAME";
+                    url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-2;LEVEL-3;"+portalService.orgUnitId+"&dimension=pe:"+portalService.period+"&displayProperty=NAME";
                 }
             }else{
                 if (portalService.orgUnitId == "m0frOspS7JY") {
-                    url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-2;m0frOspS7JY&filter=pe:"+portalService.period+"&displayProperty=NAME";
+                    url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-2;m0frOspS7JY&dimension=pe:"+portalService.period+"&displayProperty=NAME";
                 } else {
-                    url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-3;"+portalService.orgUnitId+"&filter=pe:"+portalService.period+"&displayProperty=NAME";
+                    url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-3;"+portalService.orgUnitId+"&dimension=pe:"+portalService.period+"&displayProperty=NAME";
                 }
             }
             $http.get(url).success(function (objectData) {
