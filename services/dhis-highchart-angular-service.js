@@ -159,11 +159,14 @@ chartServices.factory('chartsManager',function(){
     getDataValue : function(analyticsObject,xAxisType,xAxisUid,yAxisType,yAxisUid,filterType,filterUid){
       var num = 0;
       var currentService = this;
+      console.info(yAxisUid);
+      console.info(xAxisUid);
       $.each(analyticsObject.rows,function(key,value){
         if(filterType === 'none'){
           if(value[currentService.getTitleIndex(analyticsObject.headers,yAxisType)] === yAxisUid &&
             value[currentService.getTitleIndex(analyticsObject.headers,xAxisType)] === xAxisUid ){
             num = parseFloat(value[currentService.getTitleIndex(analyticsObject.headers,'value')]);
+
           }
         }else{
 

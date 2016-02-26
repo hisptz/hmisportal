@@ -247,6 +247,7 @@ angular.module('hmisPortal')
                 card.displayMap = false;
                 card.displayTable = false;
                 card.chart = type;
+                console.log($scope.analyticsObject);
                 card.chartObject = chartsManager.drawChart($scope.analyticsObject, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, card.chart);
 
 
