@@ -93,7 +93,7 @@ angular.module('hmisPortal')
             });
             return dataElements.join(";");
         };
-        $scope.checkbox="false"
+        $scope.checkbox=false;
         $scope.updateParent=function(card,value){
             card.chartObject.loading = true;
 
