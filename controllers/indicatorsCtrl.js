@@ -39,6 +39,11 @@ angular.module('hmisPortal')
             if(location == "cervicalCancer"){ name = "Cervical Cancer Indicators"; }
             if(location == "noncommunicabledisease"){ name = "Non Communicable Disease Indicators"; }
             if(location == "pmtct"){ name = "PMTCT"; }
+            if(location == "art"){ name = "ART"; }
+            if(location == "hbc"){ name = "HBC"; }
+            if(location == "pediatrichiv"){ name = "PEDIATRIC HIV"; }
+            if(location == "tbandhiv"){ name = "TB & HIV"; }
+            if(location == "vmcc"){ name = "VMCC"; }
             if(location == "sti"){ name = "STI"; }
 
             return name;
