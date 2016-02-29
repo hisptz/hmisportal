@@ -93,7 +93,7 @@ angular.module("hmisPortal")
         };
 
         this.getAnalyticsObject = function(dataElements,year,orgUnit,parentStatus){
-            if(parentStatus==='false'){
+            if(parentStatus===false){
             if(orgUnit === 'm0frOspS7JY'){
                 var url = self.base+"api/analytics.json?dimension=dx:"+dataElements+"&dimension=ou:LEVEL-2;m0frOspS7JY&dimension=pe:"+year+"&displayProperty=NAME";
             }else{
@@ -182,7 +182,7 @@ angular.module("hmisPortal")
 
                 var url = '';
 //                var url = '/analytics.json';
-                if(self.parent==='false'){
+                if(self.parent===false){
                 if (self.orgUnitId == "m0frOspS7JY") {
                     url = self.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-2;m0frOspS7JY&filter=pe:"+self.period+"&displayProperty=NAME";
                 } else {
