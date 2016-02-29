@@ -156,15 +156,24 @@ angular.module('hmisPortal')
         $scope.prepareDataForCSV = function(card){
             var chartObject = chartsManager.drawChart($scope.analyticsObject, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, 'bar');
             var items = [];
-            angular.forEach(chartObject.series,function(value){
-                var obj = {name:value.name};
+            angular.forEach(chartObject.xAxis.categories,function(value){
+                var obj = {name:value};
                 var i = 0;
-                angular.forEach(chartObject.xAxis.categories,function(val){
-                    obj[val] = value.data[i];
+                angular.forEach(chartObject.series,function(val){
+                    obj[val.name] = val.data[i];
                     i++;
                 })
                 items.push(obj);
             })
+            //angular.forEach(chartObject.series,function(value){
+            //    var obj = {name:value.name};
+            //    var i = 0;
+            //    angular.forEach(chartObject.xAxis.categories,function(val){
+            //        obj[val] = value.data[i];
+            //        i++;
+            //    })
+            //    items.push(obj);
+            //})
             return items;
         };
 
