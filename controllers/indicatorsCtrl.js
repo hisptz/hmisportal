@@ -189,7 +189,10 @@ angular.module('hmisPortal')
              //displaying loading message
             card.chartObject.loading = true;
              //setting orgunit and period for service to use
-            $scope.checkbox='false';
+            //$scope.checkbox='false';
+            if($scope.checkbox){
+                console.log($scope.checkbox);
+            }
             portalService.orgUnitId = $rootScope.selectedOrgUnit;
             portalService.parent=$scope.checkbox;
             portalService.period = $rootScope.selectedPeriod;
