@@ -186,16 +186,17 @@ angular.module('hmisPortal')
         }
 
         $scope.changeChart = function (type, card) {
-            $scope.checkbox="false"
-            //displaying loading message
+             //displaying loading message
             card.chartObject.loading = true;
              //setting orgunit and period for service to use
+            $scope.checkbox='false';
             portalService.orgUnitId = $rootScope.selectedOrgUnit;
             portalService.parent=$scope.checkbox;
             portalService.period = $rootScope.selectedPeriod;
             card.displayTable = false;
             $scope.showReport = true;
             card.displayColumn = false;
+            console.log($scope.checkbox);
             if (type == 'table') {
                 card.displayTable = true;
                 card.displayMap = false;
