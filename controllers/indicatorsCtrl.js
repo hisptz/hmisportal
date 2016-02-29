@@ -186,7 +186,7 @@ angular.module('hmisPortal')
         }
 
         $scope.changeChart = function (type, card) {
-
+            $scope.checkbox="false"
             //displaying loading message
             card.chartObject.loading = true;
 
