@@ -18,25 +18,5 @@
     "cardClass":"col m6 s12",
     "data":"iV4CdKjhtil",
     "chart":"combined"
-  },
-  {
-    "title": "Proportion of Non Communicable patient OPD",
-    "description": "Proportion of Non Communicable patient OPD",
-    "indicatorType": "",
-    "numerator": " ",
-    "denominator": " ",
-    "cardClass": "col m6 s12",
-    "data": "AOOfvMHBbXS",
-    "chart": "table"
-  },
-  {
-    "title": "Proportion of Non Communicable patient IPD",
-    "description": "Proportion of Non Communicable patient IPD",
-    "indicatorType": "",
-    "numerator": " ",
-    "denominator": " ",
-    "cardClass": "col m6 s12",
-    "data": "PsB0JRgXkvi",
-    "chart": "table"
   }
 ]
