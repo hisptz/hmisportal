@@ -25,7 +25,7 @@
     "indicatorType": "",
     "numerator": " ",
     "denominator": " ",
-    "cardClass": "col m6 s12",
+    "cardClass": "col m12 s12",
     "data": "z8xNkVFZq2f",
     "chart": "area"
   },
@@ -35,9 +35,9 @@
     "indicatorType": "",
     "numerator": " ",
     "denominator": " ",
-    "cardClass": "col m6 s12",
+    "cardClass": "col m12 s12",
     "data": "w6mBySri0In",
-    "chart": "table"
+    "chart": "line"
   },
   {
     "title": "Percent of clients (Adult and Children) current on second line ARV regimens at the end of reporting period",
@@ -45,7 +45,7 @@
     "indicatorType": "",
     "numerator": " ",
     "denominator": " ",
-    "cardClass": "col m6 s12",
+    "cardClass": "col m12 s12",
     "data": "q7xcHslhpeX",
     "chart": "bar"
   }

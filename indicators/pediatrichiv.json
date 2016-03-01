@@ -15,7 +15,7 @@
     "indicatorType":"",
     "numerator":" ",
     "denominator":" ",
-    "cardClass":"col m6 s12",
+    "cardClass":"col m12 s12",
     "data":"A9YN57MipDC",
     "chart":"line"
   },
@@ -25,7 +25,7 @@
     "indicatorType": "",
     "numerator": " ",
     "denominator": " ",
-    "cardClass": "col m6 s12",
+    "cardClass": "col m12 s12",
     "data": "fG35VBca5hV",
     "chart": "area"
   }
