@@ -106,6 +106,21 @@ angular.module("hmisPortal")
         $routeProvider.when("/nutrition",{
             templateUrl: 'views/indicatorsView.html',
             controller: 'indicatorsCtrl'
+        });$routeProvider.when("/hbc",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
+        });$routeProvider.when("/art",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
+        });$routeProvider.when("/pediatrichiv",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
+        });$routeProvider.when("/tbandhiv",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
+        });$routeProvider.when("/vmcc",{
+            templateUrl: 'views/indicatorsView.html',
+            controller: 'indicatorsCtrl'
         });
         $routeProvider.when("/hivaids",{
             templateUrl: 'views/indicatorsView.html',
