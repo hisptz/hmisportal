@@ -160,10 +160,11 @@ chartServices.factory('chartsManager',function(){
       var num = 0;
       var currentService = this;
       $.each(analyticsObject.rows,function(key,value){
-        if(filterType === 'none'){
+       if(filterType === 'none'){
           if(value[currentService.getTitleIndex(analyticsObject.headers,yAxisType)] === yAxisUid &&
             value[currentService.getTitleIndex(analyticsObject.headers,xAxisType)] === xAxisUid ){
             num = parseFloat(value[currentService.getTitleIndex(analyticsObject.headers,'value')]);
+
           }
         }else{
 
@@ -175,7 +176,7 @@ chartServices.factory('chartsManager',function(){
         }
 
       });
-      return num;
+     return num;
     },
 
     //drawing some charts

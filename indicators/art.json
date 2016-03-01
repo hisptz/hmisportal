@@ -1,0 +1,52 @@
+[
+  {
+    "title":"Number of PLHIV (Adult and Children) newly initiated on treatment (New on ART)",
+    "description":"Number of PLHIV (Adult and Children) newly initiated on treatment (New on ART)",
+    "indicatorType":"",
+    "numerator":" ",
+    "denominator":" ",
+    "cardClass":"col m12 s12",
+    "data":"GZHL7cb5NAE",
+    "chart":"line"
+  },
+  {
+    "title":"Percentage of adult men and women with HIV known to be on treatment 12 months after initiation of ART",
+    "description":"Percentage of adult men and women with HIV known to be on treatment 12 months after initiation of ART",
+    "indicatorType":"",
+    "numerator":" ",
+    "denominator":" ",
+    "cardClass":"col m12 s12",
+    "data":"mdIJFle6kDF",
+    "chart":"combined"
+  },
+  {
+    "title": "Cummulative number of persons (Adult and Children) ever started on ART at the end of the reporting period(Quarter)",
+    "description": "Cummulative number of persons (Adult and Children) ever started on ART at the end of the reporting period(Quarter)",
+    "indicatorType": "",
+    "numerator": " ",
+    "denominator": " ",
+    "cardClass": "col m12 s12",
+    "data": "z8xNkVFZq2f",
+    "chart": "area"
+  },
+  {
+    "title": "Current number of persons (Adult and Children) on ART at the end of the reporting period ",
+    "description": "Current number of persons (Adult and Children) on ART at the end of the reporting period",
+    "indicatorType": "",
+    "numerator": " ",
+    "denominator": " ",
+    "cardClass": "col m12 s12",
+    "data": "w6mBySri0In",
+    "chart": "line"
+  },
+  {
+    "title": "Percent of clients (Adult and Children) current on second line ARV regimens at the end of reporting period",
+    "description": "Percent of clients (Adult and Children) current on second line ARV regimens at the end of reporting period",
+    "indicatorType": "",
+    "numerator": " ",
+    "denominator": " ",
+    "cardClass": "col m12 s12",
+    "data": "q7xcHslhpeX",
+    "chart": "bar"
+  }
+]

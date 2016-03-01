@@ -16,6 +16,8 @@ angular.module('hmisPortal')
                 $rootScope.showLoader = false
             });
 
+        //$scope.checkbox="false";
+
         //find the section where the user is now
         $scope.getCurrentSection = function(){
             var location = $location.path();
@@ -36,6 +38,13 @@ angular.module('hmisPortal')
             if(location == "gbvVac"){ name = "GBV & VAC Indicators"; }
             if(location == "cervicalCancer"){ name = "Cervical Cancer Indicators"; }
             if(location == "noncommunicabledisease"){ name = "Non Communicable Disease Indicators"; }
+            if(location == "pmtct"){ name = "PMTCT"; }
+            if(location == "art"){ name = "ART"; }
+            if(location == "hbc"){ name = "HBC"; }
+            if(location == "pediatrichiv"){ name = "PEDIATRIC HIV"; }
+            if(location == "tbandhiv"){ name = "TB & HIV"; }
+            if(location == "vmcc"){ name = "VMCC"; }
+            if(location == "sti"){ name = "STI"; }
 
             return name;
         };
@@ -46,6 +55,7 @@ angular.module('hmisPortal')
 
         $rootScope.periodType = 'years';
         portalService.orgUnitId = $rootScope.selectedOrgUnit;
+        portalService.parent=$scope.checkbox;
         portalService.period = $rootScope.selectedPeriod;
         $scope.selectedOrgUnitLevel = "2";
         //getting indicators for specified card
@@ -88,18 +98,113 @@ angular.module('hmisPortal')
             });
             return dataElements.join(";");
         };
-
-        $scope.changeChart = function (type, card) {
-
-            //displaying loading message
+        $scope.checkbox=false;
+        $scope.updateParent=function(card,value){
             card.chartObject.loading = true;
 
             //setting orgunit and period for service to use
             portalService.orgUnitId = $rootScope.selectedOrgUnit;
+            portalService.parent=value;
+            portalService.period = $rootScope.selectedPeriod;
+            var url='';
+            if(value==true){
+                if (portalService.orgUnitId == "m0frOspS7JY") {
+                    url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&dimension=pe:"+portalService.period+"&displayProperty=NAME";
+                } else {
+                    url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-2;LEVEL-3;"+portalService.orgUnitId+"&dimension=pe:"+portalService.period+"&displayProperty=NAME";
+                }
+            }else{
+                if (portalService.orgUnitId == "m0frOspS7JY") {
+                    url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-2;m0frOspS7JY&dimension=pe:"+portalService.period+"&displayProperty=NAME";
+                } else {
+                    url = portalService.base+"api/analytics.json?dimension=dx:"+card.data+"&dimension=ou:LEVEL-3;"+portalService.orgUnitId+"&dimension=pe:"+portalService.period+"&displayProperty=NAME";
+                }
+            }
+            $http.get(url).success(function (objectData) {
+                card.displayTable = false;
+                $scope.showReport = true;
+                card.displayColumn = false;
+                console.info(card);
+                console.log(value);
+                if (card.chart == 'table') {
+                    card.displayTable = true;
+                    card.displayMap = false;
+                    card.chart = 'table';
+                    console.warn(portalService.period);
+                    console.info(objectData);
+                    console.info(card.data);
+                    console.info(card.chart);
+                    card.table = chartsManager.drawChart(objectData, 'dx',[card.data] ,'ou',[] , 'pe', portalService.period, card.title, card.chart);
+
+                    //hiding loading message
+                    card.chartObject.loading = false;
+                } else if (card.chart == 'map') {
+                    card.displayMap = true;
+                    card.displayTable = false;
+                    card.chart = 'map';
+                    var dataToUse = portalService.prepareData(objectData,card.data);
+                    if ($rootScope.selectedOrgUnit == "m0frOspS7JY") {
+                        portalService.drawMap(portalService.base, portalService.orgUnitId, 2, card, card.title, dataToUse);
+                    } else {
+                        portalService.drawMap(portalService.base, portalService.orgUnitId, 3, card, card.title, dataToUse);
+                    }
+                    card.chartObject.loading = false;
+                }
+                else if(card.chart == 'spider'){
+                    card.displayColumn = true;
+                    card.displayMap = false;
+                    card.displayTable = false;
+                    console.warn(portalService.period);
+                    console.info(objectData);
+                    console.info(card.data);
+                    console.info(card.chart);
+                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, "spider");
+                    $(function() {
+                        $("#"+card.data).highcharts(card.chartObject);
+                        $("#c"+card.data).highcharts(card.chartObject);
+                    });
+
+                } else if(card.chart == 'column'){
+                    card.displayColumn = true;
+                    card.displayMap = false;
+                    card.displayTable = false;
+                    console.warn(portalService.period);
+                    console.info(objectData);
+                    console.info(card.data);
+                    console.info(card.chart);
+                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, "column");
+                    $(function() {
+                        $("#"+card.data).highcharts(card.chartObject);
+                        $("#c"+card.data).highcharts(card.chartObject);
+                    });
+
+                }
+                else {
+                    card.displayMap = false;
+                    card.displayTable = false;
+                    card.chart = "bar";
+                    card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, card.chart);
+
+
+                }
+              });
+        }
+
+        $scope.changeChart = function (type, card) {
+             //displaying loading message
+            card.chartObject.loading = true;
+             //setting orgunit and period for service to use
+            //$scope.checkbox='false';
+            if($scope.checkbox){
+                console.log($scope.checkbox);
+            }
+            portalService.orgUnitId = $rootScope.selectedOrgUnit;
+            portalService.parent=$scope.checkbox;
             portalService.period = $rootScope.selectedPeriod;
             card.displayTable = false;
             $scope.showReport = true;
             card.displayColumn = false;
+            console.log($scope.checkbox);
             if (type == 'table') {
                 card.displayTable = true;
                 card.displayMap = false;
@@ -145,6 +250,7 @@ angular.module('hmisPortal')
                 card.displayMap = false;
                 card.displayTable = false;
                 card.chart = type;
+                console.log($scope.analyticsObject);
                 card.chartObject = chartsManager.drawChart($scope.analyticsObject, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, card.chart);
 
 
@@ -255,8 +361,8 @@ angular.module('hmisPortal')
 
         $rootScope.firstClick = function () {
             portalService.orgUnitId = $rootScope.selectedOrgUnit;
+            portalService.parent=$scope.checkbox;
             portalService.period = $rootScope.selectedPeriod;
-
             var location = $location.path();
             location = location.slice(1);
             $rootScope.progressMessage = " getting " + location + " indicators ...";
@@ -273,7 +379,7 @@ angular.module('hmisPortal')
                        j_username: "portal", j_password: "Portal123"
                     },function(){
                         $rootScope.progressMessage = " getting " + location + " data ...";
-                        portalService.getAnalyticsObject(dataElements,portalService.period,portalService.orgUnitId).then(function(analyticsObject){
+                        portalService.getAnalyticsObject(dataElements,portalService.period,portalService.orgUnitId,portalService.parent).then(function(analyticsObject){
                             $scope.analyticsObject = analyticsObject;
                             $rootScope.showProgressMessage = false;
                             angular.forEach(data, function (value) {
@@ -291,7 +397,7 @@ angular.module('hmisPortal')
                                    });
                                });
                                $scope.changeChart(value.chart, value)
-                               $scope.totalPop = numberWithCommas(getTotalDataFromUrl(analyticsObject.rows,value.data,$rootScope.selectedOrgUnit));
+                               //$scope.totalPop = numberWithCommas(getTotalDataFromUrl(analyticsObject.rows,value.data,$rootScope.selectedOrgUnit));
 
                             });
                         }, function (response) { // optional
