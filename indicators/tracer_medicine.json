@@ -45,7 +45,7 @@
     "denominator":" ",
     "cardClass":"col m6 s12",
     "data":"Y0HAPpe3X8A",
-    "chart":"map"
+    "chart":"bar"
   },
   {
     "title":"Penta Valent Availability",
@@ -138,7 +138,7 @@
     "denominator":" ",
     "cardClass":"col m6 s12",
     "data":"GfA6IHXRUyb",
-    "chart":"map"
+    "chart":"bar"
   },
 
   {
