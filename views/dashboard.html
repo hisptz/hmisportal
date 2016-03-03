@@ -427,8 +427,8 @@
                 <span class="card-title grey-text text-darken-4">{{ card.title }}<i class="material-icons right">close</i></span>
                 <p class="flow-text"><b>Description</b>:&nbsp;&nbsp;&nbsp;{{ card.description }}</p>
                  <ul ng-repeat="item in card.dataElementDetails">
-                    <li class="flow-text"><b>Date Element Aggregation Type</b>:&nbsp;&nbsp;&nbsp;{{item.aggregationType}}</li>
                     <li class="flow-text"><b>Date Element Name</b>:&nbsp;&nbsp;&nbsp;{{item.name}}</li>
+                    <li class="flow-text"><b>Date Element Aggregation Type</b>:&nbsp;&nbsp;&nbsp;{{item.aggregationType}}</li>
                     <li class="flow-text"><b>Date Element CategoryCombination </b>:&nbsp;&nbsp;&nbsp;{{item.categoryCombo.name}}</li>
                         <ul ng-repeat="type in item.categories">
                             <li class="flow-text"><b>Category Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}
@@ -439,8 +439,8 @@
                         </ul>
                  </ul>
                 <ul ng-repeat="item in card.dataSetDetails">
-                    <li class="flow-text"><b>Data Set Period Type</b>:&nbsp;&nbsp;&nbsp;{{item.periodType}}</li>
                     <li class="flow-text"><b>Data Set Name</b>:&nbsp;&nbsp;&nbsp;{{item.name}}</li>
+                    <li class="flow-text"><b>Data Set Period Type</b>:&nbsp;&nbsp;&nbsp;{{item.periodType}}</li>
                     <li class="flow-text"><b>Category Combination Name</b>:&nbsp;&nbsp;&nbsp;{{item.categoryCombo.name}}</li>
                     <ul ng-repeat="type in item.categories">
                         <li class="flow-text"><b>Category Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}
