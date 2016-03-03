@@ -56,7 +56,8 @@ angular.module("hmisPortal")
                                 var indicatorApi=
                                     $resource(portalService.base +"api/dataSets/"+$scope.dataSetId +".json?fields=id,name,periodType,shortName,dataEntryForm,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
                                 var indicatorResult=indicatorApi.get(function(dataSetObject){
-                                    $scope.dataSetDetails =$sce.getTrustedHtml(dataSetObject);
+                                    $scope.dataSetDetails =dataSetObject;
+                                    $scope.dataSetHTML =$sce.getTrustedHtml(dataSetObject.dataEntryForm.htmlCode);
                                  });
                             }).error(function(error){
                                 $rootScope.progressMessage = "Error during getting data...";

@@ -125,8 +125,8 @@
       <file leaf-file-name="dataCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/dataCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2460">
-              <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="2475">
+              <caret line="59" column="50" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -135,8 +135,8 @@
       <file leaf-file-name="dataset.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/dataset.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8951049" vertical-offset="1641" max-vertical-offset="2220">
-              <caret line="135" column="45" selection-start-line="135" selection-start-column="45" selection-end-line="135" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.7902098" vertical-offset="1686" max-vertical-offset="2220">
+              <caret line="135" column="66" selection-start-line="135" selection-start-column="66" selection-end-line="135" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -208,8 +208,8 @@
         <option value="$PROJECT_DIR$/indicators/ancIntegration.json" />
         <option value="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
         <option value="$PROJECT_DIR$/views/indicatorsView.html" />
-        <option value="$PROJECT_DIR$/views/dataset.html" />
         <option value="$PROJECT_DIR$/controllers/dataCtrl.js" />
+        <option value="$PROJECT_DIR$/views/dataset.html" />
       </list>
     </option>
   </component>
@@ -872,16 +872,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/dataCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2460">
-          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="2475">
+          <caret line="59" column="50" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/dataset.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8951049" vertical-offset="1641" max-vertical-offset="2220">
-          <caret line="135" column="45" selection-start-line="135" selection-start-column="45" selection-end-line="135" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.7902098" vertical-offset="1686" max-vertical-offset="2220">
+          <caret line="135" column="66" selection-start-line="135" selection-start-column="66" selection-end-line="135" selection-end-column="66" />
           <folding />
         </state>
       </provider>
