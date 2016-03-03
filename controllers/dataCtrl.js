@@ -7,7 +7,7 @@ angular.module("hmisPortal")
         $httpProvider.defaults.withCredentials = true;
         $httpProvider.defaults.headers.post["Content-Type"] = "application/json";
     })
-    .controller("dataCtrl",function ($rootScope,$scope,$http,$routeParams,chartsManager,$resource,portalService,$timeout) {
+    .controller("dataCtrl",function ($rootScope,$scope,$sce,$http,$routeParams,chartsManager,$resource,portalService,$timeout) {
         //displaying loading during page change
         $rootScope.$on("$routeChangeStart",
             function (event, current, previous, rejection) {
@@ -56,7 +56,7 @@ angular.module("hmisPortal")
                                 var indicatorApi=
                                     $resource(portalService.base +"api/dataSets/"+$scope.dataSetId +".json?fields=id,name,periodType,shortName,dataEntryForm,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
                                 var indicatorResult=indicatorApi.get(function(dataSetObject){
-                                    $scope.dataSetDetails =dataSetObject;
+                                    $scope.dataSetDetails =$sce.getTrustedHtml(dataSetObject);
                                  });
                             }).error(function(error){
                                 $rootScope.progressMessage = "Error during getting data...";
