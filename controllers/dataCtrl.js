@@ -54,7 +54,7 @@ angular.module("hmisPortal")
                                 $scope.loadingImage = false;
                                 $scope.rows = 'ou';
                                 var indicatorApi=
-                                    $resource(portalService.base +"api/dataSets/"+$scope.dataSetId +".json?fields=id,name,periodType,shortName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
+                                    $resource(portalService.base +"api/dataSets/"+$scope.dataSetId +".json?fields=id,name,periodType,shortName,dataEntryForm,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
                                 var indicatorResult=indicatorApi.get(function(dataSetObject){
                                     $scope.dataSetDetails =dataSetObject;
                                  });
