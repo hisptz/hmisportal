@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eaa8b7a4-f174-4934-84e4-1f5bff911dfd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/indicatorsCtrl.js" afterPath="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/indicatorsView.html" afterPath="$PROJECT_DIR$/views/indicatorsView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/portalService.js" afterPath="$PROJECT_DIR$/services/portalService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hmisportal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,16 +31,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-6.875" vertical-offset="2535" max-vertical-offset="6225">
               <caret line="180" column="55" selection-start-line="180" selection-start-column="55" selection-end-line="180" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ivd.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/indicators/ivd.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.416666" vertical-offset="1136" max-vertical-offset="1740">
-              <caret line="110" column="1" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -89,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="indicatorsCtrl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="indicatorsCtrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3330" max-vertical-offset="4500">
-              <caret line="379" column="33" selection-start-line="379" selection-start-column="33" selection-end-line="379" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.6451613" vertical-offset="3510" max-vertical-offset="4515">
+              <caret line="389" column="66" selection-start-line="389" selection-start-column="66" selection-end-line="389" selection-end-column="66" />
               <folding>
                 <element signature="e#4970#9784#0" expanded="false" />
                 <element signature="e#14806#16967#0" expanded="false" />
@@ -113,11 +100,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="indicatorsView.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="indicatorsView.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/indicatorsView.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6465517" vertical-offset="3990" max-vertical-offset="4815">
+            <state vertical-scroll-proportion="-11.25" vertical-offset="3945" max-vertical-offset="4815">
               <caret line="281" column="58" selection-start-line="281" selection-start-column="58" selection-end-line="281" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ancIntegration.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/indicators/ancIntegration.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.90384614" vertical-offset="28" max-vertical-offset="1020">
+              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -176,7 +173,6 @@
         <option value="$PROJECT_DIR$/controllers/dataCtrl.js" />
         <option value="$PROJECT_DIR$/views/dataset.html" />
         <option value="$PROJECT_DIR$/views/downloads.html" />
-        <option value="$PROJECT_DIR$/indicators/ancIntegration.json" />
         <option value="$PROJECT_DIR$/indicators/hivaids.json" />
         <option value="$PROJECT_DIR$/indicators/nutrition.json" />
         <option value="$PROJECT_DIR$/indicators/noncummicabledisease.json" />
@@ -208,9 +204,10 @@
         <option value="$PROJECT_DIR$/controllers/jinsiCtrl.js" />
         <option value="$PROJECT_DIR$/controllers/dashboardCtrl.js" />
         <option value="$PROJECT_DIR$/views/dashboard.html" />
-        <option value="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
         <option value="$PROJECT_DIR$/services/portalService.js" />
         <option value="$PROJECT_DIR$/views/indicatorsView.html" />
+        <option value="$PROJECT_DIR$/indicators/ancIntegration.json" />
+        <option value="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
       </list>
     </option>
   </component>
@@ -691,13 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/indicators/ancIntegration.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7421875" vertical-offset="0" max-vertical-offset="1020">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/dhis-highchart-angular-service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2205" max-vertical-offset="6045">
@@ -871,18 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3330" max-vertical-offset="4500">
-          <caret line="379" column="33" selection-start-line="379" selection-start-column="33" selection-end-line="379" selection-end-column="33" />
-          <folding>
-            <element signature="e#4970#9784#0" expanded="false" />
-            <element signature="e#14806#16967#0" expanded="false" />
-            <element signature="e#14884#14983#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/portalService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2657" max-vertical-offset="4410">
@@ -891,11 +869,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/indicators/ancIntegration.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.90384614" vertical-offset="28" max-vertical-offset="1020">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/indicatorsView.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6465517" vertical-offset="3990" max-vertical-offset="4815">
+        <state vertical-scroll-proportion="-11.25" vertical-offset="3945" max-vertical-offset="4815">
           <caret line="281" column="58" selection-start-line="281" selection-start-column="58" selection-end-line="281" selection-end-column="58" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6451613" vertical-offset="3510" max-vertical-offset="4515">
+          <caret line="389" column="66" selection-start-line="389" selection-start-column="66" selection-end-line="389" selection-end-column="66" />
+          <folding>
+            <element signature="e#4970#9784#0" expanded="false" />
+            <element signature="e#14806#16967#0" expanded="false" />
+            <element signature="e#14884#14983#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

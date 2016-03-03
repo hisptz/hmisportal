@@ -277,10 +277,10 @@
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">{{ card.title }}<i class="material-icons right">close</i></span>
-                            <p class="flow-text"><b>Name:</b>&nbsp;&nbsp;{{ indicatorType.name }}</p>
-                            <p class="flow-text"><b>Numerator Description:</b>&nbsp;&nbsp;{{ indicatorType.numeratorDescription }}</p>
-                            <p class="flow-text"><b>Denominator Description:</b>&nbsp;&nbsp;{{ indicatorType.denominatorDescription }}</p>
-                            <p class="flow-text"><b>Indicator Type:</b> &nbsp;&nbsp;{{indicatorType.indicatorType.name}}</p>
+                            <p class="flow-text"><b>Name:</b>&nbsp;&nbsp;{{ card.indicatorType.name }}</p>
+                            <p class="flow-text"><b>Numerator Description:</b>&nbsp;&nbsp;{{ card.indicatorType.numeratorDescription }}</p>
+                            <p class="flow-text"><b>Denominator Description:</b>&nbsp;&nbsp;{{ card.indicatorType.denominatorDescription }}</p>
+                            <p class="flow-text"><b>Indicator Type:</b> &nbsp;&nbsp;{{card.indicatorType.indicatorType.name}}</p>
                             <p class="flow-text"><b>Numerator Formula:</b> &nbsp;&nbsp;{{card.numerator}}</p>
                             <p class="flow-text"><b>Denominator Formula:</b> &nbsp;&nbsp;{{card.denominator}}</p>
                             <ul ng-repeat="dataset in indicatorType.dataSets">
