@@ -234,13 +234,13 @@
                             </div>
                             <div class="card-reveal">
                                 <span class="card-title grey-text text-darken-4">{{ card.title }}  ( {{ totalPop }} )<i class="material-icons right">close</i></span>
-                                <p class="flow-text">{{ card.description }}</p>
-                                <p class="flow-text">{{card.dataElementDetails.aggregationType}}</p>
-                                <p class="flow-text">{{card.dataElementDetails.categoryCombo.name}}</p>
+                                <p class="flow-text"><b>Description</b>:&nbsp;&nbsp;&nbsp;{{ card.description }}</p>
+                                <p class="flow-text"><b>Data Element Aggregation Type</b>:&nbsp;&nbsp;&nbsp;{{card.dataElementDetails.aggregationType}}</p>
+                                <p class="flow-text"><b>Data Element Category Combination</b>:&nbsp;&nbsp;&nbsp;{{card.dataElementDetails.categoryCombo.name}}</p>
                                 <ul ng-repeat="item in card.dataElementDetails.categoryCombo.categories">
-                                       <li class="flow-text">{{item.name}}
+                                       <li class="flow-text"><b>Categories</b>:&nbsp;&nbsp;&nbsp;{{item.name}}
                                            <ul ng-repeat="type in item.categoryOptions">
-                                             <li class="flow-text">{{type.name}}</li>
+                                             <li class="flow-text"><b>Categories Option</b>:&nbsp;&nbsp;&nbsp;{{type.name}}</li>
                                            </ul>
                                        </li>
                                  </ul>
@@ -303,12 +303,12 @@
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">POPULATION BY AGE GROUP<i class="material-icons right">close</i></span>
                         <p class="flow-text">Population data</p>
-                        <p class="flow-text">{{card.dataElementDetails.aggregationType}}</p>
-                        <p class="flow-text">{{card.dataElementDetails.categoryCombo.name}}</p>
-                        <ul ng-repeat="item in card.dataElementDetails.categoryCombo.categories">
-                            <li class="flow-text">{{item.name}}
+                        <p class="flow-text"><b>Data Element Aggregation Type</b>:&nbsp;&nbsp;&nbsp;{{dataElementDetail.aggregationType}}</p>
+                        <p class="flow-text"><b>Date Element Category Combination</b>:&nbsp;&nbsp;&nbsp;{{dataElementDetail.categoryCombo.name}}</p>
+                        <ul ng-repeat="item in dataElementDetail.categoryCombo.categories">
+                            <li class="flow-text"><b>Category Name</b>:&nbsp;&nbsp;&nbsp; {{item.name}}
                                 <ul ng-repeat="type in item.categoryOptions">
-                                    <li class="flow-text">{{type.name}}</li>
+                                    <li class="flow-text"><b>Category Option Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}</li>
                                 </ul>
                             </li>
                         </ul>
@@ -354,11 +354,12 @@
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">POPULATION BY GENDER<i class="material-icons right">close</i></span>
             <p class="flow-text">Population data by gender</p>
-            <p class="flow-text">{{card.dataElementDetails.aggregationType}}</p>
-            <ul ng-repeat="item in card.dataElementDetails.categoryCombo.categories">
-                <li class="flow-text">{{item.name}}
+            <p class="flow-text"><b>Date Element Aggregation Name</b>:&nbsp;&nbsp;&nbsp;{{dataElementDetail.aggregationType}}</p>
+            <p class="flow-text"><b>Date Element Category Combination Name</b>:&nbsp;&nbsp;&nbsp;{{dataElementDetail.categoryCombo.name}}</p>
+            <ul ng-repeat="item in dataElementDetail.categoryCombo.categories">
+                <li class="flow-text"><b>Category Name</b>:&nbsp;&nbsp;&nbsp;{{item.name}}
                     <ul ng-repeat="type in item.categoryOptions">
-                        <li class="flow-text">{{type.name}}</li>
+                        <li class="flow-text"><b>Category Option Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}</li>
                     </ul>
                 </li>
             </ul>
@@ -424,27 +425,27 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">{{ card.title }}<i class="material-icons right">close</i></span>
-                <p class="flow-text">{{ card.description }}</p>
+                <p class="flow-text"><b>Description</b>:&nbsp;&nbsp;&nbsp;{{ card.description }}</p>
                  <ul ng-repeat="item in card.dataElementDetails">
-                    <li class="flow-text">{{item.aggregationType}}</li>
-                    <li class="flow-text">{{item.name}}</li>
-                    <li class="flow-text">{{item.categoryCombo.name}}</li>
+                    <li class="flow-text"><b>Date Element Aggregation Type</b>:&nbsp;&nbsp;&nbsp;{{item.aggregationType}}</li>
+                    <li class="flow-text"><b>Date Element Name</b>:&nbsp;&nbsp;&nbsp;{{item.name}}</li>
+                    <li class="flow-text"><b>Date Element CategoryCombination </b>:&nbsp;&nbsp;&nbsp;{{item.categoryCombo.name}}</li>
                         <ul ng-repeat="type in item.categories">
-                            <li class="flow-text">{{type.name}}
+                            <li class="flow-text"><b>Category Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}
                               <ul ng-repeat="option in type.categoryOptions">
-                                   <li class="flow-text">{{option.name}}</li>
+                                   <li class="flow-text"><b>Category Option Name</b>:&nbsp;&nbsp;&nbsp;{{option.name}}</li>
                               </ul>
                             </li>
                         </ul>
                  </ul>
                 <ul ng-repeat="item in card.dataSetDetails">
-                    <li class="flow-text">{{item.periodType}}</li>
-                    <li class="flow-text">{{item.name}}</li>
-                    <li class="flow-text">{{item.categoryCombo.name}}</li>
+                    <li class="flow-text"><b>Data Set Period Type</b>:&nbsp;&nbsp;&nbsp;{{item.periodType}}</li>
+                    <li class="flow-text"><b>Data Set Name</b>:&nbsp;&nbsp;&nbsp;{{item.name}}</li>
+                    <li class="flow-text"><b>Category Combination Name</b>:&nbsp;&nbsp;&nbsp;{{item.categoryCombo.name}}</li>
                     <ul ng-repeat="type in item.categories">
-                        <li class="flow-text">{{type.name}}
+                        <li class="flow-text"><b>Category Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}
                             <ul ng-repeat="option in type.categoryOptions">
-                                <li class="flow-text">{{option.name}}</li>
+                                <li class="flow-text"><b>Category Option Name</b>:&nbsp;&nbsp;&nbsp;{{option.name}}</li>
                             </ul>
                         </li>
                     </ul>
