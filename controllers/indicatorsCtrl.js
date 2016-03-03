@@ -387,6 +387,7 @@ angular.module('hmisPortal')
                                    $resource(portalService.base+"api/indicators/"+value.data+".json?fields=id,name,numeratorDescription,denominatorDescription,denominator,numerator,indicatorType[id,name],dataSets[id,name,periodType]");
                                var indicatorResult=indicatorApi.get(function(indicatorObject){
                                    value.indicatorType=indicatorObject;
+                                   console.log(value.indicatorType);
                                    var expApi=
                                        $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
                                    var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
