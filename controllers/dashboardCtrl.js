@@ -7,7 +7,7 @@ angular.module("hmisPortal")
     .config(function($httpProvider) {
         $httpProvider.defaults.withCredentials = true;
     })
-    .controller("dashboardCtrl",function ($rootScope,$scope,$http,$location,$timeout,olData,olHelpers,shared,portalService) {
+    .controller("dashboardCtrl",function ($rootScope,$scope,$http,$location,$timeout,olData,olHelpers,shared,$resource,portalService) {
 
         $scope.linkValue="census"
         $scope.activateLink = function(linkValue){
@@ -33,6 +33,7 @@ angular.module("hmisPortal")
         $scope.selectedOrgUnitLevel = "2";
         $scope.population = {};
         $scope.population.displayTable = false;
+        $scope.dataElementDetail="";
         $scope.icons=[
             {name:'table',image:'table.jpg',action:''},
             {name:'column',image:'bar.png',action:''},
@@ -138,6 +139,7 @@ angular.module("hmisPortal")
                 j_username: "portal", j_password: "Portal123"
             },function(){
                 $scope.chartConfig.title.text = "POPULATION BY AGE GROUP";
+                $scope.dataElementUid="ykShMtNgDB1";
                 $scope.area = [];
                 if($scope.selectedOrgUnit == "m0frOspS7JY"){
 
@@ -151,6 +153,12 @@ angular.module("hmisPortal")
                     angular.forEach(useThisData.regions,function(value){
                         $scope.area.push(value.name);
                     });
+                    var indicatorApi=
+                        $resource(portalService.base +"api/dataElements/"+$scope.dataElementUid +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
+                     var indicatorResult=indicatorApi.get(function(dataElementObject){
+                         $scope.dataElementDetail=dataElementObject;
+                         console.error($scope.dataElementDetail);
+                     });
                     $scope.subCategory = useThisData.elements;
                     $scope.chartConfig.xAxis.categories = $scope.area;
 
@@ -290,6 +298,7 @@ angular.module("hmisPortal")
             displayTable:false,
             displayMap:false,
             chart:'column',
+            dataElementDetails:'',
             chartObject:{
                 title: {
                     text: 'Combination chart'
@@ -424,6 +433,12 @@ angular.module("hmisPortal")
                     angular.forEach(dataToUse,function(val){
                         cardObject.chartObject.xAxis.categories.push(val.name);
                     });
+                    var indicatorApi=
+                        $resource(portalService.base +"api/dataElements/"+cardObject.data +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
+                    var indicatorResult=indicatorApi.get(function(dataElementObject){
+                        cardObject.dataElementDetails=dataElementObject;
+                        console.warn(cardObject.dataElementDetails);
+                      });
                     $scope.normalseries = [];
                     if(chart == "pie"){
                         delete cardObject.chartObject.chart;
@@ -466,9 +481,6 @@ angular.module("hmisPortal")
                         }else{
                             console.log($scope.baseUrl);
                             console.log($scope.selectedOrgUnit);
-                            console.log(3);
-                            console.log(cardObject);
-                            console.log(dataToUse);
                             portalService.drawMap($scope.baseUrl,$scope.selectedOrgUnit, 3, cardObject,cardObject.title,dataToUse);
 
                         }

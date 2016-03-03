@@ -6,7 +6,7 @@ angular.module("hmisPortal")
     .config(function($httpProvider) {
         $httpProvider.defaults.withCredentials = true;
     })
-    .controller("jinsiCtrl",function ($rootScope,$scope,$http,$location,$timeout,olData,olHelpers,shared,portalService) {
+    .controller("jinsiCtrl",function ($rootScope,$scope,$http,$location,$timeout,olData,olHelpers,shared,$resource,portalService) {
         //displaying loading during page change
         $rootScope.$on("$routeChangeStart",
             function (event, current, previous, rejection) {
@@ -287,6 +287,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'column',
+                dataElementDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -299,6 +300,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'column',
+                dataElementDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -312,6 +314,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'column',
+                dataSetDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -325,6 +328,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'column',
+                dataSetDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -338,6 +342,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'column',
+                dataSetDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -351,6 +356,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'column',
+                dataSetDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -449,7 +455,26 @@ angular.module("hmisPortal")
                 }else{
                     $scope.url = portalService.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-2;LEVEL-3;"+$scope.selectedOrgUnit+"&filter=pe:"+$scope.selectedPeriod+"&displayProperty=NAME";
                 }
+                if(cardObject.hasOwnProperty('dataSetDetails')){
+                    angular.forEach(cardObject.data.split(";"),function(val){
+                        var indicatorApi=
+                            $resource(portalService.base +"api/dataSets/"+val +".json?fields=id,name,periodType,shortName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
+                        var indicatorResult=indicatorApi.get(function(dataElementObject){
+                            cardObject.dataSetDetails.push(dataElementObject);
+                            console.log(cardObject.dataSetDetails);
+                        });
+                    });
+                }else{
 
+                    angular.forEach(cardObject.data.split(";"),function(val){
+                  var indicatorApi=
+                        $resource(portalService.base +"api/dataElements/"+val +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
+                    var indicatorResult=indicatorApi.get(function(dataElementObject){
+                        cardObject.dataElementDetails.push(dataElementObject);
+                        console.info(cardObject.dataElementDetails);
+                    });
+                  });
+                }
 
                 $http.get($scope.url).success(function(data){
                     if(data.hasOwnProperty('metaData')){
