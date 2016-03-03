@@ -277,15 +277,15 @@
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">{{ card.title }}<i class="material-icons right">close</i></span>
-                            <p class="flow-text"><b>Name:</b>&nbsp;&nbsp;{{ card.indicatorType.name }}</p>
-                            <p class="flow-text"><b>Numerator Description:</b>&nbsp;&nbsp;{{ card.indicatorType.numeratorDescription }}</p>
-                            <p class="flow-text"><b>Denominator Description:</b>&nbsp;&nbsp;{{ card.indicatorType.denominatorDescription }}</p>
-                            <p class="flow-text"><b>Indicator Type:</b> &nbsp;&nbsp;{{card.indicatorType.indicatorType.name}}</p>
-                            <p class="flow-text"><b>Numerator Formula:</b> &nbsp;&nbsp;{{card.numerator}}</p>
-                            <p class="flow-text"><b>Denominator Formula:</b> &nbsp;&nbsp;{{card.denominator}}</p>
-                            <ul ng-repeat="dataset in indicatorType.dataSets">
-                                <li class="flow-text"><b>Data Set Name</b>:&nbsp;&nbsp;{{dataset.name}}</li>
-                                <li class="flow-text"><b>Data Set Period Type</b>:&nbsp;&nbsp;{{dataset.periodType}}</li>
+                            <p class="flow-text" ng-if="card.indicatorType.name"><b>Name:</b>&nbsp;&nbsp;{{ card.indicatorType.name }}</p>
+                            <p class="flow-text" ng-if="card.indicatorType.numeratorDescription"><b>Numerator Description:</b>&nbsp;&nbsp;{{ card.indicatorType.numeratorDescription }}</p>
+                            <p class="flow-text" ng-if="card.indicatorType.denominatorDescription"><b>Denominator Description:</b>&nbsp;&nbsp;{{ card.indicatorType.denominatorDescription }}</p>
+                            <p class="flow-text" ng-if="card.indicatorType.indicatorType.name"><b>Indicator Type:</b> &nbsp;&nbsp;{{card.indicatorType.indicatorType.name}}</p>
+                            <p class="flow-text" ng-if="card.numerator"><b>Numerator Formula:</b> &nbsp;&nbsp;{{card.numerator}}</p>
+                            <p class="flow-text" ng-if="card.denominator"><b>Denominator Formula:</b> &nbsp;&nbsp;{{card.denominator}}</p>
+                            <ul ng-repeat="dataset in card.indicatorType.dataSets">
+                                <li class="flow-text" ng-if="dataset.name"><b>Data Set Name</b>:&nbsp;&nbsp;{{dataset.name}}</li>
+                                <li class="flow-text" ng-if="dataset.periodType"><b>Data Set Period Type</b>:&nbsp;&nbsp;{{dataset.periodType}}</li>
                             </ul>
                      </div>
                 </div>
