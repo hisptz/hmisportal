@@ -384,9 +384,9 @@ angular.module('hmisPortal')
                             $rootScope.showProgressMessage = false;
                             angular.forEach(data, function (value) {
                                var indicatorApi=
-                                   $resource(portalService.base+"api/indicators/"+value.data+".json");
+                                   $resource(portalService.base+"api/indicators/"+value.data+".json?fields=id,name,numeratorDescription,denominatorDescription,denominator,numerator,indicatorType[id,name],dataSets[id,name,periodType]");
                                var indicatorResult=indicatorApi.get(function(indicatorObject){
-                                   value.indicatorType=indicatorObject.indicatorType.name;
+                                   value.indicatorType=indicatorObject;
                                    var expApi=
                                        $resource(portalService.base+'api/expressions/description',{get:{method:"JSONP"}});
                                    var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){

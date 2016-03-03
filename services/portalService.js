@@ -199,9 +199,9 @@ angular.module("hmisPortal")
                 $http.get(url).success(function (data) {
                        cardObject.header=data.metaData.names[cardObject.data];
                     var indicatorApi=
-                        $resource(self.base+"api/indicators/"+cardObject.data+".json");
+                        $resource(self.base+"api/indicators/"+cardObject.data+".json?fields=id,name,numeratorDescription,denominatorDescription,denominator,numerator,indicatorType[id,name],dataSets[id,name,periodType]");
                         var indicatorResult=indicatorApi.get(function(indicatorObject){
-                            cardObject.indicatorType=indicatorObject.indicatorType.name;
+                            cardObject.indicatorType=indicatorObject;
                             var expApi=
                             $resource(self.base+'api/expressions/description',{get:{method:"JSONP"}});
                              var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){
