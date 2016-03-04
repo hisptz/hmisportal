@@ -23,28 +23,28 @@ angular.module('hmisPortal')
             var location = $location.path();
             location = location.slice(1);
             var name = "";
-            if(location == "malaria"){ name = "Malaria Indicators"; }
-            if(location == "ivd"){ name = "IVD Indicators"; }
-            if(location == "nutrition"){ name = "Nutrition Indicators"; }
-            if(location == "hivaids"){ name = "HIV AIDS Indicators"; }
-            if(location == "tracer_medicine"){ name = "Trace Medicine Indicators"; }
-            if(location == "tb"){ name = "TB Indicators"; }
+            if(location == "malaria"){ name = "Malaria Indicators(RCH & HMIS Indicators)"; }
+            if(location == "ivd"){ name = "IVD Indicators(Program Indicators)"; }
+            if(location == "nutrition"){ name = "Nutrition Indicators(Program Indicators)"; }
+            if(location == "hivaids"){ name = "HIV AIDS Indicators(Program Indicators)"; }
+            if(location == "tracer_medicine"){ name = "Trace Medicine Indicators(Program Indicators)"; }
+            if(location == "tb"){ name = "TB Indicators(Program Indicators)"; }
             if(location == "mortalities"){ name = "Mortalities Indicators"; }
-            if(location == "antenatalCare"){ name = "Antenatal Care Indicators"; }
-            if(location == "ancIntegration"){ name = "ANC Integration Indicators"; }
-            if(location == "laborDelivery"){ name = "Labour and Delivery Indicators"; }
-            if(location == "newbornCare"){ name = "Newborn Care Indicators"; }
-            if(location == "postnatalCare"){ name = "Postnatal Care Indicators"; }
-            if(location == "gbvVac"){ name = "GBV & VAC Indicators"; }
-            if(location == "cervicalCancer"){ name = "Cervical Cancer Indicators"; }
-            if(location == "noncommunicabledisease"){ name = "Non Communicable Disease Indicators"; }
-            if(location == "pmtct"){ name = "PMTCT"; }
-            if(location == "art"){ name = "ART"; }
-            if(location == "hbc"){ name = "HBC"; }
-            if(location == "pediatrichiv"){ name = "PEDIATRIC HIV"; }
-            if(location == "tbandhiv"){ name = "TB & HIV"; }
-            if(location == "vmcc"){ name = "VMCC"; }
-            if(location == "sti"){ name = "STI"; }
+            if(location == "antenatalCare"){ name = "Antenatal Care Indicators(RCH & HMIS Indicators)"; }
+            if(location == "ancIntegration"){ name = "ANC Integration Indicators(RCH & HMIS Indicators)"; }
+            if(location == "laborDelivery"){ name = "Labour and Delivery Indicators(RCH & HMIS Indicators)"; }
+            if(location == "newbornCare"){ name = "Newborn Care Indicators(RCH & HMIS Indicators)"; }
+            if(location == "postnatalCare"){ name = "Postnatal Care Indicators(RCH & HMIS Indicators)"; }
+            if(location == "gbvVac"){ name = "GBV & VAC Indicators(RCH & HMIS Indicators)"; }
+            if(location == "cervicalCancer"){ name = "Cervical Cancer Indicators(RCH & HMIS Indicators)"; }
+            if(location == "noncommunicabledisease"){ name = "Non Communicable Disease Indicators(Program Indicators)"; }
+            if(location == "pmtct"){ name = "PMTCT(HIV AIDS Indicators(Program Indicators))"; }
+            if(location == "art"){ name = "ART(HIV AIDS Indicators(Program Indicators))"; }
+            if(location == "hbc"){ name = "HBC(HIV AIDS Indicators(Program Indicators))"; }
+            if(location == "pediatrichiv"){ name = "PEDIATRIC HIV(HIV AIDS Indicators(Program Indicators))"; }
+            if(location == "tbandhiv"){ name = "TB & HIV(HIV AIDS Indicators(Program Indicators))"; }
+            if(location == "vmcc"){ name = "VMCC(HIV AIDS Indicators(Program Indicators))"; }
+            if(location == "sti"){ name = "STI(HIV AIDS Indicators(Program Indicators))"; }
 
             return name;
         };
