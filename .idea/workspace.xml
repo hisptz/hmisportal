@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaa8b7a4-f174-4934-84e4-1f5bff911dfd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/mainCtrl.js" afterPath="$PROJECT_DIR$/controllers/mainCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/dashboardCtrl.js" afterPath="$PROJECT_DIR$/controllers/dashboardCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/indicatorsCtrl.js" afterPath="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hmisportal.iws" />
@@ -53,8 +53,8 @@
       <file leaf-file-name="dashboardCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/dashboardCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.142857" vertical-offset="0" max-vertical-offset="8880">
-              <caret line="32" column="37" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="37" />
+            <state vertical-scroll-proportion="-1.6071428" vertical-offset="90" max-vertical-offset="9000">
+              <caret line="9" column="92" selection-start-line="9" selection-start-column="84" selection-end-line="9" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -93,11 +93,11 @@
       <file leaf-file-name="indicatorsCtrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8248472" vertical-offset="135" max-vertical-offset="5595">
-              <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.7026477" vertical-offset="0" max-vertical-offset="5655">
+              <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
               <folding>
-                <element signature="e#15144#17305#0" expanded="false" />
-                <element signature="e#15222#15321#0" expanded="false" />
+                <element signature="e#15338#17499#0" expanded="false" />
+                <element signature="e#15416#15515#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -208,11 +208,11 @@
         <option value="$PROJECT_DIR$/controllers/dataCtrl.js" />
         <option value="$PROJECT_DIR$/assets/libs/materialize/css/materialize.min.css" />
         <option value="$PROJECT_DIR$/views/dataset.html" />
-        <option value="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
-        <option value="$PROJECT_DIR$/controllers/dashboardCtrl.js" />
         <option value="$PROJECT_DIR$/controllers/jinsiCtrl.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/controllers/mainCtrl.js" />
+        <option value="$PROJECT_DIR$/controllers/dashboardCtrl.js" />
+        <option value="$PROJECT_DIR$/controllers/indicatorsCtrl.js" />
       </list>
     </option>
   </component>
@@ -834,14 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/dashboardCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.142857" vertical-offset="0" max-vertical-offset="8880">
-          <caret line="32" column="37" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/jinsiCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.5" vertical-offset="12596" max-vertical-offset="16005">
@@ -880,13 +872,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/dashboardCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6071428" vertical-offset="90" max-vertical-offset="9000">
+          <caret line="9" column="92" selection-start-line="9" selection-start-column="84" selection-end-line="9" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/indicatorsCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8248472" vertical-offset="135" max-vertical-offset="5595">
-          <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.7026477" vertical-offset="0" max-vertical-offset="5655">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
           <folding>
-            <element signature="e#15144#17305#0" expanded="false" />
-            <element signature="e#15222#15321#0" expanded="false" />
+            <element signature="e#15338#17499#0" expanded="false" />
+            <element signature="e#15416#15515#0" expanded="false" />
           </folding>
         </state>
       </provider>

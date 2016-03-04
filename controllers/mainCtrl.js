@@ -3,7 +3,7 @@
  */
 
 angular.module("hmisPortal")
-    .run(function($window, $rootScope) {
+    .run(function($window, $rootScope,$timeout) {
         $rootScope.online = navigator.onLine;
         $window.addEventListener("offline", function () {
             $rootScope.$apply(function() {
