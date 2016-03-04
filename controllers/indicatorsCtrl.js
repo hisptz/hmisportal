@@ -17,12 +17,13 @@ angular.module('hmisPortal')
                     });
                 }, false);
                 $window.addEventListener("online", function () {
+                    $timeout(function(){
                     $rootScope.$apply(function() {
-                        $timeout(function(){
                             $rootScope.online = true;
                             $rootScope.status = "Online";
-                        },2000)
+
                     });
+                    },2000);
                 }, false);
                 $rootScope.showLoader = true;
             });
