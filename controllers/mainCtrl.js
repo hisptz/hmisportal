@@ -16,16 +16,38 @@ angular.module("hmisPortal")
             });
         }, false);
     })
-    .controller("mainCtrl",function ($rootScope,$scope,$q,$http,$timeout,$route,portalService) {
+    .controller("mainCtrl",function ($rootScope,$window,$scope,$q,$http,$timeout,$route,portalService) {
 
         $rootScope.showLoader = false;
         $rootScope.currentDownloading = false;
         $rootScope.$on("$routeChangeStart",
             function (event, current, previous, rejection) {
+                $rootScope.online = navigator.onLine;
+                $window.addEventListener("offline", function () {
+                    $rootScope.$apply(function() {
+                        $rootScope.online = false;
+                    });
+                }, false);
+                $window.addEventListener("online", function () {
+                    $rootScope.$apply(function() {
+                        $rootScope.online = true;
+                    });
+                }, false);
                 $rootScope.showLoader = true;
             });
         $rootScope.$on("$routeChangeSuccess",
             function (event, current, previous, rejection) {
+                $rootScope.online = navigator.onLine;
+                $window.addEventListener("offline", function () {
+                    $rootScope.$apply(function() {
+                        $rootScope.online = false;
+                    });
+                }, false);
+                $window.addEventListener("online", function () {
+                    $rootScope.$apply(function() {
+                        $rootScope.online = true;
+                    });
+                }, false);
                 $rootScope.showLoader = false;
 
             });
@@ -47,14 +69,12 @@ angular.module("hmisPortal")
             dataTextToSend['subject']=subject;
             dataTextToSend['text']=textMessage+" Contacts Details: Email " +mail+"  and Phone number " +phone;
             dataTextToSend['userGroups']=userGroups;
-            console.log(dataTextToSend);
-            $http({
+             $http({
                 method: 'POST',
                 url: messageUrl,
                 data: dataTextToSend
             }).then(function(response) {
-                    console.log(dataTextToSend);
-                    $scope.showLoading=false;
+                     $scope.showLoading=false;
                     $scope.messageSend=true;
                     $scope.subject='';
                     $scope.textMessage='';

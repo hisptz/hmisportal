@@ -461,8 +461,7 @@ angular.module("hmisPortal")
                             $resource(portalService.base +"api/dataSets/"+val +".json?fields=id,name,periodType,shortName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
                         var indicatorResult=indicatorApi.get(function(dataElementObject){
                             cardObject.dataSetDetails.push(dataElementObject);
-                            console.log(cardObject.dataSetDetails);
-                        });
+                          });
                     });
                 }else{
 
@@ -471,8 +470,7 @@ angular.module("hmisPortal")
                         $resource(portalService.base +"api/dataElements/"+val +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
                     var indicatorResult=indicatorApi.get(function(dataElementObject){
                         cardObject.dataElementDetails.push(dataElementObject);
-                        console.info(cardObject.dataElementDetails);
-                    });
+                     });
                   });
                 }
 
@@ -482,9 +480,7 @@ angular.module("hmisPortal")
                         angular.forEach(useThisData.regions,function(value){
                             $scope.area.push(value.name);
                         });
-                        console.log(data);
-                        //$scope.subCategory = useThisData.elements;
-                        cardObject.chartObject.xAxis.categories = $scope.area;
+                         cardObject.chartObject.xAxis.categories = $scope.area;
 
                         $scope.normalseries = [];
                         if($scope.data.chartType == "pie"){
@@ -961,9 +957,7 @@ angular.module("hmisPortal")
                         }
                     });
                 });
-                console.log(regions);
-
-                if($scope.selectedOrgUnit == "m0frOspS7JY"){
+                 if($scope.selectedOrgUnit == "m0frOspS7JY"){
                     $scope.useregionHR = [];
                     $scope.areaHR = [];
                     angular.forEach(regions,function(value){
@@ -984,8 +978,7 @@ angular.module("hmisPortal")
                         }
                     });
                 }
-                console.log($scope.areaHR);
-                $scope.HRchartConfig.xAxis.categories = $scope.areaHR;
+                 $scope.HRchartConfig.xAxis.categories = $scope.areaHR;
 
                 $scope.HRnormalseries = [];
                 if(chart == "pie"){
@@ -1036,8 +1029,7 @@ angular.module("hmisPortal")
                         });
                         $scope.HRtable.colums.push({name:val.name,values:seri});
                     });
-                    console.log($scope.HRtable.colums);
-                }
+                  }
                 else{
                     delete $scope.HRchartConfig.chart;
                     angular.forEach($scope.HRsubCategory,function(value){
