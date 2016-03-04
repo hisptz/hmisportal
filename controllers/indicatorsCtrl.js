@@ -4,6 +4,18 @@
 angular.module('hmisPortal')
     .config(function($httpProvider) {
         $httpProvider.defaults.withCredentials = true;
+    }).run(function($window, $rootScope) {
+        $rootScope.online = navigator.onLine;
+        $window.addEventListener("offline", function () {
+            $rootScope.$apply(function() {
+                $rootScope.online = false;
+            });
+        }, false);
+        $window.addEventListener("online", function () {
+            $rootScope.$apply(function() {
+                $rootScope.online = true;
+            });
+        }, false);
     })
     .controller('indicatorsCtrl',function ($rootScope,$scope,$http,$q,$location,$timeout,$resource,olData,olHelpers,shared,portalService,chartsManager) {
         //displaying loading during page change
