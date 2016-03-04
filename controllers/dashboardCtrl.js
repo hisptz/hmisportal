@@ -23,11 +23,15 @@ angular.module("hmisPortal")
                 $window.addEventListener("offline", function () {
                     $rootScope.$apply(function() {
                         $rootScope.online = false;
+                        $rootScope.status = "Offline";
                     });
                 }, false);
                 $window.addEventListener("online", function () {
                     $rootScope.$apply(function() {
-                        $rootScope.online = true;
+                        $timeout(function(){
+                            $rootScope.online = true;
+                            $rootScope.status = "Online";
+                        },2000)
                     });
                 }, false);
                 $rootScope.showLoader = true;
