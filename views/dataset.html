@@ -130,14 +130,6 @@
                         <span class="card-title grey-text text-darken-4">{{dataSetDetails.name}}<i class="material-icons right">close</i></span>
                             <p class="flow-text"><b>Data Set Name</b>:&nbsp;&nbsp;&nbsp;{{dataSetDetails.name}}</p>
                             <p class="flow-text"><b>Data Set Period Type</b>:&nbsp;&nbsp;&nbsp;{{dataSetDetails.periodType}}</p>
-                            <p class="flow-text"><b>Category Combination Name</b>:&nbsp;&nbsp;&nbsp;{{dataSetDetails.categoryCombo.name}}</p>
-                            <ul ng-repeat="type in dataSetDetails.categoryCombo.categories">
-                                <li class="flow-text"><b>Category Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}
-                                    <ul ng-repeat="option in type.categoryOptions">
-                                        <li class="flow-text"><b>Category Option Name</b>:&nbsp;&nbsp;&nbsp;{{option.name}}</li>
-                                    </ul>
-                                </li>
-                            </ul>
                             <div id="cde" ng-bind-html="dataSetHTML"></div>
                         </ul>
                     </div>
