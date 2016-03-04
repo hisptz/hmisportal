@@ -16,7 +16,7 @@ angular.module("hmisPortal")
             });
         }, false);
     })
-    .controller("mainCtrl",function ($rootScope,$scope,$q,$http,$timeout,portalService) {
+    .controller("mainCtrl",function ($rootScope,$scope,$q,$http,$timeout,$route,portalService) {
 
         $rootScope.showLoader = false;
         $rootScope.currentDownloading = false;
@@ -129,6 +129,9 @@ angular.module("hmisPortal")
         $scope.activateLink = function(linkValue){
             $scope.linkValue = linkValue;
             alert(linkValue);
+        }
+        $scope.reloadAction=function(){
+            $route.reload();
         }
      });
 function numberWithCommas(x) {
