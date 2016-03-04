@@ -9,23 +9,12 @@
     "data":"vVRVLjgU10c"
   },
   {
-    "title":"Deliveries rate with partograph",
-    "description":"Deliveries rate with partograph",
-    "indicatorType":"",
-    "numerator":"",
-    "denominator":"",
-    "cardClass":"col m6 s12",
-    "data":"bvhRuvz6gbM",
-    "chart":"line"
-
-  },
-  {
     "title":"Delivery Abnormal <20 yrs rate (C/S,, breech, vacuum)",
     "description":"Delivery Abnormal <20 yrs rate (C/S,, breech, vacuum)",
     "indicatorType":"",
     "numerator":"",
     "denominator":"",
-    "cardClass":"col m12 s12",
+    "cardClass":"col m6 s12",
     "data":"EshKVxzCvBH",
     "chart":"combined"
 
