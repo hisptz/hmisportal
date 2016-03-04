@@ -1,3 +1,8 @@
+<style type="text/css">
+    #cde table { border-collapse: collapse;
+    }
+    #cde table, #cde th, #cde td { border: 1px solid #c0c0c0; } #cde th {text-align:center;} #cde td, #cde th { height: 30px; padding: 10px; margin: 10px; } .cde-greyfield { background-color: #e0e0e0; }
+</style>
 <div class="row" >
     <h5 class="center">{{ CurrentSection }} : {{ getOrgUnitName($root.selectedOrgUnit) }} - {{ getPeriodName($root.selectedPeriod) }}</h5>
     <div class="col s2 hide-on-med-and-down" >
@@ -133,7 +138,7 @@
                                     </ul>
                                 </li>
                             </ul>
-                            <div ng-bind-html="dataSetHTML"></div>
+                            <div id="cde" ng-bind-html="dataSetHTML"></div>
                         </ul>
                     </div>
                 </div>
