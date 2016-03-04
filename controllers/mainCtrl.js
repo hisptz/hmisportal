@@ -3,8 +3,18 @@
  */
 
 angular.module("hmisPortal")
-    .run(function() {
-
+    .run(function($window, $rootScope) {
+        $rootScope.online = navigator.onLine;
+        $window.addEventListener("offline", function () {
+            $rootScope.$apply(function() {
+                $rootScope.online = false;
+            });
+        }, false);
+        $window.addEventListener("online", function () {
+            $rootScope.$apply(function() {
+                $rootScope.online = true;
+            });
+        }, false);
     })
     .controller("mainCtrl",function ($rootScope,$scope,$q,$http,$timeout,portalService) {
 

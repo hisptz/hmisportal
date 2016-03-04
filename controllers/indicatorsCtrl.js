@@ -85,9 +85,6 @@ angular.module('hmisPortal')
         //defining cards
         $scope.cards = {};
         //selected indicator cards..to change card definitions we can use file at indicators/[urlPath].json
-        //get name of indicators from the url
-
-
         //prepare dataelements and indicators for sending on analytics
         $scope.prepareDataElements = function (cardsObjects) {
             var dataElements = [];
@@ -124,16 +121,10 @@ angular.module('hmisPortal')
                 card.displayTable = false;
                 $scope.showReport = true;
                 card.displayColumn = false;
-                console.info(card);
-                console.log(value);
-                if (card.chart == 'table') {
+                 if (card.chart == 'table') {
                     card.displayTable = true;
                     card.displayMap = false;
                     card.chart = 'table';
-                    console.warn(portalService.period);
-                    console.info(objectData);
-                    console.info(card.data);
-                    console.info(card.chart);
                     card.table = chartsManager.drawChart(objectData, 'dx',[card.data] ,'ou',[] , 'pe', portalService.period, card.title, card.chart);
 
                     //hiding loading message
@@ -154,10 +145,6 @@ angular.module('hmisPortal')
                     card.displayColumn = true;
                     card.displayMap = false;
                     card.displayTable = false;
-                    console.warn(portalService.period);
-                    console.info(objectData);
-                    console.info(card.data);
-                    console.info(card.chart);
                     card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, "spider");
                     $(function() {
                         $("#"+card.data).highcharts(card.chartObject);
@@ -168,10 +155,6 @@ angular.module('hmisPortal')
                     card.displayColumn = true;
                     card.displayMap = false;
                     card.displayTable = false;
-                    console.warn(portalService.period);
-                    console.info(objectData);
-                    console.info(card.data);
-                    console.info(card.chart);
                     card.chartObject = chartsManager.drawChart(objectData, 'ou', [], 'dx', [card.data], 'pe', portalService.period, card.title, "column");
                     $(function() {
                         $("#"+card.data).highcharts(card.chartObject);
@@ -194,18 +177,15 @@ angular.module('hmisPortal')
              //displaying loading message
             card.chartObject.loading = true;
              //setting orgunit and period for service to use
-            //$scope.checkbox='false';
-            if($scope.checkbox){
-                console.log($scope.checkbox);
-            }
+             if($scope.checkbox){
+              }
             portalService.orgUnitId = $rootScope.selectedOrgUnit;
             portalService.parent=$scope.checkbox;
             portalService.period = $rootScope.selectedPeriod;
             card.displayTable = false;
             $scope.showReport = true;
             card.displayColumn = false;
-            console.log($scope.checkbox);
-            if (type == 'table') {
+             if (type == 'table') {
                 card.displayTable = true;
                 card.displayMap = false;
                 card.chart = 'table';
@@ -250,7 +230,6 @@ angular.module('hmisPortal')
                 card.displayMap = false;
                 card.displayTable = false;
                 card.chart = type;
-                console.log($scope.analyticsObject);
                 card.chartObject = chartsManager.drawChart($scope.analyticsObject, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, card.chart);
 
 
@@ -271,16 +250,7 @@ angular.module('hmisPortal')
                 })
                 items.push(obj);
             })
-            //angular.forEach(chartObject.series,function(value){
-            //    var obj = {name:value.name};
-            //    var i = 0;
-            //    angular.forEach(chartObject.xAxis.categories,function(val){
-            //        obj[val] = value.data[i];
-            //        i++;
-            //    })
-            //    items.push(obj);
-            //})
-            return items;
+             return items;
         };
 
         $scope.getPeriodName = function (period) {
@@ -397,9 +367,7 @@ angular.module('hmisPortal')
                                    });
                                });
                                $scope.changeChart(value.chart, value)
-                               //$scope.totalPop = numberWithCommas(getTotalDataFromUrl(analyticsObject.rows,value.data,$rootScope.selectedOrgUnit));
-
-                            });
+                               });
                         }, function (response) { // optional
                            $rootScope.progressMessage = "!Problem has Occurred, system failed getting " + location + " data !";
                            $timeout(function () {
@@ -407,12 +375,7 @@ angular.module('hmisPortal')
 
                            }, 10000);
                         });
-                       // });
-                        $http.get(base + "api/me.json",function(data){
-                            console.log(data);
-                        });
-
-                    });
+                      });
 
                    });
 
@@ -428,6 +391,5 @@ function getTotalDataFromUrl(arr,de,ou){
             num = Number(v[2])
         }
     });
-    console.info(num);
     return num;
 }

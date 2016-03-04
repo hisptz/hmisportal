@@ -157,8 +157,7 @@ angular.module("hmisPortal")
                         $resource(portalService.base +"api/dataElements/"+$scope.dataElementUid +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
                      var indicatorResult=indicatorApi.get(function(dataElementObject){
                          $scope.dataElementDetail=dataElementObject;
-                         console.error($scope.dataElementDetail);
-                     });
+                      });
                     $scope.subCategory = useThisData.elements;
                     $scope.chartConfig.xAxis.categories = $scope.area;
 
@@ -212,8 +211,7 @@ angular.module("hmisPortal")
                             });
                             $scope.table.colums.push({name:val.name,values:seri});
                         });
-                        console.log($scope.table.colums);
-                    }
+                     }
                     else{
                         delete $scope.chartConfig.chart;
                         angular.forEach($scope.subCategory,function(value){
@@ -437,8 +435,7 @@ angular.module("hmisPortal")
                         $resource(portalService.base +"api/dataElements/"+cardObject.data +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
                     var indicatorResult=indicatorApi.get(function(dataElementObject){
                         cardObject.dataElementDetails=dataElementObject;
-                        console.warn(cardObject.dataElementDetails);
-                      });
+                       });
                     $scope.normalseries = [];
                     if(chart == "pie"){
                         delete cardObject.chartObject.chart;
@@ -472,15 +469,12 @@ angular.module("hmisPortal")
                         angular.forEach(dataToUse,function(val){
                             cardObject.table.colums.push({name:val.name,value:parseInt(val.value)});
                         });
-                        console.log(cardObject.table.colums);
-                    }else if(chart == 'map'){
+                     }else if(chart == 'map'){
                         if($scope.selectedOrgUnit == "m0frOspS7JY"){
 
                             portalService.drawMap($scope.baseUrl,$scope.selectedOrgUnit, 2, cardObject, cardObject.title,dataToUse);
 
                         }else{
-                            console.log($scope.baseUrl);
-                            console.log($scope.selectedOrgUnit);
                             portalService.drawMap($scope.baseUrl,$scope.selectedOrgUnit, 3, cardObject,cardObject.title,dataToUse);
 
                         }
