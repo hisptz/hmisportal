@@ -186,7 +186,7 @@ angular.module("hmisPortal")
                         $scope.area.push(value.name);
                     });
                     var indicatorApi=
-                        $resource(portalService.base +"api/dataElements/"+$scope.dataElementUid +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
+                        $resource(portalService.base +"api/dataElements/"+$scope.dataElementUid +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]],dataSets[id,name,periodType]");
                      var indicatorResult=indicatorApi.get(function(dataElementObject){
                          $scope.dataElementDetail=dataElementObject;
                       });
@@ -464,7 +464,7 @@ angular.module("hmisPortal")
                         cardObject.chartObject.xAxis.categories.push(val.name);
                     });
                     var indicatorApi=
-                        $resource(portalService.base +"api/dataElements/"+cardObject.data +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
+                        $resource(portalService.base +"api/dataElements/"+cardObject.data +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]],dataSets[id,name,periodType]");
                     var indicatorResult=indicatorApi.get(function(dataElementObject){
                         cardObject.dataElementDetails=dataElementObject;
                        });

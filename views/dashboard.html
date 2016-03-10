@@ -354,14 +354,18 @@
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">POPULATION BY GENDER<i class="material-icons right">close</i></span>
             <p class="flow-text">Population data by gender</p>
-            <p class="flow-text"><b>Date Element Aggregation Name</b>:&nbsp;&nbsp;&nbsp;{{dataElementDetail.aggregationType}}</p>
-            <p class="flow-text"><b>Date Element Category Combination Name</b>:&nbsp;&nbsp;&nbsp;{{dataElementDetail.categoryCombo.name}}</p>
+            <p class="flow-text" ng-if="dataElementDetail.aggregationType"><b>Date Element Aggregation Name</b>:&nbsp;&nbsp;&nbsp;{{dataElementDetail.aggregationType}}</p>
+            <p class="flow-text" ng-if="dataElementDetail.categoryCombo.name"><b>Date Element Category Combination Name</b>:&nbsp;&nbsp;&nbsp;{{dataElementDetail.categoryCombo.name}}</p>
             <ul ng-repeat="item in dataElementDetail.categoryCombo.categories">
-                <li class="flow-text"><b>Category Name</b>:&nbsp;&nbsp;&nbsp;{{item.name}}
+                <li class="flow-text" ng-if="item.name"><b>Category Name</b>:&nbsp;&nbsp;&nbsp;{{item.name}}
                     <ul ng-repeat="type in item.categoryOptions">
-                        <li class="flow-text"><b>Category Option Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}</li>
+                        <li class="flow-text" ng-if="type.name"><b>Category Option Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}</li>
                     </ul>
                 </li>
+            </ul>
+            <ul ng-repeat="dataSet in dataElementDetail.dataSets">
+                <li class="flow-text" ng-if="dataSet.name"><b>Data Set Name</b>:&nbsp;&nbsp;&nbsp;{{dataSet.name}}</li>
+                <li class="flow-text" ng-if="dataSet.periodType"><b>Period Type</b>:&nbsp;&nbsp;&nbsp;{{dataSet.periodType}}</li>
             </ul>
         </div>
     </div>
@@ -427,25 +431,25 @@
                 <span class="card-title grey-text text-darken-4">{{ card.title }}<i class="material-icons right">close</i></span>
                 <p class="flow-text"><b>Description</b>:&nbsp;&nbsp;&nbsp;{{ card.description }}</p>
                  <ul ng-repeat="item in card.dataElementDetails">
-                    <li class="flow-text"><b>Date Element Name</b>:&nbsp;&nbsp;&nbsp;{{item.name}}</li>
-                    <li class="flow-text"><b>Date Element Aggregation Type</b>:&nbsp;&nbsp;&nbsp;{{item.aggregationType}}</li>
-                    <li class="flow-text"><b>Date Element CategoryCombination </b>:&nbsp;&nbsp;&nbsp;{{item.categoryCombo.name}}</li>
+                    <li class="flow-text" ng-if="item.name"><b>Date Element Name</b>:&nbsp;&nbsp;&nbsp;{{item.name}}</li>
+                    <li class="flow-text" ng-if="item.aggregationType"><b>Date Element Aggregation Type</b>:&nbsp;&nbsp;&nbsp;{{item.aggregationType}}</li>
+                    <li class="flow-text" ng-if="item.categoryCombo.name"><b>Date Element CategoryCombination </b>:&nbsp;&nbsp;&nbsp;{{item.categoryCombo.name}}</li>
                         <ul ng-repeat="type in item.categories">
-                            <li class="flow-text"><b>Category Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}
+                            <li class="flow-text" ng-if="type.name"><b>Category Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}
                               <ul ng-repeat="option in type.categoryOptions">
-                                   <li class="flow-text"><b>Category Option Name</b>:&nbsp;&nbsp;&nbsp;{{option.name}}</li>
+                                   <li class="flow-text" ng-if="option.name"><b>Category Option Name</b>:&nbsp;&nbsp;&nbsp;{{option.name}}</li>
                               </ul>
                             </li>
                         </ul>
                  </ul>
                 <ul ng-repeat="item in card.dataSetDetails">
-                    <li class="flow-text"><b>Data Set Name</b>:&nbsp;&nbsp;&nbsp;{{item.name}}</li>
-                    <li class="flow-text"><b>Data Set Period Type</b>:&nbsp;&nbsp;&nbsp;{{item.periodType}}</li>
-                    <li class="flow-text"><b>Category Combination Name</b>:&nbsp;&nbsp;&nbsp;{{item.categoryCombo.name}}</li>
+                    <li class="flow-text" ng-if="item.name"><b>Data Set Name</b>:&nbsp;&nbsp;&nbsp;{{item.name}}</li>
+                    <li class="flow-text" ng-if="item.periodType"><b>Data Set Period Type</b>:&nbsp;&nbsp;&nbsp;{{item.periodType}}</li>
+                    <li class="flow-text" ng-if="item.categoryCombo.name"><b>Category Combination Name</b>:&nbsp;&nbsp;&nbsp;{{item.categoryCombo.name}}</li>
                     <ul ng-repeat="type in item.categories">
-                        <li class="flow-text"><b>Category Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}
+                        <li class="flow-text" ng-if="type.name"><b>Category Name</b>:&nbsp;&nbsp;&nbsp;{{type.name}}
                             <ul ng-repeat="option in type.categoryOptions">
-                                <li class="flow-text"><b>Category Option Name</b>:&nbsp;&nbsp;&nbsp;{{option.name}}</li>
+                                <li class="flow-text" ng-if="option.name"><b>Category Option Name</b>:&nbsp;&nbsp;&nbsp;{{option.name}}</li>
                             </ul>
                         </li>
                     </ul>

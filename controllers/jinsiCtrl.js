@@ -467,7 +467,7 @@ angular.module("hmisPortal")
 
                     angular.forEach(cardObject.data.split(";"),function(val){
                   var indicatorApi=
-                        $resource(portalService.base +"api/dataElements/"+val +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
+                        $resource(portalService.base +"api/dataElements/"+val +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]],dataSets[id,name,periodType]");
                     var indicatorResult=indicatorApi.get(function(dataElementObject){
                         cardObject.dataElementDetails.push(dataElementObject);
                      });
