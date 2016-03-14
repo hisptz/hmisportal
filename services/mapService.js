@@ -127,13 +127,23 @@ angular.module("hmisPortal")
                         lat: -6.45,
                         lon: 35
                     },
+                    mapquest: {
+                        source: {
+                            type: 'MapQuest',
+                            layer: 'sat'
+                        }
+                    },
                     layers:[
                         {
-                            name:'mapbox',
-                            source: {
-                                type: 'TileJSON',
-                                url:'http://api.tiles.mapbox.com/v3/mapbox.geography-class.jsonp'
-                            }
+                            "name": "OpenCycleMap",
+                            "active": true,
+                            "source": {
+                                "type": "OSM",
+                                "url": "http://{a-c}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+                                "attribution": "All maps &copy; <a href=\"http://www.opencyclemap.org/\">OpenCycleMap</a>"
+                            },
+                            "visible": true,
+                            "opacity": 1
                         } ,
                         {
                             name:'geojson',
