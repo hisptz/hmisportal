@@ -256,7 +256,7 @@ angular.module("hmisPortal")
 
             angular.forEach(valueToUse,function(value,index){
 
-                if(value.name.indexOf("Region")>=0){
+                if(typeof(value.name)!=="undefined" && value.name.indexOf("Region")>=0){
 //                        if(index>1){
                     individuals.push({id:value.id,value:value.value});
 //                        }
@@ -281,7 +281,7 @@ angular.module("hmisPortal")
 
 
             angular.forEach(valueToUse,function(value,index){
-                if(value.name.indexOf("Region")>=0){
+                if(typeof(value.name)!=="undefined" && value.name.indexOf("Region")>=0){
 //                        if(index>1){
                     individuals.push({id:value.id,value:value.value});
 //                        }
@@ -309,7 +309,7 @@ angular.module("hmisPortal")
 
             angular.forEach(valueToUse,function(value,index){
 
-                if(value.name.indexOf("Council")>=0){
+                if(typeof(value.name)!=="undefined" && value.name.indexOf("Council")>=0){
                     if(index>1){
                         individuals.push({id:value.id,value:value.value});
                     }
