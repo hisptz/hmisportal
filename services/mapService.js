@@ -386,7 +386,7 @@ angular.module("hmisPortal")
         var classfy = "";
         var i = 0;
         angular.forEach(max_and_min[2],function(valueL,indexL){
-            console.log(valueL);
+
             if(value.id==valueL.id){
 
                 i++;
@@ -435,7 +435,7 @@ angular.module("hmisPortal")
 
 
             }else{
-
+                console.log(valueL);
                 return false;
             }
         });
