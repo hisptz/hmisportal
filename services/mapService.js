@@ -390,26 +390,15 @@ angular.module("hmisPortal")
             if(value.id==valueL.id){
 
                 i++;
-                if(valueL.value!=0&&valueL.value>=max_and_min[0]){
 
-                    legend[3].members=legend[3].members+1;
-                    classfy = legend[3];
-
-                    return false;
-                }
-
-                if(valueL.value!=0&&valueL.value>((max_and_min[1]+max_and_min[0])/2)&&valueL.value<max_and_min[0]){
-
-                    legend[2].members=legend[2].members+1;
-                    classfy = legend[2];
-
+                if(valueL.value==0||valueL.value<=max_and_min[1]){
+                    legend[0].members=legend[0].members+1;
+                    classfy = legend[0];
 
                     return false;
                 }
 
-
-
-                if(valueL.value!=0&&valueL.value<=((max_and_min[1]+max_and_min[0])/2)&&valueL.value>max_and_min[1]){
+                if(valueL.value<=((max_and_min[1]+max_and_min[0])/2)&&valueL.value>max_and_min[1]){
 
                     legend[1].members=legend[1].members+1;
                     classfy = legend[1];
@@ -418,14 +407,32 @@ angular.module("hmisPortal")
                     return false;
                 }
 
+                if(valueL.value>((max_and_min[1]+max_and_min[0])/2)&&valueL.value<max_and_min[0]){
 
+                    legend[2].members=legend[2].members+1;
+                    classfy = legend[2];
 
-                if(valueL.value==0||valueL.value<=max_and_min[1]){
-                    legend[0].members=legend[0].members+1;
-                    classfy = legend[0];
 
                     return false;
                 }
+
+                if(valueL.value>=max_and_min[0]){
+
+                    legend[3].members=legend[3].members+1;
+                    classfy = legend[3];
+
+                    return false;
+                }
+
+
+
+
+
+
+
+
+
+
 
             }else{
 
