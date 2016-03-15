@@ -4,10 +4,12 @@ angular.module("hmisPortal")
     var map = this;
     map.renderMap = function(baseUrl,parentUid,level,card,cardtitle,valueTouseArray){
         //localStorage.clear();
-        console.log(valueTouseArray);
+
         var cardseries = removeDuplicatesInSeries( valueTouseArray );
         var max_and_min = getMaxAndMin(cardseries);
         var legend = getLegend(max_and_min);
+        console.log(JSON.stringify(valueTouseArray));
+        console.log(JSON.stringify(legend));
         card.legend = legend;
         map.shared = shared;
         shared.facility =3029;
