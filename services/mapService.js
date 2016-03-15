@@ -35,9 +35,10 @@ angular.module("hmisPortal")
 
                 angular.forEach(data.features, function (value, index) {
                     console.log("  ---  ");
-                    console.log(JSON.stringify(value));
+                    console.log(JSON.stringify(value.properties.name));
                     console.log(JSON.stringify(valueTouseArray));
                     console.log(JSON.stringify(legend));
+                    console.log(JSON.stringify(max_and_min));
                     var appropiateColor = decideOnColor(max_and_min,legend,value,index,valueTouseArray);
                     // creating dynamic colors for district
                     card.saveColorInlocalStorage(prepareId(card,value.id),appropiateColor.color);
