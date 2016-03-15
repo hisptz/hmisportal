@@ -36,7 +36,7 @@ angular.module("hmisPortal")
                 angular.forEach(data.features, function (value, index) {
                     console.log("  ---  ");
 
-                    //console.log(JSON.stringify(valueTouseArray));
+                    console.log(JSON.stringify(valueTouseArray));
                     //console.log(JSON.stringify(legend));
                     //console.log(JSON.stringify(max_and_min));
                     var appropiateColor = decideOnColor(max_and_min,legend,value,index,valueTouseArray);
@@ -379,13 +379,14 @@ angular.module("hmisPortal")
     }
 
     function decideOnColor(max_and_min,legend,value,valueIndex,valueTouseArray){
-
+        console.log(legend);
         if(max_and_min[2].length==0){
             max_and_min[2]= valueTouseArray;
         }
         var classfy = "";
         var i = 0;
         angular.forEach(max_and_min[2],function(valueL,indexL){
+            console.log(valueL);
             if(value.id==valueL.id){
 
                 i++;
