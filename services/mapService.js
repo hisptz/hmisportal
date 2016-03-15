@@ -34,7 +34,7 @@ angular.module("hmisPortal")
                     var appropiateColor = decideOnColor(max_and_min,legend,value,index,valueTouseArray);
                     // creating dynamic colors for district
                     card.saveColorInlocalStorage(prepareId(card,value.id),appropiateColor.color);
-
+                    var data = (typeof(max_and_min[2][index])!=='undefined') ? max_and_min[2][index].value : 0;
                     // prepare objects of district for properties to display on tooltip
                     districtProperties[prepareId(card,value.id)] = {
                         district_id:prepareId(card,value.id),
@@ -42,7 +42,7 @@ angular.module("hmisPortal")
                         name:value.properties.name,
                         "color":appropiateColor.color,
                         "facility":Math.floor(Math.random() * 256),
-                        indicatorValue:max_and_min[2][index].value
+                        indicatorValue:data
 
                     };
 
@@ -270,6 +270,8 @@ angular.module("hmisPortal")
 //                        if(index>1){
                     individuals.push({id:value.id,value:value.value});
 //                        }
+                }else{
+                    console.log(value);
                 }
 
 
@@ -295,6 +297,8 @@ angular.module("hmisPortal")
 //                        if(index>1){
                     individuals.push({id:value.id,value:value.value});
 //                        }
+                }else{
+                    console.log(value)
                 }
 
 
@@ -323,6 +327,8 @@ angular.module("hmisPortal")
                     if(index>1){
                         individuals.push({id:value.id,value:value.value});
                     }
+                }else{
+                    console.log(value)
                 }
 
             });
