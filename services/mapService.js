@@ -8,8 +8,7 @@ angular.module("hmisPortal")
         var cardseries = removeDuplicatesInSeries( valueTouseArray );
         var max_and_min = getMaxAndMin(cardseries);
         var legend = getLegend(max_and_min);
-        console.log(JSON.stringify(valueTouseArray));
-        console.log(JSON.stringify(legend));
+
         card.legend = legend;
         map.shared = shared;
         shared.facility =3029;
@@ -33,6 +32,10 @@ angular.module("hmisPortal")
                 card.thisyear = dateObject.getFullYear();
                 card.districts = {};
                 card.DistrictFreeObject = [];
+                console.log(JSON.stringify(valueTouseArray));
+                console.log(JSON.stringify(legend));
+                console.log(JSON.stringify(data.features));
+
                 angular.forEach(data.features, function (value, index) {
                     var appropiateColor = decideOnColor(max_and_min,legend,value,index,valueTouseArray);
                     // creating dynamic colors for district
