@@ -4,6 +4,7 @@ angular.module("hmisPortal")
     var map = this;
     map.renderMap = function(baseUrl,parentUid,level,card,cardtitle,valueTouseArray){
         //localStorage.clear();
+        console.log(valueTouseArray);
         var cardseries = removeDuplicatesInSeries( valueTouseArray );
         var max_and_min = getMaxAndMin(cardseries);
         var legend = getLegend(max_and_min);
@@ -271,7 +272,6 @@ angular.module("hmisPortal")
                     individuals.push({id:value.id,value:value.value});
 //                        }
                 }else{
-                    console.log(value);
                 }
 
 
@@ -298,7 +298,7 @@ angular.module("hmisPortal")
                     individuals.push({id:value.id,value:value.value});
 //                        }
                 }else{
-                    console.log(value)
+
                 }
 
 
@@ -328,7 +328,6 @@ angular.module("hmisPortal")
                         individuals.push({id:value.id,value:value.value});
                     }
                 }else{
-                    console.log(value)
                 }
 
             });
