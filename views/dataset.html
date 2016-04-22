@@ -1,3 +1,8 @@
+<style type="text/css">
+    #cde table { border-collapse: collapse;
+    }
+    #cde table, #cde th, #cde td { border: 1px solid #c0c0c0; } #cde th {text-align:center;} #cde td, #cde th { height: 30px; padding: 10px; margin: 10px; } .cde-greyfield { background-color: #e0e0e0; }
+</style>
 <div class="row" >
     <h5 class="center">{{ CurrentSection }} : {{ getOrgUnitName($root.selectedOrgUnit) }} - {{ getPeriodName($root.selectedPeriod) }}</h5>
     <div class="col s2 hide-on-med-and-down" >
@@ -17,7 +22,7 @@
                             <div class="input-field col s12 grey lighten-5" ng-if="$root.periodType == 'years'">
                                 <select ng-model="$root.selectedPeriod" ng-change="$root.firstClick()" material-select watch>
                                     <option value="2014">2014</option>
-                                    <!--<option value="2015">2015</option>-->
+                                    <option value="2015">2015</option>
                                 </select>
                                 <label>Period</label>
                             </div>
@@ -27,6 +32,10 @@
                                     <option value="2014Q2">Apr - Jun 2014</option>
                                     <option value="2014Q3">Jul - Sep 2014</option>
                                     <option value="2014Q4">Oct - Dec 2014</option>
+                                    <option value="2015Q1">Jan - Mar 2015</option>
+                                    <option value="2015Q2">Apr - Jun 2015</option>
+                                    <option value="2015Q3">Jul - Sep 2015</option>
+                                    <option value="2015Q4">Oct - Dec 2015</option>
                                 </select>
                                 <label>Period</label>
                             </div>
@@ -68,7 +77,7 @@
             <div class="input-field col s4 grey lighten-5" ng-if="$root.periodType == 'years'">
                 <select ng-model="$root.selectedPeriod" ng-change="$root.firstClick1()" material-select watch>
                     <option value="2014">2014</option>
-                    <!--<option value="2015">2015</option>-->
+                    <option value="2015">2015</option>
                 </select>
                 <label>Period</label>
             </div>
@@ -78,6 +87,10 @@
                     <option value="2014Q2">Apr - Jun 2014</option>
                     <option value="2014Q3">Jul - Sep 2014</option>
                     <option value="2014Q4">Oct - Dec 2014</option>
+                    <option value="2015Q1">Jan - Mar 2015</option>
+                    <option value="2015Q2">Apr - Jun 2015</option>
+                    <option value="2015Q3">Jul - Sep 2015</option>
+                    <option value="2015Q4">Oct - Dec 2015</option>
                 </select>
                 <label>Period</label>
             </div>
@@ -122,8 +135,11 @@
                         </p>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                        <p class="flow-text">maelezo</p>
+                        <span class="card-title grey-text text-darken-4">{{dataSetDetails.name}}<i class="material-icons right">close</i></span>
+                            <p class="flow-text" ng-if="dataSetDetails.name"><b>Data Set Name</b>:&nbsp;&nbsp;&nbsp;{{dataSetDetails.name}}</p>
+                            <p class="flow-text" ng-if="dataSetDetails.periodType"><b>Data Set Period Type</b>:&nbsp;&nbsp;&nbsp;{{dataSetDetails.periodType}}</p>
+                            <div id="cde" ng-bind-html="dataSetHTML"></div>
+                        </ul>
                     </div>
                 </div>
             </div>

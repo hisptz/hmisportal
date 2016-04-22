@@ -141,7 +141,7 @@
                             <div class="input-field col s12 grey lighten-5" ng-if="$root.periodType == 'years'">
                                 <select ng-model="$root.selectedPeriod" ng-change="$root.firstClick()" material-select watch>
                                     <option value="2014">2014</option>
-                                    <!--<option value="2015">2015</option>-->
+                                    <option value="2015">2015</option>
                                 </select>
                                 <label>Period</label>
                             </div>
@@ -151,6 +151,10 @@
                                     <option value="2014Q2">Apr - Jun 2014</option>
                                     <option value="2014Q3">Jul - Sep 2014</option>
                                     <option value="2014Q4">Oct - Dec 2014</option>
+                                    <option value="2015Q1">Jan - Mar 2015</option>
+                                    <option value="2015Q2">Apr - Jun 2015</option>
+                                    <option value="2015Q3">Jul - Sep 2015</option>
+                                    <option value="2015Q4">Oct - Dec 2015</option>
                                 </select>
                                 <label>Period</label>
                             </div>
@@ -269,7 +273,7 @@
                         <span class="card-title activator grey-text text-darken-4" style="font-size: 18px;">{{ card.title }}<i class="material-icons mdi-navigation-more-vert right"></i></span>
                         <p>
                             <a ng-click="changeChart(icon.name,card)" ng-repeat="icon in card.icons" title="{{ icon.name }}" class="btn-floating btn-small waves-effect waves-light teal darken-2" style="padding-top: 5px;padding-left: 8px"><img src="assets/img/{{icon.image}}" style="height: 20px;width: 20px"/></i></a>
-                            <a ng-click="downloadExcel(card.data)" target="_blank"  title="Download Excel" class="btn-floating btn-small waves-effect waves-light teal darken-2" style="padding-top: 5px;padding-left: 8px"><img src="assets/img/cvs.jpg" style="height: 20px;width: 20px"/></i></a>
+                            <a ng-csv="prepareDataForCSV(card)" csv-label="true" filename="data.csv" field-separator="," decimal-separator="."  title="Download Excel" class="btn-floating btn-small waves-effect waves-light teal darken-2" style="padding-top: 5px;padding-left: 8px"><img src="assets/img/cvs.jpg" style="height: 20px;width: 20px"/></i></a>
                             <a class="btn-floating btn-small waves-effect waves-light teal darken-2 right" modal href="#link{{ card.data }}"><i class="mdi-action-open-in-new"></i></a>
                             <strong><div class="small switch right"><label><b>Hide Parent</b><input type="checkbox" ng-model="checkbox" ng-click="updateParent(card,checkbox)"><span class="lever"></span>Show Parent</label></div></strong>
                              <!--<a class="btn modal-trigger waves-effect waves-block waves-light" href='#demoModal' modal>Show Modal</a>-->
@@ -277,10 +281,16 @@
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">{{ card.title }}<i class="material-icons right">close</i></span>
-                            <p class="flow-text"><b>Description:</b>&nbsp;&nbsp;{{ card.description }}</p>
-                            <p class="flow-text"><b>Indicator Type:</b> &nbsp;&nbsp;{{card.indicatorType}}</p>
-                            <p class="flow-text"><b>Numerator:</b> &nbsp;&nbsp;{{card.numerator}}</p>
-                            <p class="flow-text"><b>Denominator:</b> &nbsp;&nbsp;{{card.denominator}}</p>
+                            <p class="flow-text" ng-if="card.indicatorType.name"><b>Name:</b>&nbsp;&nbsp;{{ card.indicatorType.name }}</p>
+                            <p class="flow-text" ng-if="card.indicatorType.numeratorDescription"><b>Numerator Description:</b>&nbsp;&nbsp;{{ card.indicatorType.numeratorDescription }}</p>
+                            <p class="flow-text" ng-if="card.indicatorType.denominatorDescription"><b>Denominator Description:</b>&nbsp;&nbsp;{{ card.indicatorType.denominatorDescription }}</p>
+                            <p class="flow-text" ng-if="card.indicatorType.indicatorType.name"><b>Indicator Type:</b> &nbsp;&nbsp;{{card.indicatorType.indicatorType.name}}</p>
+                            <p class="flow-text" ng-if="card.numerator"><b>Numerator Formula:</b> &nbsp;&nbsp;{{card.numerator}}</p>
+                            <p class="flow-text" ng-if="card.denominator"><b>Denominator Formula:</b> &nbsp;&nbsp;{{card.denominator}}</p>
+                            <ul ng-repeat="dataset in card.indicatorType.dataSets">
+                                <li class="flow-text" ng-if="dataset.name"><b>Data Set Name</b>:&nbsp;&nbsp;{{dataset.name}}</li>
+                                <li class="flow-text" ng-if="dataset.periodType"><b>Data Set Period Type</b>:&nbsp;&nbsp;{{dataset.periodType}}</li>
+                            </ul>
                      </div>
                 </div>
 
@@ -291,6 +301,7 @@
                         <div style="width: 100%">
                             <highchart style="width: 86%" ng-if="!card.displayTable && !card.displayMap && !card.displayColumn" config="card.chartObject"></highchart>
                             <div id="c{{ card.data }}" ng-show="card.displayColumn" style="margin: 0 auto;width: 86%"></div>
+
                             <div style="width: 100%" ng-if="card.displayTable" >
                                 <p ng-if="card.chartObject.loading" class="center"><img src="assets/img/loading.gif">Loading ....</p>
                                 <h5 class="center">{{ card.title }}</h5>

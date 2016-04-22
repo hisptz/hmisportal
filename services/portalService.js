@@ -19,10 +19,10 @@ angular.module("hmisPortal")
         //this.base = "http://127.0.0.1:9000/";
         this.icons = [
             {name: 'table', image: 'table.jpg', action: ''},
-            {name: 'bar', image: 'bar.png', action: ''},
+            {name: 'column', image: 'bar.png', action: ''},
             {name: 'line', image: 'line.png', action: ''},
             {name: 'combined', image: 'combined.jpg', action: ''},
-            {name: 'column', image: 'column.png', action: ''},
+            {name: 'bar', image: 'column.png', action: ''},
             {name: 'area', image: 'area.jpg', action: ''},
             {name: 'pie', image: 'pie.png', action: ''},
             {name: 'map', image: 'map.jpg', action: ''}
@@ -199,9 +199,9 @@ angular.module("hmisPortal")
                 $http.get(url).success(function (data) {
                        cardObject.header=data.metaData.names[cardObject.data];
                     var indicatorApi=
-                        $resource(self.base+"api/indicators/"+cardObject.data+".json");
+                        $resource(self.base+"api/indicators/"+cardObject.data+".json?fields=id,name,numeratorDescription,denominatorDescription,denominator,numerator,indicatorType[id,name],dataSets[id,name,periodType]");
                         var indicatorResult=indicatorApi.get(function(indicatorObject){
-                            cardObject.indicatorType=indicatorObject.indicatorType.name;
+                            cardObject.indicatorType=indicatorObject;
                             var expApi=
                             $resource(self.base+'api/expressions/description',{get:{method:"JSONP"}});
                              var numeratorExp=expApi.get({expression:indicatorObject.numerator},function(numeratorText){

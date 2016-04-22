@@ -5,19 +5,10 @@
     "indicatorType":"",
     "numerator":"",
     "denominator":"",
-    "cardClass":"col s12 m6",
+    "cardClass":"col s12 m12",
     "data":"i47jm4Pkkq6"
   },
-  {
-    "title":"Malaria Confirmed Cases Rate",
-    "description":"Malaria Confirmed Cases Rate",
-    "indicatorType":"",
-    "numerator":"",
-    "denominator":"",
-    "cardClass":"col m6 s12",
-    "data":"gygqJHs6w8P",
-    "chart":"line"
-  },
+
   {
     "title":"Proportion of OPD confirmed malaria cases",
     "description":"Proportion of OPD confirmed malaria cases",

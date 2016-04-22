@@ -4,9 +4,11 @@ angular.module("hmisPortal")
     var map = this;
     map.renderMap = function(baseUrl,parentUid,level,card,cardtitle,valueTouseArray){
         //localStorage.clear();
+
         var cardseries = removeDuplicatesInSeries( valueTouseArray );
         var max_and_min = getMaxAndMin(cardseries);
         var legend = getLegend(max_and_min);
+
         card.legend = legend;
         map.shared = shared;
         shared.facility =3029;
@@ -30,11 +32,20 @@ angular.module("hmisPortal")
                 card.thisyear = dateObject.getFullYear();
                 card.districts = {};
                 card.DistrictFreeObject = [];
+
                 angular.forEach(data.features, function (value, index) {
+                    console.log("  ---  ");
+
+                    console.log(JSON.stringify(valueTouseArray));
+                    //console.log(JSON.stringify(legend));
+                    //console.log(JSON.stringify(max_and_min));
                     var appropiateColor = decideOnColor(max_and_min,legend,value,index,valueTouseArray);
+                    console.log(JSON.stringify(value.properties.name));
+                    console.log(appropiateColor);
+
                     // creating dynamic colors for district
                     card.saveColorInlocalStorage(prepareId(card,value.id),appropiateColor.color);
-
+                    var data = (typeof(max_and_min[2][index])!=='undefined') ? max_and_min[2][index].value : 0;
                     // prepare objects of district for properties to display on tooltip
                     districtProperties[prepareId(card,value.id)] = {
                         district_id:prepareId(card,value.id),
@@ -42,7 +53,7 @@ angular.module("hmisPortal")
                         name:value.properties.name,
                         "color":appropiateColor.color,
                         "facility":Math.floor(Math.random() * 256),
-                        indicatorValue:max_and_min[2][index].value
+                        indicatorValue:data
 
                     };
 
@@ -127,13 +138,23 @@ angular.module("hmisPortal")
                         lat: -6.45,
                         lon: 35
                     },
+                    mapquest: {
+                        source: {
+                            type: 'MapQuest',
+                            layer: 'sat'
+                        }
+                    },
                     layers:[
                         {
-                            name:'mapbox',
-                            source: {
-                                type: 'TileJSON',
-                                url:'http://api.tiles.mapbox.com/v3/mapbox.geography-class.jsonp'
-                            }
+                            "name": "OpenCycleMap",
+                            "active": true,
+                            "source": {
+                                "type": "OSM",
+                                "url": "http://{a-c}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+                                "attribution": "All maps &copy; <a href=\"http://www.opencyclemap.org/\">OpenCycleMap</a>"
+                            },
+                            "visible": true,
+                            "opacity": 1
                         } ,
                         {
                             name:'geojson',
@@ -256,10 +277,11 @@ angular.module("hmisPortal")
 
             angular.forEach(valueToUse,function(value,index){
 
-                if(value.name.split(" ").indexOf("Region")>=0){
+                if(typeof(value.name)!=="undefined" && value.name.indexOf("Region")>=0){
 //                        if(index>1){
                     individuals.push({id:value.id,value:value.value});
 //                        }
+                }else{
                 }
 
 
@@ -281,10 +303,12 @@ angular.module("hmisPortal")
 
 
             angular.forEach(valueToUse,function(value,index){
-                if(value.name.split(" ").indexOf("Region")>=0){
+                if(typeof(value.name)!=="undefined" && value.name.indexOf("Region")>=0){
 //                        if(index>1){
                     individuals.push({id:value.id,value:value.value});
 //                        }
+                }else{
+
                 }
 
 
@@ -309,10 +333,11 @@ angular.module("hmisPortal")
 
             angular.forEach(valueToUse,function(value,index){
 
-                if(value.name.split(" ").indexOf("Council")>=0){
+                if(typeof(value.name)!=="undefined" && value.name.indexOf("Council")>=0){
                     if(index>1){
                         individuals.push({id:value.id,value:value.value});
                     }
+                }else{
                 }
 
             });
@@ -354,45 +379,17 @@ angular.module("hmisPortal")
     }
 
     function decideOnColor(max_and_min,legend,value,valueIndex,valueTouseArray){
-
+        console.log(legend);
         if(max_and_min[2].length==0){
             max_and_min[2]= valueTouseArray;
         }
         var classfy = "";
         var i = 0;
         angular.forEach(max_and_min[2],function(valueL,indexL){
+
             if(value.id==valueL.id){
 
                 i++;
-                if(valueL.value!=0&&valueL.value>=max_and_min[0]){
-
-                    legend[3].members=legend[3].members+1;
-                    classfy = legend[3];
-
-                    return false;
-                }
-
-                if(valueL.value!=0&&valueL.value>((max_and_min[1]+max_and_min[0])/2)&&valueL.value<max_and_min[0]){
-
-                    legend[2].members=legend[2].members+1;
-                    classfy = legend[2];
-
-
-                    return false;
-                }
-
-
-
-                if(valueL.value!=0&&valueL.value<=((max_and_min[1]+max_and_min[0])/2)&&valueL.value>max_and_min[1]){
-
-                    legend[1].members=legend[1].members+1;
-                    classfy = legend[1];
-
-
-                    return false;
-                }
-
-
 
                 if(valueL.value==0||valueL.value<=max_and_min[1]){
                     legend[0].members=legend[0].members+1;
@@ -401,8 +398,44 @@ angular.module("hmisPortal")
                     return false;
                 }
 
-            }else{
+                if(valueL.value<=((max_and_min[1]+max_and_min[0])/2)&&valueL.value>max_and_min[1]){
 
+                    legend[1].members=legend[1].members+1;
+                    classfy = legend[1];
+
+
+                    return false;
+                }
+
+                if(valueL.value>((max_and_min[1]+max_and_min[0])/2)&&valueL.value<max_and_min[0]){
+
+                    legend[2].members=legend[2].members+1;
+                    classfy = legend[2];
+
+
+                    return false;
+                }
+
+                if(valueL.value>=max_and_min[0]){
+
+                    legend[3].members=legend[3].members+1;
+                    classfy = legend[3];
+
+                    return false;
+                }
+
+
+
+
+
+
+
+
+
+
+
+            }else{
+                console.log(valueL);
                 return false;
             }
         });

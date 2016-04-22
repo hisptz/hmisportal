@@ -6,7 +6,7 @@ angular.module("hmisPortal")
     .config(function($httpProvider) {
         $httpProvider.defaults.withCredentials = true;
     })
-    .controller("jinsiCtrl",function ($rootScope,$scope,$http,$location,$timeout,olData,olHelpers,shared,portalService) {
+    .controller("jinsiCtrl",function ($rootScope,$scope,$http,$location,$timeout,olData,olHelpers,shared,$resource,portalService) {
         //displaying loading during page change
         $rootScope.$on("$routeChangeStart",
             function (event, current, previous, rejection) {
@@ -27,7 +27,7 @@ angular.module("hmisPortal")
         $scope.jinsi.displayTable = false;
         $scope.icons=[
             {name:'table',image:'table.jpg',action:''},
-            {name:'bar',image:'bar.png',action:''},
+            {name:'column',image:'bar.png',action:''},
             {name:'line',image:'line.png',action:''},
             {name:'combined',image:'combined.jpg',action:''},
             {name:'column',image:'column.png',action:''},
@@ -286,7 +286,8 @@ angular.module("hmisPortal")
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
-                chart:'bar',
+                chart:'column',
+                dataElementDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -298,7 +299,8 @@ angular.module("hmisPortal")
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
-                chart:'bar',
+                chart:'column',
+                dataElementDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -311,7 +313,8 @@ angular.module("hmisPortal")
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
-                chart:'bar',
+                chart:'column',
+                dataSetDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -324,7 +327,8 @@ angular.module("hmisPortal")
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
-                chart:'bar',
+                chart:'column',
+                dataSetDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -337,7 +341,8 @@ angular.module("hmisPortal")
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
-                chart:'bar',
+                chart:'column',
+                dataSetDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -350,7 +355,8 @@ angular.module("hmisPortal")
                 icons:angular.copy($scope.icons),
                 displayTable:false,
                 displayMap:false,
-                chart:'bar',
+                chart:'column',
+                dataSetDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
 
@@ -449,7 +455,24 @@ angular.module("hmisPortal")
                 }else{
                     $scope.url = portalService.base+"api/analytics.json?dimension=dx:"+cardObject.data+"&dimension=ou:LEVEL-2;LEVEL-3;"+$scope.selectedOrgUnit+"&filter=pe:"+$scope.selectedPeriod+"&displayProperty=NAME";
                 }
+                if(cardObject.hasOwnProperty('dataSetDetails')){
+                    angular.forEach(cardObject.data.split(";"),function(val){
+                        var indicatorApi=
+                            $resource(portalService.base +"api/dataSets/"+val +".json?fields=id,name,periodType,shortName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]]");
+                        var indicatorResult=indicatorApi.get(function(dataElementObject){
+                            cardObject.dataSetDetails.push(dataElementObject);
+                          });
+                    });
+                }else{
 
+                    angular.forEach(cardObject.data.split(";"),function(val){
+                  var indicatorApi=
+                        $resource(portalService.base +"api/dataElements/"+val +".json?fields=id,name,aggregationType,displayName,categoryCombo[id,name,categories[id,name,categoryOptions[id,name]]],dataSets[id,name,periodType]");
+                    var indicatorResult=indicatorApi.get(function(dataElementObject){
+                        cardObject.dataElementDetails.push(dataElementObject);
+                     });
+                  });
+                }
 
                 $http.get($scope.url).success(function(data){
                     if(data.hasOwnProperty('metaData')){
@@ -457,9 +480,7 @@ angular.module("hmisPortal")
                         angular.forEach(useThisData.regions,function(value){
                             $scope.area.push(value.name);
                         });
-                        console.log(data);
-                        //$scope.subCategory = useThisData.elements;
-                        cardObject.chartObject.xAxis.categories = $scope.area;
+                         cardObject.chartObject.xAxis.categories = $scope.area;
 
                         $scope.normalseries = [];
                         if($scope.data.chartType == "pie"){
@@ -936,9 +957,7 @@ angular.module("hmisPortal")
                         }
                     });
                 });
-                console.log(regions);
-
-                if($scope.selectedOrgUnit == "m0frOspS7JY"){
+                 if($scope.selectedOrgUnit == "m0frOspS7JY"){
                     $scope.useregionHR = [];
                     $scope.areaHR = [];
                     angular.forEach(regions,function(value){
@@ -959,8 +978,7 @@ angular.module("hmisPortal")
                         }
                     });
                 }
-                console.log($scope.areaHR);
-                $scope.HRchartConfig.xAxis.categories = $scope.areaHR;
+                 $scope.HRchartConfig.xAxis.categories = $scope.areaHR;
 
                 $scope.HRnormalseries = [];
                 if(chart == "pie"){
@@ -1011,8 +1029,7 @@ angular.module("hmisPortal")
                         });
                         $scope.HRtable.colums.push({name:val.name,values:seri});
                     });
-                    console.log($scope.HRtable.colums);
-                }
+                  }
                 else{
                     delete $scope.HRchartConfig.chart;
                     angular.forEach($scope.HRsubCategory,function(value){
@@ -1162,8 +1179,8 @@ angular.module("hmisPortal")
 
             $scope.preparejinsiSeries();
             $scope.prepareFacilitySeries('own','table');
-            $scope.prepareFacilityTypeSeries('bar');
-            $scope.prepareHRSeries('bar');
+            $scope.prepareFacilityTypeSeries('column');
+            $scope.prepareHRSeries('column');
             $rootScope.firstClick2();
             angular.forEach($scope.cards.malaria,function(value){
                 $scope.preparecompletenesSeries(value,value.chart);
