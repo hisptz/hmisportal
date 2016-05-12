@@ -241,7 +241,7 @@ angular.module("hmisPortal")
 
             var percent = (num/count)*100;
             if(name){
-                console.log(name+": "+count+"parcent is: "+percent);
+                console.log(name+": "+count+"num is: "+num+"parcent is: "+percent);
             }
             return percent.toFixed(2);
 
