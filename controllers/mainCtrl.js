@@ -166,7 +166,30 @@ angular.module("hmisPortal")
         $scope.reloadAction=function(){
             $route.reload();
         }
-     });
+     }).directive('portalCard', function() {
+        return {
+            restrict: 'AE',
+            replace: false,
+            scope: {
+                dataobject : "="
+            },
+            controller: function () {
+                this.showTabale = false;
+                var ctrl = this;
+                this.changeTable = function (type) {
+                    ctrl.showTable = (type == "table")?true:false;
+                }
+            },
+            controllerAs: 'cardCtrl',
+            bindToController: true,
+            templateUrl: 'directives/portalCard.html',
+            link: function (scope, element, attrs) {
+
+            }
+        };
+    });
+
+
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
