@@ -216,7 +216,7 @@ angular.module("hmisPortal")
                         $scope.StockOutObject.chartObject.options.xAxis.categories.push(val.name);
                     });
                     $scope.StockOutObject.loadingMessage = "Fetching Stock Out and Training Data...";
-                    $http.get(portalService.base+'api/sqlViews/N9UEcr3rwUv/data.json?var=month1:201401&var=month2:201402&var=month3:201403&var=month4:201404&var=month5:201405&var=month6:201406&var=month7:201407&var=month8:201408&var=month9:201409&var=month10:201410&var=month11:201411&var=month12:201412').success(function(val1){
+                    FPManager.getFPStockoutData().then(function(val1){
                         $rootScope.showProgressMessage = false;
                         angular.forEach(orgUnits, function (yAxis) {
                             var serie = [];
