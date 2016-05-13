@@ -29,8 +29,14 @@ angular.module("hmisPortal")
                     });
                     zoneRegions.push({ name:regions.name,id:regions.id, children:regionDistricts });
                 });
-                $scope.data.orgUnitTree1.push({ name:value.name,id:value.id, children:zoneRegions,selected:true });
-                $scope.data.outOrganisationUnits.push({ name:value.name,id:value.id, children:zoneRegions,selected:true });
+                if(value.name != "Eastern Zone"){
+                    $scope.data.orgUnitTree1.push({ name:value.name,id:value.id, children:zoneRegions,selected:true });
+                    $scope.data.outOrganisationUnits.push({ name:value.name,id:value.id, children:zoneRegions,selected:true })
+                }
+                else{
+                    $scope.data.orgUnitTree1.push({ name:value.name,id:value.id, children:zoneRegions });
+                    $scope.data.outOrganisationUnits.push({ name:value.name,id:value.id, children:zoneRegions })
+                }
             });
             $scope.data.orgUnitTree.push({name:"Tanzania",id:'m0frOspS7JY',children:$scope.data.orgUnitTree1});
         };

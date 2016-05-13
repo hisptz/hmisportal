@@ -199,8 +199,7 @@ FPServices.factory('FPManager',function($http,$q,portalService){
                         self.FPFacilityList = analyticsObject;
                         deferred.resolve(analyticsObject);
                     })
-                    .error(function (errorMessageData) {
-                        deferred.reject();
+                    .error(function (errorMessageData) {deferred.reject();
                     });
                 return deferred.promise;
             }
