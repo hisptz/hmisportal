@@ -1335,7 +1335,7 @@ angular.module("hmisPortal")
                     $rootScope.showProgressMessage = true;
                     $scope.StockOutCard.loadingMessage = "Fetching Stock out Information ..."
                     //$http.get(portalService.base+'api/sqlViews/dLJMOOQYLZS/data.json?var=month1:201401&var=month2:201402&var=month3:201403&var=month4:201404&var=month5:201405&var=month6:201406&var=month7:201407&var=month8:201408&var=month9:201409&var=month10:201410&var=month11:201411&var=month12:201412').success(function(val1){
-                    FPManager.getFPStockoutData.then(function(val1){
+                    FPManager.getFPStockoutData().then(function(val1){
                         $rootScope.showProgressMessage = false;
                         angular.forEach(orgUnits, function (yAxis) {
                             var serie = [];
@@ -1443,8 +1443,8 @@ angular.module("hmisPortal")
             if(ou == "m0frOspS7JY" ){
                 $.each(arr, function (k, v) {
                     if(v[4] == pe){
-                        num += parseInt(v[5]);
-                        num1 += parseInt(v[6]);
+                        num += (v[5] == "")?0:parseInt(v[5]);
+                        num1 += (v[6] == "")?0:parseInt(v[6]);
                     }
                 });
             }else{
@@ -1456,8 +1456,8 @@ angular.module("hmisPortal")
                         $.each(arr, function (k, v) {
                             if (v[0] == j || v[2] == j) {
                                 if(v[4] == pe){
-                                    num += parseInt(v[5]);
-                                    num1 += parseInt(v[6]);
+                                    num += (v[5] == "")?0:parseInt(v[5]);
+                                    num1 += (v[6] == "")?0:parseInt(v[6]);
                                 }
                             }
                         });
@@ -1466,8 +1466,8 @@ angular.module("hmisPortal")
                     $.each(arr, function (k, v) {
                         if (v[0] == ou || v[2] == ou) {
                             if(v[4] == pe){
-                                num += parseInt(v[5]);
-                                num1 += parseInt(v[6]);
+                                num += (v[5] == "")?0:parseInt(v[5]);
+                                num1 += (v[6] == "")?0:parseInt(v[6]);
                             }
 
                         }

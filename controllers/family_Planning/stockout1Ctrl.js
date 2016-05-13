@@ -324,8 +324,8 @@ angular.module("hmisPortal")
             if(ou == "m0frOspS7JY" ){
                 $.each(arr, function (k, v) {
                     if(v[4] == pe){
-                        num += parseInt(v[5]);
-                        num1 += parseInt(v[6]);
+                        num += (v[5] == "")?0:parseInt(v[5]);
+                        num1 += (v[6] == "")?0:parseInt(v[6]);
                     }
                 });
             }else{
@@ -337,8 +337,8 @@ angular.module("hmisPortal")
                         $.each(arr, function (k, v) {
                             if (v[0] == j || v[2] == j) {
                                 if(v[4] == pe){
-                                    num += parseInt(v[5]);
-                                    num1 += parseInt(v[6]);
+                                    num += (v[5] == "")?0:parseInt(v[5]);
+                                    num1 += (v[6] == "")?0:parseInt(v[6]);
                                 }
                             }
                         });
@@ -347,8 +347,8 @@ angular.module("hmisPortal")
                     $.each(arr, function (k, v) {
                         if (v[0] == ou || v[2] == ou) {
                             if(v[4] == pe){
-                                num += parseInt(v[5]);
-                                num1 += parseInt(v[6]);
+                                num += (v[5] == "")?0:parseInt(v[5]);
+                                num1 += (v[6] == "")?0:parseInt(v[6]);
                             }
 
                         }
