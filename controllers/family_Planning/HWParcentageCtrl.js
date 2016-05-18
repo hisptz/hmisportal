@@ -13,12 +13,10 @@ angular.module("hmisPortal")
         $scope.geographicalZones = FPManager.zones;
         $scope.geoToUse = [];
         $scope.zones = "";
-        $scope.selectedMethod = 'EcP5Na7DO0r';
-        angular.forEach($scope.geographicalZones.organisationUnitGroups,function(value){
-            $scope.zones += value.id+";";
-            $scope.geoToUse.push({name:value.name,id:value.id, ticked: true });
-        });
         $scope.data = {};
+        $scope.selectedYear = FPManager.latestYear;
+        $scope.data.selectedMonth = FPManager.latestMonth;
+
         $scope.updateTree = function(){
             $scope.data.orgUnitTree1 = [];
             $scope.data.orgUnitTree = [];
@@ -71,20 +69,6 @@ angular.module("hmisPortal")
         };
         $scope.selectedMethod = 't8vQoqdY0en';
 
-
-        //switching between tables and charts
-        $scope.displayTables = {card1:false,card2:false,card3:false}
-        $scope.changeTable =function(card,value){
-            if(value == "table"){
-                if(card == "card1"){$scope.displayTables.card1 = true}
-                if(card == "card2"){$scope.displayTables.card2 = true}
-                if(card == "card3"){$scope.displayTables.card3 = true}
-            }if(value == "chart"){
-                if(card == "card1"){$scope.displayTables.card1 = false}
-                if(card == "card2"){$scope.displayTables.card2 = false}
-                if(card == "card3"){$scope.displayTables.card3 = false}
-            }
-        };
 
         //FP method Defination
         $scope.FPmethods = [
@@ -253,26 +237,26 @@ angular.module("hmisPortal")
                         methodss.push({'name':method.name,'id':method.id});
                     });
 
-                    var chartObject = angular.copy(portalService.chartObject);
-                    var chartObject1 = angular.copy(portalService.chartObject);
-                    var chartObject2 = angular.copy(portalService.chartObject);
+                    $scope.chartObject = angular.copy(FPManager.chartObject);
+                    $scope.chartObject1 = angular.copy(FPManager.chartObject);
+                    $scope.chartObject2 = angular.copy(FPManager.chartObject);
 
 
-                    chartObject.yAxis.title.text ="% of Facilities";
-                    chartObject1.yAxis.title.text ="% of Facilities";
-                    chartObject2.yAxis.title.text ="% of Facilities";
+                    $scope.chartObject.options.yAxis.title.text ="% of Facilities";
+                    $scope.chartObject1.options.yAxis.title.text ="% of Facilities";
+                    $scope.chartObject2.options.yAxis.title.text ="% of Facilities";
 
-                    chartObject.yAxis.labels = {
+                    $scope.chartObject.options.yAxis.labels = {
                         formatter: function () {
                             return this.value + '%';
                         }
                     };
-                    chartObject1.yAxis.labels = {
+                    $scope.chartObject1.options.yAxis.labels = {
                         formatter: function () {
                             return this.value + '%';
                         }
                     };
-                    chartObject2.yAxis.labels = {
+                    $scope.chartObject2.options.yAxis.labels = {
                         formatter: function () {
                             return this.value + '%';
                         }
@@ -291,120 +275,108 @@ angular.module("hmisPortal")
                             periods.push({name:value.name,id:value.id})
                         });
                     }
-                    chartObject.title.text ="Percent of Hospitals with 2 or more Health Workers Trained in - "+$scope.titleToUse+" "+FPManager.lastMonthWithDataName;
-                    chartObject1.title.text ="Percent of Health Centres  with 2 or more Health Workers Trained in - "+$scope.titleToUse+" "+FPManager.lastMonthWithDataName;
-                    chartObject2.title.text ="Percent of Dispensaries  with 2 or more Health Workers Trained in - "+$scope.titleToUse+" "+FPManager.lastMonthWithDataName;
+                    $scope.chartObject.options.title.text ="Percent of Hospitals with 2 or more Health Workers Trained in - " + $scope.titleToUse+" " + FPManager.getMonthName($scope.data.selectedMonth);
+                    $scope.chartObject1.options.title.text ="Percent of Health Centres  with 2 or more Health Workers Trained in - " + $scope.titleToUse+" " + FPManager.getMonthName($scope.data.selectedMonth);
+                    $scope.chartObject2.options.title.text ="Percent of Dispensaries  with 2 or more Health Workers Trained in - " + $scope.titleToUse+" " + FPManager.getMonthName($scope.data.selectedMonth);
                     angular.forEach(periods, function (val) {
-                        chartObject.xAxis.categories.push(val.name);
-                        chartObject.xAxis.labels.style = { visibility: 'hidden' };
+                        $scope.chartObject.options.xAxis.categories.push(val.name);
+                        $scope.chartObject.options.xAxis.labels.style = { visibility: 'hidden' };
                     });
                     angular.forEach(periods, function (val) {
-                        chartObject1.xAxis.categories.push(val.name);
-                        chartObject1.xAxis.labels.style = { visibility: 'hidden' };
+                        $scope.chartObject1.options.xAxis.categories.push(val.name);
+                        $scope.chartObject1.options.xAxis.labels.style = { visibility: 'hidden' };
                     });
                     angular.forEach(periods, function (val) {
-                        chartObject2.xAxis.categories.push(val.name);
-                        chartObject2.xAxis.labels.style = { visibility: 'hidden' };
+                        $scope.chartObject2.options.xAxis.categories.push(val.name);
+                        $scope.chartObject2.options.xAxis.labels.style = { visibility: 'hidden' };
                     });
 
 
-                    chartObject.loading = true;
-                    $rootScope.progressMessage = "Fetching data please wait ...";
-                    $rootScope.showProgressMessage = true;
+                    $scope.chartObject.loading = true;
+                    $scope.chartObject1.loading = true;
+                    $scope.chartObject2.loading = true;
                     var method = $scope.data.outMethods[0].id;
-                    $http.get(portalService.base+'api/dataSets/TfoI3vTGv1f.json?fields=organisationUnits[name,organisationUnitGroups[name],ancestors[id]]').success(function(data){
+                    FPManager.getFPFacilityList().then(function(data){
                         if($scope.data.outMethods.length  == 1){
 
-                            $http.get(portalService.base+'api/sqlViews/YsaDLZ51aQA/data.json?var=types:Hospital&var=methods:'+method+'&var=year:'+FPManager.lastMonthWithData).success(function(val1){
+                            $http.get(portalService.base+'api/sqlViews/YsaDLZ51aQA/data.json?var=types:Hospital&var=methods:'+method+'&var=year:'+$scope.data.selectedMonth).success(function(val1){
                                 $rootScope.showProgressMessage = false;
                                 angular.forEach(orgUnits, function (yAxis) {
                                     var serie = [];
                                     angular.forEach(periods, function (xAxis) {
                                         serie.push(parseFloat($scope.getNumberPerOu(data.organisationUnits,yAxis.id,val1.rows,xAxis.id,'Hospital')));
                                     });
-                                    chartObject.series.push({type: 'column', name: yAxis.name, data: serie})
+                                    $scope.chartObject.series.push({type: 'column', name: yAxis.name, data: serie})
                                 });
-                                $('#pchart').highcharts(chartObject);
-                                $scope.chartObject = chartObject
-                                $scope.csvdata = portalService.prepareDataForCSV(chartObject);
-                                $scope.pchart = chartObject;
+                                $scope.csvdata = FPManager.prepareDataForCSV($scope.chartObject);
+                                $scope.chartObject.loading = false;
                             });
 
-                            $http.get(portalService.base+'api/sqlViews/YsaDLZ51aQA/data.json?var=types:Health Center&var=methods:'+method+'&var=year:'+FPManager.lastMonthWithData).success(function(val1){
+                            $http.get(portalService.base+'api/sqlViews/YsaDLZ51aQA/data.json?var=types:Health Center&var=methods:'+method+'&var=year:'+$scope.data.selectedMonth).success(function(val1){
                                 $rootScope.showProgressMessage = false;
                                 angular.forEach(orgUnits, function (yAxis) {
                                     var serie = [];
                                     angular.forEach(periods, function (xAxis) {
                                         serie.push(parseFloat($scope.getNumberPerOu(data.organisationUnits,yAxis.id,val1.rows,xAxis.id,'Health Center')));
                                     });
-                                    chartObject1.series.push({type: 'column', name: yAxis.name, data: serie})
+                                    $scope.chartObject1.series.push({type: 'column', name: yAxis.name, data: serie})
                                 });
-                                $('#pchart1').highcharts(chartObject1);
-                                $scope.chartObject1 = chartObject1
-                                $scope.csvdata1 = portalService.prepareDataForCSV(chartObject1);
-                                $scope.pchart1 = chartObject;
+                                $scope.csvdata1 = FPManager.prepareDataForCSV($scope.chartObject1);
+                                $scope.chartObject1.loading = false;
                             });
 
-                            $http.get(portalService.base+'api/sqlViews/YsaDLZ51aQA/data.json?var=types:Dispensary&var=methods:'+method+'&var=year:'+FPManager.lastMonthWithData).success(function(val1){
+                            $http.get(portalService.base+'api/sqlViews/YsaDLZ51aQA/data.json?var=types:Dispensary&var=methods:'+method+'&var=year:'+$scope.data.selectedMonth).success(function(val1){
                                 $rootScope.showProgressMessage = false;
                                 angular.forEach(orgUnits, function (yAxis) {
                                     var serie = [];
                                     angular.forEach(periods, function (xAxis) {
                                         serie.push(parseFloat($scope.getNumberPerOu(data.organisationUnits,yAxis.id,val1.rows,xAxis.id,'Dispensary')));
                                     });
-                                    chartObject2.series.push({type: 'column', name: yAxis.name, data: serie})
+                                    $scope.chartObject2.series.push({type: 'column', name: yAxis.name, data: serie})
                                 });
-                                $('#pchart2').highcharts(chartObject2);
-                                $scope.chartObject2 = chartObject2;
-                                $scope.csvdata2 = portalService.prepareDataForCSV(chartObject2);
-                                $scope.pchart2 = chartObject;
+                                $scope.csvdata2 = FPManager.prepareDataForCSV($scope.chartObject2);
+                                $scope.chartObject2.loading = false;
                             });
 
                         }else{
 
-                            $http.get(portalService.base+'api/sqlViews/c7WkP7lk9cr/data.json?var=types:Hospital&var=year:'+FPManager.lastMonthWithData).success(function(val1){
+                            $http.get(portalService.base+'api/sqlViews/c7WkP7lk9cr/data.json?var=types:Hospital&var=year:'+$scope.data.selectedMonth).success(function(val1){
                                 $rootScope.showProgressMessage = false;
                                 angular.forEach(methodss, function (yAxis) {
                                     var serie = [];
                                     angular.forEach(periods, function (xAxis) {
                                         serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,$scope.data.outOrganisationUnits[0].id,val1.rows,xAxis.id,'Hospital',yAxis.name)));
                                     });
-                                    chartObject.series.push({type: 'column', name: yAxis.name, data: serie})
+                                    $scope.chartObject.series.push({type: 'column', name: yAxis.name, data: serie})
                                 });
-                                $('#pchart').highcharts(chartObject);
-                                $scope.chartObject = chartObject
-                                $scope.csvdata = portalService.prepareDataForCSV(chartObject);
-                                $scope.pchart = chartObject;
+                                $scope.csvdata = FPManager.prepareDataForCSV($scope.chartObject);
+                                $scope.chartObject.loading = false;
                             });
 
-                            $http.get(portalService.base+'api/sqlViews/c7WkP7lk9cr/data.json?var=types:Health Center&var=year:'+FPManager.lastMonthWithData).success(function(val1){
+                            $http.get(portalService.base+'api/sqlViews/c7WkP7lk9cr/data.json?var=types:Health Center&var=year:'+$scope.data.selectedMonth).success(function(val1){
                                 $rootScope.showProgressMessage = false;
                                 angular.forEach(methodss, function (yAxis) {
                                     var serie = [];
                                     angular.forEach(periods, function (xAxis) {
                                         serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,$scope.data.outOrganisationUnits[0].id,val1.rows,xAxis.id,'Health Center',yAxis.name)));
                                     });
-                                    chartObject1.series.push({type: 'column', name: yAxis.name, data: serie})
+                                    $scope.chartObject1.series.push({type: 'column', name: yAxis.name, data: serie})
                                 });
-                                $('#pchart1').highcharts(chartObject1);
-                                $scope.chartObject1 = chartObject1;
-                                $scope.csvdata1 = portalService.prepareDataForCSV(chartObject1);
-                                $scope.pchart1 = chartObject;
+                                $scope.csvdata1 = FPManager.prepareDataForCSV($scope.chartObject1);
+                                $scope.chartObject1.loading = false;
                             });
 
-                            $http.get(portalService.base+'api/sqlViews/c7WkP7lk9cr/data.json?var=types:Dispensary&var=year:'+FPManager.lastMonthWithData).success(function(val1){
+                            $http.get(portalService.base+'api/sqlViews/c7WkP7lk9cr/data.json?var=types:Dispensary&var=year:'+$scope.data.selectedMonth).success(function(val1){
                                 $rootScope.showProgressMessage = false;
                                 angular.forEach(methodss, function (yAxis) {
                                     var serie = [];
                                     angular.forEach(periods, function (xAxis) {
                                         serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,$scope.data.outOrganisationUnits[0].id,val1.rows,xAxis.id,'Dispensary',yAxis.name)));
                                     });
-                                    chartObject2.series.push({type: 'column', name: yAxis.name, data: serie})
+                                    $scope.chartObject2.series.push({type: 'column', name: yAxis.name, data: serie})
                                 });
-                                $('#pchart2').highcharts(chartObject2);
-                                $scope.chartObject2 = chartObject2
-                                $scope.csvdata2 = portalService.prepareDataForCSV(chartObject2);
-                                $scope.pchart2 = chartObject;
+                                $scope.csvdata2 = FPManager.prepareDataForCSV($scope.chartObject2);
+                                $scope.chartObject2.loading = false;
                             });
 
                         }

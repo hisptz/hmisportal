@@ -17,6 +17,12 @@ angular.module("hmisPortal")
         $scope.geographicalZones = FPManager.zones;
         $scope.geoToUse = [];
         $scope.zones = "";
+        $scope.selectedYear = FPManager.latestYear;
+        $scope.selectedMonth = FPManager.latestMonth;
+
+        $scope.updatePeriod = function(year){
+            $scope.selectedMonth = year+"12";
+        }
         angular.forEach($scope.geographicalZones.organisationUnitGroups,function(value){
             $scope.zones += value.id+";";
             $scope.geoToUse.push({name:value.name,id:value.id, ticked: true });
@@ -80,7 +86,7 @@ angular.module("hmisPortal")
             angular.forEach($scope.selectedRegions,function(value){
                 $scope.zones += value.id+";";
             })
-            $scope.firstClick();
+            $scope.getSelectedValues();
         };
 
         $scope.selectedMethod = 'all';
@@ -528,7 +534,7 @@ angular.module("hmisPortal")
         };
 
 
-        $rootScope.firstClick = function(){
+        $rootScope.getSelectedValues = function(){
             if($scope.data.outMethods.length === 0){
 
             }
@@ -536,7 +542,7 @@ angular.module("hmisPortal")
                 $scope.prepareSeries(value,value.chart);
             });
         };
-        $scope.firstClick();
+        $scope.getSelectedValues();
     });
 
 function preparePeriod(period){

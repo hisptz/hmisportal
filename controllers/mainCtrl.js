@@ -166,6 +166,8 @@ angular.module("hmisPortal")
         $scope.reloadAction=function(){
             $route.reload();
         }
+
+
      }).directive('portalCard', function() {
         return {
             restrict: 'AE',

@@ -7,7 +7,166 @@ FPServices.factory('FPManager',function($http,$q,portalService){
         lastMonthWithDataName :'Dec 2015',
         lastMonthWithOtherData :'201412',
         lastMonthWithOtherDataName :'Dec 2014',
-        lastTwelveMonthName :'Jan 2014 to Dec 2014',
+        lastTwelveMonthName:"Jan to Dec 2014",
+        latestYear: '2015',
+        latestMonth: '201512',
+
+        //display selected period name
+        getMonthName : function(period){
+            var year = period.substring(0,4);
+            var month = period.substring(4,6);
+            var data = "";
+            month = month+'';
+            var longMonth = (month.length == 1)? "0"+month:month;
+            if(longMonth == '01'){
+                data = 'Jan '+year;
+            }else if(longMonth == '02'){
+                data='Feb '+year;
+            }else if(longMonth == '03'){
+                data='Mar '+year;
+            }else if(longMonth == '04'){
+                data='Apr '+year;
+            }else if(longMonth == '05'){
+                data='May '+year;
+            }else if(longMonth == '06'){
+                data='Jun '+year;
+            }else if(longMonth == '07'){
+                data='Jul '+year;
+            }else if(longMonth == '08'){
+                data='Aug '+year;
+            }else if(longMonth == '09'){
+                data='Sep '+year;
+            }else if(longMonth == '10'){
+                data='Oct '+year;
+            }else if(longMonth == '11'){
+                data='Nov '+year;
+            }else if(longMonth == '12'){
+                data='Dec '+year;
+            }
+            return data;
+        },
+        //Get a month name to display on the title
+        getlastTwelveMonthName :function(period){
+            var year = period.substring(0,4);
+            var month = period.substring(4,6);
+            var data = [];
+            for(var i=1;i<=12;i++){
+                month = month+'';
+                var longMonth = (month.length == 1)? "0"+month:month;
+                if(longMonth == '01'){
+                    data.push({'name':'Jan '+year,'id':year+'01'})
+                }else if(longMonth == '02'){
+                    data.push({'name':'Feb '+year,'id':year+'02'})
+                }else if(longMonth == '03'){
+                    data.push({'name':'Mar '+year,'id':year+'03'})
+                }else if(longMonth == '04'){
+                    data.push({'name':'Apr '+year,'id':year+'04'})
+                }else if(longMonth == '05'){
+                    data.push({'name':'May '+year,'id':year+'05'})
+                }else if(longMonth == '06'){
+                    data.push({'name':'Jun '+year,'id':year+'06'})
+                }else if(longMonth == '07'){
+                    data.push({'name':'Jul '+year,'id':year+'07'})
+                }else if(longMonth == '08'){
+                    data.push({'name':'Aug '+year,'id':year+'08'})
+                }else if(longMonth == '09'){
+                    data.push({'name':'Sep '+year,'id':year+'09'})
+                }else if(longMonth == '10'){
+                    data.push({'name':'Oct '+year,'id':year+'10'})
+                }else if(longMonth == '11'){
+                    data.push({'name':'Nov '+year,'id':year+'11'})
+                }else if(longMonth == '12'){
+                    data.push({'name':'Dec '+year,'id':year+'12'})
+                }
+                month = parseInt(month)-1;
+                if(month == 0){
+                    month = '12'; year = parseInt(year)-1;
+                }
+
+            }
+            var names =  data.reverse();
+            return names[0].name +" To "+ names[11].name;
+        },
+
+        //list of twelve month for analytics
+        lastTwelveMonth:function(period){
+            var year = period.substring(0,4);
+            var month = period.substring(4,6);
+            var list = "";
+            for(var i=0;i<12;i++){
+                month = month+'';
+                list +=(month.length == 1)? year+"0"+month:year+""+month;
+                list +=";";
+                month = parseInt(month)-1;
+                if(month == 0){
+                    month = '12'; year = parseInt(year)-1;
+                }
+            }
+            return list;
+        },
+
+        //list of twelve month for a sql views
+        //eg month1:201401&var=month2:201402&var=month3:201403&var=month4:201404&var=month5:201405&var=month6:201406&var=month7:201407&var=month8:201408&var=month9:201409&var=month10:201410&var=month11:201411&var=month12:201412
+        lastTwelveMonthForSql:function(period){
+            var year = period.substring(0,4);
+            var month = period.substring(4,6);
+            var list = "";
+            for(var i=1;i<=12;i++){
+                month = month+'';
+                if(i == 1){
+                    list +=(month.length == 1)? 'var=month'+i+':'+year+"0"+month:'var=month'+i+':'+year+""+month;
+                }else{
+                    list +=(month.length == 1)? '&var=month'+i+':'+year+"0"+month:'&var=month'+i+':'+year+""+month;
+                }
+                month = parseInt(month)-1;
+                if(month == 0){
+                    month = '12'; year = parseInt(year)-1;
+                }
+            }
+            return list;
+        },
+
+        //return an array of months with name and iso, twelve month back
+        getLastTwelveMonthList : function(period){
+            var year = period.substring(0,4);
+            var month = period.substring(4,6);
+            var data = [];
+            for(var i=1;i<=12;i++){
+                month = month+'';
+                var longMonth = (month.length == 1)? "0"+month:month;
+                if(longMonth == '01'){
+                    data.push({'name':'Jan '+year,'id':year+'01'})
+                }else if(longMonth == '02'){
+                    data.push({'name':'Feb '+year,'id':year+'02'})
+                }else if(longMonth == '03'){
+                    data.push({'name':'Mar '+year,'id':year+'03'})
+                }else if(longMonth == '04'){
+                    data.push({'name':'Apr '+year,'id':year+'04'})
+                }else if(longMonth == '05'){
+                    data.push({'name':'May '+year,'id':year+'05'})
+                }else if(longMonth == '06'){
+                    data.push({'name':'Jun '+year,'id':year+'06'})
+                }else if(longMonth == '07'){
+                    data.push({'name':'Jul '+year,'id':year+'07'})
+                }else if(longMonth == '08'){
+                    data.push({'name':'Aug '+year,'id':year+'08'})
+                }else if(longMonth == '09'){
+                    data.push({'name':'Sep '+year,'id':year+'09'})
+                }else if(longMonth == '10'){
+                    data.push({'name':'Oct '+year,'id':year+'10'})
+                }else if(longMonth == '11'){
+                    data.push({'name':'Nov '+year,'id':year+'11'})
+                }else if(longMonth == '12'){
+                    data.push({'name':'Dec '+year,'id':year+'12'})
+                }
+                month = parseInt(month)-1;
+                if(month == 0){
+                    month = '12'; year = parseInt(year)-1;
+                }
+
+            }
+            return data.reverse();
+        },
 
         chartObject : {
             options : {

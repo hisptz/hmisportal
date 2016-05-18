@@ -301,7 +301,6 @@ angular.module("hmisPortal")
                         data.push({'name':orgUnit.name,'id':names.join(";")});
                     }else{
                         data.push({'name':orgUnit.name,'id':orgUnit.id});
-
                     }
                 });
             }if(type == 'quarter'){
@@ -339,10 +338,9 @@ angular.module("hmisPortal")
     });
 
 
-
-
-
 function preparePeriod(period){
 
     return ""+period+"01;"+period+"02;"+period+"03;"+period+"04;"+period+"05;"+period+"06;"+period+"07;"+period+"08;"+period+"09;"+period+"10;"+period+"11;"+period+"12;"+period+"Q1;"+period+"Q2;"+period+"Q3;"+period+"Q4";
 }
+
+o
