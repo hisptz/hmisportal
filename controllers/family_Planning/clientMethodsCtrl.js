@@ -17,17 +17,10 @@ angular.module("hmisPortal")
         $scope.geographicalZones = FPManager.zones;
         $scope.geoToUse = [];
         $scope.zones = "";
-        $scope.selectedYear = FPManager.latestYear;
-        $scope.selectedMonth = FPManager.latestMonth;
-
-        $scope.updatePeriod = function(year){
-            $scope.selectedMonth = year+"12";
-        }
-        angular.forEach($scope.geographicalZones.organisationUnitGroups,function(value){
-            $scope.zones += value.id+";";
-            $scope.geoToUse.push({name:value.name,id:value.id, ticked: true });
-        });
         $scope.data = {};
+        $scope.selectedYear = FPManager.latestYear;
+        $scope.data.selectedMonth = FPManager.latestMonth;
+
         $scope.data.outMethods = [];
         $scope.updateTree = function(){
             $scope.data.orgUnitTree1 = [];
