@@ -218,7 +218,7 @@ angular.module("hmisPortal")
         $scope.fpCards = [
 
     {
-        title:'Family Planning clients by Method through Routine Facility-Based Service Dec 2014' ,
+        title:'Family Planning clients by Method through Routine Facility-Based Service '+FPManager.getMonthName($scope.data.selectedMonth) ,
         description:'Total Clients Quarterly',
         cardClass:"col s12 m12",
         data:$scope.methods,
@@ -244,7 +244,7 @@ angular.module("hmisPortal")
 
             },
             {
-                title:'Family Planning clients by Method through Routine Facility-Based Service Jan 2014 to Dec 2014',
+                title:'Family Planning clients by Method through Routine Facility-Based Service '+FPManager.getlastTwelveMonthName($scope.data.selectedMonth),
                 description:'Total Clients Monthly',
                 cardClass:"col s12 m12",
                 data:$scope.methods,
@@ -288,11 +288,10 @@ angular.module("hmisPortal")
             j_username: "portal", j_password: "Portal123"
             },function() {
                 cardObject.loadingMessage = "Fetching Data...";
-            $scope.url = portalService.base+"api/analytics.json?dimension=dx:"+$scope.getAllMethods()+"&dimension=ou:"+FPManager.getUniqueOrgUnits($scope.data.outOrganisationUnits)+"&dimension=pe:201401;201402;201403;201404;201405;201406;201407;201408;201409;201410;201411;201412&displayProperty=NAME";
+            $scope.url = portalService.base+"api/analytics.json?dimension=dx:"+$scope.getAllMethods()+"&dimension=ou:"+FPManager.getUniqueOrgUnits($scope.data.outOrganisationUnits)+"&dimension=pe:"+FPManager.lastTwelveMonth($scope.data.selectedMonth)+"&displayProperty=NAME";
             var area = [];
             $http.get($scope.url).success(function(data){
                 if(data.hasOwnProperty('metaData')){
-                    //var useThisData = $scope.prepareData(data,$scope.prepareCategory(cardObject.category),cardObject.category,cardObject);
                     var yAxisItems = ['new','returning','total'];
                     var xAxisItems = [];
                     var methodId = [];
@@ -361,29 +360,29 @@ angular.module("hmisPortal")
                                 if($scope.data.outMethods.length == 1){
                                     if (val == "new") {
                                         if(methodId1.new !== "")
-                                        var number = $scope.getDataFromUrl(data.rows, value.id, '201412', methodId1.new);
+                                        var number = $scope.getDataFromUrl(data.rows, value.id, $scope.data.selectedMonth, methodId1.new);
 
                                     }
                                     if (val == "returning") {
                                         if(methodId1.returning !== "")
-                                        var number = $scope.getDataFromUrl(data.rows, value.id, '201412', methodId1.returning);
+                                        var number = $scope.getDataFromUrl(data.rows, value.id, $scope.data.selectedMonth, methodId1.returning);
                                     }
                                     if (val == "total") {
                                         if(methodId1.total1 !== "")
-                                        var number = $scope.getDataFromUrl(data.rows, value.id, '201412', methodId1.total1);
+                                        var number = $scope.getDataFromUrl(data.rows, value.id, $scope.data.selectedMonth, methodId1.total1);
                                     }
                                 }else{
                                     if (val == "new") {
                                         //if(value.new !== "")
-                                        var number = $scope.getDataFromUrl(data.rows, 'none', '201412', value.new);
+                                        var number = $scope.getDataFromUrl(data.rows, 'none', $scope.data.selectedMonth, value.new);
                                     }
                                     if (val == "returning") {
                                         //if(value.returning !== "")
-                                        var number = $scope.getDataFromUrl(data.rows, 'none', '201412', value.returning);
+                                        var number = $scope.getDataFromUrl(data.rows, 'none', $scope.data.selectedMonth, value.returning);
                                     }
                                     if (val == "total") {
                                         //if(value.total1 !== "")
-                                        var number = $scope.getDataFromUrl(data.rows, 'none', '201412', value.total1);
+                                        var number = $scope.getDataFromUrl(data.rows, 'none', $scope.data.selectedMonth, value.total1);
                                     }
                                 }
 
@@ -491,18 +490,7 @@ angular.module("hmisPortal")
                 data.push({'name':'Jul - Sep '+per,'id':per+'Q3'});
                 data.push({'name':'Oct - Dec '+per,'id':per+'Q4'});
             }if(type == 'month'){
-                data.push({'name':'Jan '+per,'id':per+'01'});
-                data.push({'name':'Feb '+per,'id':per+'02'});
-                data.push({'name':'Mar '+per,'id':per+'03'});
-                data.push({'name':'Apr '+per,'id':per+'04'});
-                data.push({'name':'May '+per,'id':per+'05'});
-                data.push({'name':'Jun '+per,'id':per+'06'});
-                data.push({'name':'Jul '+per,'id':per+'07'});
-                data.push({'name':'Aug '+per,'id':per+'08'});
-                data.push({'name':'Sep '+per,'id':per+'09'});
-                data.push({'name':'Oct '+per,'id':per+'10'});
-                data.push({'name':'Nov'+per,'id':per+'11'});
-                data.push({'name':'Dec '+per,'id':per+'12'});
+                data=FPManager.getLastTwelveMonthList($scope.data.selectedMonth);
             }if(type == 'methods'){
                 data.push({'name':'Male Condoms','uid':'JMmqv0tyVr7'},
                     {'name':'Female Condoms','uid':'Nt8M08bJKXl'},
