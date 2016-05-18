@@ -206,7 +206,6 @@ angular.module("hmisPortal")
                     });
                     $scope.StockOutObject.loadingMessage = "Fetching Stock Out and Training Data...";
                     FPManager.getFPStockoutData($scope.data.selectedMonth).then(function(val1){
-                        console.log(val1);
                         angular.forEach(orgUnits, function (yAxis) {
                             var serie = [];
                             angular.forEach(periods, function (xAxis) {

@@ -401,7 +401,7 @@ FPServices.factory('FPManager',function($http,$q,portalService){
                 data.push.apply(data,res[9]);
                 data.push.apply(data,res[10]);
                 data.push.apply(data,res[11]);
-                data.push.apply(data,res[12]);
+                data.push.apply(data,res[0]);
                 deferred.resolve(data);
             });
 
