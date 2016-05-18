@@ -18,12 +18,7 @@ angular.module("hmisPortal")
         $scope.data.selectedMonth = FPManager.latestMonth;
         $scope.hideMethods = true;
 
-        console.log(FPManager.getLastTwelveMonthList('201505'))
-        $scope.selectedMethod = 'EcP5Na7DO0r';
-        angular.forEach($scope.geographicalZones.organisationUnitGroups,function(value){
-            $scope.zones += value.id+";";
-            $scope.geoToUse.push({name:value.name,id:value.id, ticked: true });
-        });
+
         $scope.updateTree = function(){
             $scope.data.orgUnitTree1 = [];
             $scope.data.orgUnitTree = [];
@@ -57,7 +52,6 @@ angular.module("hmisPortal")
                 $scope.updateTree();
             }
         };
-        $scope.selectedMethod = 'EcP5Na7DO0r';
 
         $scope.prepareCategory = function(type){
             var data = [];
@@ -163,7 +157,7 @@ angular.module("hmisPortal")
 
 
         $scope.getSelectedValues = function(){
-            console.log($scope.selectedMonth)
+            console.log($scope.data.selectedMonth)
             if($scope.data.outOrganisationUnits.length === 0){
                 alert("no orgunit selected")
             }else
@@ -211,12 +205,12 @@ angular.module("hmisPortal")
                         $scope.StockOutObject.chartObject.options.xAxis.categories.push(val.name);
                     });
                     $scope.StockOutObject.loadingMessage = "Fetching Stock Out and Training Data...";
-                    FPManager.getFPStockoutData().then(function(val1){
-                        $rootScope.showProgressMessage = false;
+                    FPManager.getFPStockoutData($scope.data.selectedMonth).then(function(val1){
+                        console.log(val1);
                         angular.forEach(orgUnits, function (yAxis) {
                             var serie = [];
                             angular.forEach(periods, function (xAxis) {
-                                serie.push(parseFloat($scope.getNumberPerOu(yAxis.id,val1.rows,xAxis.id)));
+                                serie.push(parseFloat($scope.getNumberPerOu(yAxis.id,val1,xAxis.id)));
                             });
                             $scope.StockOutObject.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
                         });
@@ -233,9 +227,6 @@ angular.module("hmisPortal")
 
 
 
-
-
-        $scope.selectedMethod = 'all';
         $scope.selectedPeriod = '2014';
         $scope.data.chartType = 'column';
         $scope.displayTable = false;

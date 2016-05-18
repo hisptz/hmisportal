@@ -1251,7 +1251,7 @@ angular.module("hmisPortal")
                     });
 
 
-                    $scope.StockOutCard.chartObject.options.title.text ="Percent All Facilities with a Health Worker Trained in Short-Acting Methods but Stocked Out of Injectables "+FPManager.lastTwelveMonthName;
+                    $scope.StockOutCard.chartObject.options.title.text ="Percent All Facilities with a Health Worker Trained in Short-Acting Methods but Stocked Out of Injectables "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
                     $scope.StockOutCard.chartObject.options.yAxis.title.text ="% of Facilities";
                     var orgUnits = [{name:'Tanzania',id:'m0frOspS7JY'}];
                     var periods = $scope.prepareCategory('month');
@@ -1264,12 +1264,12 @@ angular.module("hmisPortal")
                     $rootScope.progressMessage = "Fetching data please wait ...";
                     $rootScope.showProgressMessage = true;
                     $scope.StockOutCard.loadingMessage = "Fetching Stock out Information ..."
-                    FPManager.getFPStockoutData().then(function(val1){
+                    FPManager.getFPStockoutData(FPManager.lastMonthWithData).then(function(val1){
                         $rootScope.showProgressMessage = false;
                         angular.forEach(orgUnits, function (yAxis) {
                             var serie = [];
                             angular.forEach(periods, function (xAxis) {
-                                serie.push(parseFloat($scope.getNumberPerOu(yAxis.id,val1.rows,xAxis.id)));
+                                serie.push(parseFloat($scope.getNumberPerOu(yAxis.id,val1,xAxis.id)));
                             });
                             $scope.StockOutCard.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
                         });
@@ -1341,7 +1341,7 @@ angular.module("hmisPortal")
                 data.push({'name':'Jul - Sep '+per,'id':per+'Q3'});
                 data.push({'name':'Oct - Dec '+per,'id':per+'Q4'});
             }if(type == 'month'){
-                data = FPManager.getLastTwelveMonthList(FPManager.lastMonthWithOtherData);
+                data = FPManager.getLastTwelveMonthList(FPManager.lastMonthWithData);
             }if(type == 'methods'){
                 data.push({'name':'client <20 Male Condoms','id':'W74wyMy1mp0'},
                     {'name':'client <20 Female Condoms','id':'p8cgxI3yPx8'},
