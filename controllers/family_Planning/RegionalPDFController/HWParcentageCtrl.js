@@ -273,10 +273,8 @@ angular.module("hmisPortal")
                         chartObject.loading = true;
                         $rootScope.progressMessage = "Fetching data please wait ...";
                         $rootScope.showProgressMessage = true;
-                        $http.get(portalService.base+'api/dataSets/TfoI3vTGv1f.json?fields=organisationUnits[name,organisationUnitGroups[name],ancestors[id]]').success(function(data){
+                        FPManager.getFPFacilityList().then(function(data){
 
-                            //training table
-                            //$http.get(portalService.base+'api/sqlViews/AajDPSTPpzr/data.json?var=year:'+FPManager.lastMonthWithData).success(function(facilities){
                             $http.get(portalService.base+'api/sqlViews/ahVxVlhDa82/data.json?var=year:'+FPManager.lastMonthWithData).success(function(facilities){
                                 var shortActingRegions = {};
                                 var iucdRegions = {};
@@ -412,18 +410,7 @@ angular.module("hmisPortal")
                 data.push({'name':'Jul - Sep '+per,'id':per+'Q3'});
                 data.push({'name':'Oct - Dec '+per,'id':per+'Q4'});
             }if(type == 'month'){
-                data.push({'name':'Jan '+per,'id':per+'01'});
-                data.push({'name':'Feb '+per,'id':per+'02'});
-                data.push({'name':'Mar '+per,'id':per+'03'});
-                data.push({'name':'Apr '+per,'id':per+'04'});
-                data.push({'name':'May '+per,'id':per+'05'});
-                data.push({'name':'Jun '+per,'id':per+'06'});
-                data.push({'name':'Jul '+per,'id':per+'07'});
-                data.push({'name':'Aug '+per,'id':per+'08'});
-                data.push({'name':'Sep '+per,'id':per+'09'});
-                data.push({'name':'Oct '+per,'id':per+'10'});
-                data.push({'name':'Nov '+per,'id':per+'11'});
-                data.push({'name':'Dec '+per,'id':per+'12'});
+                data = FPManager.getLastTwelveMonthList(FPManager.lastMonthWithData);
             }if(type == 'methods'){
                 angular.forEach()
             }
@@ -527,7 +514,6 @@ angular.module("hmisPortal")
             var num = 0;
                 $.each(arr, function (k, v) {
                     if (v[0] == ou || v[2] == ou) {
-                        console.log(ou)
                         if(v[index] !== ""){
                             num += parseInt(v[index]);
                         }

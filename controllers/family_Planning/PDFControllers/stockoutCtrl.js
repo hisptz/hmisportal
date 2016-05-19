@@ -77,18 +77,7 @@ angular.module("hmisPortal")
                 data.push({'name':'Jul - Sep '+per,'id':per+'Q3'});
                 data.push({'name':'Oct - Dec '+per,'id':per+'Q4'});
             }if(type == 'month'){
-                data.push({'name':'Jan '+per,'id':per+'01'});
-                data.push({'name':'Feb '+per,'id':per+'02'});
-                data.push({'name':'Mar '+per,'id':per+'03'});
-                data.push({'name':'Apr '+per,'id':per+'04'});
-                data.push({'name':'May '+per,'id':per+'05'});
-                data.push({'name':'Jun '+per,'id':per+'06'});
-                data.push({'name':'Jul '+per,'id':per+'07'});
-                data.push({'name':'Aug '+per,'id':per+'08'});
-                data.push({'name':'Sep '+per,'id':per+'09'});
-                data.push({'name':'Oct '+per,'id':per+'10'});
-                data.push({'name':'Nov '+per,'id':per+'11'});
-                data.push({'name':'Dec '+per,'id':per+'12'});
+                data = FPManager.getLastTwelveMonthList(FPManager.lastMonthWithData);
             }if(type == 'methods'){
                 data.push({'name':'client <20 Male Condoms','id':'W74wyMy1mp0'},
                     {'name':'client <20 Female Condoms','id':'p8cgxI3yPx8'},
@@ -232,7 +221,7 @@ angular.module("hmisPortal")
 
                     var chartObject = angular.copy(portalService.chartObject);
 
-                    chartObject.title.text ="National Percent All Facilities Stocked Out of Pills or Injectables for at any number of days in the month, Jan 2014 to Dec 2014";
+                    chartObject.title.text ="National Percent All Facilities Stocked Out of Pills or Injectables for at any number of days in the month, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
                     chartObject.yAxis.title.text ="% of Facilities";
                     var orgUnits = [{id:'m0frOspS7JY',name:'Tanzania'}];
                     var periods = $scope.prepareCategory('month');
@@ -248,8 +237,7 @@ angular.module("hmisPortal")
                     FPManager.getFPFacilityList().then(function(data){
                         //stockout Tables
                         render.addRequest();
-                        //$http.get(portalService.base+'api/sqlViews/qRvLgLYOjS2/data.json?var=month1:201401&var=month2:201402&var=month3:201403&var=month4:201404&var=month5:201405&var=month6:201406&var=month7:201407&var=month8:201408&var=month9:201409&var=month10:201410&var=month11:201411&var=month12:201412').success(function(facilities){
-                        $http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?var=month1:201401&var=month2:201402&var=month3:201403&var=month4:201404&var=month5:201405&var=month6:201406&var=month7:201407&var=month8:201408&var=month9:201409&var=month10:201410&var=month11:201411&var=month12:201412').success(function(facilities){
+                        $http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?&'+FPManager.lastTwelveMonthForSql(FPManager.lastMonthWithData)).success(function(facilities){
                             var injecatbleRegions = {};
                             var oralRegions = {};
                             var injecatbleData = [];
@@ -270,15 +258,12 @@ angular.module("hmisPortal")
                                 {oral:oralData[1].name+"( "+oralData[1].value +"% )",injectable:injecatbleData[1].name+"( "+injecatbleData[1].value +"% )"},
                                 {oral:oralData[2].name+"( "+oralData[2].value +"% )",injectable:injecatbleData[2].name+"( "+injecatbleData[2].value +"% )"},
                             ];
-                            //$scope.orgunitsWithLowTraining = [
-                            //    {name:'Short Acting',region1:shortActingData[0].name+"( "+shortActingData[0].value +"% )",region2:shortActingData[1].name+"( "+shortActingData[1].value +"% )",region3:shortActingData[2].name+"( "+shortActingData[2].value +"% )"},
-                            //    {name:'IUCD',region1:iucdData[0].name+"( "+iucdData[0].value +"% )",region2:iucdData[1].name+"( "+iucdData[1].value +"% )",region3:iucdData[2].name+"( "+iucdData[2].value +"% )"},
-                            //];
+
                             render.finishRequest();
                         });
 
                         render.addRequest();
-                        $http.get(portalService.base+'api/sqlViews/Fvxf4sjmWxC/data.json?var=month1:201401&var=month2:201402&var=month3:201403&var=month4:201404&var=month5:201405&var=month6:201406&var=month7:201407&var=month8:201408&var=month9:201409&var=month10:201410&var=month11:201411&var=month12:201412').success(function(val1){
+                        $http.get(portalService.base+'api/sqlViews/Fvxf4sjmWxC/data.json?'+FPManager.lastTwelveMonthForSql(FPManager.lastMonthWithData)).success(function(val1){
                             angular.forEach(orgUnits, function (yAxis) {
                                 var serie = [];
                                 angular.forEach(periods, function (xAxis) {
@@ -358,18 +343,7 @@ angular.module("hmisPortal")
                 data.push({'name':'Jul - Sep '+per,'id':per+'Q3'});
                 data.push({'name':'Oct - Dec '+per,'id':per+'Q4'});
             }if(type == 'month'){
-                data.push({'name':'Jan '+per,'id':per+'01'});
-                data.push({'name':'Feb '+per,'id':per+'02'});
-                data.push({'name':'Mar '+per,'id':per+'03'});
-                data.push({'name':'Apr '+per,'id':per+'04'});
-                data.push({'name':'May '+per,'id':per+'05'});
-                data.push({'name':'Jun '+per,'id':per+'06'});
-                data.push({'name':'Jul '+per,'id':per+'07'});
-                data.push({'name':'Aug '+per,'id':per+'08'});
-                data.push({'name':'Sep '+per,'id':per+'09'});
-                data.push({'name':'Oct '+per,'id':per+'10'});
-                data.push({'name':'Nov '+per,'id':per+'11'});
-                data.push({'name':'Dec '+per,'id':per+'12'});
+                data = FPManager.getLastTwelveMonthList(FPManager.lastMonthWithData);
             }if(type == 'methods'){
                 data.push({'name':'client <20 Male Condoms','id':'W74wyMy1mp0'},
                     {'name':'client <20 Female Condoms','id':'p8cgxI3yPx8'},

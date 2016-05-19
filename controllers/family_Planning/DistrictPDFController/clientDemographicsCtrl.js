@@ -378,8 +378,8 @@ angular.module("hmisPortal")
                             cardObject.data = $scope.getSingleMethods($scope.selectedMethod);
                         }
                     }
-                    $scope.url1 = portalService.base + "api/analytics.json?dimension=dx:lMFKZN3UaYp;ZnTi99UdGCS;UjGebiXNg0t;RfSsrHPGBXV;JSmtnnW6WrR;xhcaH3H3pdK;xip1SDutimh;chmWn8ksICz&dimension=ou:m0frOspS7JY&dimension=pe:201412;&displayProperty=NAME";
-                    $scope.url = portalService.base + "api/analytics.json?dimension=dx:W74wyMy1mp0;p8cgxI3yPx8;aSJKs4oPZAf;LpkdcaLc4I9;p14JdJaG2aC;GvbkEo6sfSd;QRCRjFreECE&dimension=ou:m0frOspS7JY&dimension=pe:"+FPManager.lastTwelveMonth(FPManager.lastMonthWithOtherData)+"&displayProperty=NAME";
+                    $scope.url1 = portalService.base + "api/analytics.json?dimension=dx:lMFKZN3UaYp;ZnTi99UdGCS;UjGebiXNg0t;RfSsrHPGBXV;JSmtnnW6WrR;xhcaH3H3pdK;xip1SDutimh;chmWn8ksICz&dimension=ou:m0frOspS7JY&dimension=pe:"+FPManager.lastMonthWithData+";&displayProperty=NAME";
+                    $scope.url = portalService.base + "api/analytics.json?dimension=dx:W74wyMy1mp0;p8cgxI3yPx8;aSJKs4oPZAf;LpkdcaLc4I9;p14JdJaG2aC;GvbkEo6sfSd;QRCRjFreECE&dimension=ou:m0frOspS7JY&dimension=pe:"+FPManager.lastTwelveMonth(FPManager.lastMonthWithData)+"&displayProperty=NAME";
 
                     ////////////////////////////data for <20/////////////////////////////////////////////
                     $scope.updateDisplayShortMessage($scope.data.outMethods);
@@ -585,7 +585,7 @@ angular.module("hmisPortal")
                 data.push({'name':'Jul - Sep '+per,'id':per+'Q3'});
                 data.push({'name':'Oct - Dec '+per,'id':per+'Q4'});
             }if(type == 'month'){
-                data = FPManager.getLastTwelveMonthList(FPManager.lastMonthWithOtherData);;
+                data = FPManager.getLastTwelveMonthList(FPManager.lastMonthWithData);;
             }if(type == 'methods'){
                 angular.forEach($scope.data.menuMethods,function(value){
                     if(value.name == 'Male Condoms' || value.name == 'Female Condoms' || value.name == 'Oral Pills' || value.name == 'Injectables' || value.name == 'Implants' || value.name == 'IUCDs' || value.name == 'Natural FP')

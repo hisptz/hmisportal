@@ -19,6 +19,7 @@ angular.module("hmisPortal")
             $scope.zones += value.id+";";
             $scope.geoToUse.push({name:value.name,id:value.id, ticked: true });
         });
+        $scope.periodName = FPManager.getMonthName(FPManager.lastMonthWithData);
         $scope.data = {};
         $scope.data.outMethods = [];
         $scope.data.outOrganisationUnits = [];
@@ -211,7 +212,7 @@ angular.module("hmisPortal")
         $scope.fpCards = [
 
     {
-                title:'Family Planning clients by Method through Routine Facility-Based Service '+FPManager.getMonthName(FPManager.lastMonthWithOtherData) ,
+                title:'Family Planning clients by Method through Routine Facility-Based Service '+FPManager.getMonthName(FPManager.lastMonthWithData) ,
                 description:'Total Clients Quarterly',
                 cardClass:"col s12 m12",
                 data:$scope.methods,
@@ -227,7 +228,7 @@ angular.module("hmisPortal")
 
             },
             {
-                title:'Family Planning clients by Method through Routine Facility-Based Service Jan 2014 to Dec '+FPManager.getMonthName(FPManager.lastMonthWithOtherData),
+                title:'Family Planning clients by Method through Routine Facility-Based Service  '+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData),
                 description:'Total Clients Monthly',
                 cardClass:"col s12 m12",
                 data:$scope.methods,
@@ -275,7 +276,7 @@ angular.module("hmisPortal")
                     }
 
                     var peri = preparePeriod($scope.selectedPeriod);
-                    $scope.url = portalService.base+"api/analytics.json?dimension=dx:"+$scope.getAllMethods()+"&dimension=ou:"+$scope.regionUid+"&dimension=pe:"+FPManager.lastTwelveMonth(FPManager.lastMonthWithOtherData)+"&displayProperty=NAME";
+                    $scope.url = portalService.base+"api/analytics.json?dimension=dx:"+$scope.getAllMethods()+"&dimension=ou:"+$scope.regionUid+"&dimension=pe:"+FPManager.lastTwelveMonth(FPManager.lastMonthWithData)+"&displayProperty=NAME";
                     var area = [];
                     cardObject.chartObject.loading = true;
                     var datass = '';
@@ -422,7 +423,7 @@ angular.module("hmisPortal")
                 data.push({'name':'Jul - Sep '+per,'id':per+'Q3'});
                 data.push({'name':'Oct - Dec '+per,'id':per+'Q4'});
             }if(type == 'month'){
-                data = FPManager.getLastTwelveMonthList(FPManager.lastMonthWithOtherData);
+                data = FPManager.getLastTwelveMonthList(FPManager.lastMonthWithData);
             }if(type == 'methods'){
                 data.push({'name':'Male Condoms','uid':'JMmqv0tyVr7'},
                     {'name':'Female Condoms','uid':'Nt8M08bJKXl'},

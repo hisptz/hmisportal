@@ -241,7 +241,7 @@ angular.module("hmisPortal")
 
             var percent = (num/count)*100;
             if(name){
-                console.log(name+": "+count+"num is: "+num+"parcent is: "+percent);
+                //console.log(name+": "+count+"num is: "+num+"parcent is: "+percent);
             }
             return percent.toFixed(2);
 
@@ -280,7 +280,7 @@ angular.module("hmisPortal")
                     angular.forEach(orgUnits,function(value){
                         periods.push({name:value.name,id:value.id})
                     });
-                    chartObject.title.text ="National Percent of facilities with 2 or more HWs Trained in each FP method";
+                    chartObject.title.text ="National Percent of facilities with 2 or more HWs Trained in each FP method "+FPManager.getMonthName(FPManager.lastMonthWithData);
                     angular.forEach(methodss, function (val) {
                         chartObject.xAxis.categories.push(val.name);
                     });
@@ -423,18 +423,7 @@ angular.module("hmisPortal")
                 data.push({'name':'Jul - Sep '+per,'id':per+'Q3'});
                 data.push({'name':'Oct - Dec '+per,'id':per+'Q4'});
             }if(type == 'month'){
-                data.push({'name':'Jan '+per,'id':per+'01'});
-                data.push({'name':'Feb '+per,'id':per+'02'});
-                data.push({'name':'Mar '+per,'id':per+'03'});
-                data.push({'name':'Apr '+per,'id':per+'04'});
-                data.push({'name':'May '+per,'id':per+'05'});
-                data.push({'name':'Jun '+per,'id':per+'06'});
-                data.push({'name':'Jul '+per,'id':per+'07'});
-                data.push({'name':'Aug '+per,'id':per+'08'});
-                data.push({'name':'Sep '+per,'id':per+'09'});
-                data.push({'name':'Oct '+per,'id':per+'10'});
-                data.push({'name':'Nov '+per,'id':per+'11'});
-                data.push({'name':'Dec '+per,'id':per+'12'});
+                data = FPManager.getLastTwelveMonthList(FPManager.lastMonthWithData);
             }if(type == 'methods'){
                 angular.forEach()
             }
