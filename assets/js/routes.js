@@ -197,6 +197,75 @@ angular.module("hmisPortal")
             templateUrl: 'views/indicatorsView.html',
             controller: 'indicatorsCtrl'
         });
+        
+        /**
+         * Family planning routes
+         * Used by family planning portal.
+         */
+        $routeProvider.when("/family_planning",{
+            templateUrl: 'views/family_planning/survilience.html',
+            controller: 'survilienceCtrl'
+        });
+
+        $routeProvider.when("/hw_trained",{
+            templateUrl: 'views/family_planning/coverage1.html',
+            controller: 'HWTrainedCtrl'
+        });
+
+        $routeProvider.when("/facilities_hw_trained",{
+            templateUrl: 'views/family_planning/coverage2.html',
+            controller: 'HWParcentageCtrl'
+        });
+
+        $routeProvider.when("/facilities_providing_FP",{
+            templateUrl: 'views/family_planning/coverage3.html',
+            controller: 'parcentageCtrl'
+        });
+
+        $routeProvider.when("/facilities_providing_CBD",{
+            templateUrl: 'views/family_planning/coverage4.html',
+            controller: 'parcentage1Ctrl'
+        });
+
+        $routeProvider.when("/facilities_with_trained_hw",{
+            templateUrl: 'views/family_planning/coverage5.html',
+            controller: 'HwandMethodParcentCtrl'
+        });
+
+        $routeProvider.when("/consumption_by_method",{
+            templateUrl: 'views/family_planning/client_by_methods.html',
+            controller: 'clientMethodsCtrl'
+        });
+
+        $routeProvider.when("/consumption_by_demographic",{
+            templateUrl: 'views/family_planning/client_by_demographics.html',
+            controller: 'clientDemographicsCtrl'
+        });
+
+        $routeProvider.when("/sos_at_facilities",{
+            templateUrl: 'views/family_planning/stock_out1.html',
+            controller: 'stockoutCtrl'
+        });
+
+        $routeProvider.when("/sos_at_facilities_trained_hw",{
+            templateUrl: 'views/family_planning/stock_out2.html',
+            controller: 'stockout1Ctrl'
+        });
+
+        $routeProvider.when("/service_intergration",{
+            templateUrl: 'views/family_planning/survilience.html',
+            controller: 'survilienceCtrl'
+        });
+
+        $routeProvider.when("/familyPlanningHome",{
+            templateUrl: 'views/family_planning/home.html',
+            controller: 'FPHomeController'
+        });
+
+        $routeProvider.when("/unsubscribe",{
+            templateUrl: 'views/family_planning/unsubscribe.html',
+            controller: 'FPHomeController'
+        });
 
         $routeProvider.otherwise({
             redirectTo: '/home'

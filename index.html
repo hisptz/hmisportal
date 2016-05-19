@@ -104,6 +104,7 @@
     <link rel="stylesheet" type="text/css" href="bower_components/openlayers3/build/ol.css">
     <link rel="stylesheet" type="text/css" href="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.css">
     <link rel="stylesheet" type="text/css" href="assets/spinkit/angular-spinkit.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/tree/angular-multi-select-tree-0.1.0.min.css">
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -154,6 +155,7 @@
         <li><a href="./#noncommunicabledisease">NON-COMMUNICABLE DISEASE</a></li>
         <li><a href="./#tracer_medicine">TRACER MEDICINE</a></li>
         <li><a href="./#tb">TB&amp;LEPROSY</a></li>
+        <li><a href="./#familyPlanningHome">FAMILY PLANNING</a></li>
     </ul>
     <ul id="dropdown3" class="sm sm-vertical sm-simple" style="display: none;">
         <li><a href="./#downloads">Health Reports</a></li>
@@ -178,6 +180,7 @@
         <li><a href="./#noncommunicabledisease">NON-COMMUNICABLE DISEASE</a></li>
         <li><a href="./#tracer_medicine">TRACER MEDICINE</a></li>
         <li><a href="./#tb">TB&amp;LEPROSY</a></li>
+        <li><a href="./#familyPlanningHome">FAMILY PLANNING</a></li>
     </ul>
     <ul id="dropdown4" class="sm sm-vertical sm-simple" style="display: none;">
         <li><a href="./#mortalities">MORTALITIES</a></li>
@@ -381,18 +384,35 @@
 <script src="bower_components/openlayers3/build/ol.js"></script>
 <script src="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.js"></script>
 
+<script src="bower_components/tree/angular-multi-select-tree-0.1.0.min.js"></script>
+<script src="bower_components/tree/angular-multi-select-tree-0.1.0.tpl.js"></script>
 <script>
-    var mainModule = angular.module('hmisPortal', ["ngRoute",'ngResource','ngAnimate',"datatables",'ngSanitize','highcharts-ng','openlayers-directive','ui.materialize','dhisHighchartAngularService','angular-spinkit','ngCsv']);
+    var mainModule = angular.module('hmisPortal', ["ngRoute",'ngResource','ngAnimate',"datatables",'ngSanitize','highcharts-ng','openlayers-directive','ui.materialize','dhisHighchartAngularService','angular-spinkit','ngCsv','multi-select-tree']);
 </script>
 <script src="assets/js/routes.js"></script>
 <script src="controllers/mainCtrl.js"></script>
 <script src="services/mapService.js"></script>
 <script src="services/portalService.js"></script>
+<script src="services/familyPlanningService.js"></script>
 <script src="controllers/indicatorsCtrl.js"></script>
 <script src="controllers/dataCtrl.js"></script>
 <script src="controllers/dashboardCtrl.js"></script>
 <script src="controllers/jinsiCtrl.js"></script>
 <script src="controllers/morbidityCtrl.js"></script>
+
+
+<script src="controllers/family_Planning/clientDemographicsCtrl.js"></script>
+<script src="controllers/family_Planning/clientMethodsCtrl.js"></script>
+<script src="controllers/family_Planning/survilienceCtrl.js"></script>
+<script src="controllers/family_Planning/parcentageCtrl.js"></script>
+<script src="controllers/family_Planning/parcentage1Ctrl.js"></script>
+<script src="controllers/family_Planning/stockoutCtrl.js"></script>
+<script src="controllers/family_Planning/HWParcentageCtrl.js"></script>
+<script src="controllers/family_Planning/HWTrainedCtrl.js"></script>
+<script src="controllers/family_Planning/HwandMethodParcentCtrl.js"></script>
+<script src="controllers/family_Planning/stockout1Ctrl.js"></script>
+<script src="controllers/family_Planning/HomeControllers/HWTrainedCtrl.js"></script>
+<script src="directives/portalDirectives.js"></script>
 <script>
     $(document).ready(function(){
         $("#main-menu").css({"display":"none"});

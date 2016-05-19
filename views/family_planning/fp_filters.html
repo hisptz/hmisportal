@@ -1,0 +1,59 @@
+<div class="z-depth-1 grey lighten-5" style="width:96.5%;position:fixed;top:70px;z-index:900;margin-left: 24px; margin-right: 0px" ng-controller="filterController">
+    <div class="section grey lighten-5 " >
+        <div ng-class="hideMethods?'col s3':'col s3'"><label>Period</label></div>
+        <div ng-class="hideMethods?'col s7':'col s4'"><label>Geography</label></div>
+        <div ng-if="!hideMethods" class="col s3"><label>Methods</label></div>
+        <div class="input-field col s3  grey lighten-5" style="margin-top: 0px">
+            <div class="col s6 input-field">
+                    <select ng-model="selectedYear" ng-change="updatePeriod(selectedYear)" material-select watch >
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                    </select>
+            </div>
+            <div class="col s6 input-field">
+                <select  ng-change="updateMonth(data.selectedMonth)" ng-model="data.selectedMonth" material-select watch>
+                    <option>{{selectedYear}}01</option>
+                    <option>{{selectedYear}}02</option>
+                    <option>{{selectedYear}}03</option>
+                    <option>{{selectedYear}}04</option>
+                    <option>{{selectedYear}}05</option>
+                    <option>{{selectedYear}}06</option>
+                    <option>{{selectedYear}}07</option>
+                    <option>{{selectedYear}}08</option>
+                    <option>{{selectedYear}}09</option>
+                    <option>{{selectedYear}}10</option>
+                    <option>{{selectedYear}}11</option>
+                    <option>{{selectedYear}}12</option>
+                </select>
+            </div>
+
+
+        </div>
+        <div ng-class="hideMethods?'col s7':'col s4'" class="input-field  grey lighten-5">
+            <multi-select-tree
+                    data-input-model="data.orgUnitTree"
+                    multi-select="true"
+                    data-output-model="data.outOrganisationUnits"
+                    data-default-label="Select Geography"
+                    data-callback="selectOnly1Or2(item, selectedItems)">
+            </multi-select-tree>
+        </div>
+        <div ng-if="!hideMethods" class="input-field col s3 grey lighten-5">
+            <multi-select-tree
+                    data-input-model="data.menuMethods"
+                    multi-select="true"
+                    data-output-model="data.outMethods"
+                    data-default-label="Select Method"
+                    data-callback="selectOnly1Or3(item, selectedItems)">
+            </multi-select-tree>
+        </div>
+
+        <div class="col s2 btn waves-effect waves-light" style="margin-top: 20px" ng-click="getSelectedValues()">Update</div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.select').material_select();
+    });
+</script>
