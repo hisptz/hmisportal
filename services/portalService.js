@@ -60,7 +60,7 @@ angular.module("hmisPortal")
             labels: {
                 items: [
                     {
-                        html: 'doses',
+                        //html: 'doses',
                         style: {
                             left: '50px',
                             top: '18px',
