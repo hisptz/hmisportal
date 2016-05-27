@@ -131,7 +131,7 @@ angular.module("hmisPortal")
                     style:{ "color": "#000000", "fontWeight": "bold" }
                 }
             },
-            labels: {
+            /*labels: {
                 items: [{
                     html: 'doses',
                     style: {
@@ -140,7 +140,7 @@ angular.module("hmisPortal")
                         color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
                     }
                 }]
-            },
+            },*/
             series: []
         };
 
