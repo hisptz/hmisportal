@@ -99,7 +99,9 @@ angular.module("hmisPortal")
                         //load the completeness data and handle the comparison
                         $scope.name = region.name;
                         var lastMonth = parseInt(FPManager.lastMonthWithOtherData) - 1;
-                        $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-2;LEVEL-3;'+$scope.regionUid+'&dimension=pe:'+FPManager.lastMonthWithData+';'+lastMonth+'&displayProperty=NAME').success(function(data){
+                        console.log("Months",FPManager.lastMonthWithOtherData,lastMonth);
+                        //$http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-2;LEVEL-3;'+$scope.regionUid+'&dimension=pe:'+FPManager.lastMonthWithData+';'+lastMonth+'&displayProperty=NAME').success(function(data){
+                        $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-2;LEVEL-3;'+$scope.regionUid+'&dimension=pe:'+FPManager.lastMonthWithData+';201511&displayProperty=NAME').success(function(data){
                             var orgUnitsCompletenes = [];
                             angular.forEach(data.rows,function(v){
                                 if(v[1] !== $scope.regionUid && v[2] == FPManager.lastMonthWithOtherData){
