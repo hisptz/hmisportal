@@ -21,8 +21,9 @@ angular.module("hmisPortal")
             },2000);
         }, false);
     })
-    .controller("mainCtrl",function ($rootScope,$window,$scope,$q,$http,$timeout,$route,portalService) {
+    .controller("mainCtrl",function ($rootScope,$window,$scope,$q,$http,$timeout,$route,portalService,FPManager) {
 
+        $scope.periodName = FPManager.getMonthName(FPManager.lastMonthWithData);
         $rootScope.showLoader = false;
         $rootScope.currentDownloading = false;
         $rootScope.$on("$routeChangeStart",
