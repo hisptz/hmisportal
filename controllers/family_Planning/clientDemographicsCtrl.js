@@ -18,7 +18,7 @@ angular.module("hmisPortal")
             $scope.data.selectedMonth = month;
         };
     })
-    .controller("menuController",function ($rootScope,$scope,$http,portalService,FPManager,$location,Base64) {
+    .controller("menuController",function ($rootScope,$scope,$http,portalService,FPManager,$location,Base64,$timeout) {
         $scope.isActive = function (viewLocation) {
             var active = (viewLocation === $location.path());
             return active;
