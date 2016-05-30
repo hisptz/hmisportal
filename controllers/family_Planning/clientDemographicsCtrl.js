@@ -85,6 +85,8 @@ angular.module("hmisPortal")
                 }
                 $http.post(portalService.base +"api/users",userPayload).then(function(result){
                     console.log(result);
+                    $scope.newUser.name = "";
+                    $scope.newUser.email = "";
                     $rootScope.progressMessage = "You have been subscribed Successfully.";
                     $rootScope.showProgressMessage = true;
                     $timeout(function(){
@@ -98,6 +100,7 @@ angular.module("hmisPortal")
                     },2000)
                 });
             });
+            return false;
         }
     })
     .controller("clientDemographicsCtrl",function ($rootScope,$scope,$http,portalService,FPManager,$location) {
