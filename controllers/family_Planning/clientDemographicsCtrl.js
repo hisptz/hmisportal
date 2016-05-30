@@ -89,6 +89,14 @@ angular.module("hmisPortal")
                     $rootScope.showProgressMessage = false;
                 },2000)
             })
+
+            $timeout(function(){
+                $rootScope.progressMessage = "Subscription Successful.";
+                $rootScope.showProgressMessage = true;
+                $timeout(function(){
+                    $rootScope.showProgressMessage = false;
+                },2000)
+            },2000)
         }
 
 
