@@ -177,7 +177,7 @@ angular.module("hmisPortal")
 
                 $scope.StockOutObject.loadingMessage = "Authenticating portal...";
                 $scope.StockOutObject.chartObject = angular.copy(FPManager.chartObject)
-                $scope.StockOutObject.chartObject.options.title.text ="Percent All Facilities with a Health Worker Trained in Short-Acting Methods but Stocked Out of Pills or Injectables "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
+                $scope.StockOutObject.chartObject.options.title.text ="Percent All Facilities with a Health Worker Trained in Short-Acting Methods but Stocked Out of Injectables "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
                 $scope.StockOutObject.chartObject.options.yAxis.title.text ="% of Facilities";
                 $scope.StockOutObject.chartObject.loading = true;
                 $.post( portalService.base + "dhis-web-commons-security/login.action?authOnly=true", {
