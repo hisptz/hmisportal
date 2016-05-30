@@ -77,7 +77,11 @@ angular.module("hmisPortal")
             $.post( portalService.base + "dhis-web-commons-security/login.action?authOnly=true", {
                 j_username: "portal", j_password: "Portal123"
             },function() {
-
+                $rootScope.progressMessage = "Subscription Successful.";
+                $rootScope.showProgressMessage = true;
+                $timeout(function(){
+                    $rootScope.showProgressMessage = false;
+                },2000)
             },function(){
                 $rootScope.progressMessage = "Error occured during subscription process";
                 $rootScope.showProgressMessage = true;
