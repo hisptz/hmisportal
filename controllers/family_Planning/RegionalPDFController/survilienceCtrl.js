@@ -98,16 +98,17 @@ angular.module("hmisPortal")
                     $http.get(portalService.base + "api/organisationUnits/" + $scope.regionUid + ".json?fields=name").success(function (region) {
                         //load the completeness data and handle the comparison
                         $scope.name = region.name;
-                        var lastMonth = parseInt(FPManager.lastMonthWithOtherData) - 1;
-                        console.log("Months",FPManager.lastMonthWithOtherData,lastMonth);
+                        //var lastMonth = parseInt(FPManager.lastMonthWithOtherData) - 1;
                         //$http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-2;LEVEL-3;'+$scope.regionUid+'&dimension=pe:'+FPManager.lastMonthWithData+';'+lastMonth+'&displayProperty=NAME').success(function(data){
-                        $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-2;LEVEL-3;'+$scope.regionUid+'&dimension=pe:'+FPManager.lastMonthWithData+';201511&displayProperty=NAME').success(function(data){
+                        var period = "201511"
+                        var lastMonth = parseInt(period) - 1;
+                        $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-2;LEVEL-3;'+$scope.regionUid+'&dimension=pe:'+period+';201511&displayProperty=NAME').success(function(data){
                             var orgUnitsCompletenes = [];
                             angular.forEach(data.rows,function(v){
-                                if(v[1] !== $scope.regionUid && v[2] == FPManager.lastMonthWithOtherData){
+                                if(v[1] !== $scope.regionUid && v[2] == period){
                                     orgUnitsCompletenes.push({name:data.metaData.names[v[1]],value:v[3]})
                                 }
-                                if(v[1] == $scope.regionUid && v[2] == FPManager.lastMonthWithOtherData){
+                                if(v[1] == $scope.regionUid && v[2] == period){
                                     $scope.thisMonthCompletenes = v[3];
                                 }if(v[1] == $scope.regionUid && v[2] == lastMonth){
                                     $scope.lastMonthCompletenes = v[3];
