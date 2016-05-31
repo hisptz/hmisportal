@@ -99,22 +99,25 @@ angular.module("hmisPortal")
                         //load the completeness data and handle the comparison
                         $scope.name = region.name;
                         var lastMonth = parseInt(FPManager.lastMonthWithData) - 1;
-                        $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:m0frOspS7JY&dimension=pe:'+FPManager.lastMonthWithData+'&displayProperty=NAME').success(function(data){
+                        //$http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:m0frOspS7JY&dimension=pe:'+FPManager.lastMonthWithData+'&displayProperty=NAME').success(function(data){
+                        var period = "201511"
+                        var lastMonth = parseInt(period) - 1;
+                        $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:m0frOspS7JY&dimension=pe:'+period+'&displayProperty=NAME').success(function(data){
                             angular.forEach(data.rows,function(v){
-                                if(v[1] == "m0frOspS7JY" && v[2] == FPManager.lastMonthWithData){
+                                if(v[1] == "m0frOspS7JY" && v[2] == period){
                                     $scope.nationalAverage = v[3];
                                 }
                             });
 
                         });
                         FPManager.getFPFacilityList().then(function(orgUni) {
-                            $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-3;LEVEL-4;'+$scope.regionUid+'&dimension=pe:'+FPManager.lastMonthWithData+';'+lastMonth+'&displayProperty=NAME').success(function(data){
+                            $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-3;LEVEL-4;'+$scope.regionUid+'&dimension=pe:'+period+';'+lastMonth+'&displayProperty=NAME').success(function(data){
                                 var orgUnitsCompletenes = [];
                                 angular.forEach(orgUni.organisationUnits,function(orgUnit){
                                     if(data.metaData.ou.indexOf(orgUnit.id) > -1){
                                         var value = 0;
                                         angular.forEach(data.rows,function(v){
-                                            if(v[1] !== $scope.regionUid && v[1] == orgUnit.id && v[2] == FPManager.lastMonthWithData){
+                                            if(v[1] !== $scope.regionUid && v[1] == orgUnit.id && v[2] == period){
                                                 value = v[3];
                                             }
                                         });
@@ -130,7 +133,7 @@ angular.module("hmisPortal")
                                     }
                                 }
                                 angular.forEach(data.rows,function(v){
-                                    if(v[1] == $scope.regionUid && v[2] == FPManager.lastMonthWithData){
+                                    if(v[1] == $scope.regionUid && v[2] == period){
                                         $scope.thisMonthCompletenes = v[3];
                                     }if(v[1] == $scope.regionUid && v[2] == lastMonth){
                                         $scope.lastMonthCompletenes = v[3];
