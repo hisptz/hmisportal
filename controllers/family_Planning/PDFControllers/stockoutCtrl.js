@@ -237,7 +237,8 @@ angular.module("hmisPortal")
                     FPManager.getFPFacilityList().then(function(data){
                         //stockout Tables
                         render.addRequest();
-                        $http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?&'+FPManager.lastTwelveMonthForSql(FPManager.lastMonthWithData)).success(function(facilities){
+                        //$http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?&'+FPManager.lastTwelveMonthForSql(FPManager.lastMonthWithData)).success(function(facilities){
+                        $http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?&'+FPManager.lastTwelveMonthForSql("201511")).success(function(facilities){
                             var injecatbleRegions = {};
                             var oralRegions = {};
                             var injecatbleData = [];
