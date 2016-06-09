@@ -13,7 +13,7 @@ angular.module("hmisPortal")
         $scope.updatePeriod = function(year){
             $scope.data.selectedMonth = year+"12";
         };
-        $scope.monthList = [{value:12,name:"December"}]
+
         $scope.updateMonth = function(month){
             $scope.data.selectedMonth = month;
         };
@@ -113,6 +113,7 @@ angular.module("hmisPortal")
         $scope.zones = "";
         $scope.data = {};
         $scope.selectedYear = FPManager.latestYear;
+        $scope.monthList = [{value:12,name:"December"}]
         $scope.data.selectedMonth = FPManager.latestMonth;
 
         $scope.updateTree = function(){
