@@ -27,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/views/family_planning/fp_filters.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.72625697">
-              <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+              <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -782,7 +782,7 @@
     <entry file="file://$PROJECT_DIR$/views/family_planning/fp_filters.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.72625697">
-          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+          <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
           <folding />
         </state>
       </provider>
