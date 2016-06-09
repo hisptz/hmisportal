@@ -11,6 +11,7 @@
                     </select>
             </div>
             <div class="col s6 input-field">
+                {{data.selectedMonth}}
                 <select  ng-change="updateMonth(data.selectedMonth)" ng-model="data.selectedMonth" material-select watch>
                     <option>{{selectedYear}}01</option>
                     <option>{{selectedYear}}02</option>
