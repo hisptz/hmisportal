@@ -10,7 +10,12 @@
                         <option value="2014">2014</option>
                     </select>
             </div>
-            <div class="col s6 input-field">
+            <style>
+                .months .dropdown-content.select-dropdown:last-child{
+                    display:none
+                }
+            </style>
+            <div class="col s6 input-field months">
                 {{data.selectedMonth}}
                 <select  ng-change="updateMonth(data.selectedMonth)" ng-model="data.selectedMonth" material-select watch>
                     <option value="{{selectedYear}}01">January</option>
