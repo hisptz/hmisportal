@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="hmisPortal" ng-controller="mainCtrl" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>HMIS Web Portal - Loading</title>
+    <title>LOADING</title>
 
     <link type="text/css" rel="stylesheet" href="assets/libs/materialize/css/materialize.min.css"  media="screen,projection"/>
     <style>
@@ -53,11 +53,11 @@
             finishRequest : function(){
                 this.requests--;
                 if(this.requests == 0 && document.title.toLowerCase().indexOf("error") != -1){
-                    document.title = 'HMIS Web Portal SUCCESS';
+                    document.title = 'SUCCESS';
                 }
             },
             error:function(){
-                document.title = 'HMIS Web Portal ERROR';
+                document.title = 'ERROR';
             }
         }
     </script>
