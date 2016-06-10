@@ -238,7 +238,6 @@ angular.module("hmisPortal")
                         //stockout Tables
                         render.addRequest();
                         //$http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?&'+FPManager.lastTwelveMonthForSql(FPManager.lastMonthWithData)).success(function(facilities){
-                        alert(FPManager.lastMonthWithData);
                         $http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?&'+FPManager.lastTwelveMonthForSql("201412")).success(function(facilities){
                             var injecatbleRegions = {};
                             var oralRegions = {};

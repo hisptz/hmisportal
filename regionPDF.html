@@ -80,13 +80,13 @@
         <legend style="font-size: 1.37em;;font-weight: bold">Clients:</legend>
         <table>
             <tr>
-                <td style="width: 70%;height: 455px" ng-controller="clientMethodsCtrl">
+                <td style="width: 70%;" ng-controller="clientMethodsCtrl">
                     <div style="border:groove 1px #000000">
                         <div id="container12" style="min-width: 350px; height: 450px; margin: 0 auto"></div>
                     </div>
                 </td>
                 <td style="width: 30%; vertical-align: top">
-                    <h6 class="text-info" style="margin-top: 0px; padding: 8px; color:#6498D9;border: 1px solid deepskyblue; line-height: 30px">
+                    <h6 class="text-info" style="height: 452px;margin: 0px; padding: 8px; color:#6498D9;border: 1px solid deepskyblue; line-height: 30px">
                         <b>ACTION:</b>  Monitor FP clients  trends over time;  investigate any unexplained sharp decreases.<br><br>
                         Note: for more information  on other FP methods not displayed here, (permanent methods and male and female condoms)
                         refer to the FP Dashboard.
@@ -132,7 +132,7 @@
             </tr>
         </table>
 
-        <table style="margin: 10px; width: 1040px" ng-controller="HWParcentageCtrl">
+        <table style="margin: 10px; width: 1040px;height: 350px;" ng-controller="HWParcentageCtrl">
             <tr style="background-color: #4F81BD; color: white; border: solid 1px #6498D9 ">
                 <th colspan="4" style="font-size: 18px;">Districts with lowest percentage of facilities with 2 or more Health Workers trained in FP methods</th></tr>
             <tr style="border: solid 1px #6498D9" ng-repeat="orgs in orgunitsWithLowTraining" >
@@ -158,8 +158,8 @@
                         <div id="stockoutchart" style="min-width: 100%; height: 390px; margin: 0 auto;"></div>
                     </div>
                 </td>
-                <td style="width: 50%">
-                    <table border="1px" >
+                <td style="vertical-align: top;width: 50%">
+                    <table border="1px" style="height: 392px;">
                         <tr style="background-color: #4F81BD; color: white; border: solid 1px #6498D9 ">
                             <th colspan="2"> Districts with highest percentage of facilities experiencing  Stock Out Injectable </th></tr>
                         <tr style="border: solid 1px #6498D9" ng-repeat="dis in stockOutData">
@@ -251,7 +251,7 @@
         <table>
             <tr>
                 <td style="width: 49%; margin-top: 5px; " >
-                    <h6 style=" padding: 8px; border: solid 1px #6498D9; color:#6498D9;">
+                    <h6 style="height: 85px; padding: 8px; border: solid 1px #6498D9; color:#6498D9;">
                         <b>ACTION:</b> Monitor national trend and investigate any unexplained
                         decreases. Note that this line might fluctuate according to number of
                         live births per month, but should be generally increasing.
