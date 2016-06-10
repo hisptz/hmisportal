@@ -384,6 +384,9 @@ angular.module("hmisPortal")
                                         $('#parChar5').highcharts(chart5);
                                         $scope.csvdata = portalService.prepareDataForCSV(chartObject);
                                         $scope.pchart = chartObject;
+                                        $timeout(function () {
+                                            render.finishRequest();
+                                        });
                                     });
                                 });
 

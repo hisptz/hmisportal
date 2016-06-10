@@ -9,7 +9,7 @@ angular.module("hmisPortal")
     .config(function($httpProvider) {
 
     })
-    .controller("menuController",function ($rootScope,$scope,$http,portalService,FPManager,$location) {
+    .controller("menuController",function ($rootScope,$scope,$http,portalService,FPManager,$location,$timeout) {
         $scope.isActive = function (viewLocation) {
             var active = (viewLocation === $location.path());
             return active;
@@ -180,6 +180,9 @@ angular.module("hmisPortal")
                     a.href = window.URL.createObjectURL(blob);
                     a.download = "data.xls";
                     a.click();
+                    $timeout(function () {
+                        render.finishRequest();
+                    });
                 });
             });
         };
@@ -415,7 +418,9 @@ angular.module("hmisPortal")
                         } else {
                             cardObject.chartObject.loading = false
                         }
-
+                        $timeout(function () {
+                            render.finishRequest();
+                        });
                     });
                 });
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="hmisPortal" ng-controller="mainCtrl" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>HMIS Web Portal</title>
+    <title>LOADING</title>
 
     <link type="text/css" rel="stylesheet" href="assets/libs/materialize/css/materialize.min.css"  media="screen,projection"/>
     <style>
@@ -16,6 +16,26 @@
             background-color:white;
         }
     </style>
+    <script>
+        var render = {
+            requests:0,
+            addRequest : function(){
+                this.requests++;
+            },
+            finishRequest : function(){
+                this.requests++;
+                if(this.requests == -1 && document.title.toLowerCase().indexOf("error") == -1){
+                    document.title = 'SUCCESS';
+                }
+            },
+            error:function(){
+                document.title = 'ERROR';
+            }
+        }
+        window.onerror = function() {
+            render.error();
+        };
+    </script>
 </head>
 <body>
 <!--headers-->
@@ -340,7 +360,6 @@
 <script src="controllers/dashboardCtrl.js"></script>
 <script src="controllers/jinsiCtrl.js"></script>
 <script src="controllers/morbidityCtrl.js"></script>
-<script src="controllers/familyPlanningCtrl.js"></script>
 <script src="controllers/family_Planning/DistrictPDFController/clientDemographicsCtrl.js"></script>
 <script src="controllers/family_Planning/DistrictPDFController/clientMethodsCtrl.js"></script>
 <script src="controllers/family_Planning/DistrictPDFController/survilienceCtrl.js"></script>

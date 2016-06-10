@@ -108,7 +108,9 @@ angular.module("hmisPortal")
                                     $scope.nationalAverage = v[3];
                                 }
                             });
-
+                            $timeout(function () {
+                                render.finishRequest();
+                            });
                         });
                         FPManager.getFPFacilityList().then(function(orgUni) {
                             $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-3;LEVEL-4;'+$scope.regionUid+'&dimension=pe:'+period+';'+lastMonth+'&displayProperty=NAME').success(function(data){
@@ -142,7 +144,9 @@ angular.module("hmisPortal")
                                 });
                                 var orderBy = $filter('orderBy');
                                 $scope.orgUnitsCompletenes1 = $filter('limitTo')(orderBy(orgUnitsCompletenes, 'value', false), 50, 0);
-
+                                $timeout(function () {
+                                    render.finishRequest();
+                                });
                             });
 
                         });
@@ -204,6 +208,9 @@ angular.module("hmisPortal")
 
                             chartObject.loading = false;
                             $('#survilience1').highcharts(chartObject);
+                            $timeout(function () {
+                                render.finishRequest();
+                            });
                         });
                     });
                 });
