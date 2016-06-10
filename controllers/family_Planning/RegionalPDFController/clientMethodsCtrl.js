@@ -9,7 +9,7 @@ angular.module("hmisPortal")
     .config(function($httpProvider) {
 
     })
-    .controller("clientMethodsCtrl",function ($rootScope,$scope,$http,portalService,FPManager,$location) {
+    .controller("clientMethodsCtrl",function ($rootScope,$scope,$http,portalService,FPManager,$location,$timeout) {
         $scope.regionUid = $location.search().uid;
         console.log($scope.regionUid);
         $rootScope.showProgressMessage = false;

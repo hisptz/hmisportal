@@ -9,7 +9,7 @@ angular.module("hmisPortal")
     .config(function ($httpProvider) {
 
     })
-    .controller("clientDemographicsCtrl", function ($rootScope, $scope, $http, portalService, FPManager, $location) {
+    .controller("clientDemographicsCtrl", function ($rootScope, $scope, $http, portalService, FPManager, $location,$timeout) {
 
         $rootScope.showProgressMessage = false;
         $scope.geographicalZones = FPManager.zones;
