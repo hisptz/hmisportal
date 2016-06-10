@@ -52,9 +52,12 @@
             },
             finishRequest : function(){
                 this.requests--;
-                if(this.requests == 0){
-                    document.title = 'HMIS Web Portal';
+                if(this.requests == 0 && document.title.toLowerCase().indexOf("error") != -1){
+                    document.title = 'HMIS Web Portal SUCCESS';
                 }
+            },
+            error:function(){
+                document.title = 'HMIS Web Portal ERROR';
             }
         }
     </script>

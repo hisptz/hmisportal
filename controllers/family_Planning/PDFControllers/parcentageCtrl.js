@@ -220,6 +220,7 @@ angular.module("hmisPortal")
                 alert("no orgunit selected")
             }else
             {
+                render.addRequest();
                 $.post( portalService.base + "dhis-web-commons-security/login.action?authOnly=true", {
                     j_username: "portal", j_password: "Portal123"
                 },function() {
@@ -269,6 +270,9 @@ angular.module("hmisPortal")
                             $scope.chartObject1 = chartObject1;
                             $scope.csvdata1 = portalService.prepareDataForCSV(chartObject1);
                             $scope.pchart1 = chartObject1;
+                            $timeout(function () {
+                                render.finishRequest();
+                            });
                         });
 
 

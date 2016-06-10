@@ -202,6 +202,8 @@ angular.module("hmisPortal")
                 alert("no orgunit selected")
             }else
             {
+                render.addRequest();
+                render.addRequest();
                 $.post( portalService.base + "dhis-web-commons-security/login.action?authOnly=true", {
                     j_username: "portal", j_password: "Portal123"
                 },function() {
@@ -233,10 +235,8 @@ angular.module("hmisPortal")
                     chartObject.loading = true;
                     $rootScope.progressMessage = "Fetching data please wait ...";
                     $rootScope.showProgressMessage = true;
-                    render.addRequest();
                     FPManager.getFPFacilityList().then(function(data){
                         //stockout Tables
-                        render.addRequest();
                         //$http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?&'+FPManager.lastTwelveMonthForSql(FPManager.lastMonthWithData)).success(function(facilities){
                         $http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?&'+FPManager.lastTwelveMonthForSql("201412")).success(function(facilities){
                             var injecatbleRegions = {};
@@ -259,11 +259,11 @@ angular.module("hmisPortal")
                                 {oral:oralData[1].name+"( "+oralData[1].value +"% )",injectable:injecatbleData[1].name+"( "+injecatbleData[1].value +"% )"},
                                 {oral:oralData[2].name+"( "+oralData[2].value +"% )",injectable:injecatbleData[2].name+"( "+injecatbleData[2].value +"% )"},
                             ];
-
-                            render.finishRequest();
+                            $timeout(function () {
+                                render.finishRequest();
+                            });
                         });
 
-                        render.addRequest();
                         $http.get(portalService.base+'api/sqlViews/Fvxf4sjmWxC/data.json?'+FPManager.lastTwelveMonthForSql(FPManager.lastMonthWithData)).success(function(val1){
                             angular.forEach(orgUnits, function (yAxis) {
                                 var serie = [];
@@ -276,9 +276,10 @@ angular.module("hmisPortal")
                             $scope.pchart = chartObject;
                             $scope.chartObject = chartObject;
                             $scope.csvdata = portalService.prepareDataForCSV(chartObject);
-                            render.finishRequest();
+                            $timeout(function () {
+                                render.finishRequest();
+                            });
                         });
-                        render.finishRequest();
                     });
                 });
             }
