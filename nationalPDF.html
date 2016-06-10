@@ -60,6 +60,9 @@
                 document.title = 'ERROR';
             }
         }
+        window.onerror = function() {
+            render.error();
+        };
     </script>
     <script src="assets/js/routes.js"></script>
     <script src="services/mapService.js"></script>
@@ -71,7 +74,6 @@
     <script src="controllers/dashboardCtrl.js"></script>
     <script src="controllers/jinsiCtrl.js"></script>
     <script src="controllers/morbidityCtrl.js"></script>
-    <script src="controllers/familyPlanningCtrl.js"></script>
     <script src="controllers/family_Planning/PDFControllers/clientDemographicsCtrl.js"></script>
     <script src="controllers/family_Planning/PDFControllers/clientMethodsCtrl.js"></script>
     <script src="controllers/family_Planning/PDFControllers/survilienceCtrl.js"></script>

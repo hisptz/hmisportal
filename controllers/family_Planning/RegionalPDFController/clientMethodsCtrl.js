@@ -334,7 +334,9 @@ angular.module("hmisPortal")
                         }
 
                         $rootScope.showProgressMessage = false;
-
+                        $timeout(function () {
+                            render.finishRequest();
+                        });
                     });
 
                 });

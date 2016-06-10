@@ -123,6 +123,9 @@ angular.module("hmisPortal")
                                 {high:$scope.orgUnitsCompletenes1[1].name+'( '+$scope.orgUnitsCompletenes1[1].value+' % )',low:$scope.orgUnitsCompletenes[1].name+'( '+$scope.orgUnitsCompletenes[1].value+' % )'},
                                 {high:$scope.orgUnitsCompletenes1[2].name+'( '+$scope.orgUnitsCompletenes1[2].value+' % )',low:$scope.orgUnitsCompletenes[2].name+'( '+$scope.orgUnitsCompletenes[2].value+' % )'}
                             ];
+                            $timeout(function () {
+                                render.finishRequest();
+                            });
                         });
 
 
@@ -198,7 +201,9 @@ angular.module("hmisPortal")
                             $('#survilience3').highcharts(chartObject2);
                             $scope.chartObject2 = chartObject2;
                             $scope.csvdata2 = portalService.prepareDataForCSV(chartObject2);
-
+                            $timeout(function () {
+                                render.finishRequest();
+                            });
                         });
                     });
                 });

@@ -315,7 +315,9 @@ angular.module("hmisPortal")
                                     {name:'Mini-lap',region1:miniLapData[0].name+"( "+miniLapData[0].value +"% )",region2:miniLapData[1].name+"( "+miniLapData[1].value +"% )",region3:miniLapData[2].name+"( "+miniLapData[2].value +"% )"},
                                     {name:'NSV',region1:nsvData[0].name+"( "+nsvData[0].value +"% )",region2:nsvData[1].name+"( "+nsvData[1].value +"% )",region3:nsvData[2].name+"( "+nsvData[2].value +"% )"}
                                 ];
-
+                                $timeout(function () {
+                                    render.finishRequest();
+                                });
                             });
 
                             //charts
@@ -338,6 +340,9 @@ angular.module("hmisPortal")
                                         $('#HWParcentage').highcharts(chartObject);
                                         $scope.csvdata = portalService.prepareDataForCSV(chartObject);
                                         $scope.pchart = chartObject;
+                                        $timeout(function () {
+                                            render.finishRequest();
+                                        });
                                     });
                                 });
 
