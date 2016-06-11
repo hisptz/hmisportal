@@ -63,7 +63,7 @@
         };
     </script>
     <script>
-        var mainModule = angular.module('hmisPortal', ["ngRoute",'ngResource','ngAnimate',"datatables",'ngSanitize','highcharts-ng','openlayers-directive','ui.materialize','dhisHighchartAngularService','multi-select-tree','ngCsv'],function(){
+        var mainModule = angular.module('hmisPortal', ["ngRoute",'ngResource','ngAnimate',"datatables",'ngSanitize','highcharts-ng','openlayers-directive','ui.materialize','dhisHighchartAngularService','multi-select-tree','ngCsv'],function($routeProvider, $locationProvider, $httpProvider){
             var interceptor = ['$rootScope', '$q', function (scope, $q) {
 
                 function success(response) {
