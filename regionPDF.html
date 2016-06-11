@@ -62,6 +62,23 @@
 
     <script>
         var mainModule = angular.module('hmisPortal', ["ngRoute",'ngResource','ngAnimate',"datatables",'ngSanitize','highcharts-ng','openlayers-directive','ui.materialize','dhisHighchartAngularService','multi-select-tree','ngCsv']);
+        (function(){
+            var httpInterceptor = function ($provide, $httpProvider) {
+                $provide.factory('httpInterceptor', function ($q) {
+                    return {
+                        response: function (response) {
+                            return response || $q.when(response);
+                        },
+                        responseError: function (rejection) {
+                            render.error();
+                            return $q.reject(rejection);
+                        }
+                    };
+                });
+                $httpProvider.interceptors.push('httpInterceptor');
+            };
+            angular.module("hmisPortal").config(httpInterceptor);
+        }());
     </script>
     <script src="assets/js/routes.js"></script>
     <script src="services/mapService.js"></script>
