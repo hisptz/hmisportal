@@ -8,28 +8,7 @@ angular.module("hmisPortal")
             Pace.restart()
         });
     })
-    .config( function($routeProvider,$httpProvider){
-
-        var interceptor = ['$q', function ( $q) {
-
-            function success(response) {
-                return response;
-            }
-
-            function error(response) {
-                if (render) {
-                    document.title = 'ERROR';
-                }
-                // otherwise
-                return $q.reject(response);
-
-            }
-
-            return function (promise) {
-                return promise.then(success, error);
-            }
-
-        }];
+    .config( function($routeProvider){
         $httpProvider.responseInterceptors.push(interceptor);
         $routeProvider.when("/home",{
             templateUrl: 'views/dashboard.html',
