@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eaa8b7a4-f174-4934-84e4-1f5bff911dfd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/routes.js" afterPath="$PROJECT_DIR$/assets/js/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nationalPDF.html" afterPath="$PROJECT_DIR$/nationalPDF.html" />
     </list>
     <ignored path="hmisportal.iws" />
@@ -51,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/nationalPDF.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.23539823">
-              <caret line="65" column="288" selection-start-line="65" selection-start-column="288" selection-end-line="65" selection-end-column="288" />
+              <caret line="65" column="230" selection-start-line="65" selection-start-column="230" selection-end-line="65" selection-end-column="230" />
               <folding />
             </state>
           </provider>
@@ -61,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/assets/js/routes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -81,7 +82,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/dataset.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/views/family_planning/client_by_methods.html" />
         <option value="$PROJECT_DIR$/views/family_planning/client_by_demographics.html" />
@@ -131,6 +131,7 @@
         <option value="$PROJECT_DIR$/controllers/family_Planning/RegionalPDFController/clientMethodsCtrl.js" />
         <option value="$PROJECT_DIR$/districtPDF.html" />
         <option value="$PROJECT_DIR$/regionPDF.html" />
+        <option value="$PROJECT_DIR$/assets/js/routes.js" />
         <option value="$PROJECT_DIR$/nationalPDF.html" />
       </list>
     </option>
@@ -879,7 +880,7 @@
     <entry file="file://$PROJECT_DIR$/assets/js/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -887,7 +888,7 @@
     <entry file="file://$PROJECT_DIR$/nationalPDF.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23539823">
-          <caret line="65" column="288" selection-start-line="65" selection-start-column="288" selection-end-line="65" selection-end-column="288" />
+          <caret line="65" column="230" selection-start-line="65" selection-start-column="230" selection-end-line="65" selection-end-column="230" />
           <folding />
         </state>
       </provider>
