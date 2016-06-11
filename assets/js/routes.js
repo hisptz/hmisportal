@@ -9,7 +9,6 @@ angular.module("hmisPortal")
         });
     })
     .config( function($routeProvider){
-        $httpProvider.responseInterceptors.push(interceptor);
         $routeProvider.when("/home",{
             templateUrl: 'views/dashboard.html',
             controller: 'dashboardCtrl'
