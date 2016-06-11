@@ -41,9 +41,7 @@
     <script src="bower_components/tree/angular-multi-select-tree-0.1.0.min.js"></script>
     <script src="bower_components/tree/angular-multi-select-tree-0.1.0.tpl.js"></script>
 
-    <script>
-        var mainModule = angular.module('hmisPortal', ["ngRoute",'ngResource','ngAnimate',"datatables",'ngSanitize','highcharts-ng','openlayers-directive','ui.materialize','dhisHighchartAngularService','multi-select-tree','ngCsv']);
-    </script>
+
     <script>
         var render = {
             requests:0,
@@ -63,6 +61,31 @@
         window.onerror = function() {
             render.error();
         };
+    </script>
+    <script>
+        var mainModule = angular.module('hmisPortal', ["ngRoute",'ngResource','ngAnimate',"datatables",'ngSanitize','highcharts-ng','openlayers-directive','ui.materialize','dhisHighchartAngularService','multi-select-tree','ngCsv'],function(){
+            var interceptor = ['$rootScope', '$q', function (scope, $q) {
+
+                function success(response) {
+                    return response;
+                }
+
+                function error(response) {
+                    if (render) {
+                        document.title = 'ERROR';
+                    }
+                    // otherwise
+                    return $q.reject(response);
+
+                }
+
+                return function (promise) {
+                    return promise.then(success, error);
+                }
+
+            }];
+            $httpProvider.responseInterceptors.push(interceptor);
+        });
     </script>
     <script src="assets/js/routes.js"></script>
     <script src="services/mapService.js"></script>
