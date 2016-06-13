@@ -81,6 +81,13 @@
                 $httpProvider.interceptors.push('httpInterceptor');
             };
             angular.module("hmisPortal").config(httpInterceptor);
+            Highcharts.setOptions({
+                plotOptions: {
+                    series: {
+                        animation: false
+                    }
+                }
+            });
         }());
     </script>
     <script src="assets/js/routes.js"></script>
