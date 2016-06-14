@@ -423,6 +423,33 @@ angular.module("hmisPortal")
             }
             $scope.prepareSeries(card,$scope.data.chartType);
         };
+
+        //switching between tables and charts
+        $scope.displayTables = {card1: false, card2: false, card3: false}
+        $scope.changeTable = function (card, value) {
+            if (value == "table") {
+                if (card == "card1") {
+                    $scope.displayTables.card1 = true
+                }
+                if (card == "card2") {
+                    $scope.displayTables.card2 = true
+                }
+                if (card == "card3") {
+                    $scope.displayTables.card3 = true
+                }
+            }
+            if (value == "chart") {
+                if (card == "card1") {
+                    $scope.displayTables.card1 = false
+                }
+                if (card == "card2") {
+                    $scope.displayTables.card2 = false
+                }
+                if (card == "card3") {
+                    $scope.displayTables.card3 = false
+                }
+            }
+        };
         $scope.prepareCategory = function(type){
             var data = [];
             var per = $scope.selectedPeriod;
