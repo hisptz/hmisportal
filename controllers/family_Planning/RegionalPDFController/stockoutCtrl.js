@@ -268,7 +268,9 @@ angular.module("hmisPortal")
                                 //    {name:'Short Acting',region1:shortActingData[0].name+"( "+shortActingData[0].value +"% )",region2:shortActingData[1].name+"( "+shortActingData[1].value +"% )",region3:shortActingData[2].name+"( "+shortActingData[2].value +"% )"},
                                 //    {name:'IUCD',region1:iucdData[0].name+"( "+iucdData[0].value +"% )",region2:iucdData[1].name+"( "+iucdData[1].value +"% )",region3:iucdData[2].name+"( "+iucdData[2].value +"% )"},
                                 //];
-
+                                $timeout(function () {
+                                    render.finishRequest();
+                                });
                             });
 
 
@@ -287,6 +289,9 @@ angular.module("hmisPortal")
                                 $scope.pchart = chartObject;
                                 $scope.chartObject = chartObject;
                                 $scope.csvdata = portalService.prepareDataForCSV(chartObject);
+                                $timeout(function () {
+                                    render.finishRequest();
+                                });
                             });
                         });
                     });

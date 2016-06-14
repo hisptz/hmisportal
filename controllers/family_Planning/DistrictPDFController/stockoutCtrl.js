@@ -280,7 +280,9 @@ angular.module("hmisPortal")
                                     });
                                 });
                                 var orderBy = $filter('orderBy');
-
+                                $timeout(function () {
+                                    render.finishRequest();
+                                });
 
                             });
 
@@ -304,6 +306,9 @@ angular.module("hmisPortal")
                                     $scope.pchart = chartObject;
                                     $scope.chartObject = chartObject;
                                     $scope.csvdata = portalService.prepareDataForCSV(chartObject);
+                                $timeout(function () {
+                                    render.finishRequest();
+                                });
                                 });
                         });
                     });

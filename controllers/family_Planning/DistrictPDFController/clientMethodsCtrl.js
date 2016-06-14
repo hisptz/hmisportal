@@ -9,7 +9,7 @@ angular.module("hmisPortal")
     .config(function($httpProvider) {
 
     })
-    .controller("clientMethodsCtrl",function ($rootScope,$scope,$http,portalService,FPManager,$location) {
+    .controller("clientMethodsCtrl",function ($rootScope,$scope,$http,portalService,FPManager,$location,$timeout) {
         $scope.regionUid = $location.search().uid;
         $rootScope.showProgressMessage = false;
         $scope.geographicalZones = FPManager.zones;
@@ -333,7 +333,9 @@ angular.module("hmisPortal")
                         }
 
                         $rootScope.showProgressMessage = false;
-
+                        $timeout(function () {
+                            render.finishRequest();
+                        });
                     });
 
                 });

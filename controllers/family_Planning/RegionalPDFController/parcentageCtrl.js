@@ -268,6 +268,9 @@ angular.module("hmisPortal")
                                 $scope.chartObject1 = chartObject1
                                 $scope.csvdata1 = portalService.prepareDataForCSV(chartObject1);
                                 $scope.pchart1 = chartObject1;
+                                $timeout(function () {
+                                    render.finishRequest();
+                                });
                             });
 
 

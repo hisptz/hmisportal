@@ -113,6 +113,7 @@ angular.module("hmisPortal")
         $scope.zones = "";
         $scope.data = {};
         $scope.selectedYear = FPManager.latestYear;
+        $scope.monthList = [{value:12,name:"December"}]
         $scope.data.selectedMonth = FPManager.latestMonth;
 
         $scope.updateTree = function(){

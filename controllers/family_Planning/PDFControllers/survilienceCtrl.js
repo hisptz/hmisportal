@@ -91,6 +91,7 @@ angular.module("hmisPortal")
                 ];
                 var url = portalService.base+"api/analytics.json?dimension=dx:cWMJ2HsNTtr;b6O7BaQ46R4;reywf66stpK;NaCPtfoUkpH;OwAJT47sIgQ;MovYxmAwPZP;NOWyEruy9Ch&dimension=ou:LEVEL-2;LEVEL-1;m0frOspS7JY&dimension=pe:"+FPManager.lastTwelveMonth(FPManager.lastMonthWithData)+"&displayProperty=NAME";
                 var base = portalService.base;
+                render.addRequest();
                 $.post( base + "dhis-web-commons-security/login.action?authOnly=true", {
                     j_username: "portal", j_password: "Portal123"
                 },function(){
@@ -120,7 +121,9 @@ angular.module("hmisPortal")
                             {high:$scope.orgUnitsCompletenes1[1].name+'( '+$scope.orgUnitsCompletenes1[1].value+' % )',low:$scope.orgUnitsCompletenes[1].name+'( '+$scope.orgUnitsCompletenes[1].value+' % )'},
                             {high:$scope.orgUnitsCompletenes1[2].name+'( '+$scope.orgUnitsCompletenes1[2].value+' % )',low:$scope.orgUnitsCompletenes[2].name+'( '+$scope.orgUnitsCompletenes[2].value+' % )'}
                         ];
-                        render.finishRequest();
+                        $timeout(function () {
+                            render.finishRequest();
+                        });
                     });
 
 
@@ -197,7 +200,9 @@ angular.module("hmisPortal")
                         $('#survilience3').highcharts(chartObject2);
                         $scope.chartObject2 = chartObject2;
                         $scope.csvdata2 = portalService.prepareDataForCSV(chartObject2);
-                        render.finishRequest();
+                        $timeout(function () {
+                            render.finishRequest();
+                        });
                     });
                 });
             }
