@@ -251,8 +251,8 @@ angular.module("hmisPortal")
 
                                 });
                                 var orderBy = $filter('orderBy');
-                                angular.forEach(injecatbleRegions, function(value, key) {  injecatbleData.push({name:key ,value:parseFloat($scope.getNumberPerOu1(data.organisationUnits, value, facilities.rows,FPManager.lastMonthWithOtherData,'Injectable'))} ) });
-                                angular.forEach(oralRegions, function(value, key) { oralData.push({name:key ,value:parseFloat($scope.getNumberPerOu1(data.organisationUnits, value, facilities.rows,FPManager.lastMonthWithOtherData,'Oral'))} ) });
+                                angular.forEach(injecatbleRegions, function(value, key) {  injecatbleData.push({name:key ,value:parseFloat($scope.getNumberPerOu1(data.organisationUnits, value, facilities.rows,FPManager.lastMonthWithData,'Injectable'))} ) });
+                                angular.forEach(oralRegions, function(value, key) { oralData.push({name:key ,value:parseFloat($scope.getNumberPerOu1(data.organisationUnits, value, facilities.rows,FPManager.lastMonthWithData,'Oral'))} ) });
 
                                 injecatbleData = orderBy(injecatbleData,'value',true);
                                 oralData = orderBy(oralData,'value',true);

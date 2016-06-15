@@ -237,8 +237,8 @@ angular.module("hmisPortal")
                     $rootScope.showProgressMessage = true;
                     FPManager.getFPFacilityList().then(function(data){
                         //stockout Tables
-                        //$http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?&'+FPManager.lastTwelveMonthForSql(FPManager.lastMonthWithData)).success(function(facilities){
-                        $http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?&'+FPManager.lastTwelveMonthForSql("201412")).success(function(facilities){
+                        $http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?&'+FPManager.lastTwelveMonthForSql(FPManager.lastMonthWithData)).success(function(facilities){
+                        //$http.get(portalService.base+'api/sqlViews/vj6E3KoFP28/data.json?&'+FPManager.lastTwelveMonthForSql("201412")).success(function(facilities){
                             var injecatbleRegions = {};
                             var oralRegions = {};
                             var injecatbleData = [];
@@ -248,8 +248,8 @@ angular.module("hmisPortal")
                                     oralRegions[data[2]] = data[0];
                             });
                             var orderBy = $filter('orderBy');
-                            angular.forEach(injecatbleRegions, function(value, key) {  injecatbleData.push({name:key ,value:parseFloat($scope.getNumberPerOu1(data.organisationUnits, value, facilities.rows,FPManager.lastMonthWithOtherData,'Injectable'))} ) });
-                            angular.forEach(oralRegions, function(value, key) { oralData.push({name:key ,value:parseFloat($scope.getNumberPerOu1(data.organisationUnits, value, facilities.rows,FPManager.lastMonthWithOtherData,'Oral'))} ) });
+                            angular.forEach(injecatbleRegions, function(value, key) {  injecatbleData.push({name:key ,value:parseFloat($scope.getNumberPerOu1(data.organisationUnits, value, facilities.rows,FPManager.lastMonthWithData,'Injectable'))} ) });
+                            angular.forEach(oralRegions, function(value, key) { oralData.push({name:key ,value:parseFloat($scope.getNumberPerOu1(data.organisationUnits, value, facilities.rows,FPManager.lastMonthWithData,'Oral'))} ) });
 
                             injecatbleData = orderBy(injecatbleData,'value',true);
                             oralData = orderBy(oralData,'value',true);
