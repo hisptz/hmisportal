@@ -99,10 +99,10 @@ angular.module("hmisPortal")
                         //load the completeness data and handle the comparison
                         $scope.name = region.name;
                         var lastMonth = parseInt(FPManager.lastMonthWithData) - 1;
-                        //$http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:m0frOspS7JY&dimension=pe:'+FPManager.lastMonthWithData+'&displayProperty=NAME').success(function(data){
-                        var period = "201511"
-                        var lastMonth = parseInt(period) - 1;
-                        $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:m0frOspS7JY&dimension=pe:'+period+'&displayProperty=NAME').success(function(data){
+                        $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:m0frOspS7JY&dimension=pe:'+FPManager.lastMonthWithData+'&displayProperty=NAME').success(function(data){
+                        //var period = "201511"
+                        //var lastMonth = parseInt(period) - 1;
+                        //$http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:m0frOspS7JY&dimension=pe:'+period+'&displayProperty=NAME').success(function(data){
                             angular.forEach(data.rows,function(v){
                                 if(v[1] == "m0frOspS7JY" && v[2] == period){
                                     $scope.nationalAverage = v[3];

@@ -96,11 +96,11 @@ angular.module("hmisPortal")
                     j_username: "portal", j_password: "Portal123"
                 },function(){
                     //load the completeness data and handle the comparison
-                    //var lastMonth = parseInt(FPManager.lastMonthWithData) - 1;
-                    //$http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&dimension=pe:'+FPManager.lastMonthWithData+';'+lastMonth+'&displayProperty=NAME').success(function(data){
-                    var period = "201511"
-                    var lastMonth = parseInt(period) - 1;
-                    $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&dimension=pe:'+period+';'+lastMonth+'&displayProperty=NAME').success(function(data){
+                    var lastMonth = parseInt(FPManager.lastMonthWithData) - 1;
+                    $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&dimension=pe:'+FPManager.lastMonthWithData+';'+lastMonth+'&displayProperty=NAME').success(function(data){
+                    //var period = "201511"
+                    //var lastMonth = parseInt(period) - 1;
+                    //$http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&dimension=pe:'+period+';'+lastMonth+'&displayProperty=NAME').success(function(data){
                         var orgUnitsCompletenes = [];
                         angular.forEach(data.rows,function(v){
                             if(v[1] !== 'm0frOspS7JY' && v[2] == period){
