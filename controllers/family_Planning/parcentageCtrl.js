@@ -224,6 +224,62 @@ angular.module("hmisPortal")
                 alert("no orgunit selected")
             }else
             {
+                $scope.titleToUse = "";
+                $scope.hospitalObject = {
+                    showLoader:true,
+                    loadingMessage: "",
+                    description:'This charts displays the percentage of hospitals that provided selected FP method/s (as a proportion of all hospitals that are eligible to provide FP services) in the selected geographies, in the indicated 12 month period',
+                    display_option_1:'If you select one FP method (eg IUCDs) and multiple geographies (eg 6 districts within a region) you can compare the percentage of hospitals that provided IUCDs across the 6 selected districts, over the indicated 12 month period. This allows you to monitor changes over time in provision of IUCDs in the selected districts.',
+                    display_option_2:'If you select one geography (eg Western Zone) and multiple FP methods, you can compare the percentage of hospitals that provided selected FP methods,  within the Western Zone. This allows you to monitor changes over time in service provision across FP method types, ',
+                    option_2:true,
+                    indicator_type:'Percentage',
+                    numerator:'Total number of hospitals that are eligible to provide FP services that recorded at least one client (of any age, new or returning) through routine/facility-based services, for selected FP method/s  (oral pills, male condoms, female condoms, injectables, implants, IUCDs, minilap, NSV) , in the selected geography for each month in the indicated 12 month period',
+                    denominator:'Total number of hospitals that are eligible to provide FP services, in the selected geography for each month in the indicated 12 month period',
+                    data_source:'DHIS-2 FP reporting Tool'
+                };
+
+                $scope.dispensaryObject = {
+                    showLoader:true,
+                    loadingMessage: "",
+                    description:'This charts displays the percentage of dispensaries that provided selected FP method/s (as a proportion of all dispensaries that are eligible to provide FP services) in the selected geographies, in the indicated 12 month period',
+                    display_option_1:'If you select one FP method (eg IUCDs) and multiple geographies (eg 6 districts within a region) you can compare the percentage of dispensaries that provided IUCDs across the 6 selected districts, over the indicated 12 month period. This allows you to monitor changes over time in provision of IUCDs in the selected districts, to help identify lower performing zones/regions/district for follow-up.',
+                    display_option_2:'If you select one geography (eg Western Zone) and multiple FP methods, you can compare the percentage of dispensaries that provided selected FP methods over the indicated 12 month-period,  within the Western Zone. This allows you to monitor changes over time in service provision across FP method types.',
+                    option_2:true,
+                    indicator_type:'Percentage',
+                    numerator:'Total number of dispensaries that are eligible to provide FP services that recorded at least one client (of any age, new or returning) through routine/facility-based services, for selected FP method/s (oral pills, male condoms, female condoms, injectables, implants, IUCDs, minilap, NSV) , in the selected geography for each month in the indicated 12 month period ',
+                    denominator:'Total number of dispensaries that are eligible to provide FP services, in the selected geography  for each month in the indicated 12 month period',
+                    data_source:'DHIS-2 FP reporting Tool'
+                };
+
+                $scope.healtyCenterObject = {
+                    showLoader:true,
+                    loadingMessage: "",
+                    description:'',
+                    display_option_1:'',
+                    display_option_2:'',
+                    option_2:true,
+                    indicator_type:'Percentage',
+                    numerator:'',
+                    denominator:'',
+                    data_source:'DHIS-2 FP reporting Tool'
+                };
+
+                $scope.hospitalObject.loadingMessage = "Authenticating portal...";
+                $scope.hospitalObject.chartObject = angular.copy(FPManager.chartObject);
+                $scope.hospitalObject.chartObject.loading = true;
+                $scope.hospitalObject.chartObject.options.title.text ="Percent Hospitals with a Health Worker Trained in and Providing - "+$scope.titleToUse +" "+FPManager.getMonthName($scope.data.selectedMonth);
+
+                //dispensary
+                $scope.dispensaryObject.loadingMessage = "Authenticating portal...";
+                $scope.dispensaryObject.chartObject = angular.copy(FPManager.chartObject);
+                $scope.dispensaryObject.chartObject.loading = true;
+                $scope.dispensaryObject.chartObject.options.title.text ="Percent Dispensaries with a Health Worker Trained in and Providing - "+$scope.titleToUse +" "+FPManager.getMonthName($scope.data.selectedMonth);
+
+                //Health Centers
+                $scope.healtyCenterObject.loadingMessage = "Authenticating portal...";
+                $scope.healtyCenterObject.chartObject = angular.copy(FPManager.chartObject);
+                $scope.healtyCenterObject.chartObject.loading = true;
+                $scope.healtyCenterObject.chartObject.options.title.text ="Percent Health Centers with a Health Worker Trained in and Providing - "+$scope.titleToUse +" "+FPManager.getMonthName($scope.data.selectedMonth);
 
                 $.post( portalService.base + "dhis-web-commons-security/login.action?authOnly=true", {
                     j_username: "portal", j_password: "Portal123"
@@ -247,33 +303,31 @@ angular.module("hmisPortal")
                         }
                     });
 
-                    $scope.chartObject = angular.copy(FPManager.chartObject);
-                    $scope.chartObject1 = angular.copy(FPManager.chartObject);
-                    $scope.chartObject2 = angular.copy(FPManager.chartObject);
-
                     if($scope.data.outMethods.length == 1){
-                        $scope.chartObject.options.title.text ="Percent of Hospitals Providing - " +$scope.titleToUse +" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
-                        $scope.chartObject1.options.title.text ="Percent of Health Centres Providing - " +$scope.titleToUse +" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
-                        $scope.chartObject2.options.title.text ="Percent of Dispensaries Providing - " +$scope.titleToUse +" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
+                        $scope.hospitalObject.chartObject.options.title.text ="Percent of Hospitals Providing - " +$scope.titleToUse +" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
+                        $scope.healtyCenterObject.chartObject.options.title.text ="Percent of Health Centres Providing - " +$scope.titleToUse +" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
+                        $scope.dispensaryObject.chartObject.options.title.text ="Percent of Dispensaries Providing - " +$scope.titleToUse +" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
                     }else{
-                        $scope.chartObject.options.title.text ="Percent of Hospitals Providing Family Planning - " +$scope.titleToUse +" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
-                        $scope.chartObject1.options.title.text ="Percent of Health Centres  Providing Family Planning - " +$scope.titleToUse +" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
-                        $scope.chartObject2.options.title.text ="Percent of Dispensaries  Providing Family Planning  - " +$scope.titleToUse +" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
+                        $scope.hospitalObject.chartObject.options.title.text ="Percent of Hospitals Providing Family Planning - " +$scope.titleToUse +" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
+                        $scope.healtyCenterObject.chartObject.options.title.text ="Percent of Health Centres  Providing Family Planning - " +$scope.titleToUse +" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
+                        $scope.dispensaryObject.chartObject.options.title.text ="Percent of Dispensaries  Providing Family Planning  - " +$scope.titleToUse +" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
                     }
 
-                    $scope.chartObject.options.yAxis.title.text ="% of Facilities";
-                    $scope.chartObject1.options.yAxis.title.text ="% of Facilities";
-                    $scope.chartObject2.options.yAxis.title.text ="% of Facilities";
+                    $scope.hospitalObject.chartObject.options.yAxis.title.text ="% of Facilities";
+                    $scope.healtyCenterObject.chartObject.options.yAxis.title.text ="% of Facilities";
+                    $scope.dispensaryObject.chartObject.options.yAxis.title.text ="% of Facilities";
 
-                    $scope.chartObject.options.yAxis.labels = {
+                    $scope.hospitalObject.chartObject.options.yAxis.labels = {
                         formatter: function () {
                             return this.value + '%';
                         }
-                    };$scope.chartObject1.options.yAxis.labels = {
+                    };
+                    $scope.dispensaryObject.chartObject.options.yAxis.labels = {
                         formatter: function () {
                             return this.value + '%';
                         }
-                    };$scope.chartObject2.options.yAxis.labels = {
+                    };
+                    $scope.healtyCenterObject.chartObject.options.yAxis.labels = {
                         formatter: function () {
                             return this.value + '%';
                         }
@@ -287,19 +341,18 @@ angular.module("hmisPortal")
                     var periods = $scope.prepareCategory('month');
 
                     angular.forEach(periods, function (val) {
-                        $scope.chartObject.options.xAxis.categories.push(val.name);
+                        $scope.hospitalObject.chartObject.options.xAxis.categories.push(val.name);
                     });
                     angular.forEach(periods, function (val) {
-                        $scope.chartObject1.options.xAxis.categories.push(val.name);
+                        $scope.healtyCenterObject.chartObject.options.xAxis.categories.push(val.name);
                     });
                     angular.forEach(periods, function (val) {
-                        $scope.chartObject2.options.xAxis.categories.push(val.name);
+                        $scope.dispensaryObject.chartObject.options.xAxis.categories.push(val.name);
                     });
 
-
-                    $scope.chartObject.loading = true;
-                    $scope.chartObject1.loading = true;
-                    $scope.chartObject2.loading = true;
+                    $scope.hospitalObject.loadingMessage = "Fetching Hospitals  Data...";
+                    $scope.healtyCenterObject.loadingMessage = "Fetching Health Centres Data...";
+                    $scope.dispensaryObject.loadingMessage = "Fetching Dispensaries Data...";
                     var method = $scope.data.outMethods[0].id;
                     FPManager.getFPFacilityList().then(function(data){
                         $scope.getNumberPerOu2(data.organisationUnits);
@@ -311,10 +364,11 @@ angular.module("hmisPortal")
                                     angular.forEach(periods, function (xAxis) {
                                         serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,yAxis.id,val1.rows,xAxis.id,'Hospital',$scope.data.outMethods[0].name)));
                                     });
-                                    $scope.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
+                                    $scope.hospitalObject.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
                                 });
-                                $scope.csvdata = FPManager.prepareDataForCSV($scope.chartObject);
-                                $scope.chartObject.loading = false;
+                                $scope.hospitalObject.csvdata = FPManager.prepareDataForCSV($scope.hospitalObject.chartObject);
+                                $scope.hospitalObject.showLoader = false;
+                                $scope.hospitalObject.chartObject.loading = false;
                             });
 
                             $http.get(portalService.base+'api/sqlViews/GgYRxB7qHaS/data.json?var=types:Health Center&'+FPManager.lastTwelveMonthForSql($scope.data.selectedMonth)).success(function(val1){
@@ -324,10 +378,11 @@ angular.module("hmisPortal")
                                     angular.forEach(periods, function (xAxis) {
                                         serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,yAxis.id,val1.rows,xAxis.id,'Health Center',$scope.data.outMethods[0].name)));
                                     });
-                                    $scope.chartObject1.series.push({type: 'spline', name: yAxis.name, data: serie})
+                                    $scope.healtyCenterObject.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
                                 });
-                                $scope.csvdata1 = FPManager.prepareDataForCSV($scope.chartObject1);
-                                $scope.chartObject1.loading = false;
+                                $scope.healtyCenterObject.csvdata = FPManager.prepareDataForCSV($scope.healtyCenterObject.chartObject);
+                                $scope.healtyCenterObject.showLoader = false;
+                                $scope.healtyCenterObject.chartObject.loading = false;
                             });
 
                             $http.get(portalService.base+'api/sqlViews/GgYRxB7qHaS/data.json?var=types:Dispensary&'+FPManager.lastTwelveMonthForSql($scope.data.selectedMonth)).success(function(val1){
@@ -337,10 +392,11 @@ angular.module("hmisPortal")
                                     angular.forEach(periods, function (xAxis) {
                                         serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,yAxis.id,val1.rows,xAxis.id,'Dispensary',$scope.data.outMethods[0].name)));
                                     });
-                                    $scope.chartObject2.series.push({type: 'spline', name: yAxis.name, data: serie})
+                                    $scope.dispensaryObject.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
                                 });
-                                $scope.csvdata2 = FPManager.prepareDataForCSV($scope.chartObject2);
-                                $scope.chartObject2.loading = false;
+                                $scope.dispensaryObject.csvdata = FPManager.prepareDataForCSV($scope.dispensaryObject.chartObject);
+                                $scope.dispensaryObject.showLoader = false;
+                                $scope.dispensaryObject.chartObject.loading = false;
                             });
                         }else{
 
@@ -351,10 +407,11 @@ angular.module("hmisPortal")
                                     angular.forEach(periods, function (xAxis) {
                                         serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,$scope.data.outOrganisationUnits[0].id,val1.rows,xAxis.id,'Hospital',yAxis.name)));
                                     });
-                                    $scope.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
+                                    $scope.hospitalObject.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
                                 });
-                                $scope.csvdata = FPManager.prepareDataForCSV($scope.chartObject);
-                                $scope.chartObject.loading = false;
+                                $scope.hospitalObject.csvdata = FPManager.prepareDataForCSV($scope.hospitalObject.chartObject);
+                                $scope.hospitalObject.showLoader = false;
+                                $scope.hospitalObject.chartObject.loading = false;
                             });
 
                             $http.get(portalService.base+'api/sqlViews/GgYRxB7qHaS/data.json?var=types:Health Center&'+FPManager.lastTwelveMonthForSql($scope.data.selectedMonth)).success(function(val1){
@@ -364,10 +421,11 @@ angular.module("hmisPortal")
                                     angular.forEach(periods, function (xAxis) {
                                         serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,$scope.data.outOrganisationUnits[0].id,val1.rows,xAxis.id,'Health Center',yAxis.name)));
                                     });
-                                    $scope.chartObject1.series.push({type: 'spline', name: yAxis.name, data: serie})
+                                    $scope.healtyCenterObject.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
                                 });
-                                $scope.csvdata1 = FPManager.prepareDataForCSV($scope.chartObject1);
-                                $scope.chartObject1.loading = false;
+                                $scope.healtyCenterObject.csvdata = FPManager.prepareDataForCSV($scope.healtyCenterObject.chartObject);
+                                $scope.healtyCenterObject.showLoader = false;
+                                $scope.healtyCenterObject.chartObject.loading = false;
                             });
 
                             $http.get(portalService.base+'api/sqlViews/GgYRxB7qHaS/data.json?var=types:Dispensary&'+FPManager.lastTwelveMonthForSql($scope.data.selectedMonth)).success(function(val1){
@@ -377,10 +435,11 @@ angular.module("hmisPortal")
                                     angular.forEach(periods, function (xAxis) {
                                         serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,$scope.data.outOrganisationUnits[0].id,val1.rows,xAxis.id,'Dispensary',yAxis.name)));
                                     });
-                                    $scope.chartObject2.series.push({type: 'spline', name: yAxis.name, data: serie})
+                                    $scope.dispensaryObject.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
                                 });
-                                $scope.csvdata2 = FPManager.prepareDataForCSV($scope.chartObject2);
-                                $scope.chartObject2.loading = false;
+                                $scope.dispensaryObject.csvdata = FPManager.prepareDataForCSV($scope.dispensaryObject.chartObject);
+                                $scope.dispensaryObject.showLoader = false;
+                                $scope.dispensaryObject.chartObject.loading = false;
                             });
 
                         }
