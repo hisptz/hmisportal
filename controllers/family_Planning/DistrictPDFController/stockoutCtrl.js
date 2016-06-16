@@ -258,7 +258,7 @@ angular.module("hmisPortal")
                                         if(data[0] == "n91UibSDCbn" && data[2] == 0.0){
                                             $scope.PillstockOutData.push(facilities.metaData.names[data[1]])
                                         }
-                                    }-
+                                    }
 
                                 });
                                 angular.forEach($scope.InjectablestockOutData,function(injectables){
