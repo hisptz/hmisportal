@@ -246,7 +246,7 @@ angular.module("hmisPortal")
                         $rootScope.progressMessage = "Fetching data please wait ...";
                         $rootScope.showProgressMessage = true;
                         $http.get(portalService.base + 'api/dataSets/TfoI3vTGv1f.json?fields=organisationUnits[name,organisationUnitGroups[name],ancestors[id]]').success(function (data) {
-                            $http.get(portalService.base+'api/analytics.json?dimension=dx:gOnXFvuLClY;n91UibSDCbn&dimension=ou:LEVEL-4;'+$scope.regionUid+'&filter=pe:'+FPManager.lastMonthWithOtherData+'&displayProperty=NAME').success(function(facilities){
+                            $http.get(portalService.base+'api/analytics.json?dimension=dx:gOnXFvuLClY;n91UibSDCbn&dimension=ou:LEVEL-4;'+$scope.regionUid+'&filter=pe:'+FPManager.lastMonthWithData+'&displayProperty=NAME').success(function(facilities){
                                 $scope.AllstockOutData = [];
                                 $scope.PillstockOutData = [];
                                 $scope.InjectablestockOutData = [];
