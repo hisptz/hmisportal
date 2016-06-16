@@ -162,7 +162,7 @@ angular.module("hmisPortal")
                 $scope.StockOutObject.loadingMessage = "Authenticating portal...";
                 $scope.StockOutObject.chartObject = angular.copy(FPManager.chartObject);
                 $scope.StockOutObject.chartObject.loading = true;
-                $scope.StockOutObject.chartObject.options.title.text ="Percent of Facilities Stocked out of Injectables "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
+                $scope.StockOutObject.chartObject.options.title.text ="Percent of Facilities Stocked out of Injectables or pills"+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
                 console.log("loging in");
                 $.post( portalService.base + "dhis-web-commons-security/login.action?authOnly=true", {
                     j_username: "portal", j_password: "Portal123"
