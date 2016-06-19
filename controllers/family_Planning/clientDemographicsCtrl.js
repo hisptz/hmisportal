@@ -42,7 +42,7 @@ angular.module("hmisPortal")
             $scope.data.orgUnitTree.push({name:"Tanzania",id:'m0frOspS7JY',children:$scope.data.orgUnitTree1});
         };
 
-       
+
     })
     .controller("menuController",function ($rootScope,$scope,$http,portalService,FPManager,$location,Base64,$timeout) {
         $scope.isActive = function (viewLocation) {
