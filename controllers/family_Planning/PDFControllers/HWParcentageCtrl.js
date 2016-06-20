@@ -297,7 +297,7 @@ angular.module("hmisPortal")
                     angular.forEach(orgUnits, function (value) {
                         periods.push({name: value.name, id: value.id})
                     });
-                    chartObject.title.text = "National percent of facilities with 2 or more HWs trained in each FP method " + FPManager.getMonthName(FPManager.lastMonthWithData);
+                    chartObject.title.text = "National percent of facilities with 2 or more HWs trained in each FP method, " + FPManager.getMonthName(FPManager.lastMonthWithData);
                     angular.forEach(methodss, function (val) {
                         chartObject.xAxis.categories.push(val.name);
                     });

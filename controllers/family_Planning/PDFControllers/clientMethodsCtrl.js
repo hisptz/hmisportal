@@ -330,7 +330,7 @@ angular.module("hmisPortal")
                         var methodId1 = [];
 
                         $scope.titleToUse = "nationally";
-                        cardObject.chartObject.title = {text: cardObject.title + " - " + $scope.titleToUse};
+                        cardObject.chartObject.title = {text: cardObject.title};
                         cardObject.chartObject.yAxis.title.text = cardObject.yaxisTittle;
                         cardObject.chartObject.legend = {
                             align: 'right',

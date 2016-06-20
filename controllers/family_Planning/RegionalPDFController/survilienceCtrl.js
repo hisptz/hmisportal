@@ -142,9 +142,9 @@ angular.module("hmisPortal")
                             $rootScope.showProgressMessage = false;
 
 
-                            chartObject.title.text ="Districts with lowest percentage of clients adopting FP post abortion or miscarriage compared with region average "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                            chartObject.title.text ="Districts with lowest percentage of clients adopting FP post abortion or miscarriage compared with region average, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
                             chartObject1.title.text ="Region trend in number of clients adopting FP in the postpartum period "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                            chartObject2.title.text ="Districts with lowest percentage of family planning clients adopting HTC compared with region average "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                            chartObject2.title.text ="Districts with lowest percentage of family planning clients adopting HTC compared with region average, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
                             chartObject.yAxis.title.text ="%  of clients";
                             chartObject.yAxis.labels = {
                                 formatter: function () {
