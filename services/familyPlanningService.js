@@ -85,7 +85,7 @@ FPServices.factory('FPManager',function($http,$q,portalService){
 
             }
             var names =  data.reverse();
-            return names[0].name +" To "+ names[11].name;
+            return names[0].name +" to "+ names[11].name;
         },
 
         //list of twelve month for analytics

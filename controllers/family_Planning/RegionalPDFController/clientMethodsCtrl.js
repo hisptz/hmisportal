@@ -222,7 +222,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'line',
-                yaxisTittle:'# client',
+                yaxisTittle:'# of clients',
                 visible:'consumption by method',
                 chartObject:angular.copy(FPManager.defaultChartObject1)
 
@@ -238,7 +238,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'line',
-                yaxisTittle:'# client',
+                yaxisTittle:'# of clients',
                 visible:'consumption by method',
                 chartObject:angular.copy(portalService.chartObject)
 
@@ -290,7 +290,7 @@ angular.module("hmisPortal")
                             var methodId1 = [];
 
                             $scope.titleToUse = region.name;
-                            cardObject.chartObject.title.text = region.name + " Number of FP clients through Routine Facility-Based Service "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                            cardObject.chartObject.title.text = region.name + " Number of FP clients through routine racility-based service "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
                             cardObject.chartObject.yAxis.title.text = cardObject.yaxisTittle;
                             cardObject.chartObject.legend = {
                                 align: 'right',
