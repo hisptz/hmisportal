@@ -202,7 +202,6 @@ angular.module("hmisPortal")
                                     }
                                 });
                             });
-                            console.log(chartSeries);
                             chartObject.series.push({type: 'spline', name: "% Clients Adopting FP following abortion or miscarriage", data: chartSeries});
                             chartObject.series.push({type: 'spline', name: "% FP clients adopting HTC", data: chartSeries1});
 

@@ -99,6 +99,8 @@ angular.module("hmisPortal")
                         //load the completeness data and handle the comparison
                         $scope.name = region.name;
                         var lastMonth = parseInt(FPManager.lastMonthWithOtherData) - 1;
+                        console.log("lastMonthWithOtherData",FPManager.lastMonthWithOtherData);
+                        console.log("lastMonth",lastMonth);
                         $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-2;LEVEL-3;'+$scope.regionUid+'&dimension=pe:'+FPManager.lastMonthWithData+';'+lastMonth+'&displayProperty=NAME').success(function(data){
                         //var period = "201511"
                         //var lastMonth = parseInt(period) - 1;

@@ -11,7 +11,6 @@ angular.module("hmisPortal")
     })
     .controller("clientMethodsCtrl",function ($rootScope,$scope,$http,portalService,FPManager,$location,$timeout) {
         $scope.regionUid = $location.search().uid;
-        console.log($scope.regionUid);
         $rootScope.showProgressMessage = false;
         $scope.geographicalZones = FPManager.zones;
         $scope.geoToUse = [];
