@@ -260,7 +260,7 @@ angular.module("hmisPortal")
                 displayTable: false,
                 displayMap: false,
                 chart: 'line',
-                yaxisTittle: '# client',
+                yaxisTittle: '# of client',
                 visible: 'consumption by method',
                 chartObject: angular.copy(portalService.chartObject)
 
@@ -276,7 +276,7 @@ angular.module("hmisPortal")
                 displayTable: false,
                 displayMap: false,
                 chart: 'line',
-                yaxisTittle: '# client',
+                yaxisTittle: '# of client',
                 visible: 'consumption by method',
                 chartObject: angular.copy(portalService.chartObject)
 
