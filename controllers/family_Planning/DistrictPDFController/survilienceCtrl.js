@@ -173,7 +173,7 @@ angular.module("hmisPortal")
                             $rootScope.showProgressMessage = false;
 
 
-                            chartObject.title.text =region.name +" service integration "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                            chartObject.title.text =region.name +" service integration, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
                             chartObject.legend = {
                                 layout: 'vertical',
                                 itemMarginTop: 10,
