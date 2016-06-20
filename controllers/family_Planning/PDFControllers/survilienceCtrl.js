@@ -74,7 +74,7 @@ angular.module("hmisPortal")
             }else{
 
 
-                var period = $scope.selectedPeriod;
+                var period = FPManager.lastMonthWithData;
                 var method = "uid";
                 var chartObject = angular.copy(portalService.chartObject);
                 var chartObject1 = angular.copy(portalService.chartObject);
