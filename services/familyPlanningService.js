@@ -353,7 +353,7 @@ FPServices.factory('FPManager',function($http,$q,portalService){
                 return deferred.promise;
             }else{
                 var deferred = $q.defer();
-                    $http.get(portalService.base + "api/dataSets/TfoI3vTGv1f.json?fields=organisationUnits[name,organisationUnitGroups[name],ancestors[id]]")
+                    $http.get(portalService.base + "api/dataSets/TfoI3vTGv1f.json?fields=organisationUnits[id,name,organisationUnitGroups[name],ancestors[id]]")
                     .success(function (analyticsObject) {
                         self.FPFacilityList = analyticsObject;
                         deferred.resolve(analyticsObject);
