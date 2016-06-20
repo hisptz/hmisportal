@@ -17,6 +17,32 @@ angular.module("hmisPortal")
         $scope.updateMonth = function(month){
             $scope.data.selectedMonth = month;
         };
+
+        $scope.clearAllOrgunits = function(){
+            $scope.updateTreeWithNone();
+        };
+        $scope.clearAllMethods = function(){
+            $scope.updateMethod();
+        }
+
+        $scope.updateTreeWithNone = function(){
+            $scope.data.orgUnitTree1 = [];
+            $scope.data.orgUnitTree = [];
+            angular.forEach($scope.geographicalZones.organisationUnitGroups,function(value){
+                var zoneRegions = [];
+                angular.forEach(value.organisationUnits,function(regions){
+                    var regionDistricts = [];
+                    angular.forEach(regions.children,function(district){
+                        regionDistricts.push({name:district.name,id:district.id });
+                    });
+                    zoneRegions.push({ name:regions.name,id:regions.id, children:regionDistricts });
+                });
+                $scope.data.orgUnitTree1.push({ name:value.name,id:value.id, children:zoneRegions });
+            });
+            $scope.data.orgUnitTree.push({name:"Tanzania",id:'m0frOspS7JY',children:$scope.data.orgUnitTree1});
+        };
+
+
     })
     .controller("menuController",function ($rootScope,$scope,$http,portalService,FPManager,$location,Base64,$timeout) {
         $scope.isActive = function (viewLocation) {

@@ -1,8 +1,13 @@
 <div class="z-depth-1 grey lighten-5" style="width:96.5%;position:fixed;top:70px;z-index:900;margin-left: 24px; margin-right: 0px" ng-controller="filterController">
     <div class="section grey lighten-5 " >
         <div ng-class="hideMethods?'col s3':'col s3'"><label>Period</label></div>
-        <div ng-class="hideMethods?'col s7':'col s4'"><label>Geography</label></div>
-        <div ng-if="!hideMethods" class="col s3"><label>Methods</label></div>
+        <div ng-class="hideMethods?'col s7':'col s4'"><label>Geography &nbsp;&nbsp;&nbsp;
+            <a style="cursor: pointer; padding-left: 2px;padding-right: 2px; border: 1px rgba(70, 66, 62, 0.51) solid " title="Clear All" ng-click="clearAllOrgunits()">
+                X
+            </a></label></div>
+        <div ng-if="!hideMethods" class="col s3"><label>Methods  &nbsp;&nbsp;&nbsp;<a style="cursor: pointer; padding-left: 2px;padding-right: 2px; border: 1px rgba(70, 66, 62, 0.51) solid " title="Clear All Method" ng-click="clearAllMethods()">
+            X
+        </a></label></div>
         <div class="input-field col s3  grey lighten-5" style="margin-top: 0px">
             <div class="col s6 input-field">
                     <select ng-model="selectedYear" ng-change="updatePeriod(selectedYear)" material-select watch >
@@ -46,6 +51,7 @@
                     data-default-label="Select Geography"
                     data-callback="selectOnly1Or2(item, selectedItems)">
             </multi-select-tree>
+
         </div>
         <div ng-if="!hideMethods" class="input-field col s3 grey lighten-5">
             <multi-select-tree
