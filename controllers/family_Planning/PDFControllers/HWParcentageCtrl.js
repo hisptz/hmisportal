@@ -206,7 +206,7 @@ angular.module("hmisPortal")
             });
             var num = $scope.getDataFromUrl(arr2, ou, pe);
             var percent = (num / count) * 100;
-            return percent.toFixed(2);
+            return percent.toFixed(1);
         };
 
 
@@ -232,7 +232,7 @@ angular.module("hmisPortal")
             });
             var num = $scope.getDataFromUrl1(arr2, ou, pe, method);
             var percent = (num / count) * 100;
-            return percent.toFixed(2);
+            return percent.toFixed(1);
         };
 
         $scope.getNumberPerOu2 = function (arr, ou, arr2, pe, method, name) {
@@ -259,7 +259,7 @@ angular.module("hmisPortal")
             if (name) {
                 //console.log(name+": "+count+"num is: "+num+"parcent is: "+percent);
             }
-            return percent.toFixed(2);
+            return percent.toFixed(1);
 
         };
 
@@ -283,7 +283,7 @@ angular.module("hmisPortal")
 
                     var chartObject = angular.copy(portalService.chartObject);
 
-                    chartObject.yAxis.title.text = "% of Facilities";
+                    chartObject.yAxis.title.text = "% of facilities";
 
                     chartObject.yAxis.labels = {
                         formatter: function () {
@@ -297,7 +297,7 @@ angular.module("hmisPortal")
                     angular.forEach(orgUnits, function (value) {
                         periods.push({name: value.name, id: value.id})
                     });
-                    chartObject.title.text = "National Percent of facilities with 2 or more HWs Trained in each FP method " + FPManager.getMonthName(FPManager.lastMonthWithData);
+                    chartObject.title.text = "National percent of facilities with 2 or more HWs trained in each FP method " + FPManager.getMonthName(FPManager.lastMonthWithData);
                     angular.forEach(methodss, function (val) {
                         chartObject.xAxis.categories.push(val.name);
                     });

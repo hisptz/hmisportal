@@ -113,7 +113,6 @@ angular.module("hmisPortal")
                             });
                         });
                         FPManager.getFPFacilityList().then(function(orgUni) {
-                            console.log("orgUni",orgUni);
                             $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-3;LEVEL-4;'+$scope.regionUid+'&dimension=pe:'+period+';'+lastMonth+'&displayProperty=NAME').success(function(data){
                                 var orgUnitsCompletenes = [];
                                 angular.forEach(orgUni.organisationUnits,function(orgUnit){
@@ -127,7 +126,6 @@ angular.module("hmisPortal")
                                         (value == 0)?orgUnitsCompletenes.push({name:data.metaData.names[orgUnit.id],value:value}):"";
                                     }
                                 });
-                                console.log("orgUnitsCompletenes",orgUnitsCompletenes);
                                 for(var i=0;i<50;i++){
                                     if(orgUnitsCompletenes[i]){
 
@@ -170,18 +168,18 @@ angular.module("hmisPortal")
                             $scope.CPACfacilitieParcent = $filter('limitTo')(orderBy(CPACfacilitieParcent, 'value', false), 6, 0);
                             $scope.HTCfacilitieParcent = $filter('limitTo')(orderBy(HTCfacilitieParcent, 'value', false), 6, 0);
 
-                            var orgUnits2 = [{'name':'% Clients Adopting FP following abortion or miscarriage'},{'name':'% FP clients adopting HTC'}];
+                            var orgUnits2 = [{'name':'% clients adopting FP following abortion or miscarriage'},{'name':'% FP clients adopting HTC'}];
                             var periods = $scope.prepareCategory('month');
                             $rootScope.showProgressMessage = false;
 
 
-                            chartObject.title.text =region.name +" Service integration "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                            chartObject.title.text =region.name +" service integration "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
                             chartObject.legend = {
                                 layout: 'vertical',
                                 itemMarginTop: 10,
                                 itemMarginBottom: 10
                             };
-                            chartObject.yAxis.title.text ="%  of Clients";
+                            chartObject.yAxis.title.text ="%  of clients";
                             chartObject.yAxis.labels = {
                                 formatter: function () {
                                     return this.value + '%';

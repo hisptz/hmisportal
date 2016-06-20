@@ -179,7 +179,7 @@
             <tr style="background-color: #4F81BD; color: white; border: solid 1px #6498D9 ">
                 <th colspan="4" style="font-size: 18px;">Districts with lowest percentage of facilities with 2 or more Health Workers trained in FP methods</th></tr>
             <tr style="border: solid 1px #6498D9" ng-repeat="orgs in orgunitsWithLowTraining" >
-                <td>{{ orgs.name }}</td>
+                <td><b>{{ orgs.name }}</b></td>
                 <td>{{ orgs.region1 }}</td>
                 <td>{{ orgs.region2 }}</td>
                 <td>{{ orgs.region3 }}</td>
@@ -202,9 +202,14 @@
                     </div>
                 </td>
                 <td style="vertical-align: top;width: 50%">
-                    <table border="1px" style="height: 392px;">
+                    <style>
+                        .tableBold tr:nth-child(2) td{
+                            font-weight: bold;
+                        }
+                    </style>
+                    <table class="tableBold" border="1px" style="height: 392px;">
                         <tr style="background-color: #4F81BD; color: white; border: solid 1px #6498D9 ">
-                            <th colspan="2"> Districts with highest percentage of facilities experiencing  Stock Out Injectable </th></tr>
+                            <th colspan="2"> Districts with highest percentage of facilities experiencing  stock out of pills or injectable </th></tr>
                         <tr style="border: solid 1px #6498D9" ng-repeat="dis in stockOutData">
                             <td>{{ dis.oral }}</td>
                             <td>{{ dis.injectable }}</td>
@@ -255,7 +260,7 @@
             <tr>
                 <td style="width: 100%; padding-left: 0px; padding-right: 0px">
                     <h6 style=" padding: 8px; border: solid 1px #6498D9; color:#6498D9;">
-                        <b>ACTION:</b> investigate districts with lowest percentages for each indicator. Monitor national trend and use the FP dashboard to investigate any
+                        <b>ACTION:</b> Investigate districts with lowest percentages for each indicator. Monitor national trend and use the FP dashboard to investigate any
                         unexplained decreases.
                         <br />The graph on the right displays percent of FP clients who are not already known HIV-positive adopting HIV testing and counselling (HTC)
                     </h6>
@@ -304,7 +309,7 @@
                     <h6 style="height: 105px;padding: 8px; border: solid 1px #6498D9; color:#6498D9;">
                         This month the {{ name }} reporting rate was <b>{{ thisMonthCompletenes }}%</b>  of
                         facilities, as compared to <b>{{ lastMonthCompletenes }}%</b> last month.<br>
-                        <b>ACTION:</b> alert district coordinators; provide positive
+                        <b>ACTION:</b> Alert district coordinators; provide positive
                         feedback to best performing districts and support to low
                         performing districts.
                     </h6>

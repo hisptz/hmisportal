@@ -155,7 +155,7 @@ angular.module("hmisPortal")
             });
             var num = $scope.getDataFromUrl(arr2,ou,pe);
             var percent = (num/count)*100;
-            return percent.toFixed(2);
+            return percent.toFixed(1);
         };
 
 
@@ -184,7 +184,7 @@ angular.module("hmisPortal")
             var num = $scope.getDataFromUrl1(arr2,ou,pe,method);
             var percent = (num/count)*100;
 
-            return percent.toFixed(2);
+            return percent.toFixed(1);
         };
 
         $scope.getNumberPerOu2 = function(arr){

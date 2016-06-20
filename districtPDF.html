@@ -141,10 +141,10 @@
             <tr>
                 <td style="width: 1060px;; margin: 0px; padding-bottom: 0px " >
                     <p style=" padding: 8px; border: solid 1px #6498D9; color:#6498D9;">
-                        This month the reporting rate in {{ name }} was <b>{{ thisMonthCompletenes }}</b> of facilities, as compared to
-                        <b>{{ lastMonthCompletenes }}</b> last month. The national average this month was <b>{{ nationalAverage }}</b>.
-                        The table below list up to 25 facilities that did not report this month.<br>
-                        <b>ACTION:</b> follow up with facilities that did not report.
+                        This month the reporting rate in {{ name }} was <b>{{ thisMonthCompletenes }}%</b> of facilities, as compared to
+                        <b>{{ lastMonthCompletenes }}%</b> last month. The national average this month was <b>{{ nationalAverage }}</b>.
+                        The table below lists up to 25 facilities that did not report this month.<br>
+                        <b>ACTION:</b> Follow up with facilities that did not report.
                     </p>
                 </td>
             </tr>
@@ -168,7 +168,7 @@
     <br /><br />
     <fieldset ng-controller="HWParcentageCtrl">
         <legend style="font-size: 1.37em;;font-weight: bold">Coverage:</legend>
-        <p style="text-align: center">Percent Facilities with a HWs trained in an FP methods but NOT providing the FP service in {{ name }}</p>
+        <p style="text-align: center">Percent of facilities with a HW trained in FP methods but NOT providing the FP service in {{ name }}</p>
         <table>
             <tr>
                 <td style="width: 19%;">
@@ -260,7 +260,7 @@
                     <div style="border:groove 1px #000000; height: 365px">
                         <table border="1px" style="font-size: 0.9em;height: 182px;">
                             <tr style="background-color: #4F81BD; color: white; border: solid 1px #6498D9 ">
-                                <th colspan="2">Facilities with the lowest % of Clients Adopting FP following cPAC in
+                                <th colspan="2">Facilities with the lowest % of clients adopting FP following post abortion or miscarriage in
                                     {{ name }}</th>
                             </tr>
                             <tr style="border: solid 1px #6498D9">
@@ -303,7 +303,7 @@
         <table>
             <tr>
                 <td style="width: 49%; margin-top: 5px; " >
-                    <p style="margin-top: 0;height: 107px; padding: 8px; border: solid 1px #6498D9; color:#6498D9; font-size: 1.1em">
+                    <p style="margin-top: 0;height: 107px; padding: 8px; border: solid 1px #6498D9; color:#6498D9; font-size: 1em">
                         <b>ACTION:</b>  Monitor the trend for these two indicators in {{ name }} and
                         investigate any sharp decreases
                     </p>
@@ -320,7 +320,7 @@
         </table>
     </fieldset>
     <p style=" padding: 8px; border: solid 1px #6498D9; color:#6498D9; font-size: 1em">
-        Note: dashes indicate that there was no data applicable to this indicator
+        <b>NOTE:</b> dashes indicate that there was no data applicable to this indicator
     </p>
 
 </div>

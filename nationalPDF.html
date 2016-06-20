@@ -180,9 +180,9 @@
 
         <table style="margin: 10px;height: 350px; width: 1060px" ng-controller="HWParcentageCtrl">
             <tr style="background-color: #4F81BD; color: white; border: solid 1px #6498D9 ">
-                <th colspan="4" style="font-size: 18px;">Regions with lowest percentage of facilities with 2 or more Health Workers trained in FP methods</th></tr>
+                <th colspan="4" style="font-size: 18px;">Regions with lowest percentage of facilities with 2 or more health workers trained in FP methods</th></tr>
             <tr style="border: solid 1px #6498D9" ng-repeat="orgs in orgunitsWithLowTraining" >
-                <td>{{ orgs.name }}</td>
+                <td><b>{{ orgs.name }}</b></td>
                 <td>{{ orgs.region1 }}</td>
                 <td>{{ orgs.region2 }}</td>
                 <td>{{ orgs.region3 }}</td>
@@ -205,10 +205,16 @@
 
                     </div>
                 </td>
+
                 <td style="width: 50%">
-                    <table border="1px" style="height: 343px;">
+                    <style>
+                        .tableBold tr:nth-child(2) td{
+                            font-weight: bold;
+                        }
+                    </style>
+                    <table border="1px" class="tableBold" style="height: 343px;">
                         <tr style="background-color: #4F81BD; color: white; border: solid 1px #6498D9 ">
-                            <th colspan="2"> Regions with highest percentage of facilities experiencing Stock Out Injectable </th></tr>
+                            <th colspan="2"> Regions with highest percentage of facilities experiencing stock out of pills or injectables </th></tr>
                         <tr style="border: solid 1px #6498D9" ng-repeat="dis in stockOutData">
                             <td>{{ dis.oral }}</td>
                             <td>{{ dis.injectable }}</td>
@@ -293,7 +299,7 @@
                     <table border="1px" style="height: 300px;">
                         <tr style="background-color: #4F81BD; color: white; border: solid 1px #6498D9 ">
                             <th >Lowest reporting rate</th>
-                            <th >Highest Reporting rate</th>
+                            <th >Highest reporting rate</th>
                         </tr>
                         <tr style="border: solid 1px #6498D9" ng-repeat="org in OrgunitInReportingRate">
                             <td>{{ org.high }}</td>
@@ -303,7 +309,7 @@
                 </div>
                     <p style="height: 155px; padding: 8px; border: solid 1px #6498D9; color:#6498D9;">
                         This month the national reporting rate was <b>{{ thisMonthCompletenes }}%</b>  of
-                        facilities, as compared to <b>{{ lastMonthCompletenes }}%</b> last month.
+                        facilities, as compared to <b>{{ lastMonthCompletenes }}%</b> last month.<br />
                         <b>ACTION:</b> alert regional coordinators; provide positive
                         feedback to best performing regions and support to low
                         performing regions.

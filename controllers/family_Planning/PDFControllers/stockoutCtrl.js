@@ -170,7 +170,7 @@ angular.module("hmisPortal")
             });
             var num = $scope.getDataFromUrl(arr2,ou,pe);
             var percent = (num/count)*100;
-            return percent.toFixed(2);
+            return percent.toFixed(1);
         };
 
         $scope.getNumberPerOu1 = function(arr,ou,arr2,pe,type){
@@ -193,7 +193,7 @@ angular.module("hmisPortal")
             });
             var num = $scope.getDataFromUrl1(arr2,ou,pe,type);
             var percent = (num/count)*100;
-            return percent.toFixed(2);
+            return percent.toFixed(1);
         };
 
 
@@ -223,8 +223,8 @@ angular.module("hmisPortal")
 
                     var chartObject = angular.copy(portalService.chartObject);
 
-                    chartObject.title.text ="National Percent All Facilities Stocked Out of Injectables for at any number of days in the month, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                    chartObject.yAxis.title.text ="% of Facilities";
+                    chartObject.title.text ="National percent of all facilities stocked out of pills or injectables for any number of days in the month, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                    chartObject.yAxis.title.text ="% of facilities";
                     var orgUnits = [{id:'m0frOspS7JY',name:'Tanzania'}];
                     var periods = $scope.prepareCategory('month');
 
@@ -254,7 +254,7 @@ angular.module("hmisPortal")
                             injecatbleData = orderBy(injecatbleData,'value',true);
                             oralData = orderBy(oralData,'value',true);
                             $scope.stockOutData = [
-                                {oral:'Pills',injectable:'Injectable'},
+                                {oral:'Pills',injectable:'Injectables'},
                                 {oral:oralData[0].name+"( "+oralData[0].value +"% )",injectable:injecatbleData[0].name+"( "+injecatbleData[0].value +"% )"},
                                 {oral:oralData[1].name+"( "+oralData[1].value +"% )",injectable:injecatbleData[1].name+"( "+injecatbleData[1].value +"% )"},
                                 {oral:oralData[2].name+"( "+oralData[2].value +"% )",injectable:injecatbleData[2].name+"( "+injecatbleData[2].value +"% )"},

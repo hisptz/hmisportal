@@ -143,17 +143,17 @@ angular.module("hmisPortal")
                         $rootScope.showProgressMessage = false;
 
 
-                        chartObject.title.text ="Regions with lowest percentage of Clients Adopting FP following cPAC compared with national average "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                        chartObject1.title.text ="National trend in number of clients Adopting FP in the Postpartum Period "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                        chartObject2.title.text ="Regions with lowest percentage of Family Planning Clients Adopting HTC compared with national average "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                        chartObject.yAxis.title.text ="%  of Clients";
+                        chartObject.title.text ="Regions with lowest percentage of clients adopting FP following post abortion or miscarriage compared with national average "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                        chartObject1.title.text ="National trend in number of clients adopting FP in the postpartum period "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                        chartObject2.title.text ="Regions with lowest percentage of family planning clients adopting HTC compared with national average "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                        chartObject.yAxis.title.text ="%  of clients";
                         chartObject.yAxis.labels = {
                             formatter: function () {
                                 return this.value + '%';
                             }
                         };
-                        chartObject1.yAxis.title.text ="# of Clients";
-                        chartObject2.yAxis.title.text ="%  of Clients";
+                        chartObject1.yAxis.title.text ="# of clients";
+                        chartObject2.yAxis.title.text ="%  of clients";
                         chartObject2.yAxis.labels = {
                             formatter: function () {
                                 return this.value + '%';
@@ -265,7 +265,7 @@ angular.module("hmisPortal")
                         }
                     });
                     if(type == 'percent'){
-                        amount = (denominatorValue != 0)?parseFloat((numeratorValue/denominatorValue )* 100).toFixed(2):0;
+                        amount = (denominatorValue != 0)?parseFloat((numeratorValue/denominatorValue )* 100).toFixed(1):0;
                     }
 
                 });
