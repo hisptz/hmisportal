@@ -115,6 +115,8 @@ angular.module("hmisPortal")
                                     }
 
                                 });
+                            console.log("Period",period);
+                            console.log("Completeness",orgUnitsCompletenes);
                                 var orderBy = $filter('orderBy');
                                 $scope.orgUnitsCompletenes = orderBy(orgUnitsCompletenes, 'value', false);
                                 $scope.orgUnitsCompletenes1 = orderBy(orgUnitsCompletenes, 'value', true);
