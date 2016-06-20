@@ -113,6 +113,7 @@ angular.module("hmisPortal")
                             });
                         });
                         FPManager.getFPFacilityList().then(function(orgUni) {
+                            console.log("orgUni",orgUni);
                             $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-3;LEVEL-4;'+$scope.regionUid+'&dimension=pe:'+period+';'+lastMonth+'&displayProperty=NAME').success(function(data){
                                 var orgUnitsCompletenes = [];
                                 angular.forEach(orgUni.organisationUnits,function(orgUnit){
@@ -126,7 +127,7 @@ angular.module("hmisPortal")
                                         (value == 0)?orgUnitsCompletenes.push({name:data.metaData.names[orgUnit.id],value:value}):"";
                                     }
                                 });
-
+                                console.log("orgUnitsCompletenes",orgUnitsCompletenes);
                                 for(var i=0;i<50;i++){
                                     if(orgUnitsCompletenes[i]){
 
