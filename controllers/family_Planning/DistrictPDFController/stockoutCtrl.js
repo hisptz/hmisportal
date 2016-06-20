@@ -224,7 +224,7 @@ angular.module("hmisPortal")
 
                         var chartObject = angular.copy(portalService.chartObject);
 
-                        chartObject.title.text = "Percent of facilities in "+region.name+" stocked out of injectables for any number of days";
+                        chartObject.title.text = "Percent of facilities in "+region.name+" stocked out of pills or injectables for any number of days";
                         chartObject.yAxis.title.text = "% of facilities";
                         chartObject.legend = {
                             align: 'right',
