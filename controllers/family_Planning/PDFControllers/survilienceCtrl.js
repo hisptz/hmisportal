@@ -101,7 +101,7 @@ angular.module("hmisPortal")
                     //var period = "201511"
                     //var lastMonth = parseInt(period) - 1;
                     //$http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-1;LEVEL-2;m0frOspS7JY&dimension=pe:'+period+';'+lastMonth+'&displayProperty=NAME').success(function(data){
-                        try{
+
                             var orgUnitsCompletenes = [];
                             angular.forEach(data.rows,function(v){
                                 if(v[1] !== 'm0frOspS7JY' && v[2] == period){
@@ -125,9 +125,6 @@ angular.module("hmisPortal")
                             $timeout(function () {
                                 render.finishRequest();
                             });
-                        }catch(e){
-                            render.finishRequest();
-                        }
 
                     });
 
