@@ -99,8 +99,6 @@ angular.module("hmisPortal")
                         //load the completeness data and handle the comparison
                         $scope.name = region.name;
                         var lastMonth = parseInt(FPManager.lastMonthWithData) - 1;
-                        console.log("lastMonthWithOtherData",FPManager.lastMonthWithData);
-                        console.log("lastMonth",lastMonth);
                         $http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-2;LEVEL-3;'+$scope.regionUid+'&dimension=pe:'+FPManager.lastMonthWithData+';'+lastMonth+'&displayProperty=NAME').success(function(data){
                         //var period = "201511"
                         //var lastMonth = parseInt(period) - 1;
@@ -117,8 +115,6 @@ angular.module("hmisPortal")
                                     }
 
                                 });
-                            console.log("Period",period);
-                            console.log("Completeness",orgUnitsCompletenes);
                                 var orderBy = $filter('orderBy');
                                 $scope.orgUnitsCompletenes = orderBy(orgUnitsCompletenes, 'value', false);
                                 $scope.orgUnitsCompletenes1 = orderBy(orgUnitsCompletenes, 'value', true);
@@ -146,17 +142,17 @@ angular.module("hmisPortal")
                             $rootScope.showProgressMessage = false;
 
 
-                            chartObject.title.text ="Districts with lowest percentage of Clients Adopting FP following cPAC compared with region average "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                            chartObject1.title.text ="Region trend in number of clients Adopting FP in the Postpartum Period "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                            chartObject2.title.text ="Districts with lowest percentage of Family Planning Clients Adopting HTC compared with region average "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                            chartObject.yAxis.title.text ="%  of Clients";
+                            chartObject.title.text ="Districts with lowest percentage of clients adopting FP post abortion or miscarriage compared with region average "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                            chartObject1.title.text ="Region trend in number of clients adopting FP in the postpartum period "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                            chartObject2.title.text ="Districts with lowest percentage of family planning clients adopting HTC compared with region average "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                            chartObject.yAxis.title.text ="%  of clients";
                             chartObject.yAxis.labels = {
                                 formatter: function () {
                                     return this.value + '%';
                                 }
                             };
-                            chartObject1.yAxis.title.text ="# of Clients";
-                            chartObject2.yAxis.title.text ="%  of Clients";
+                            chartObject1.yAxis.title.text ="# of clients";
+                            chartObject2.yAxis.title.text ="% of clients";
                             chartObject2.yAxis.labels = {
                                 formatter: function () {
                                     return this.value + '%';
@@ -268,7 +264,7 @@ angular.module("hmisPortal")
                         }
                     });
                     if(type == 'percent'){
-                        amount = (denominatorValue != 0)?parseFloat((numeratorValue/denominatorValue )* 100).toFixed(2):0;
+                        amount = (denominatorValue != 0)?parseFloat((numeratorValue/denominatorValue )* 100).toFixed(1):0;
                     }
 
                 });

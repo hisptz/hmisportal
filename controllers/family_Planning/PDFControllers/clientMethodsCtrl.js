@@ -250,7 +250,7 @@ angular.module("hmisPortal")
         $scope.fpCards = [
 
             {
-                title: 'National Number of FP clients through Routine Facility-Based Service',
+                title: 'National number of FP clients through routine facility-based service',
                 description: 'Total Clients Quarterly',
                 cardClass: "col s12 m12",
                 data: $scope.methods,
@@ -266,7 +266,7 @@ angular.module("hmisPortal")
 
             },
             {
-                title: 'National Number of FP clients through Routine Facility-Based Service',
+                title: 'National number of FP clients through routine facility-based service',
                 description: 'Total Clients Monthly',
                 cardClass: "col s12 m12",
                 data: $scope.methods,
@@ -329,7 +329,7 @@ angular.module("hmisPortal")
                         var methodId = [];
                         var methodId1 = [];
 
-                        $scope.titleToUse = "Nationally";
+                        $scope.titleToUse = "nationally";
                         cardObject.chartObject.title = {text: cardObject.title + " - " + $scope.titleToUse};
                         cardObject.chartObject.yAxis.title.text = cardObject.yaxisTittle;
                         cardObject.chartObject.legend = {

@@ -188,7 +188,7 @@ angular.module("hmisPortal")
             });
             var num = $scope.getDataFromUrl(arr2,ou,pe);
             var percent = (num/count)*100;
-            return percent.toFixed(2);
+            return percent.toFixed(1);
         };
 
 
@@ -215,7 +215,7 @@ angular.module("hmisPortal")
             });
             var num = $scope.getDataFromUrl1(arr2,ou,pe,method);
             var percent = (num/count)*100;
-            return percent.toFixed(2);
+            return percent.toFixed(1);
         };
 
         $scope.getNumberPerOu2 = function(arr,ou,arr2,pe,method){
@@ -229,7 +229,7 @@ angular.module("hmisPortal")
             });
             var num = $scope.getDataFromUrl2(arr2,ou,pe,method);
             var percent = (num/count)*100;
-            return percent.toFixed(2);
+            return percent.toFixed(1);
         };
 
 
@@ -251,7 +251,7 @@ angular.module("hmisPortal")
 
                         var chartObject = angular.copy(portalService.chartObject);
 
-                        chartObject.yAxis.title.text ="% of Facilities";
+                        chartObject.yAxis.title.text ="% of facilities";
 
                         chartObject.yAxis.labels = {
                             formatter: function () {
@@ -265,7 +265,7 @@ angular.module("hmisPortal")
                         angular.forEach(orgUnits,function(value){
                             periods.push({name:value.name,id:value.id})
                         });
-                        chartObject.title.text =region.name+" Percent of facilities with 2 or more HWs Trained in each FP method,";
+                        chartObject.title.text =region.name+" percent of facilities with 2 or more health workers trained in each FP method,";
                         angular.forEach(methodss, function (val) {
                             chartObject.xAxis.categories.push(val.name);
                         });

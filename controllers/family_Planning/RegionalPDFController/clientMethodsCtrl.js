@@ -212,8 +212,8 @@ angular.module("hmisPortal")
         $scope.fpCards = [
 
     {
-                title:'Family Planning clients by Method through Routine Facility-Based Service '+FPManager.getMonthName(FPManager.lastMonthWithData) ,
-                description:'Total Clients Quarterly',
+                title:'Family planning clients by method through routine facility-based service '+FPManager.getMonthName(FPManager.lastMonthWithData) ,
+                description:'Total clients quarterly',
                 cardClass:"col s12 m12",
                 data:$scope.methods,
                 category:'other',
@@ -228,7 +228,7 @@ angular.module("hmisPortal")
 
             },
             {
-                title:'[X Region] Number of FP clients through Routine Facility-Based Service ',
+                title:'[X Region] Number of FP clients through routine facility-based service ',
                 description:'Total Clients Monthly',
                 cardClass:"col s12 m12",
                 data:$scope.methods,

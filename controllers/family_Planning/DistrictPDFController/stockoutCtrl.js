@@ -169,7 +169,7 @@ angular.module("hmisPortal")
             });
             var num = $scope.getDataFromUrl(arr2,ou,pe);
             var percent = (num/count)*100;
-            return percent.toFixed(2);
+            return percent.toFixed(1);
         };
 
         $scope.orgUnitType = function(arr,type){
@@ -205,7 +205,7 @@ angular.module("hmisPortal")
 
             var num = $scope.getDataFromUrl2(arr2,ou,pe);
             var percent = (count == 0)?0:(num/count)*100;
-            return percent.toFixed(2);
+            return percent.toFixed(1);
         };
 
 
@@ -224,8 +224,8 @@ angular.module("hmisPortal")
 
                         var chartObject = angular.copy(portalService.chartObject);
 
-                        chartObject.title.text = "Percent of facilities in "+region.name+" Stocked Out of Injectables for any number of days";
-                        chartObject.yAxis.title.text = "% of Facilities";
+                        chartObject.title.text = "Percent of facilities in "+region.name+" stocked out of injectables for any number of days";
+                        chartObject.yAxis.title.text = "% of facilities";
                         chartObject.legend = {
                             align: 'right',
                             verticalAlign: 'top',

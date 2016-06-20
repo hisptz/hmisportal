@@ -239,7 +239,7 @@ angular.module("hmisPortal")
                         }
                     });
                     if(type == 'percent'){
-                        amount = (denominatorValue != 0)?parseFloat((numeratorValue/denominatorValue )* 100).toFixed(2):0;
+                        amount = (denominatorValue != 0)?parseFloat((numeratorValue/denominatorValue )* 100).toFixed(1):0;
                     }
 
                 });
