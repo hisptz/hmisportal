@@ -192,7 +192,7 @@ angular.module("hmisPortal")
                             var chartSeries1 = [];
                             angular.forEach(orgUnits2,function(yAxis){
                                 angular.forEach(periods,function(xAxis){
-                                    if(yAxis.name == "% Clients Adopting FP following abortion or miscarriage"){
+                                    if(yAxis.name == "% clients adopting FP following abortion or miscarriage"){
                                         var number = $scope.findValue(data.rows,$scope.regionUid,xAxis.id,'cWMJ2HsNTtr','NOWyEruy9Ch','MovYxmAwPZP','percent');
                                         chartSeries.push(parseFloat(number));
                                     }if(yAxis.name == "% FP clients adopting HTC"){
