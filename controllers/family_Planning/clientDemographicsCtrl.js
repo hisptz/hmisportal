@@ -39,7 +39,7 @@ angular.module("hmisPortal")
                 });
                 $scope.data.orgUnitTree1.push({ name:value.name,id:value.id, children:zoneRegions });
             });
-            $scope.data.orgUnitTree.push({name:"Tanzania",id:'m0frOspS7JY',children:$scope.data.orgUnitTree1});
+            $scope.data.orgUnitTree.push({name:"Tanzania",id:'m0frOspS7JY',children:$scope.data.orgUnitTree1,selected:true});
         };
 
 
