@@ -72,6 +72,12 @@ angular.module("hmisPortal")
                 $scope.data.menuMethods.push({name:value.name,id:value.uid });
             });
         };
+        $scope.clearMethods = function(){
+            $scope.data.menuMethods = [];
+            angular.forEach($scope.FPmethods,function(value){
+                $scope.data.menuMethods.push({name:value.name,id:value.uid });
+            });
+        };
         $scope.updateMethod();
 
         $scope.selectOnly1Or3 = function(item, selectedItems) {

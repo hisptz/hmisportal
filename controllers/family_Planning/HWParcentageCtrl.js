@@ -89,6 +89,17 @@ angular.module("hmisPortal")
 
             });
         };
+        $scope.clearMethods = function(){
+            $scope.data.menuMethods = [];
+            angular.forEach($scope.FPmethods,function(value){
+                if(value.name == 'Implants'){
+                    $scope.data.menuMethods.push({name:value.name,id:value.uid });
+                }else{
+                    $scope.data.menuMethods.push({name:value.name,id:value.uid });
+                }
+
+            });
+        };
         $scope.updateMethod();
 
         $scope.$watch('data.outOrganisationUnits', function() {
