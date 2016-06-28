@@ -22,7 +22,7 @@ angular.module("hmisPortal")
             $scope.updateTreeWithNone();
         };
         $scope.clearAllMethods = function(){
-            $scope.updateMethod();
+            $scope.clearMethods();
         }
 
         $scope.updateTreeWithNone = function(){
@@ -39,7 +39,7 @@ angular.module("hmisPortal")
                 });
                 $scope.data.orgUnitTree1.push({ name:value.name,id:value.id, children:zoneRegions });
             });
-            $scope.data.orgUnitTree.push({name:"Tanzania",id:'m0frOspS7JY',children:$scope.data.orgUnitTree1});
+            $scope.data.orgUnitTree.push({name:"Tanzania",id:'m0frOspS7JY',children:$scope.data.orgUnitTree1 });
         };
 
 
@@ -194,6 +194,18 @@ angular.module("hmisPortal")
             angular.forEach($scope.methods,function(value){
                 if(value.name == "Implants"){
                     $scope.data.menuMethods.push({ name:value.name,id:value.id,'facility':value.facility,'outreach':value.outreach,selected:true });
+                }else{
+                    $scope.data.menuMethods.push({ name:value.name,id:value.id,'facility':value.facility,'outreach':value.outreach });
+                }
+            });
+
+        };
+
+        $scope.clearMethods = function(){
+            $scope.data.menuMethods = [];
+            angular.forEach($scope.methods,function(value){
+                if(value.name == "Implants"){
+                    $scope.data.menuMethods.push({ name:value.name,id:value.id,'facility':value.facility,'outreach':value.outreach });
                 }else{
                     $scope.data.menuMethods.push({ name:value.name,id:value.id,'facility':value.facility,'outreach':value.outreach });
                 }

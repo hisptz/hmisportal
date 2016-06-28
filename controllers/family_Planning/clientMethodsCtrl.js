@@ -144,6 +144,17 @@ angular.module("hmisPortal")
         };
         $scope.updateMethod();
 
+        $scope.clearMethods = function(){
+            $scope.data.menuMethods = [];
+            angular.forEach($scope.detailedMethod,function(value){
+                if(value.name == "Implants"){
+                    $scope.data.menuMethods.push({name:value.name,id:value.total,new:value.new,returning:value.returning,total1:value.total1 });
+                }else{
+                    $scope.data.menuMethods.push({name:value.name,id:value.total,new:value.new,returning:value.returning,total1:value.total1 });
+                }
+            });
+        };
+
         $scope.$watch('data.outOrganisationUnits', function() {
             FPManager.getFPFacilityList().then(function(data){
                 console.log(data)
