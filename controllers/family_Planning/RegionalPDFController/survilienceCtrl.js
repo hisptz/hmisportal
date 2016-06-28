@@ -123,14 +123,16 @@ angular.module("hmisPortal")
                                     {high:$scope.orgUnitsCompletenes1[1].name+'( '+$scope.orgUnitsCompletenes1[1].value+' % )',low:$scope.orgUnitsCompletenes[1].name+'( '+$scope.orgUnitsCompletenes[1].value+' % )'},
                                     {high:$scope.orgUnitsCompletenes1[2].name+'( '+$scope.orgUnitsCompletenes1[2].value+' % )',low:$scope.orgUnitsCompletenes[2].name+'( '+$scope.orgUnitsCompletenes[2].value+' % )'}
                                 ];*/
+                            console.log("orgUnitsCompletenes1:",$scope.orgUnitsCompletenes1);
+                            console.log("orgUnitsCompletenes:",$scope.orgUnitsCompletenes);
                             for(var i = 0; i <= 3 ; i++){
                                 var object = {
 
                                 }
                                 if(parseInt($scope.orgUnitsCompletenes1[i].value) < 100){
-                                    object.high = $scope.orgUnitsCompletenes1[i].name+'( '+$scope.orgUnitsCompletenes1[0].value+' % )';
+                                    object.high = $scope.orgUnitsCompletenes1[i].name+'( '+$scope.orgUnitsCompletenes1[i].value+' % )';
                                 }
-                                object.low = $scope.orgUnitsCompletenes[0].name+'( '+$scope.orgUnitsCompletenes[0].value+' % )';
+                                object.low = $scope.orgUnitsCompletenes[i].name+'( '+$scope.orgUnitsCompletenes[i].value+' % )';
                                 $scope.OrgunitInReportingRate.push(object);
                             }
                                 $timeout(function () {
