@@ -125,15 +125,27 @@ angular.module("hmisPortal")
                                 ];*/
                             console.log("orgUnitsCompletenes1:",$scope.orgUnitsCompletenes1);
                             console.log("orgUnitsCompletenes:",$scope.orgUnitsCompletenes);
-                            for(var i = 0; i <= 3 ; i++){
-                                var object = {
-
+                            data.rows.sort(function(a, b) {
+                                return parseInt(a[3]) - parseInt(b[3]);
+                            });
+                            $scope.OrgunitInReportingRate = [{},{},{}]
+                            var setIndex = 0
+                            for(var i = 0; i < data.rows.length ; i++){
+                                if(parseInt(data.rows[i][3]) < 100){
+                                    $scope.OrgunitInReportingRate[setIndex].high = data.metaData.names[data.rows[i][1]]+'( '+data.rows[i][3]+' % )';
+                                    setIndex++;
+                                    if(setIndex == 3){
+                                        break;
+                                    }
                                 }
-                                if(parseInt($scope.orgUnitsCompletenes1[i].value) < 100){
-                                    object.high = $scope.orgUnitsCompletenes1[i].name+'( '+$scope.orgUnitsCompletenes1[i].value+' % )';
+                            }
+                            setIndex = 0
+                            for(var i = data.rows.length - 1; i >= 0; i--){
+                                $scope.OrgunitInReportingRate[setIndex].low = data.metaData.names[data.rows[i][1]]+'( '+data.rows[i][3]+' % )';
+                                setIndex++;
+                                if(setIndex == 3){
+                                    break;
                                 }
-                                object.low = $scope.orgUnitsCompletenes[i].name+'( '+$scope.orgUnitsCompletenes[i].value+' % )';
-                                $scope.OrgunitInReportingRate.push(object);
                             }
                                 $timeout(function () {
                                     render.finishRequest();
