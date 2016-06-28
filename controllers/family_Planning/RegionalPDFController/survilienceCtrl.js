@@ -118,11 +118,21 @@ angular.module("hmisPortal")
                                 var orderBy = $filter('orderBy');
                                 $scope.orgUnitsCompletenes = orderBy(orgUnitsCompletenes, 'value', false);
                                 $scope.orgUnitsCompletenes1 = orderBy(orgUnitsCompletenes, 'value', true);
-                                $scope.OrgunitInReportingRate = [
+                                /*$scope.OrgunitInReportingRate = [
                                     {high:$scope.orgUnitsCompletenes1[0].name+'( '+$scope.orgUnitsCompletenes1[0].value+' % )',low:$scope.orgUnitsCompletenes[0].name+'( '+$scope.orgUnitsCompletenes[0].value+' % )'},
                                     {high:$scope.orgUnitsCompletenes1[1].name+'( '+$scope.orgUnitsCompletenes1[1].value+' % )',low:$scope.orgUnitsCompletenes[1].name+'( '+$scope.orgUnitsCompletenes[1].value+' % )'},
                                     {high:$scope.orgUnitsCompletenes1[2].name+'( '+$scope.orgUnitsCompletenes1[2].value+' % )',low:$scope.orgUnitsCompletenes[2].name+'( '+$scope.orgUnitsCompletenes[2].value+' % )'}
-                                ];
+                                ];*/
+                            for(var i = 0; i <= 3 ; i++){
+                                var object = {
+
+                                }
+                                if(parseInt($scope.orgUnitsCompletenes1[i].value) < 100){
+                                    object.high = $scope.orgUnitsCompletenes1[i].name+'( '+$scope.orgUnitsCompletenes1[0].value+' % )';
+                                }
+                                object.low = $scope.orgUnitsCompletenes[0].name+'( '+$scope.orgUnitsCompletenes[0].value+' % )';
+                                $scope.OrgunitInReportingRate.push(object);
+                            }
                                 $timeout(function () {
                                     render.finishRequest();
                                 });
