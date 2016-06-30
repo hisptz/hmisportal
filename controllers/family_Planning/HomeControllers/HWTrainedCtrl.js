@@ -1251,7 +1251,7 @@ angular.module("hmisPortal")
                     });
 
 
-                    $scope.StockOutCard.chartObject.options.title.text ="Percent All Facilities with a Health Worker Trained in Short-Acting Methods but Stocked Out of Injectables "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                    $scope.StockOutCard.chartObject.options.title.text ="Percent All Facilities with a Health Worker Trained in Short-Acting Methods but Stocked Out of Injectables or Pills "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
                     $scope.StockOutCard.chartObject.options.yAxis.title.text ="% of Facilities";
                     var orgUnits = [{name:'Tanzania',id:'m0frOspS7JY'}];
                     var periods = $scope.prepareCategory('month');
