@@ -103,26 +103,26 @@ angular.module("hmisPortal")
                         //var period = "201511"
                         //var lastMonth = parseInt(period) - 1;
                         //$http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-2;LEVEL-3;'+$scope.regionUid+'&dimension=pe:'+period+';201511&displayProperty=NAME').success(function(data){
-                            var orgUnitsCompletenes = [];
-                                angular.forEach(data.rows,function(v){
-                                    if(v[1] !== $scope.regionUid && v[2] == period){
-                                        orgUnitsCompletenes.push({name:data.metaData.names[v[1]],value:v[3]})
+                            
+                            $scope.OrgunitInReportingRate = [{},{},{}]
+                            var setIndex = 0
+                            for(var i = 0; i < data.rows.length ; i++){
+                                if(parseInt(data.rows[i][3]) < 100){
+                                    $scope.OrgunitInReportingRate[setIndex].high = data.metaData.names[data.rows[i][1]]+'( '+data.rows[i][3]+' % )';
+                                    setIndex++;
+                                    if(setIndex == 3){
+                                        break;
                                     }
-                                    if(v[1] == $scope.regionUid && v[2] == period){
-                                        $scope.thisMonthCompletenes = v[3];
-                                    }if(v[1] == $scope.regionUid && v[2] == lastMonth){
-                                        $scope.lastMonthCompletenes = v[3];
-                                    }
-
-                                });
-                                var orderBy = $filter('orderBy');
-                                $scope.orgUnitsCompletenes = orderBy(orgUnitsCompletenes, 'value', false);
-                                $scope.orgUnitsCompletenes1 = orderBy(orgUnitsCompletenes, 'value', true);
-                                $scope.OrgunitInReportingRate = [
-                                    {high:$scope.orgUnitsCompletenes1[0].name+'( '+$scope.orgUnitsCompletenes1[0].value+' % )',low:$scope.orgUnitsCompletenes[0].name+'( '+$scope.orgUnitsCompletenes[0].value+' % )'},
-                                    {high:$scope.orgUnitsCompletenes1[1].name+'( '+$scope.orgUnitsCompletenes1[1].value+' % )',low:$scope.orgUnitsCompletenes[1].name+'( '+$scope.orgUnitsCompletenes[1].value+' % )'},
-                                    {high:$scope.orgUnitsCompletenes1[2].name+'( '+$scope.orgUnitsCompletenes1[2].value+' % )',low:$scope.orgUnitsCompletenes[2].name+'( '+$scope.orgUnitsCompletenes[2].value+' % )'}
-                                ];
+                                }
+                            }
+                            setIndex = 0
+                            for(var i = data.rows.length - 1; i >= 0; i--){
+                                $scope.OrgunitInReportingRate[setIndex].low = data.metaData.names[data.rows[i][1]]+'( '+data.rows[i][3]+' % )';
+                                setIndex++;
+                                if(setIndex == 3){
+                                    break;
+                                }
+                            }
                                 $timeout(function () {
                                     render.finishRequest();
                                 });
