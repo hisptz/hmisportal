@@ -222,7 +222,7 @@ angular.module("hmisPortal")
         $scope.fpCards = [
 
     {
-        title:'Family Planning clients by Method through Routine Facility-Based Service '+FPManager.getMonthName($scope.data.selectedMonth) ,
+        title:'Family Planning clients by Method through Routine Facility-Based Service ' ,
         description:'Total Clients Quarterly',
         cardClass:"col s12 m12",
         data:$scope.methods,
@@ -248,7 +248,7 @@ angular.module("hmisPortal")
 
             },
             {
-                title:'Family Planning clients by Method through Routine Facility-Based Service '+FPManager.getlastTwelveMonthName($scope.data.selectedMonth),
+                title:'Family Planning clients by Method through Routine Facility-Based Service ',
                 description:'Total Clients Monthly',
                 cardClass:"col s12 m12",
                 data:$scope.methods,
@@ -302,7 +302,11 @@ angular.module("hmisPortal")
                     var methodId1 = [];
                     if($scope.data.outMethods.length == 1){
                         $scope.titleToUse = $scope.data.outMethods[0].name;
-                        cardObject.chartObject.options.title.text = cardObject.title  + " - " +$scope.titleToUse;
+                        if(cardObject.category1 == 'quarter') {
+                            cardObject.chartObject.options.title.text = cardObject.title  +"  "+ FPManager.getMonthName($scope.data.selectedMonth) + " - " + $scope.titleToUse;
+                        }else if(cardObject.category1 == 'month'){
+                            cardObject.chartObject.options.title.text = cardObject.title  +"  "+ FPManager.getlastTwelveMonthName($scope.data.selectedMonth) + " - " + $scope.titleToUse;
+                        }
                         cardObject.chartObject.options.yAxis.title.text = cardObject.yaxisTittle;
 
                         xAxisItems = $scope.prepareCategory('zones');
@@ -316,7 +320,11 @@ angular.module("hmisPortal")
                         });
                     }else{
                         $scope.titleToUse = $scope.data.outOrganisationUnits[0].name;
-                        cardObject.chartObject.options.title.text = cardObject.title  + " - " +$scope.titleToUse;
+                        if(cardObject.category1 == 'quarter') {
+                            cardObject.chartObject.options.title.text = cardObject.title  +"  "+ FPManager.getMonthName($scope.data.selectedMonth) + " - " + $scope.titleToUse;
+                        }else if(cardObject.category1 == 'month'){
+                            cardObject.chartObject.options.title.text = cardObject.title  +"  "+ FPManager.getlastTwelveMonthName($scope.data.selectedMonth) + " - " + $scope.titleToUse;
+                        }
                         cardObject.chartObject.options.yAxis.title.text = cardObject.yaxisTittle;
 
                         angular.forEach($scope.data.outMethods,function(value){

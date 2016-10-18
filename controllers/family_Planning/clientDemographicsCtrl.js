@@ -454,9 +454,9 @@ angular.module("hmisPortal")
                             //if selected method == all
                             if ($scope.data.outMethods.length > 1) {
                                 var subcats = $scope.prepareCategory('routineOutreachMethod');
-                                cardObject.chartObject.xAxis.categories = [];
+                                cardObject.chartObject.options.xAxis.categories = [];
                                 angular.forEach(subcats, function (value) {
-                                    cardObject.chartObject.xAxis.categories.push(value.name);
+                                    cardObject.chartObject.options.xAxis.categories.push(value.name);
                                 });
                                 var orgUnits = $scope.prepareOu();
                                 $scope.normalseries1 = [];
@@ -541,6 +541,8 @@ angular.module("hmisPortal")
                     cardObject.chartObject.options.title.text = cardObject.title+" "+FPManager.getlastTwelveMonthName($scope.data.selectedMonth);
                 ////////////////////////////data for <20/////////////////////////////////////////////
                     $scope.updateDisplayShortMessage($scope.data.outMethods);
+
+                    var someOrgunits = $scope.prepareCategory('zones');
                 $http.get($scope.url).success(function (data) {
                     $rootScope.showProgressMessage = false;
                     if (data.hasOwnProperty('metaData')) {
@@ -584,7 +586,7 @@ angular.module("hmisPortal")
                                     if($scope.data.outMethods.length == 1){
                                         var number = $scope.getDataForFirstChart(data.rows, val.id, value.id, $scope.data.outMethods[0].id);
                                     }else{
-                                        var number = $scope.getDataForFirstChart(data.rows,$scope.data.outOrganisationUnits[0].id, value.id, val.id);
+                                        var number = $scope.getDataForFirstChart(data.rows,someOrgunits[0].id, value.id, val.id);
                                     }
                                     serie.push(number);
                                 });

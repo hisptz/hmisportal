@@ -410,7 +410,7 @@ angular.module("hmisPortal")
                                 angular.forEach(methodss, function (yAxis) {
                                     var serie = [];
                                     angular.forEach(periods, function (xAxis) {
-                                        serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,$scope.data.outOrganisationUnits[0].id,val1.rows,xAxis.id,'Hospital',yAxis.name)));
+                                        serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,orgUnits[0].id,val1.rows,xAxis.id,'Hospital',yAxis.name)));
                                     });
                                     $scope.hospitalObject.chartObject.series.push({type: 'column', name: yAxis.name, data: serie})
                                 });
@@ -424,7 +424,7 @@ angular.module("hmisPortal")
                                 angular.forEach(methodss, function (yAxis) {
                                     var serie = [];
                                     angular.forEach(periods, function (xAxis) {
-                                        serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,$scope.data.outOrganisationUnits[0].id,val1.rows,xAxis.id,'Health Center',yAxis.name)));
+                                        serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,orgUnits[0].id,val1.rows,xAxis.id,'Health Center',yAxis.name)));
                                     });
                                     $scope.healtyCenterObject.chartObject.series.push({type: 'column', name: yAxis.name, data: serie})
                                 });
@@ -438,7 +438,7 @@ angular.module("hmisPortal")
                                 angular.forEach(methodss, function (yAxis) {
                                     var serie = [];
                                     angular.forEach(periods, function (xAxis) {
-                                        serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,$scope.data.outOrganisationUnits[0].id,val1.rows,xAxis.id,'Dispensary',yAxis.name)));
+                                        serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,orgUnits[0].id,val1.rows,xAxis.id,'Dispensary',yAxis.name)));
                                     });
                                     $scope.dispensaryObject.chartObject.series.push({type: 'column', name: yAxis.name, data: serie})
                                 });
