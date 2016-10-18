@@ -365,6 +365,7 @@ angular.module("hmisPortal")
                     $scope.healtyCenterObject.loadingMessage = "Fetching Health Centres Data...";
                     $scope.dispensaryObject.loadingMessage = "Fetching Dispensaries Data...";
                     var method = $scope.data.outMethods[0].id;
+                    console.log("methods:",$scope.data.outMethods.length);
                     FPManager.getFPFacilityList().then(function(data){
                         $scope.getNumberPerOu2(data.organisationUnits);
                         if($scope.data.outMethods.length  == 1) {
@@ -410,16 +411,19 @@ angular.module("hmisPortal")
                                 $scope.dispensaryObject.chartObject.loading = false;
                             });
                         }else{
+                            console.log("It is reaching here");
 
                             $http.get(portalService.base+'api/sqlViews/GgYRxB7qHaS/data.json?var=types:Hospital&'+FPManager.lastTwelveMonthForSql($scope.data.selectedMonth)).success(function(val1){
+
                                 $rootScope.showProgressMessage = false;
                                 angular.forEach(methodss, function (yAxis) {
                                     var serie = [];
                                     angular.forEach(periods, function (xAxis) {
-                                        serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,$scope.data.outOrganisationUnits[0].id,val1.rows,xAxis.id,'Hospital',yAxis.name)));
+                                        serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,orgUnits[0].id,val1.rows,xAxis.id,'Hospital',yAxis.name)));
                                     });
                                     $scope.hospitalObject.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
                                 });
+                                console.log("It is reaching here too:",$scope.hospitalObject.chartObject.series);
                                 $scope.hospitalObject.csvdata = FPManager.prepareDataForCSV($scope.hospitalObject.chartObject);
                                 $scope.hospitalObject.showLoader = false;
                                 $scope.hospitalObject.chartObject.loading = false;
@@ -430,7 +434,7 @@ angular.module("hmisPortal")
                                 angular.forEach(methodss, function (yAxis) {
                                     var serie = [];
                                     angular.forEach(periods, function (xAxis) {
-                                        serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,$scope.data.outOrganisationUnits[0].id,val1.rows,xAxis.id,'Health Center',yAxis.name)));
+                                        serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,orgUnits[0].id,val1.rows,xAxis.id,'Health Center',yAxis.name)));
                                     });
                                     $scope.healtyCenterObject.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
                                 });
@@ -444,7 +448,7 @@ angular.module("hmisPortal")
                                 angular.forEach(methodss, function (yAxis) {
                                     var serie = [];
                                     angular.forEach(periods, function (xAxis) {
-                                        serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,$scope.data.outOrganisationUnits[0].id,val1.rows,xAxis.id,'Dispensary',yAxis.name)));
+                                        serie.push(parseFloat($scope.getNumberPerOu1(data.organisationUnits,orgUnits[0].id,val1.rows,xAxis.id,'Dispensary',yAxis.name)));
                                     });
                                     $scope.dispensaryObject.chartObject.series.push({type: 'spline', name: yAxis.name, data: serie})
                                 });
