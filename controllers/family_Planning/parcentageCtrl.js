@@ -116,7 +116,7 @@ angular.module("hmisPortal")
 
         $scope.$watch('data.outMethods', function() {
             if($scope.data.outMethods){
-                if( $scope.data.outMethods.length > 1 && $scope.data.outOrganisationUnits.length ){
+                if( $scope.data.outMethods.length > 1 && $scope.data.outOrganisationUnits.length> 1 ){
                     $scope.updateTreeWithOne();
                 }else{
 
@@ -411,7 +411,6 @@ angular.module("hmisPortal")
                                 $scope.dispensaryObject.chartObject.loading = false;
                             });
                         }else{
-                            console.log("It is reaching here");
 
                             $http.get(portalService.base+'api/sqlViews/GgYRxB7qHaS/data.json?var=types:Hospital&'+FPManager.lastTwelveMonthForSql($scope.data.selectedMonth)).success(function(val1){
 
