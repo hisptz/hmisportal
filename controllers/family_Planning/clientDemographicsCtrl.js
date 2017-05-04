@@ -390,6 +390,12 @@ angular.module("hmisPortal")
             });
             return meth;
         };
+
+        // check if the selected method has  a long term method
+        $scope.isLongTerm = function () {
+            var data = $scope.prepareCategory('routineOutreachMethod');
+            return data.length != 0;
+        };
         $scope.prepareSeries = function(cardObject,chart){
             cardObject.chartObject.loading = true;
             cardObject.loadingMessage = "Authenticating portal...";
