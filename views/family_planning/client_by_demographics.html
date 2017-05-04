@@ -33,7 +33,11 @@
                 </div>
 
                 <div class="{{ fpCards[1].cardClass }}" style="padding-left: 0px">
+                    <div ng-if="!isLongTerm()">
+                        <h6 style="text-align: center">Select Long term Method to see data in this chart</h6>
+                    </div>
                     <div portal-card="" dataobject='fpCards[1]'></div>
+
                 </div>
             </div>
         </div>

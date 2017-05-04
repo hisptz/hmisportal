@@ -16,7 +16,7 @@ angular.module("hmisPortal")
         this.indicatorType='';
         this.header='';
         this.base = "https://hmisportal.moh.go.tz/dhis/";
-        // this.base = "http://127.0.0.1:9000/";
+        // this.base = "http://127.0.0.1:9000/dhis/";
         this.icons = [
             {name: 'table', image: 'table.jpg', action: ''},
             {name: 'column', image: 'bar.png', action: ''},

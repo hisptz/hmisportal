@@ -157,10 +157,9 @@ angular.module("hmisPortal")
 
         $scope.$watch('data.outOrganisationUnits', function() {
             FPManager.getFPFacilityList().then(function(data){
-                console.log(data)
             });
             if($scope.data.outOrganisationUnits){
-                if($scope.data.outOrganisationUnits.length > 1){
+                if($scope.data.outOrganisationUnits.length > 1 && $scope.data.outMethods.length > 1){
                     $scope.updateMethod();
                 }else{
 
@@ -171,7 +170,7 @@ angular.module("hmisPortal")
 
         $scope.$watch('data.outMethods', function() {
             if($scope.data.outMethods){
-                if($scope.data.outMethods.length > 1){
+                if($scope.data.outMethods.length > 1 && $scope.data.outOrganisationUnits.length > 1){
                     $scope.updateTreeWithOne();
                 }else{
 

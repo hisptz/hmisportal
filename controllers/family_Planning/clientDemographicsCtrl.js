@@ -226,7 +226,7 @@ angular.module("hmisPortal")
 
         $scope.$watch('data.outOrganisationUnits', function() {
             if($scope.data.outOrganisationUnits){
-                if($scope.data.outOrganisationUnits.length > 1){
+                if($scope.data.outOrganisationUnits.length > 1 && $scope.data.outMethods.length > 1){
                     $scope.updateMethod();
                 }else{
 
@@ -237,7 +237,7 @@ angular.module("hmisPortal")
 
         $scope.$watch('data.outMethods', function() {
             if($scope.data.outMethods){
-                if($scope.data.outMethods.length > 1){
+                if($scope.data.outMethods.length > 1 && $scope.data.outOrganisationUnits.length > 1){
                     $scope.updateTreeWithOne();
                 }else{
 
@@ -389,6 +389,12 @@ angular.module("hmisPortal")
                 }
             });
             return meth;
+        };
+
+        // check if the selected method has  a long term method
+        $scope.isLongTerm = function () {
+            var data = $scope.prepareCategory('routineOutreachMethod');
+            return data.length != 0;
         };
         $scope.prepareSeries = function(cardObject,chart){
             cardObject.chartObject.loading = true;
