@@ -96,10 +96,12 @@ angular.module('hmisPortal')
                          *chart default to bar, define it if you want the value to be otherwise
                          */
                         value.icons = angular.copy(portalService.icons1);
+                        value.chartTypes = angular.copy(portalService.chartTypes);
                         value.chartObject = angular.copy(portalService.chartObject);
                         (value.hasOwnProperty('displayTable')) ? value.displayTable = value.displayTable : value.displayTable = false;
                         (value.hasOwnProperty('displayMap')) ? value.displayMap = value.displayMap : value.displayMap = false;
                         (value.hasOwnProperty('chart')) ? value.chart = value.chart : value.chart = "bar";
+                        (value.hasOwnProperty('chart')) ? value.default_chart = value.chart : value.default_chart = "bar";
                     });
                     deferred.resolve(indicatorData);
                 })
@@ -200,6 +202,18 @@ angular.module('hmisPortal')
               });
         }
 
+        $scope.showIcons = function (card) {
+            if(!card.displayTable && !card.displayMap && !card.displayColumn){
+                card.showicons = true;
+            }else{
+                card.showicons = false;
+            }
+        }
+
+        $scope.hideIcons = function (card) {
+            card.showicons = false;
+        }
+
         $scope.changeChart = function (type, card) {
              //displaying loading message
             card.chartObject.loading = true;
@@ -268,15 +282,11 @@ angular.module('hmisPortal')
         $scope.prepareDataForCSV = function(card){
             var chartObject = chartsManager.drawChart($scope.analyticsObject, 'ou', [], 'dx', [card.data], 'pe', $rootScope.selectedPeriod, card.title, 'bar');
             var items = [];
-            angular.forEach(chartObject.xAxis.categories,function(value){
-                var obj = {name:value};
-                var i = 0;
-                angular.forEach(chartObject.series,function(val){
-                    obj[val.name] = val.data[i];
-                    i++;
-                })
+            angular.forEach(chartObject.xAxis.categories,function(value,key){
+                var obj = { name:value };
+                obj[chartObject.series[0].name] = chartObject.series[0].data[key];
                 items.push(obj);
-            })
+            });
              return items;
         };
 

@@ -15,9 +15,57 @@ angular.module("hmisPortal")
         this.denominator='';
         this.indicatorType='';
         this.header='';
-        this.base = "https://hmisportal.moh.go.tz/dhis/";
-        // this.base = "http://127.0.0.1:9000/dhis/";
-        this.icons = [
+        // this.base = "https://hmisportal.moh.go.tz/dhis/";
+        this.base = "http://127.0.0.1:9000/dhis/";
+        this.chartTypes = [
+           {
+               type: 'column',
+               description: 'Column chart',
+               icon: 'assets/img/bar.png'
+           },
+           {
+               type: 'line',
+               description: 'Line chart',
+               icon: 'assets/img/line.png'
+           },
+           {
+               type: 'combined',
+               description: 'Combined chart',
+               icon: 'assets/img/combined.png'
+           },
+           {
+               type: 'bar',
+               description: 'Bar chart',
+               icon: 'assets/img/column.png'
+           },
+           {
+               type: 'area',
+               description: 'Area chart',
+               icon: 'assets/img/area.png'
+           },
+           {
+               type: 'pie',
+               description: 'Pie chart',
+               icon: 'assets/img/pie.png'
+           },
+           {
+               type: 'stacked_column',
+               description: 'stacked column chart',
+               icon: 'assets/img/column-stacked.png'
+           },
+           {
+               type: 'gauge',
+               description: 'Gauge chart',
+               icon: 'assets/img/gauge.jpg'
+           },
+           {
+               type: 'radar',
+               description: 'Radar chart',
+               icon: 'assets/img/radar.png'
+           }
+       ]
+
+       this.icons = [
             {name: 'table', image: 'table.jpg', action: ''},
             {name: 'column', image: 'bar.png', action: ''},
             {name: 'line', image: 'line.png', action: ''},
