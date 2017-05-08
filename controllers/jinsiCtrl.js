@@ -287,6 +287,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'column',
+                default_chart:'column',
                 dataElementDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
@@ -300,6 +301,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'column',
+                default_chart:'column',
                 dataElementDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
@@ -314,6 +316,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'column',
+                default_chart:'column',
                 dataSetDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
@@ -328,6 +331,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'column',
+                default_chart:'column',
                 dataSetDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
@@ -342,6 +346,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'column',
+                default_chart:'column',
                 dataSetDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
@@ -356,6 +361,7 @@ angular.module("hmisPortal")
                 displayTable:false,
                 displayMap:false,
                 chart:'column',
+                default_chart:'column',
                 dataSetDetails:[],
                 showParent:false,
                 chartObject:angular.copy($scope.defaultObject)
