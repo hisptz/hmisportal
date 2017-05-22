@@ -103,21 +103,30 @@ angular.module("hmisPortal")
                         //var period = "201511"
                         //var lastMonth = parseInt(period) - 1;
                         //$http.get(portalService.base+'api/analytics.json?dimension=dx:TfoI3vTGv1f&dimension=ou:LEVEL-2;LEVEL-3;'+$scope.regionUid+'&dimension=pe:'+period+';201511&displayProperty=NAME').success(function(data){
-                            
+                            angular.forEach(data.rows,function(v){
+                                console.log(v[1] +"=="+ $scope.regionUid +"&&"+ v[2] +"=="+ period)
+                                if(v[1] == $scope.regionUid && v[2] == period){
+                                    $scope.thisMonthCompletenes = v[3];
+                                }if(v[1] == $scope.regionUid && v[2] == lastMonth){
+                                    $scope.lastMonthCompletenes = v[3];
+                                }
+
+                            });
                             $scope.OrgunitInReportingRate = [{},{},{}]
                             var setIndex = 0
-                            for(var i = 0; i < data.rows.length ; i++){
-                                if(parseInt(data.rows[i][3]) < 100){
-                                    $scope.OrgunitInReportingRate[setIndex].high = data.metaData.names[data.rows[i][1]]+'( '+data.rows[i][3]+' % )';
+                            for(var j = 0; j < data.rows.length ; j++){
+                                if(parseInt(data.rows[j][3]) < 100){
+                                    $scope.OrgunitInReportingRate[setIndex].high = data.metaData.names[data.rows[j][1]]+' ( '+data.rows[j][3]+' % )';
                                     setIndex++;
                                     if(setIndex == 3){
                                         break;
                                     }
                                 }
+
                             }
                             setIndex = 0
                             for(var i = data.rows.length - 1; i >= 0; i--){
-                                $scope.OrgunitInReportingRate[setIndex].low = data.metaData.names[data.rows[i][1]]+'( '+data.rows[i][3]+' % )';
+                                $scope.OrgunitInReportingRate[setIndex].low = data.metaData.names[data.rows[i][1]]+' ( '+data.rows[i][3]+' % )';
                                 setIndex++;
                                 if(setIndex == 3){
                                     break;
@@ -133,26 +142,26 @@ angular.module("hmisPortal")
                         $rootScope.showProgressMessage = true;
                         $http.get(url).success(function(data){
                             var orderBy = $filter('orderBy');
-                            var orderedOrgunits1 = orderBy($scope.getThreeRegions(data,'cWMJ2HsNTtr',FPManager.lastMonthWithOtherData), 'value', false);
-                            var orderedOrgunits3 = orderBy($scope.getThreeRegions(data,'reywf66stpK',FPManager.lastMonthWithOtherData), 'value', false);
+
+                            var orderedOrgunits1 = orderBy($scope.getThreeRegions(data,'cWMJ2HsNTtr',FPManager.lastMonthWithOtherData,$scope.regionUid), 'value', false);
+                            var orderedOrgunits3 = orderBy($scope.getThreeRegions(data,'reywf66stpK',FPManager.lastMonthWithOtherData,$scope.regionUid), 'value', false);
                             var orgUnits2 = [{'name':region.name,'id':$scope.regionUid}];
                             var orgUnits1 = [{'name':region.name,'id':$scope.regionUid},{name:orderedOrgunits1[0].name,id:orderedOrgunits1[0].id},{name:orderedOrgunits1[1].name,id:orderedOrgunits1[1].id},{name:orderedOrgunits1[2].name,id:orderedOrgunits1[2].id}];
                             var orgUnits3 = [{'name':region.name,'id':$scope.regionUid},{name:orderedOrgunits3[0].name,id:orderedOrgunits3[0].id},{name:orderedOrgunits3[1].name,id:orderedOrgunits3[1].id},{name:orderedOrgunits3[2].name,id:orderedOrgunits3[2].id}];
                             var periods = $scope.prepareCategory('month')
                             $rootScope.showProgressMessage = false;
 
-
-                            chartObject.title.text ="Districts with lowest percentage of clients adopting FP post abortion or miscarriage compared with region average, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                            chartObject1.title.text ="Region trend in number of clients adopting FP in the postpartum period, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                            chartObject2.title.text ="Districts with lowest percentage of family planning clients adopting HTC compared with region average, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                            chartObject.yAxis.title.text ="%  of clients";
+                            chartObject.title.text ="Districts with Lowest Percentage of Clients Adopting FP Post Abortion or Miscarriage Compared with Region Average, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                            chartObject1.title.text ="Region Trend in Number of Clients Adopting FP in the Postpartum Period, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                            chartObject2.title.text ="Districts with Lowest Percentage of FP Clients Adopting HTC Compared with Region Average, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                            chartObject.yAxis.title.text ="% Clients";
                             chartObject.yAxis.labels = {
                                 formatter: function () {
                                     return this.value + '%';
                                 }
                             };
-                            chartObject1.yAxis.title.text ="# of clients";
-                            chartObject2.yAxis.title.text ="% of clients";
+                            chartObject1.yAxis.title.text ="# Clients";
+                            chartObject2.yAxis.title.text ="% Clients";
                             chartObject2.yAxis.labels = {
                                 formatter: function () {
                                     return this.value + '%';
@@ -168,6 +177,7 @@ angular.module("hmisPortal")
                                 var chartSeries = [];
                                 angular.forEach(periods,function(xAxis){
                                     var number = $scope.findValue(data.rows,yAxis.id,xAxis.id,'cWMJ2HsNTtr','NOWyEruy9Ch','MovYxmAwPZP','percent');
+                                    number = (number > 100)?100:number;
                                     chartSeries.push(parseFloat(number));
                                 });
                                 chartObject.series.push({type: 'spline', name: yAxis.name, data: chartSeries});
@@ -176,6 +186,7 @@ angular.module("hmisPortal")
                                 var chartSeries1 = [];
                                 angular.forEach(periods,function(xAxis){
                                     var number1 = $scope.findValue(data.rows,yAxis.id,xAxis.id,'b6O7BaQ46R4','','','number');
+                                    // number1 = (number1 > 100)?100:number1;
                                     chartSeries1.push(parseFloat(number1));
                                 });
                                 chartObject1.series.push({type: 'spline', name: yAxis.name, data: chartSeries1});
@@ -184,6 +195,7 @@ angular.module("hmisPortal")
                                 var chartSeries2 = [];
                                 angular.forEach(periods,function(xAxis){
                                     var number2 = $scope.findValue(data.rows,yAxis.id,xAxis.id,'reywf66stpK','OwAJT47sIgQ','NaCPtfoUkpH','percent');
+                                    number2 = (number2 > 100)?100:number2;
                                     chartSeries2.push(parseFloat(number2));
                                 });
                                 chartObject2.series.push({type: 'spline', name: yAxis.name, data: chartSeries2});
@@ -210,11 +222,11 @@ angular.module("hmisPortal")
             }
         };
 
-        $scope.getThreeRegions = function(arr,dx,pe){
+        $scope.getThreeRegions = function(arr,dx,pe,region){
             var regions = [];
             angular.forEach(arr.metaData.ou,function(val){
                 var count = 0;
-                if(val !== "m0frOspS7JY"){
+                if(val !== region){
                     angular.forEach(arr.rows,function(v){
                         if(v[1] == val && v[0] == dx){
                             if(v[2] == pe){
@@ -222,7 +234,7 @@ angular.module("hmisPortal")
                             }
                         }
                     });
-                regions.push({name:arr.metaData.names[val],value:count,id:val})
+                    regions.push({name:arr.metaData.names[val],value:count,id:val})
                 }
             });
             return regions;

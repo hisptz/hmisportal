@@ -167,7 +167,7 @@
                 </td>
                 <td style=" width: 520px;; margin-top: 5px;" >
                     <h6 style=" padding: 8px; border: solid 1px #6498D9; color:#6498D9;">
-                        <b>ACTION:</b> these trend lines should be increasing with time. Use the
+                        <b>ACTION:</b> These trend lines should be increasing with time. Use the
                         FP dashboard to investigate any unexplained decreases in
                         percentage of facilities providing each FP method
                     </h6>
@@ -177,7 +177,7 @@
 
         <table style="margin: 10px; width: 1040px;height: 350px;" ng-controller="HWParcentageCtrl">
             <tr style="background-color: #4F81BD; color: white; border: solid 1px #6498D9 ">
-                <th colspan="4" style="font-size: 18px;">Districts with lowest percentage of facilities with 2 or more Health Workers trained in FP methods</th></tr>
+                <th colspan="4" style="font-size: 18px;">Districts with Lowest Percentage of Facilities with 2 or More Health Workers Trained in FP Methods</th></tr>
             <tr style="border: solid 1px #6498D9" ng-repeat="orgs in orgunitsWithLowTraining" >
                 <td><b>{{ orgs.name }}</b></td>
                 <td>{{ orgs.region1 }}</td>
@@ -209,7 +209,7 @@
                     </style>
                     <table class="tableBold" border="1px" style="height: 392px;">
                         <tr style="background-color: #4F81BD; color: white; border: solid 1px #6498D9 ">
-                            <th colspan="2"> Districts with highest percentage of facilities experiencing  stock out of pills or injectables </th></tr>
+                            <th colspan="2"> Districts with Highest Percentage of Facilities Experiencing Stock Out of Pills or Injectables </th></tr>
                         <tr style="border: solid 1px #6498D9" ng-repeat="dis in stockOutData">
                             <td>{{ dis.oral }}</td>
                             <td>{{ dis.injectable }}</td>
@@ -229,8 +229,7 @@
                 </td>
                 <td style="width: 50%">
                     <h6 style="height: 70px; padding: 8px; border: solid 1px #6498D9; color:#6498D9;">
-                        <b>ACTION:</b>Investigate districts with high stock out rates, check
-                        distribution and stock provision
+                        <b>ACTION:</b>Investigate districts with high stock out rates. Check distribution and stock provision.
                     </h6>
                 </td>
             </tr>
@@ -281,8 +280,8 @@
                         <h5 style="text-align: center">Reporting Rates</h5>
                         <table border="1px">
                             <tr style="background-color: #4F81BD; color: white; border: solid 1px #6498D9 ">
-                                <th >Lowest reporting rate</th>
-                                <th >Highest reporting rate</th>
+                                <th >Lowest Reporting Rate</th>
+                                <th >Highest Reporting Rate</th>
                             </tr>
                             <tr style="border: solid 1px #6498D9" ng-repeat="org in OrgunitInReportingRate">
                                 <td>{{ org.high }}</td>

@@ -168,22 +168,23 @@
     <br /><br />
     <fieldset ng-controller="HWParcentageCtrl">
         <legend style="font-size: 1.37em;;font-weight: bold">Coverage:</legend>
-        <p style="text-align: center">Percentage of facilities with HW trained in FP method but not providing the FP services through routine facility services in {{ name }}</p>
+        <p style="text-align: center">% Facilities with HW trained in FP method but not providing the FP services through routine facility services in {{ name }}</p>
         <table>
             <tr>
-                <td style="width: 19%;">
-                    <div id="parChar1" style="min-width: 100%; height: 250px; margin: 0 auto;"></div>
-                </td><td style="width: 17%;" >
-                    <div id="parChar2" style="min-width: 100%; height: 250px; margin: 0 auto;"></div>
-                </td>
                 <td style="width: 17%;" >
                     <div id="parChar3" style="min-width: 100%; height: 250px; margin: 0 auto; "></div>
+                </td>
+                <td style="width: 19%;" >
+                    <div id="parChar5" style="min-width: 100%; height: 250px; margin: 0 auto;"></div>
                 </td>
                 <td style="width: 17%;" >
                     <div id="parChar4" style="min-width: 100%; height: 250px; margin: 0 auto;"></div>
                 </td>
-                <td style="width: 30%;" >
-                    <div id="parChar5" style="min-width: 100%; height: 250px; margin: 0 auto;"></div>
+                <td style="width: 17%;" >
+                    <div id="parChar2" style="min-width: 100%; height: 250px; margin: 0 auto;"></div>
+                </td>
+                <td style="width: 30%;">
+                    <div id="parChar1" style="min-width: 100%; height: 250px; margin: 0 auto;"></div>
                 </td>
             </tr>
         </table>
@@ -204,29 +205,53 @@
             <tr style="background-color: #4F81BD; color: white; border: solid 1px #6498D9 ">
                 <th colspan="5" style="font-size: 18px; text-align: center">Facilities trained in but not providing FP services in {{ name }}</th></tr>
             <tr>
-               <th>NSV</th>
-               <th>Mini Lap</th>
-               <th>Short-acting</th>
-               <th>IUCD</th>
-               <th>Implants</th>
+                <th>Short-acting</th>
+                <th>Implants</th>
+                <th>IUCD</th>
+                <th>Mini Lap</th>
+               `<th>NSV</th>
             </tr>
             <tr style="border: solid 1px #6498D9" >
-                <td>{{ nsvData[0]  || "-"}}</td> <td>{{ miniLapData[0] || "-" }}</td><td>{{ shortActingData[0] || "-" }}</td> <td>{{ iucdData[0] || "-" }}</td><td>{{ implantData[0] || "-" }}</td>
+                <td>{{ shortActingData[0] || "-" }}</td>
+                <td>{{ implantData[0] || "-" }}</td>
+                <td>{{ iucdData[0] || "-" }}</td>
+                <td>{{ miniLapData[0] || "-" }}</td>
+                <td>{{ nsvData[0]  || "-"}}</td>
             </tr>
             <tr style="border: solid 1px #6498D9" >
-                <td>{{ nsvData[1]  || "-"}}</td> <td>{{ miniLapData[1] || "-" }}</td><td>{{ shortActingData[1] || "-" }}</td> <td>{{ iucdData[1] || "-" }}</td><td>{{ implantData[1] || "-" }}</td>
+                <td>{{ shortActingData[1] || "-" }}</td>
+                <td>{{ implantData[1] || "-" }}</td>
+                <td>{{ iucdData[1] || "-" }}</td>
+                <td>{{ miniLapData[1] || "-" }}</td>
+                <td>{{ nsvData[1]  || "-"}}</td>
             </tr>
             <tr style="border: solid 1px #6498D9" >
-                <td>{{ nsvData[2] || "-" }}</td> <td>{{ miniLapData[2] || "-" }}</td><td>{{ shortActingData[2] || "-" }}</td> <td>{{ iucdData[2] || "-" }}</td><td>{{ implantData[2] || "-" }}</td>
+                <td>{{ shortActingData[2] || "-" }}</td>
+                <td>{{ implantData[2] || "-" }}</td>
+                <td>{{ iucdData[2] || "-" }}</td>
+                <td>{{ miniLapData[2] || "-" }}</td>
+                <td>{{ nsvData[2] || "-" }}</td>
             </tr>
             <tr style="border: solid 1px #6498D9" >
-                <td>{{ nsvData[3] || "-" }}</td> <td>{{ miniLapData[3] || "-" }}</td><td>{{ shortActingData[3] || "-" }}</td> <td>{{ iucdData[3] || "-" }}</td><td>{{ implantData[3] || "-" }}</td>
+                <td>{{ shortActingData[3] || "-" }}</td>
+                <td>{{ implantData[3] || "-" }}</td>
+                <td>{{ iucdData[3] || "-" }}</td>
+                <td>{{ miniLapData[3] || "-" }}</td>
+                <td>{{ nsvData[3] || "-" }}</td>
             </tr>
             <tr style="border: solid 1px #6498D9" >
-                <td>{{ nsvData[4] || "-" }}</td> <td>{{ miniLapData[4] || "-" }}</td><td>{{ shortActingData[4] || "-" }}</td> <td>{{ iucdData[4] || "-" }}</td><td>{{ implantData[4] || "-" }}</td>
+                <td>{{ shortActingData[4] || "-" }}</td>
+                <td>{{ implantData[4] || "-" }}</td>
+                <td>{{ iucdData[4] || "-" }}</td>
+                <td>{{ miniLapData[4] || "-" }}</td>
+                <td>{{ nsvData[4] || "-" }}</td>
             </tr>
             <tr style="border: solid 1px #6498D9" >
-                <td>{{ nsvData[5] || "-" }}</td> <td>{{ miniLapData[5] || "-" }}</td><td>{{ shortActingData[5] || "-" }}</td> <td>{{ iucdData[5] || "-" }}</td><td>{{ implantData[5] || "-" }}</td>
+                <td>{{ shortActingData[5] || "-" }}</td>
+                <td>{{ implantData[5] || "-" }}</td>
+                <td>{{ iucdData[5] || "-" }}</td>
+                <td>{{ miniLapData[5] || "-" }}</td>
+                <td>{{ nsvData[5] || "-" }}</td>
             </tr>
 
         </table>
