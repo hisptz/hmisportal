@@ -224,8 +224,8 @@ angular.module("hmisPortal")
 
                         var chartObject = angular.copy(portalService.chartObject);
 
-                        chartObject.title.text = "Percent of all facilities stocked out of pills or injectables for any number of days in the month, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                        chartObject.yAxis.title.text = "% of facilities";
+                        chartObject.title.text = "Percent of All Facilities Stocked Out of Pills or Injectables for Any Number of Days in the Month, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                        chartObject.yAxis.title.text = "% Facilities";
                         var orgUnits = [{id: $scope.regionUid, name: region.name}];
                         var periods = $scope.prepareCategory('month');
 

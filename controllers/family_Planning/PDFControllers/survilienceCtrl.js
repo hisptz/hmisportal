@@ -143,17 +143,17 @@ angular.module("hmisPortal")
                         $rootScope.showProgressMessage = false;
 
 
-                        chartObject.title.text ="Regions with lowest percentage of clients adopting FP following post abortion or miscarriage compared with national average, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                        chartObject1.title.text ="National trend in number of clients adopting FP in the postpartum period, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                        chartObject.title.text ="Regions with Lowest Rate of Clients Adopting FP Post Abortion or Miscarriage, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                        chartObject1.title.text ="Clients Adopting FP in the Postpartum Period, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
                         chartObject2.title.text ="Regions with lowest percentage of family planning clients adopting HTC compared with national average, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                        chartObject.yAxis.title.text ="%  of clients";
+                        chartObject.yAxis.title.text ="% Clients";
                         chartObject.yAxis.labels = {
                             formatter: function () {
                                 return this.value + '%';
                             }
                         };
-                        chartObject1.yAxis.title.text ="# of clients";
-                        chartObject2.yAxis.title.text ="%  of clients";
+                        chartObject1.yAxis.title.text ="# Clients";
+                        chartObject2.yAxis.title.text ="% Clients";
                         chartObject2.yAxis.labels = {
                             formatter: function () {
                                 return this.value + '%';
@@ -169,6 +169,7 @@ angular.module("hmisPortal")
                             var chartSeries = [];
                             angular.forEach(periods,function(xAxis){
                                 var number = $scope.findValue(data.rows,yAxis.id,xAxis.id,'cWMJ2HsNTtr','NOWyEruy9Ch','MovYxmAwPZP','percent');
+                                number = (number>100)?100:number;
                                 chartSeries.push(parseFloat(number));
                             });
                             chartObject.series.push({type: 'spline', name: yAxis.name, data: chartSeries});
@@ -185,6 +186,7 @@ angular.module("hmisPortal")
                             var chartSeries2 = [];
                             angular.forEach(periods,function(xAxis){
                                 var number2 = $scope.findValue(data.rows,yAxis.id,xAxis.id,'reywf66stpK','OwAJT47sIgQ','NaCPtfoUkpH','percent');
+                                number2 = (number2 > 100)?100:number2;
                                 chartSeries2.push(parseFloat(number2));
                             });
                             chartObject2.series.push({type: 'spline', name: yAxis.name, data: chartSeries2});

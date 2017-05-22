@@ -223,8 +223,11 @@ angular.module("hmisPortal")
 
                     var chartObject = angular.copy(portalService.chartObject);
 
-                    chartObject.title.text ="National percent of all facilities stocked out of pills or injectables for any number of days in the month, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
-                    chartObject.yAxis.title.text ="% of facilities";
+                    chartObject.title.text ="Percent of All Facilities Stocked Out of Pills or Injectables for Any Number of Days in the Month, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                    chartObject.yAxis.title.text ="% Facilities";
+                    chartObject.yAxis.labels.formatter = function () {
+                        return this.value + '%';
+                    };
                     var orgUnits = [{id:'m0frOspS7JY',name:'Tanzania'}];
                     var periods = $scope.prepareCategory('month');
 

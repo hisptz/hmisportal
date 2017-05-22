@@ -302,8 +302,8 @@ angular.module("hmisPortal")
                         var chart3 = angular.copy(chartObject);
                         var chart4 = angular.copy(chartObject);
                         var chart5 = angular.copy(chartObject);
-                        chart1.yAxis.title.text ="% of facilities";
-                        chart5.legend = {
+                        chart3.yAxis.title.text ="% of facilities";
+                        chart1.legend = {
                             align: 'right',
                             enabled: true,
                             verticalAlign: 'top',

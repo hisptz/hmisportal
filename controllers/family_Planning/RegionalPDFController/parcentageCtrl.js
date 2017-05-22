@@ -233,7 +233,7 @@ angular.module("hmisPortal")
                         var chartObject1 = angular.copy(portalService.chartObject);
 
 
-                        chartObject1.yAxis.title.text ="% of facilities";
+                        chartObject1.yAxis.title.text ="% Facilities";
 
 
                         chartObject1.yAxis.labels = {
@@ -251,7 +251,7 @@ angular.module("hmisPortal")
                             chartObject1.xAxis.categories.push(val.name);
                         });
 
-                        chartObject1.title.text = region.name+ " percent of facilities providing each FP method, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                        chartObject1.title.text = "Percent of Facilities Providing Each FP Method, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
                         $rootScope.progressMessage = "Fetching data please wait ...";
                         $rootScope.showProgressMessage = true;
                         FPManager.getFPFacilityList().then(function(data){

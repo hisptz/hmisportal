@@ -228,7 +228,7 @@ angular.module("hmisPortal")
 
             },
             {
-                title:'[X Region] Number of FP clients through routine facility-based service ',
+                title:'Number of FP clients through routine facility-based service ',
                 description:'Total Clients Monthly',
                 cardClass:"col s12 m12",
                 data:$scope.methods,
@@ -290,7 +290,7 @@ angular.module("hmisPortal")
                             var methodId1 = [];
 
                             $scope.titleToUse = region.name;
-                            cardObject.chartObject.title.text = region.name + " Number of FP clients through routine facility-based service, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
+                            cardObject.chartObject.title.text = " Number of FP Clients Through Routine Facility-based Service, "+FPManager.getlastTwelveMonthName(FPManager.lastMonthWithData);
                             cardObject.chartObject.yAxis.title.text = cardObject.yaxisTittle;
                             cardObject.chartObject.legend = {
                                 align: 'right',

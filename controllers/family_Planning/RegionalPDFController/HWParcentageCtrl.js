@@ -251,7 +251,7 @@ angular.module("hmisPortal")
 
                         var chartObject = angular.copy(portalService.chartObject);
 
-                        chartObject.yAxis.title.text ="% of facilities";
+                        chartObject.yAxis.title.text ="% Facilities";
 
                         chartObject.yAxis.labels = {
                             formatter: function () {
@@ -265,7 +265,7 @@ angular.module("hmisPortal")
                         angular.forEach(orgUnits,function(value){
                             periods.push({name:value.name,id:value.id})
                         });
-                        chartObject.title.text =region.name+" percent of facilities with 2 or more health workers trained in each FP method";
+                        chartObject.title.text = "Percent of Facilities With 2 or More Health Workers Trained in Each FP Method";
                         angular.forEach(methodss, function (val) {
                             chartObject.xAxis.categories.push(val.name);
                         });
