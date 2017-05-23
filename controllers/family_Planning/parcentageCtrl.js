@@ -32,6 +32,7 @@ angular.module("hmisPortal")
                 $scope.data.orgUnitTree1.push({ name:value.name,id:value.id, children:zoneRegions,selected:true });
             });
             $scope.data.orgUnitTree.push({name:"Tanzania",id:'m0frOspS7JY',children:$scope.data.orgUnitTree1});
+            FPManager.prepareOrganisationUnitTree($scope.data.orgUnitTree,'parent');
         };
         $scope.updateTree();
 
@@ -50,6 +51,7 @@ angular.module("hmisPortal")
                 $scope.data.orgUnitTree1.push({ name:value.name,id:value.id, children:zoneRegions });
             });
             $scope.data.orgUnitTree.push({name:"Tanzania",id:'m0frOspS7JY',children:$scope.data.orgUnitTree1,selected:true});
+            FPManager.prepareOrganisationUnitTree($scope.data.orgUnitTree,'parent');
         };
 
         $scope.selectOnly1Or2 = function(item, selectedItems) {

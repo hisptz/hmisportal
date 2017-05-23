@@ -38,6 +38,7 @@ angular.module("hmisPortal")
                 $scope.data.orgUnitTree1.push({ name:value.name,id:value.id, children:zoneRegions,selected:true });
             });
             $scope.data.orgUnitTree.push({name:"Tanzania",id:'m0frOspS7JY',children:$scope.data.orgUnitTree1});
+            FPManager.prepareOrganisationUnitTree($scope.data.orgUnitTree,'parent');
         };
         $scope.updateTree();
 

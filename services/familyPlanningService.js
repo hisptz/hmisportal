@@ -168,6 +168,44 @@ FPServices.factory('FPManager',function($http,$q,portalService){
             return data.reverse();
         },
 
+        prepareOrganisationUnitTree:function(organisationUnit,type) {
+            var fp = this;
+        if (type == "top"){
+            if (organisationUnit.children) {
+                organisationUnit.children.sort(function(a, b) {
+                    if (a.name > b.name) {
+                        return 1;
+                    }
+                    if (a.name < b.name) {
+                        return -1;
+                    }
+                    // a must be equal to b
+                    return 0;
+                });
+                organisationUnit.children.forEach(function(child) {
+                    fp.prepareOrganisationUnitTree(child,'top');
+                })
+            }
+        }else{
+            organisationUnit.forEach(function(orgunit) {
+                if (orgunit.children) {
+                    orgunit.children.sort(function(a, b) {
+                        if (a.name > b.name) {
+                            return 1;
+                        }
+                        if (a.name < b.name) {
+                            return -1;
+                        }
+                        // a must be equal to b
+                        return 0;
+                    });
+                    orgunit.children.forEach(function(child) {
+                        fp.prepareOrganisationUnitTree(child,'top');
+                    })
+                }
+            });
+        }
+    },
         chartObject : {
             options : {
                 title: {
