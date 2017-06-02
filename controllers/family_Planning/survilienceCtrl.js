@@ -179,6 +179,8 @@ angular.module("hmisPortal")
                                 var number = $scope.findValue(data.rows,yAxis.id,xAxis.id,'cWMJ2HsNTtr','NOWyEruy9Ch','MovYxmAwPZP','percent');
                                 var number1 = $scope.findValue(data.rows,yAxis.id,xAxis.id,'b6O7BaQ46R4','','','number');
                                 var number2 = $scope.findValue(data.rows,yAxis.id,xAxis.id,'reywf66stpK','OwAJT47sIgQ','NaCPtfoUkpH','percent');
+                                number = (number>100)?100:number;
+                                number2 = (number2>100)?100:number2;
                                 chartSeries.push(parseFloat(number));
                                 chartSeries1.push(parseFloat(number1));
                                 chartSeries2.push(parseFloat(number2));
