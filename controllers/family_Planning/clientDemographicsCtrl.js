@@ -11,7 +11,7 @@ angular.module("hmisPortal")
     })
     .controller("filterController",function ($rootScope,$scope,$http,portalService,FPManager,$location) {
         $scope.updatePeriod = function(year){
-            $scope.data.selectedMonth = FPManager.latestMonth;
+            $scope.data.selectedMonth = year+"12";
         };
 
         $scope.updateMonth = function(month){
