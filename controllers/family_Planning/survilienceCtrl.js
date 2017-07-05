@@ -14,6 +14,7 @@ angular.module("hmisPortal")
         $scope.data = {};
         $scope.selectedYear = FPManager.latestYear;
         $scope.data.selectedMonth = FPManager.latestMonth;
+        $scope.hideMethods = true;
 
         $scope.data.outOrganisationUnits = [];
         $scope.updateTree = function(){
