@@ -19,13 +19,13 @@ angular.module("hmisPortal")
         };
 
         $scope.clearAllOrgunits = function(){
-            $scope.updateTreeWithNone();
+            $scope.updateTreeWithOne();
         };
         $scope.clearAllMethods = function(){
             $scope.clearMethods();
         }
 
-        $scope.updateTreeWithNone = function(){
+        $scope.updateTreeWithOne = function(){
             $scope.data.orgUnitTree1 = [];
             $scope.data.orgUnitTree = [];
             angular.forEach($scope.geographicalZones.organisationUnitGroups,function(value){
@@ -39,8 +39,7 @@ angular.module("hmisPortal")
                 });
                 $scope.data.orgUnitTree1.push({ name:value.name,id:value.id, children:zoneRegions });
             });
-            $scope.data.orgUnitTree.push({name:"Tanzania",id:'m0frOspS7JY',children:$scope.prepareOrganisationUnitTree($scope.data.orgUnitTree1,'top') });
-            // $scope.prepareOrganisationUnitTree($scope.data.orgUnitTree,'parent')
+            $scope.data.orgUnitTree.push({name:"Tanzania",id:'m0frOspS7JY',children:$scope.data.orgUnitTree1,selected:false});
             FPManager.prepareOrganisationUnitTree($scope.data.orgUnitTree,'parent');
         };
 
