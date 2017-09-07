@@ -61,7 +61,7 @@ angular.module("hmisPortal")
         $scope.cards = {};
         $scope.data = {};
         $rootScope.selectedOrgUnit = "m0frOspS7JY";
-        $rootScope.selectedPeriod = "2014";
+        $rootScope.selectedPeriod = "2017";
         $scope.selectedOrgUnitLevel = "2";
         $scope.population = {};
         $scope.population.displayTable = false;

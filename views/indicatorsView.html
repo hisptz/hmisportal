@@ -201,6 +201,7 @@
                             </div>
                             <div class="input-field col s12 grey lighten-5" ng-if="$root.periodType == 'years'">
                                 <select ng-model="$root.selectedPeriod" ng-change="$root.firstClick()" material-select watch>
+                                    <option value="2017">2017</option>
                                     <option value="2016">2016</option>
                                     <option value="2015">2015</option>
 ,,,                                 <option value="2014">2014</option>
@@ -221,6 +222,8 @@
                                     <option value="2016Q2">Apr - Jun 2016</option>
                                     <option value="2016Q3">Jul - Sep 2016</option>
                                     <option value="2016Q4">Oct - Dec 2016</option>
+                                    <option value="2017Q1">Jan - Mar 2017</option>
+                                    <option value="2017Q2">Apr - Jun 2017</option>
                                 </select>
                                 <label>Period</label>
                             </div>
