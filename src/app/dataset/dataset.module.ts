@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {DatasetComponent} from './dataset.component';
-import {dotaset_routing} from './dataset.routing';
+import {dataset_routing} from './dataset.routing';
 
 @NgModule({
   imports: [
     CommonModule,
-    dotaset_routing
+    dataset_routing
   ],
   declarations: [
     DatasetComponent

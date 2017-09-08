@@ -5,6 +5,6 @@ import { ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {DatasetComponent} from './dataset.component';
 
-export const dotaset_routing: ModuleWithProviders = RouterModule.forChild([
+export const dataset_routing: ModuleWithProviders = RouterModule.forChild([
   { path: ':dataset', component: DatasetComponent }
 ]);
