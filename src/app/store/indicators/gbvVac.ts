@@ -1,0 +1,153 @@
+export const gbvVac = [
+  {
+    'title': 'Proportion of persons with irreversible physical disability caused by GBV and VAC',
+    'description': 'Proportion of persons with irreversible physical disability caused by GBV and VAC',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col s12 m6',
+    'data': 'N1IXK8iUDkI'
+  },
+  {
+    'title': 'Percentage of Female GBV and VAC Physically assaulted clients amongst all Females',
+    'description': 'Percentage of Female GBV and VAC Physically assaulted clients amongst all Females',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'rJbmyK2R99I',
+    'displayTable': false,
+    'displayMap': false,
+    'chart': 'line'
+
+  },
+  {
+    'title': 'Percentage of Female GBV and VAC Sexually assaulted clients amongst all clients',
+    'description': 'Percentage of Female GBV and VAC Sexually assaulted clients amongst all clients',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m12 s12',
+    'data': 'xAtBhldnlvA',
+    'chart': 'combined'
+
+  },
+  {
+    'title': 'Percentage of GBV and VAC clients tested for HIV',
+    'description': 'Percentage of GBV and VAC clients tested for HIV',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'goCKavMLzj0'
+
+  },
+  {
+    'title': 'Percentage of GBV and VAC neglected children',
+    'description': 'Percentage of GBV and VAC neglected children',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'ZuLKohzHg8x'
+  },
+  {
+    'title': 'Percentage of Female GBV and VAC survivors provided with Emergency contraceptives',
+    'description': 'Percentage of Female GBV and VAC survivors provided with Emergency contraceptives',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'xIe8SvPcmt9'
+  },
+  {
+    'title': 'Percentage of GBV and VAC survivors received from initiating services',
+    'description': 'Percentage of GBV and VAC survivors received from initiating services',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'mmcrGmc2saD'
+  },
+  {
+    'title': 'Percentage of GBV and VAC survivors who were counseled',
+    'description': 'Percentage of GBV and VAC survivors who were counseled',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'Uw3uVIU16pl'
+  },
+  {
+    'title': 'Percentage of GBV and VAC survivors who were asked screening questions',
+    'description': 'Percentage of GBV and VAC survivors who were asked screening questions',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'kXSindxfnnS'
+  },
+  {
+    'title': 'Percentage of GBV and VAC survivors whose Forensic Investigation has been collected for legal action',
+    'description': 'Percentage of GBV and VAC survivors whose Forensic Investigation has been collected for legal action',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'jrDlrzIx6BM'
+  },
+  {
+    'title': 'Percentage of Male GBV and VAC Physically assaulted clients amongst all Males',
+    'description': 'Percentage of Male GBV and VAC Physically assaulted clients amongst all Males',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'GIX5BhjLlti'
+  },
+  {
+    'title': 'Percentage of Male GBV and VAC Sexually assaulted clients amongst all clients',
+    'description': 'Percentage of Male GBV and VAC Sexually assaulted clients amongst all clients',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'ubP2yRgDM2K'
+  },
+  {
+    'title': 'Percentage of sexually assaulted survivors eligible for PEP who actually received HIV PEP within 72 hours (Ke)',
+    'description': 'Percentage of sexually assaulted survivors eligible for PEP who actually received HIV PEP within 72 hours (Ke)',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m12 s12',
+    'data': 'Doxbg7niGf4'
+  },
+  {
+    'title': 'Percentage of sexually assaulted survivors eligible for PEP who actually received HIV PEP within 72 hours (Me)',
+    'description': 'Percentage of sexually assaulted survivors eligible for PEP who actually received HIV PEP within 72 hours (Me)',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m12 s12',
+    'data': 'XYPfUBG16Sq'
+  },
+  {
+    'title': 'Percentage of all GBV and VAC clients who returned for a follow up visit (as recommended by national guidelines)',
+    'description': 'Percentage of all GBV and VAC clients who returned for a follow up visit (as recommended by national guidelines)',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'Vmnzyg0zXjT'
+  },
+  {
+    'title': 'Percentage of GBV and VAC survivors referred out for Support services',
+    'description': 'Percentage of GBV and VAC survivors referred out for Support services',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'kuOederGToH'
+  }
+];

@@ -1,0 +1,115 @@
+export const cervicalCancer = [
+  {
+    'title': 'CECAP_Cryotherapy same day initial visit',
+    'description': 'CECAP_Cryotherapy same day initial visit',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col s12 m6',
+    'data': 'r0amqJp0D9H'
+  },
+  {
+    'title': 'Cryotherapy same day return visit',
+    'description': 'Cryotherapy same day return visit',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'VQuJu7LuUbf',
+    'chart': 'line'
+
+  },
+  {
+    'title': 'Cryotherapy same day Routine visit VIA-',
+    'description': 'Cryotherapy same day Routine visit VIA-',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m12 s12',
+    'data': 'xBUHUubOa70',
+    'chart': 'combined'
+
+  },
+  {
+    'title': 'Large lesion referral initial visit',
+    'description': 'Large lesion referral initial visit',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'FbkYU4WCRNI'
+
+  },
+  {
+    'title': 'Large lesion referral return visit',
+    'description': 'Large lesion referral return visit',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'GMwVCX0CleQ'
+  },
+  {
+    'title': 'Large lesion referral routine visit VIA-',
+    'description': 'Large lesion referral routine visit VIA-',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m12 s12',
+    'data': 'nK2gAYR2EhT'
+  },
+  {
+    'title': 'Suspect cancer follow up visit',
+    'description': 'Suspect cancer follow up visit',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'AjvblhjaukL'
+  },
+  {
+    'title': 'Suspect cancer initial visit',
+    'description': 'Suspect cancer initial visit',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'rywWOy8Eada'
+  },
+  {
+    'title': 'Suspect cancer routine VIA-',
+    'description': 'Suspect cancer routine VIA-',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m12 s12',
+    'data': 'Rk2tL7jUhve'
+  },
+  {
+    'title': 'VIA screening first visit',
+    'description': 'VIA screening first visit',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m12 s12',
+    'data': 'oBTUbnPkrMT'
+  },
+  {
+    'title': 'VIA screening follow up visit VIA -Ve',
+    'description': 'VIA screening follow up visit VIA -Ve',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m12 s12',
+    'data': 'BJ4nRBRl7dT'
+  },
+  {
+    'title': 'VIA screening return visit after a year',
+    'description': 'VIA screening return visit after a year',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m12 s12',
+    'data': 'GUzbp0z6oLm'
+  }
+];

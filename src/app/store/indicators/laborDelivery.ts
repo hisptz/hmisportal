@@ -1,0 +1,95 @@
+export const laborDelivery = [
+  {
+    'title': 'Deliveries by skilled attendants',
+    'description': 'Deliveries by skilled attendants',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col s12 m6',
+    'data': 'vVRVLjgU10c'
+  },
+  {
+    'title': 'Delivery Abnormal <20 yrs rate (C/S,, breech, vacuum)',
+    'description': 'Delivery Abnormal <20 yrs rate (C/S,, breech, vacuum)',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'EshKVxzCvBH',
+    'chart': 'combined'
+
+  },
+  {
+    'title': 'Delivery Complications (PPH) Rate',
+    'description': 'Delivery Complications (PPH) Rate',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'M0o2XBdgeqe'
+
+  },
+  {
+    'title': 'Delivery Complications rate',
+    'description': 'Delivery Complications rate',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'HgDnbOA8zJg'
+  },
+  {
+    'title': 'Percentage Delivery HIV prevalence',
+    'description': 'Percentage Delivery HIV prevalence',
+    'indicatorType': '',
+    'numerator': '',
+    'denominator': '',
+    'cardClass': 'col m6 s12',
+    'data': 'bO9Bu1APnzq'
+  },
+  {
+    'title': 'Delivery rate < 20 years',
+    'description': 'Delivery rate < 20 years',
+    'numerator': '',
+    'denominator': '',
+    'indicatorType': '',
+    'cardClass': 'col m6 s12',
+    'data': 'iMGb5vQ7Gtc'
+  },
+  {
+    'title': 'Delivery rate in Facility',
+    'description': 'Delivery rate in Facility',
+    'numerator': '',
+    'denominator': '',
+    'indicatorType': '',
+    'cardClass': 'col m6 s12',
+    'data': 'deit7zvLIcV'
+  },
+  {
+    'title': 'Delivery Referrals Rate ',
+    'description': 'Delivery Referrals Rate ',
+    'numerator': '',
+    'denominator': '',
+    'indicatorType': '',
+    'cardClass': 'col m6 s12',
+    'data': 'KA8PbrYf6ca'
+  },
+  {
+    'title': 'Delivery Vacuum Extraction Rate',
+    'description': 'Delivery Vacuum Extraction Rate',
+    'numerator': '',
+    'denominator': '',
+    'indicatorType': '',
+    'cardClass': 'col m6 s12',
+    'data': 'SAorNBdnTRS'
+  },
+  {
+    'title': 'Emergency Obstetric Care Rate',
+    'description': 'Emergency Obstetric Care Rate',
+    'numerator': '',
+    'denominator': '',
+    'indicatorType': '',
+    'cardClass': 'col m6 s12',
+    'data': 'ePEFxdsB7V7'
+  }
+];
