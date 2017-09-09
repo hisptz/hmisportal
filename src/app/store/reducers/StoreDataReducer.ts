@@ -8,9 +8,7 @@ export function storeData(state: StoreData, action: any): StoreData {
     switch (action.type)  {
 
       case ADD_SCORE_CARDS:
-        const optionStore = _.cloneDeep( state );
-        optionStore.scorecards = action.payload;
-        return optionStore;
+        return state;
 
       default:
         return state;
