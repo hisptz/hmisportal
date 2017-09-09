@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Portalv2</title>
-  <base href="/">
+  <base href="">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -13,12 +13,82 @@
     body *{
       font-family: Scorecard-Averta, sans-serif, appleLogo;
     }
+    .text-center{
+      text-align: center;
+    }
   </style>
 </head>
 <body>
   <app-root>
-    <div class="container-fluid" style="margin-top: 20%">
-      <h1 class="text-center">WELCOME TO HMIS WEB PORTAl</h1>
+    <div class="container-fluid" style="margin-top: 80px">
+      <h1 class="text-center" style="margin-bottom: 30px">WELCOME TO HMIS WEB PORTAl</h1>
+
+      <div class="container">
+        <p class="lead text-center">
+          This is a public portal for Tanzania HMIS data. Information available:
+        </p>
+        <div class="card-deck"  style="margin-left: 30px; margin-right: 60px">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title text-center">RCH & HMIS Indicators</h4>
+              <p class="card-text">
+                Visualize RCH & HMIS Indicators for Antenatal care, ANC Integration, Labor and
+                delivery, Newborn care, Post natal care, GBV and VAC and Cervical cancer.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title text-center">Program Indicators</h4>
+              <p class="card-text">
+                Visualize Program Indicators for Malaria, Vaccine, Nutrition, HIV/AIDS, Non
+                communicable disease, Tracer medicine, TB&Leprosy, Family Planning.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title text-center">Resources</h4>
+              <p class="card-text">
+                Get resources like Census data, Community Surveys, Facility Surveys, Health Program Reports,
+                HMIS Annual Reports, Policies, Guidelines and Strategies, Registers and Scorecards.
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" style="max-height: 120px;overflow: hidden">
+        <div class="row" style="margin: 50px">
+          <div class="col">
+            <img src="assets/img/table.png">
+          </div>
+          <div class="col">
+            <img src="assets/img/column.png">
+          </div>
+          <div class="col">
+            <img src="assets/img/line.png">
+          </div>
+          <div class="col">
+            <img src="assets/img/combined.png">
+          </div>
+          <div class="col">
+            <img src="assets/img/pie.png">
+          </div>
+          <div class="col">
+            <img src="assets/img/radar.png">
+          </div>
+          <div class="col">
+            <img src="assets/img/map.png">
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <p class="lead text-center">Loading data please wait...</p>
+      </div>
+
     </div>
   </app-root>
 </body>
