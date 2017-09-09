@@ -22,6 +22,7 @@ import {dashboards} from './indicators/dashboards';
 
 export interface StoreData {
   indicators: any[];
+  currentpage: string;
   currentperiod: any;
   currentperiodtype: any;
   options: any;
@@ -35,10 +36,11 @@ export interface StoreData {
 
 export const INITIAL_STORE_DATA: StoreData = {
   indicators: [],
-  currentperiod: '2017Q2',
-  currentperiodtype: 'Quarter',
+  currentpage: 'dashboard',
+  currentperiod: { name: '2016' , id: '2016' },
+  currentperiodtype: 'Year',
   options: null,
-  currentorgunit: {name: 'MOH Tanzania', id: 'm0frOspS7JY'},
+  currentorgunit: { name: 'MOH Tanzania', id: 'm0frOspS7JY' },
   orgUnits: [
     {
       'name': 'MOH Tanzania',
@@ -150,7 +152,7 @@ export const INITIAL_STORE_DATA: StoreData = {
     }
   ],
   data: {
-    'dashboards': dashboards,
+    'dashboard': dashboards,
     'ancIntegration': ancIntegration,
     'antenatalCare': antenatalCare,
     'art': art,

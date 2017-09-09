@@ -1,5 +1,5 @@
 import { StoreData } from '../store-data';
-import {ADD_SCORE_CARDS} from '../actions/store.data.action';
+import { SET_CURRENT_PAGE } from '../actions/store.data.action';
 
 import * as _ from 'lodash';
 
@@ -7,8 +7,10 @@ import * as _ from 'lodash';
 export function storeData(state: StoreData, action: any): StoreData {
     switch (action.type)  {
 
-      case ADD_SCORE_CARDS:
-        return state;
+      case SET_CURRENT_PAGE:
+        const currentState = _.cloneDeep(state);
+        currentState.currentpage = action.payload;
+        return currentState;
 
       default:
         return state;
