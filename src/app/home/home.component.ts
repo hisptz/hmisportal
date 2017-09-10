@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit, OnDestroy  {
             this.indicators = data;
             this.indicators.forEach( (item) => {
               item.loading = true;
+              item.hasError = false;
               item.renderId =  _.map(item.data, 'uid').join('_');
               const url = item.url + 'dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
               this.subscriptions.push(
@@ -73,6 +74,10 @@ export class HomeComponent implements OnInit, OnDestroy  {
                     item.tableObject = this.viualizer.drawTable(analytics, tableConfiguration);
                     item.loading =  false;
                     console.log('item', this.viualizer.drawChart(analytics, chartConfiguration));
+                  },
+                  error => {
+                    item.loading = false;
+                    item.hasError = true;
                   }
                 )
               );

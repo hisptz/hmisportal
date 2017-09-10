@@ -30,9 +30,13 @@
             <h3 class="lead text-center">{{indicator.title}}</h3>
             <app-placeholder [loadingMessage]="'Getting '+ selected_pe+ ' '+ selected_ou_name + ' ' + indicator.title + ' data ...'"></app-placeholder>
           </div>
-          <div *ngIf="!indicator.loading && indicator.visualizerType == 'chart'" [ng2-highcharts]="indicator.chartObject"></div>
-          <div *ngIf="!indicator.loading && indicator.visualizerType == 'table'">
+          <div *ngIf="!indicator.loading && indicator.visualizerType == 'chart' && !indicator.hasError" [ng2-highcharts]="indicator.chartObject"></div>
+          <div *ngIf="!indicator.loading && indicator.visualizerType == 'table' && !indicator.hasError">
             <app-table-template [tableObject]="indicator.tableObject"></app-table-template>
+          </div>
+          <!--error handling-->
+          <div class="lead text-warning" *ngIf="indicator.hasError">
+            <i class="fa fa-warning"></i> Sorry, something went wrong while fetching data! make sure you have internet connection and  try to reload the page
           </div>
         </div>
 
@@ -46,6 +50,9 @@
           <button class="btn btn-outline-success btn-sm" (click)="updateType('excel')">
             <i class="fa fa-file-excel-o"></i> Excel
           </button>
+          <footer class="blockquote-footer">
+            <small style="font-size: 8px">This data is not for Publication it is used for administrative purpose only, to get data for publication contact  <cite title="Source Title">Permanent secretary ministry of health</cite></small>
+          </footer>
         </div>
       </div>
     </div>

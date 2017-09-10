@@ -62,6 +62,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
             this.indicators = data;
             this.indicators.forEach( (item) => {
               item.loading = true;
+              item.hasError = false;
               let url = 'api/analytics.json?dimension=dx:' + item.data;
               url += '&dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
               this.subscriptions.push(
@@ -84,7 +85,10 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
                     item.chartObject = this.viualizer.drawChart(analytics, chartConfiguration);
                     item.tableObject = this.viualizer.drawTable(analytics, tableConfiguration);
                     item.loading =  false;
-                    console.log('item', this.viualizer.drawChart(analytics, chartConfiguration));
+                  },
+                  error => {
+                    item.loading = false;
+                    item.hasError = true;
                   }
                 )
               );
@@ -93,7 +97,6 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
         );
       });
     });
-    console.log('it works');
   }
 
   updateType(type, item) {
