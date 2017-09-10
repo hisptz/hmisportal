@@ -4,7 +4,7 @@ export const tracer_medicine = [{
   'indicatorType': ' ',
   'numerator': ' ',
   'denominator': ' ',
-  'cardClass': 'col s12 m12',
+  'cardClass': 'col-sm-12 col-md-12',
   'data': 'PlatsD7r6BI'
 },
   {
@@ -13,7 +13,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'Y6gfcTiQcis',
     'chart': 'line'
   },
@@ -23,7 +23,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'sZYr1CWDW8Y',
     'chart': 'combined'
   },
@@ -33,7 +33,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'TFORL9LBEDP',
     'chart': 'table'
   },
@@ -43,7 +43,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'Y0HAPpe3X8A',
     'chart': 'bar'
   },
@@ -53,7 +53,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'BRS6sUj8FJa',
     'chart': 'combined'
   },
@@ -63,7 +63,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'AHcdWDFaeZi',
     'chart': 'area'
   },
@@ -73,7 +73,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'EX233CR1k1T'
   },
   {
@@ -82,7 +82,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'KxS8b24bAZC',
     'chart': 'line'
   },
@@ -92,7 +92,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'wjGjt5bacv6',
     'chart': 'pie'
   },
@@ -103,7 +103,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'YKtXjwwuFA3',
     'chart': 'combined'
   },
@@ -114,7 +114,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'UCmAgEwrtnL',
     'chart': 'line'
   },
@@ -125,7 +125,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'eRGYpbsCTjL',
     'chart': 'area'
   },
@@ -136,7 +136,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'GfA6IHXRUyb',
     'chart': 'bar'
   },
@@ -147,7 +147,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'jr3NGLBd0um'
   },
 
@@ -157,7 +157,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'gKuUBZzrHKn',
     'chart': 'bar'
   },
@@ -168,7 +168,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'nHkxJhedt45',
     'chart': 'column'
   },
@@ -179,7 +179,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'JMh8rqmUHFT',
     'chart': 'table'
   },
@@ -190,7 +190,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'x0yG6AUAqE0'
   },
 
@@ -200,7 +200,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'VB95k7UUf5d',
     'chart': 'combined'
   },
@@ -211,7 +211,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'aoT6ct7Vfel',
     'chart': 'line'
   },
@@ -222,7 +222,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'CjNOYsGfIlO',
     'chart': 'bar'
   },
@@ -233,7 +233,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'oB0IISPgAz4',
     'chart': 'table'
   },
@@ -244,7 +244,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'LZHwfqERPiC',
     'chart': 'pie'
 
@@ -256,7 +256,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'UpQjua0Othb',
     'chart': 'line'
   },
@@ -267,7 +267,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'SiUdy5FzDSP',
     'chart': 'pie'
 
@@ -279,7 +279,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'J5hVzb8Mhwi',
     'chart': 'column'
   },
@@ -290,7 +290,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'F08pnezPe17',
     'chart': 'area'
   },
@@ -301,7 +301,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'amI2RHuAaE5',
     'chart': 'combined'
 
@@ -313,7 +313,7 @@ export const tracer_medicine = [{
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'Si3s2HTVelD',
     'chart': 'pie'
 

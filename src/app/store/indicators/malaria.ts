@@ -5,7 +5,7 @@ export const malaria = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col s12 m12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'i47jm4Pkkq6'
   },
 
@@ -15,7 +15,7 @@ export const malaria = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'xrYmEc4LCCo',
     'chart': 'combined'
   },
@@ -25,7 +25,7 @@ export const malaria = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'FaooqUblXag'
 
   }, {
@@ -34,7 +34,7 @@ export const malaria = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'vfaY7k6TINl'
 
   }

@@ -23,6 +23,7 @@ import {dashboards} from './indicators/dashboards';
 export interface StoreData {
   indicators: any[];
   currentpage: string;
+  dashboardPeriod: string;
   currentperiod: any;
   currentperiodtype: any;
   options: any;
@@ -37,118 +38,146 @@ export interface StoreData {
 export const INITIAL_STORE_DATA: StoreData = {
   indicators: [],
   currentpage: 'dashboard',
+  dashboardPeriod: '2016',
   currentperiod: { name: '2016' , id: '2016' },
   currentperiodtype: 'Year',
   options: null,
-  currentorgunit: { name: 'MOH Tanzania', id: 'm0frOspS7JY' },
+  currentorgunit: 'm0frOspS7JY',
   orgUnits: [
     {
       'name': 'MOH Tanzania',
-      'id': 'm0frOspS7JY'
+      'id': 'm0frOspS7JY',
+      'level': '1'
     },
     {
       'name': 'Arusha Region',
-      'id': 'YtVMnut7Foe'
+      'id': 'YtVMnut7Foe',
+      'level': '2'
     },
     {
       'name': 'Dar Es Salaam Region',
-      'id': 'acZHYslyJLt'
+      'id': 'acZHYslyJLt',
+      'level': '2'
     },
     {
       'name': 'Dodoma Region',
-      'id': 'Cpd5l15XxwA'
+      'id': 'Cpd5l15XxwA',
+      'level': '2'
     },
     {
       'name': 'Geita Region',
-      'id': 'MAL4cfZoFhJ'
+      'id': 'MAL4cfZoFhJ',
+      'level': '2'
     },
     {
       'name': 'Iringa Region',
-      'id': 'sWOWPBvwNY2'
+      'id': 'sWOWPBvwNY2',
+      'level': 'LEVEL-3;'
     },
     {
       'name': 'Kagera Region',
-      'id': 'Crkg9BoUo5w'
+      'id': 'Crkg9BoUo5w',
+      'level': '2'
     },
     {
       'name': 'Katavi Region',
-      'id': 'DWSo42hunXH'
+      'id': 'DWSo42hunXH',
+      'level': '2'
     },
     {
       'name': 'Kigoma Region',
-      'id': 'RD96nI1JXVV'
+      'id': 'RD96nI1JXVV',
+      'level': '2'
     },
     {
       'name': 'Kilimanjaro Region',
-      'id': 'lnOyHhoLzre'
+      'id': 'lnOyHhoLzre',
+      'level': '2'
     },
     {
       'name': 'Lindi Region',
-      'id': 'VMgrQWSVIYn'
+      'id': 'VMgrQWSVIYn',
+      'level': '2'
     },
     {
       'name': 'Manyara Region',
-      'id': 'qg5ySBw9X5l'
+      'id': 'qg5ySBw9X5l',
+      'level': '2'
     },
     {
       'name': 'Mara Region',
-      'id': 'vYT08q7Wo33'
+      'id': 'vYT08q7Wo33',
+      'level': '2'
     },
     {
       'name': 'Mbeya Region',
-      'id': 'A3b5mw8DJYC'
+      'id': 'A3b5mw8DJYC',
+      'level': '2'
     },
     {
       'name': 'Morogoro Region',
-      'id': 'Sj50oz9EHvD'
+      'id': 'Sj50oz9EHvD',
+      'level': '2'
     },
     {
       'name': 'Mtwara Region',
-      'id': 'bN5q5k5DgLA'
+      'id': 'bN5q5k5DgLA',
+      'level': '2'
     },
     {
       'name': 'Mwanza Region',
-      'id': 'hAFRrgDK0fy'
+      'id': 'hAFRrgDK0fy',
+      'level': '2'
     },
     {
       'name': 'Njombe Region',
-      'id': 'qarQhOt2OEh'
+      'id': 'qarQhOt2OEh',
+      'level': '2'
     },
     {
       'name': 'Pwani Region',
-      'id': 'yyW17iCz9As'
+      'id': 'yyW17iCz9As',
+      'level': '2'
     },
     {
       'name': 'Rukwa Region',
-      'id': 'vAtZ8a924Lx'
+      'id': 'vAtZ8a924Lx',
+      'level': '2'
     },
     {
       'name': 'Ruvuma Region',
-      'id': 'ZYYX8Q9SGoV'
+      'id': 'ZYYX8Q9SGoV',
+      'level': '2'
     },
     {
       'name': 'Shinyanga Region',
-      'id': 'EO3Ps3ny0Nr'
+      'id': 'EO3Ps3ny0Nr',
+      'level': '2'
     },
     {
       'name': 'Simiyu Region',
-      'id': 'IgTAEKMqKRe'
+      'id': 'IgTAEKMqKRe',
+      'level': '2'
     },
     {
       'name': 'Singida Region',
-      'id': 'LGTVRhKSn1V'
+      'id': 'LGTVRhKSn1V',
+      'level': '2'
     },
     {
       'name': 'Songwe Region',
-      'id': 'Rg0jCRi9297'
+      'id': 'Rg0jCRi9297',
+      'level': '2'
     },
     {
       'name': 'Tabora Region',
-      'id': 'kZ6RlMnt2bp'
+      'id': 'kZ6RlMnt2bp',
+      'level': '2'
     },
     {
       'name': 'Tanga Region',
-      'id': 'vU0Qt1A5IDz'
+      'id': 'vU0Qt1A5IDz',
+      'level': '2'
     }
   ],
   data: {

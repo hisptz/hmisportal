@@ -5,7 +5,7 @@ export const vmcc = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'JgubOhM4l1S',
     'chart': 'combined'
   }

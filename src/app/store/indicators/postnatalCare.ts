@@ -5,7 +5,7 @@ export const postnatalCare = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'S0cn3ephUSs',
     'chart': 'line'
   },
@@ -15,7 +15,7 @@ export const postnatalCare = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'qcsYPHvfnUM'
   },
   {
@@ -24,7 +24,7 @@ export const postnatalCare = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col s12 m12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'ArDihWp4xik'
   },
   {
@@ -33,7 +33,7 @@ export const postnatalCare = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'kxWtlmuQjRI',
     'chart': 'line'
   },
@@ -43,7 +43,7 @@ export const postnatalCare = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'MchVN9VuUa9'
   }
 ];

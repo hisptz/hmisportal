@@ -5,7 +5,7 @@ export const nutrition = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col s12 m12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'vFDZba15wT9'
   },
   {
@@ -14,7 +14,7 @@ export const nutrition = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col s12 m12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'Xycuw5RFlyl'
   },
   {
@@ -23,7 +23,7 @@ export const nutrition = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col s12 m12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'B5Y2G8mIY99'
   },
   {
@@ -32,7 +32,7 @@ export const nutrition = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col s12 m12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'iFPg89ERwG0'
   },
   {
@@ -41,7 +41,7 @@ export const nutrition = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col s12 m12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'ZhablqMuiE0'
   },
   {
@@ -50,7 +50,7 @@ export const nutrition = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col s12 m12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'uOOJi6b0pzm'
   }
 ];

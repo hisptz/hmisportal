@@ -5,7 +5,7 @@ export const ivd = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'TyXAtTAQxpD',
     'chart': 'line'
   },
@@ -15,7 +15,7 @@ export const ivd = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'VFMeEDnoa4M',
     'chart': 'combined'
   },
@@ -25,7 +25,7 @@ export const ivd = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'k3lTvIZOnMP',
     'chart': 'line'
   },
@@ -35,7 +35,7 @@ export const ivd = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'zDZ0YxFEpSH',
     'chart': 'line'
   },
@@ -45,7 +45,7 @@ export const ivd = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'HYY867HqOpH'
   },
   {
@@ -54,7 +54,7 @@ export const ivd = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'SpCYYHgSjMX',
     'chart': 'pie'
   },
@@ -64,7 +64,7 @@ export const ivd = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'QG9qsX5DkwG',
     'chart': 'combined'
   },
@@ -74,7 +74,7 @@ export const ivd = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'U64yiAGJu7F',
     'chart': 'bar'
   },
@@ -84,7 +84,7 @@ export const ivd = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'rwEuEfXnbgs',
     'chart': 'column'
   },
@@ -94,7 +94,7 @@ export const ivd = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'yho46pwbbNQ',
     'chart': 'bar'
   },
@@ -104,7 +104,7 @@ export const ivd = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'Ct7mqhotyQO',
     'chart': 'combined'
   }

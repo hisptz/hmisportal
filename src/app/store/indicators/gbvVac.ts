@@ -14,7 +14,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'rJbmyK2R99I',
     'displayTable': false,
     'displayMap': false,
@@ -27,7 +27,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'xAtBhldnlvA',
     'chart': 'combined'
 
@@ -38,7 +38,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'goCKavMLzj0'
 
   },
@@ -48,7 +48,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'ZuLKohzHg8x'
   },
   {
@@ -57,7 +57,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'xIe8SvPcmt9'
   },
   {
@@ -66,7 +66,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'mmcrGmc2saD'
   },
   {
@@ -75,7 +75,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'Uw3uVIU16pl'
   },
   {
@@ -84,7 +84,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'kXSindxfnnS'
   },
   {
@@ -93,7 +93,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'jrDlrzIx6BM'
   },
   {
@@ -102,7 +102,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'GIX5BhjLlti'
   },
   {
@@ -111,7 +111,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'ubP2yRgDM2K'
   },
   {
@@ -120,7 +120,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'Doxbg7niGf4'
   },
   {
@@ -129,7 +129,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'XYPfUBG16Sq'
   },
   {
@@ -138,7 +138,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'Vmnzyg0zXjT'
   },
   {
@@ -147,7 +147,7 @@ export const gbvVac = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'kuOederGToH'
   }
 ];

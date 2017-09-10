@@ -14,7 +14,7 @@ export const laborDelivery = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'EshKVxzCvBH',
     'chart': 'combined'
 
@@ -25,7 +25,7 @@ export const laborDelivery = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'M0o2XBdgeqe'
 
   },
@@ -35,7 +35,7 @@ export const laborDelivery = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'HgDnbOA8zJg'
   },
   {
@@ -44,7 +44,7 @@ export const laborDelivery = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'bO9Bu1APnzq'
   },
   {
@@ -53,7 +53,7 @@ export const laborDelivery = [
     'numerator': '',
     'denominator': '',
     'indicatorType': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'iMGb5vQ7Gtc'
   },
   {
@@ -62,7 +62,7 @@ export const laborDelivery = [
     'numerator': '',
     'denominator': '',
     'indicatorType': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'deit7zvLIcV'
   },
   {
@@ -71,7 +71,7 @@ export const laborDelivery = [
     'numerator': '',
     'denominator': '',
     'indicatorType': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'KA8PbrYf6ca'
   },
   {
@@ -80,7 +80,7 @@ export const laborDelivery = [
     'numerator': '',
     'denominator': '',
     'indicatorType': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'SAorNBdnTRS'
   },
   {
@@ -89,7 +89,7 @@ export const laborDelivery = [
     'numerator': '',
     'denominator': '',
     'indicatorType': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'ePEFxdsB7V7'
   }
 ];

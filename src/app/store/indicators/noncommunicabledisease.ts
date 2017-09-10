@@ -5,7 +5,7 @@ export const noncommunicabledisease = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'leoNoXM9lUV',
     'chart': 'line'
   },
@@ -15,7 +15,7 @@ export const noncommunicabledisease = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'iV4CdKjhtil',
     'chart': 'combined'
   }

@@ -1,5 +1,8 @@
 import {ApplicationState} from './application.state';
 import {createSelector} from '@ngrx/store';
+
+import * as _ from 'lodash';
+
 /**
  * Created by kelvin on 9/9/17.
  */
@@ -17,8 +20,22 @@ export const getCurrentPage = createSelector(getStoreData, (datastate) => {
   return datastate.currentpage;
 });
 
+export const getDashboardPeriod = createSelector(getStoreData, (datastate) => {
+  return datastate.dashboardPeriod;
+});
+
+export const getSelectedOrgunit = createSelector(getStoreData, (datastate) => {
+  return datastate.currentorgunit;
+});
+
 export const getOrganisationUnits = createSelector(getStoreData, (datastate) => {
   return datastate.orgUnits;
+});
+
+export const getSelectedOrganisationUnit = createSelector(getStoreData, getSelectedOrgunit, (datastate, orgunit ) => {
+  return _.find(datastate.orgUnits, function (ou) {
+    return ou.id === orgunit;
+  });
 });
 
 export const getPortalItems = createSelector(getStoreData, getCurrentPage, (datastate, currentpage) => {

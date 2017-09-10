@@ -5,7 +5,7 @@ export const pediatrichiv = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'VEwpWeVzA6n',
     'chart': 'combined'
   },
@@ -15,7 +15,7 @@ export const pediatrichiv = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'A9YN57MipDC',
     'chart': 'line'
   },
@@ -25,7 +25,7 @@ export const pediatrichiv = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'fG35VBca5hV',
     'chart': 'area'
   }

@@ -5,7 +5,7 @@ export const sti = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'bUwhU99vQS4',
     'chart': 'combined'
   },
@@ -15,7 +15,7 @@ export const sti = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'lxgYyaZpVkN',
     'chart': 'pie'
   },
@@ -25,7 +25,7 @@ export const sti = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'UCizVx5pwfk',
     'chart': 'bar'
   }

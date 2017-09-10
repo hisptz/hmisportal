@@ -14,7 +14,7 @@ export const hivaids = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'bSGgVZvFfmH',
     'chart': 'line'
 

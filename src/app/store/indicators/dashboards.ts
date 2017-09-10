@@ -10,7 +10,8 @@ export const dashboards = [
     'title': 'TOTAL POPULATION',
     'description': 'TOTAL POPULATION',
     'chart': 'column',
-    'higher_level': false
+    'higher_level': false,
+    'yAxisType': 'dx',
   },
   {
     url: 'api/analytics.json?dimension=dx:ykShMtNgDB1&dimension=Cow9nZikDgD:LBipXEMD6mq;FfN1mqXvpR7;aZcKJ9XxvaF;HKU7NijIEIH;h8JRv8POdfy&',
@@ -24,6 +25,7 @@ export const dashboards = [
     'title': 'POPULATION BY AGE',
     'description': 'TOTAL POPULATION BY AGE',
     'chart': 'column',
+    'yAxisType': 'Cow9nZikDgD',
     'higher_level': false
   },
   {
@@ -35,7 +37,8 @@ export const dashboards = [
     'title': 'POPULATION BY GENDER',
     'description': 'TOTAL POPULATION BY GENDER',
     'chart': 'column',
-    'higher_level': false
+    'higher_level': false,
+    'yAxisType': 'hENn80Fmmlf',
   },
   {
     url: 'api/analytics.json?dimension=dx:nG4jLoeBLAN;UxnVJil2BwF;NOk7PCAF174;fdX6lREQQp0;lJNzLghsdKg;BwXD0MzkvLG;oRbPiu3t4oc&',
@@ -51,7 +54,8 @@ export const dashboards = [
     'title': 'Health Workers by cadre',
     'description': 'Health Workers by cadre',
     'chart': 'column',
-    'higher_level': false
+    'higher_level': false,
+    'yAxisType': 'dx',
   },
   {
     url: 'api/analytics.json?dimension=dx:GzvLb3XVZbR;TfoI3vTGv1f;cap79mdf6Co;rm3y3VHPiFD;QntdhuQfgvT;zeEp4Xu2GOm&',
@@ -66,7 +70,8 @@ export const dashboards = [
     'title': 'RCH DATA COMPLETENESS',
     'description': 'RCH DATA COMPLETENESS',
     'chart': 'column',
-    'higher_level': false
+    'higher_level': false,
+    'yAxisType': 'dx',
   },
   {
     url: 'api/analytics.json?dimension=dx:ZOvFj2vtlor;qpcwPcj8D6u;v6wdME3ouXu&',
@@ -78,7 +83,8 @@ export const dashboards = [
     'title': 'HMIS DATA COMPLETENESS',
     'description': 'HMIS DATA COMPLETENESS',
     'chart': 'column',
-    'higher_level': false
+    'higher_level': false,
+    'yAxisType': 'dx',
   },
   {
     url: 'api/analytics.json?dimension=dx:Hwcn7ajwZ1p;Dp0VF7ssmcH;CxaDPrjhmax;db4lfMnttc6&',
@@ -91,7 +97,8 @@ export const dashboards = [
     'title': 'HMIS DATA COMPLETENESS',
     'description': 'HMIS DATA COMPLETENESS',
     'chart': 'column',
-    'higher_level': false
+    'higher_level': false,
+    'yAxisType': 'dx',
   },
   {
     url: 'api/analytics.json?dimension=dx:UHDfKY2mUOQ;ykDbDeDvTcx;O2V8r4UT8kB;IzUZXETYoyB&',
@@ -104,6 +111,7 @@ export const dashboards = [
     'title': 'HMIS DATA COMPLETENESS',
     'description': 'HMIS DATA COMPLETENESS',
     'chart': 'column',
-    'higher_level': false
+    'higher_level': false,
+    'yAxisType': 'dx',
   }
 ];

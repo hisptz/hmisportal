@@ -5,7 +5,7 @@ export const pmtct = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'H8axfw1rcJv',
     'chart': 'line'
   },
@@ -15,7 +15,7 @@ export const pmtct = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'Z4lFiisizw0',
     'chart': 'combined'
   },
@@ -25,7 +25,7 @@ export const pmtct = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'tD7tqoxrt1P',
     'chart': 'bar'
   }

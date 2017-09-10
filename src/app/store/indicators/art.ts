@@ -5,7 +5,7 @@ export const art = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'GZHL7cb5NAE',
     'chart': 'line'
   },
@@ -16,7 +16,7 @@ export const art = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'z8xNkVFZq2f',
     'chart': 'area'
   },
@@ -27,7 +27,7 @@ export const art = [
     'indicatorType': '',
     'numerator': ' ',
     'denominator': ' ',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'q7xcHslhpeX',
     'chart': 'bar'
   }

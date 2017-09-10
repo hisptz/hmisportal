@@ -14,7 +14,7 @@ export const ancIntegration = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'cbMFAd44Lih',
     'chart': 'line'
 
@@ -25,7 +25,7 @@ export const ancIntegration = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'Xpc15t46JX4',
     'chart': 'combined'
   },
@@ -35,7 +35,7 @@ export const ancIntegration = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'gX4BXElmOyd',
     'displayTable': false,
     'displayMap': false,
@@ -48,7 +48,7 @@ export const ancIntegration = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'fIX6BDA9MG3'
   },
   {
@@ -57,7 +57,7 @@ export const ancIntegration = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'NYi7SXGMs0y'
   }
 ];

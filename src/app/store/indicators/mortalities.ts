@@ -14,7 +14,7 @@ export const mortalities = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'Y1pkrlq2hWi',
     'chart': 'line'
   },
@@ -24,7 +24,7 @@ export const mortalities = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'uC2YOL3qc6g',
     'chart': 'combined'
   },
@@ -34,7 +34,7 @@ export const mortalities = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'bzTuXoKa87E',
     'chart': 'bar'
   }

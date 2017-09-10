@@ -14,7 +14,7 @@ export const cervicalCancer = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'VQuJu7LuUbf',
     'chart': 'line'
 
@@ -25,7 +25,7 @@ export const cervicalCancer = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'xBUHUubOa70',
     'chart': 'combined'
 
@@ -36,7 +36,7 @@ export const cervicalCancer = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'FbkYU4WCRNI'
 
   },
@@ -46,7 +46,7 @@ export const cervicalCancer = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'GMwVCX0CleQ'
   },
   {
@@ -55,7 +55,7 @@ export const cervicalCancer = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'nK2gAYR2EhT'
   },
   {
@@ -64,7 +64,7 @@ export const cervicalCancer = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'AjvblhjaukL'
   },
   {
@@ -73,7 +73,7 @@ export const cervicalCancer = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'rywWOy8Eada'
   },
   {
@@ -82,7 +82,7 @@ export const cervicalCancer = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'Rk2tL7jUhve'
   },
   {
@@ -91,7 +91,7 @@ export const cervicalCancer = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'oBTUbnPkrMT'
   },
   {
@@ -100,7 +100,7 @@ export const cervicalCancer = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'BJ4nRBRl7dT'
   },
   {
@@ -109,7 +109,7 @@ export const cervicalCancer = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'GUzbp0z6oLm'
   }
 ];

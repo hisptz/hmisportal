@@ -5,7 +5,7 @@ export const tb = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'xywPYBGDsS6'
   },
   {
@@ -14,7 +14,7 @@ export const tb = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'ELPxKQDTgK2'
   },
   {
@@ -23,7 +23,7 @@ export const tb = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m12 s12',
+    'cardClass': 'col-sm-12 col-md-12',
     'data': 'qdXiY9RSR56',
     'chart': 'combined'
   },
@@ -33,7 +33,7 @@ export const tb = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'IpgVkyzQ7k3'
   },
   {
@@ -42,7 +42,7 @@ export const tb = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'vzrKvd50poy'
   },
   {
@@ -51,7 +51,7 @@ export const tb = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'WQjdDOZzsR1'
   },
   {
@@ -60,7 +60,7 @@ export const tb = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'HWTJx1tWZRh'
   },
   {
@@ -69,7 +69,7 @@ export const tb = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'mQtop3xku9h'
   },
   {
@@ -78,7 +78,7 @@ export const tb = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'acT7x7XHryb'
   },
   {
@@ -96,7 +96,7 @@ export const tb = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'AnvTxls2pzS'
   },
 
@@ -107,7 +107,7 @@ export const tb = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'w0ro7kL3sJA'
   },
 
@@ -117,7 +117,7 @@ export const tb = [
     'indicatorType': '',
     'numerator': '',
     'denominator': '',
-    'cardClass': 'col m6 s12',
+    'cardClass': 'col-sm-12 col-md-6',
     'data': 'nbKyhwUcYj6'
   }
 ];
