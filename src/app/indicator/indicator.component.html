@@ -5,6 +5,7 @@
         <label class="text-secondary">Period</label>
         <select [(ngModel)]="selected_pe"  class="form-control form-control-sm filter-selector" (change)="updatePeriod(selected_pe)">
           <option *ngFor="let year of years$ | async" value="{{year.id}}" >{{year.name}} </option>
+          <option *ngFor="let quarter of quarters$ | async" value="{{quarter.id}}" >{{quarter.name}} </option>
         </select>
       </div>
     </div>
