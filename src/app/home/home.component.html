@@ -22,7 +22,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12 mb-3" *ngFor="let indicator of indicators">
-      <div class="card">
+      <div class="card" (mouseenter)="setOptions(true,indicator)" (mouseleave)="setOptions(false,indicator)">
         <div class="card-body">
 
           <div class="lead" *ngIf="indicator.loading">
@@ -33,6 +33,21 @@
           <div *ngIf="!indicator.loading && indicator.visualizerType == 'table' && !indicator.hasError">
             <app-table-template [tableObject]="indicator.tableObject"></app-table-template>
           </div>
+
+          <div class="options-block" *ngIf="indicator.showOptions && indicator.visualizerType == 'chart' && !indicator.hasError">
+            <ul class="nav nav-stacked">
+              <li *ngFor="let chartType of chartTypes">
+                <a
+                  (click)="updateChartType(chartType.type, indicator)"
+                  title="{{chartType.description}}"
+                  [ngClass]="'bar' == chartType.type ? 'active-type' : ''"
+                >
+                  <img [src]="chartType.icon" class="chart-option-icon" alt="">
+                </a>
+              </li>
+            </ul>
+          </div>
+
           <div class="lead text-warning" *ngIf="indicator.hasError">
             <i class="fa fa-warning"></i> Sorry, something went wrong while fetching data! make sure you have internet connection and  try to reload the page
           </div>

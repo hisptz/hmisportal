@@ -11,6 +11,7 @@ import {VisualizerService} from '../shared/services/visualizer.service';
 import * as _ from 'lodash';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
+import {CHART_TYPES} from "../shared/chart_types";
 
 @Component({
   moduleId: module.id,
@@ -28,6 +29,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
   selected_ou_name: string;
   selected_pe: string;
   subscriptions: Subscription[] = [];
+  chartTypes = CHART_TYPES;
   constructor(
     private store: Store<ApplicationState>,
     private portalService: PortalService,
@@ -63,6 +65,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
             this.indicators = data;
             this.indicators.forEach( (item) => {
               item.loading = true;
+              item.showOptions = false;
               item.hasError = false;
               let url = 'api/analytics.json?dimension=dx:' + item.data;
               url += '&dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
@@ -104,6 +107,22 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
 
   updateType(type, item) {
     item.visualizerType = type;
+  }
+
+  setOptions(type, item) {
+    item.showOptions = type;
+  }
+
+  updateChartType(type, item) {
+    item.chart = type;
+    const chartConfiguration = {
+      type: item.chart,
+      title: item.title,
+      xAxisType: 'ou',
+      yAxisType: item.yAxisType,
+      show_labels: false
+    };
+    item.chartObject = this.viualizer.drawChart(item.analytics, chartConfiguration);
   }
 
   updateOrgunit(ou) {

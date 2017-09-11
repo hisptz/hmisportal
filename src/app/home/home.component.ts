@@ -10,6 +10,7 @@ import {VisualizerService} from '../shared/services/visualizer.service';
 
 import * as _ from 'lodash';
 import {Subscription} from "rxjs/Subscription";
+import {CHART_TYPES} from "../shared/chart_types";
 
 @Component({
   moduleId: module.id,
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy  {
   selected_ou_name: string;
   selected_pe: string;
   subscriptions: Subscription[] = [];
+  chartTypes = CHART_TYPES;
   constructor(
     private store: Store<ApplicationState>,
     private portalService: PortalService,
@@ -51,6 +53,7 @@ export class HomeComponent implements OnInit, OnDestroy  {
             this.indicators = data;
             this.indicators.forEach( (item) => {
               item.loading = true;
+              item.showOptions = false;
               item.hasError = false;
               item.renderId =  _.map(item.data, 'uid').join('_');
               const url = item.url + 'dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
@@ -73,6 +76,7 @@ export class HomeComponent implements OnInit, OnDestroy  {
                       displayList: false,
                     };
                     item.visualizerType = (item.visualizerType) ? item.visualizerType : 'chart';
+                    item.analytics = analytics;
                     item.chartObject = this.viualizer.drawChart(analytics, chartConfiguration);
                     item.tableObject = this.viualizer.drawTable(analytics, tableConfiguration);
                     item.loading =  false;
@@ -96,10 +100,27 @@ export class HomeComponent implements OnInit, OnDestroy  {
     item.visualizerType = type;
   }
 
+  setOptions(type, item) {
+    item.showOptions = type;
+  }
+
+  updateChartType(type, item) {
+    item.chart = type;
+    const chartConfiguration = {
+      type: item.chart,
+      title: item.title,
+      xAxisType: 'ou',
+      yAxisType: item.yAxisType,
+      show_labels: false
+    };
+    item.chartObject = this.viualizer.drawChart(item.analytics, chartConfiguration);
+  }
+
   updateOrgunit(ou) {
     this.store.dispatch(new dataactions.SetSelectedOuAction(ou));
     this.updatePortal();
   }
+
 
   updatePeriod(pe) {
     this.store.dispatch(new dataactions.SetDashboardPerioAction(pe));
