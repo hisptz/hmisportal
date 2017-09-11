@@ -32,6 +32,8 @@
           <a class="dropdown-item" [routerLink]="['indicator','postnatalCare']">POST NATAL CARE</a>
           <a class="dropdown-item" [routerLink]="['indicator','gbvVac']">GBV &amp;VAC</a>
           <a class="dropdown-item" [routerLink]="['indicator','cervicalCancer']">CERVICAL CANCER</a>
+          <a class="dropdown-item" [routerLink]="['indicator','tracer_medicine']">TRACER MEDICINE</a>
+          <a class="dropdown-item" [routerLink]="['familyPlanningHome']">FAMILY PLANNING</a>
         </div>
       </li>
       <!--Program Indicators-->
@@ -54,9 +56,7 @@
             </ul>
           </li>
           <li><a class="dropdown-item" [routerLink]="['indicator','noncommunicabledisease']">NON-COMMUNICABLE DISEASE</a></li>
-          <li><a class="dropdown-item" [routerLink]="['indicator','tracer_medicine']">TRACER MEDICINE</a></li>
           <li><a class="dropdown-item" [routerLink]="['indicator','tb']">TB&amp;LEPROSY</a></li>
-          <li><a class="dropdown-item" [routerLink]="['familyPlanningHome']">FAMILY PLANNING</a></li>
         </ul>
       </li>
       <!--Raw Data Coverage-->
@@ -66,7 +66,7 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="Raw">
           <li class="dropdown-submenu">
-            <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">HMIS</a>
+            <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">HMIS&amp;RCH</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" [routerLink]="['dataset','zeEp4Xu2GOm']">HMIS-Kliniki ya Wajawazito(ANC)</a></li>
               <li><a class="dropdown-item" [routerLink]="['dataset','GzvLb3XVZbR']">HMIS-Kutoka Wodi ya Wazazi(LD)</a></li>
@@ -76,11 +76,10 @@
               <li><a class="dropdown-item" [routerLink]="['dataset','rm3y3VHPiFD']">HMIS-Huduma Baada ya Kujifungua(Postnatal)</a></li>
               <li><a class="dropdown-item" [routerLink]="['dataset','TfoI3vTGv1f']">HMIS-Uzazi wa Mpango(FP)</a></li>
               <li><a class="dropdown-item" [routerLink]="['dataset','bHrWIwZaVV2']">HMIS-Report Kutoka Kituo cha Huduma(Book10)</a></li>
-              <li><a class="dropdown-item" [routerLink]="['dataset','ws4ZoC7SC1d']">HMIS-Death Registry</a></li>
+              <!--<li><a class="dropdown-item" [routerLink]="['dataset','ws4ZoC7SC1d']">HMIS-Death Registry</a></li>-->
               <li><a class="dropdown-item" [routerLink]="['dataset','ZOvFj2vtlor']">HMIS-Tracer Medicine</a></li>
               <li><a class="dropdown-item" [routerLink]="['dataset','jNsYicUMUDr']">HMIS-Magonjwa ya Kuhara(DTC)</a></li>
               <li><a class="dropdown-item" [routerLink]="['dataset','ExX34Bpv0qN']">HMIS-Wagonjwa wa Macho(Eye)</a></li>
-              <li><a class="dropdown-item" [routerLink]="['dataset','Dp0VF7ssmcH']">HMIS-HIV Care and Treatment(HCT)</a></li>
               <li><a class="dropdown-item" [routerLink]="['dataset','xQWse025yRw']">HMIS-Wagonjwa wa Kinywa(Dental)</a></li>
               <li><a class="dropdown-item" [routerLink]="['dataset','xQWse025yRw']">HMIS-Wagonjwa wa Kinywa(Dental)</a></li>
               <li><a class="dropdown-item" [routerLink]="['dataset','GzvLb3XVZbR']">HMIS-Kutoka Wodi ya Wazazi(LD)</a></li>
@@ -105,6 +104,7 @@
               <li><a class="dropdown-item" [routerLink]="['dataset','CxaDPrjhmax']">NACP-Home based care(HUWANYU)</a></li>
               <li><a class="dropdown-item" [routerLink]="['dataset','g1oggP7x124']">NACP-PMTCT</a></li>
               <li><a class="dropdown-item" [routerLink]="['dataset','db4lfMnttc6']">NACP-Sexually Transmitted Infections(STI)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','Dp0VF7ssmcH']">NACP-HIV Care and Treatment(HCT)</a></li>
             </ul>
           </li>
           <li class="dropdown-submenu">
@@ -117,12 +117,12 @@
               <li><a class="dropdown-item" [routerLink]="['dataset','ZOkoQ7BtbVQ']">NTLP-Tuberculosis and TB/HIV(TB09)</a></li>
             </ul>
           </li>
-          <li class="dropdown-submenu">
-            <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">RCHS</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="['dataset','AYmj40WLSo7']">PMTCT</a></li>
-            </ul>
-          </li>
+          <!--<li class="dropdown-submenu">-->
+            <!--<a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">RCHS</a>-->
+            <!--<ul class="dropdown-menu">-->
+              <!--<li><a class="dropdown-item" [routerLink]="['dataset','AYmj40WLSo7']">PMTCT</a></li>-->
+            <!--</ul>-->
+          <!--</li>-->
         </ul>
       </li>
       <!--Downloads-->
