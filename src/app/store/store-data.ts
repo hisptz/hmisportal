@@ -39,7 +39,7 @@ export const INITIAL_STORE_DATA: StoreData = {
   indicators: [],
   currentpage: 'dashboard',
   dashboardPeriod: '2016',
-  currentperiod: { name: '2016' , id: '2016' },
+  currentperiod: '2017Q1',
   currentperiodtype: 'Year',
   options: null,
   currentorgunit: 'm0frOspS7JY',

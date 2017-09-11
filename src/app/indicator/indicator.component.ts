@@ -58,7 +58,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
         subscr.unsubscribe();
       }
     }
-    this.store.select(selectors.getDashboardPeriod).take(1).subscribe( (period) => {
+    this.store.select(selectors.getNormalPeriod).take(1).subscribe( (period) => {
       this.store.select(selectors.getSelectedOrganisationUnit).take(1).subscribe( (orgunit) => {
         this.store.select(selectors.getPortalItems).take(1).subscribe(
           (data) => {
@@ -88,6 +88,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
                       displayList: false,
                     };
                     item.visualizerType = (item.visualizerType) ? item.visualizerType : 'chart';
+                    item.analytics = analytics;
                     item.chartObject = this.viualizer.drawChart(analytics, chartConfiguration);
                     item.tableObject = this.viualizer.drawTable(analytics, tableConfiguration);
                     item.loading =  false;
@@ -119,7 +120,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
       type: item.chart,
       title: item.title,
       xAxisType: 'ou',
-      yAxisType: item.yAxisType,
+      yAxisType: 'dx',
       show_labels: false
     };
     item.chartObject = this.viualizer.drawChart(item.analytics, chartConfiguration);
@@ -131,7 +132,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
   }
 
   updatePeriod(pe) {
-    this.store.dispatch(new dataactions.SetDashboardPerioAction(pe));
+    this.store.dispatch(new dataactions.SetSelectedPeriodAction(pe));
     this.updatePortal();
   }
 

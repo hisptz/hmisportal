@@ -94,7 +94,7 @@ export const dashboards = [
       {'name': 'Home Based Care ( HUWANYU)', 'uid': 'CxaDPrjhmax'},
       {'name': 'Sexually Transmitted Infections (STI)', 'uid': 'db4lfMnttc6'}
     ],
-    'title': 'HMIS DATA COMPLETENESS',
+    'title': 'NACP DATA COMPLETENESS',
     'description': 'HMIS DATA COMPLETENESS',
     'chart': 'column',
     'higher_level': false,
@@ -108,7 +108,7 @@ export const dashboards = [
       {'name': 'Home Based Care ( HUWANYU)', 'uid': 'O2V8r4UT8kB'},
       {'name': 'Tuberculosis and TB/HIV', 'uid': 'IzUZXETYoyB'}
     ],
-    'title': 'HMIS DATA COMPLETENESS',
+    'title': 'NTLP DATA COMPLETENESS',
     'description': 'HMIS DATA COMPLETENESS',
     'chart': 'column',
     'higher_level': false,

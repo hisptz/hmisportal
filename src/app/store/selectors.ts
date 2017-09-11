@@ -24,6 +24,10 @@ export const getDashboardPeriod = createSelector(getStoreData, (datastate) => {
   return datastate.dashboardPeriod;
 });
 
+export const getNormalPeriod = createSelector(getStoreData, (datastate) => {
+  return datastate.currentperiod;
+});
+
 export const getSelectedOrgunit = createSelector(getStoreData, (datastate) => {
   return datastate.currentorgunit;
 });

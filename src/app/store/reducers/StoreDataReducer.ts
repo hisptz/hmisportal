@@ -17,6 +17,11 @@ export function storeData(state: StoreData, action: any): StoreData {
         current.dashboardPeriod = action.payload;
         return current;
 
+      case store_actions.SET_SELECTED_PERIOD:
+        const currentpe = _.cloneDeep(state);
+        currentpe.currentperiod = action.payload;
+        return currentpe;
+
       case store_actions.SET_SELECTED_OU:
         const currentStore = _.cloneDeep(state);
         currentStore.currentorgunit = action.payload;
