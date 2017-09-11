@@ -67,6 +67,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
               let url = 'api/analytics.json?dimension=dx:' + item.data;
               url += '&dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
               item.csv = url.replace('.json', '.csv');
+              item.csv = '../dhis/' + item.csv;
               this.subscriptions.push(
                 this.portalService.getAnalyticsData(url).subscribe(
                   (analytics) => {

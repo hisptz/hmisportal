@@ -4,7 +4,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import {HomeComponent} from './home/home.component';
-import {FamilyPlaningComponent} from "./family-planing/family-planing.component";
+import {FamilyPlaningComponent} from './family-planing/family-planing.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent , pathMatch: 'full' },

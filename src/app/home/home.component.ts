@@ -55,6 +55,7 @@ export class HomeComponent implements OnInit, OnDestroy  {
               item.renderId =  _.map(item.data, 'uid').join('_');
               const url = item.url + 'dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
               item.csv = url.replace('.json', '.csv');
+              item.csv = '../dhis/' + item.csv;
               this.subscriptions.push(
                 this.portalService.getAnalyticsData(url).subscribe(
                   (analytics) => {
