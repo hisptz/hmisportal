@@ -23,20 +23,20 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div  *ngFor="let indicator of indicators" [ngClass]="indicator.cardClass" class="col-sm-12 mb-3">
+    <div [ngClass]="indicators[0].cardClass" class="col-sm-12 mb-3">
       <div class="card">
         <div class="card-body">
 
-          <div class="lead" *ngIf="indicator.loading">
-            <h3 class="lead text-center">{{indicator.title}}</h3>
-            <app-placeholder [loadingMessage]="'Getting '+ selected_pe+ ' '+ selected_ou_name + ' ' + indicator.title + ' data ...'"></app-placeholder>
+          <div class="lead" *ngIf="indicators[0].loading">
+            <h3 class="lead text-center">{{indicators[0].title}}</h3>
+            <app-placeholder [loadingMessage]="'Getting '+ selected_pe+ ' '+ selected_ou_name + ' ' + indicators[0].title + ' data ...'"></app-placeholder>
           </div>
-          <div *ngIf="!indicator.loading && indicator.visualizerType == 'chart' && !indicator.hasError" [ng2-highcharts]="indicator.chartObject"></div>
-          <div *ngIf="!indicator.loading && indicator.visualizerType == 'table' && !indicator.hasError">
-            <app-table-template [tableObject]="indicator.tableObject"></app-table-template>
+          <div *ngIf="!indicators[0].loading && indicators[0].visualizerType == 'chart' && !indicators[0].hasError" [ng2-highcharts]="indicators[0].chartObject"></div>
+          <div *ngIf="!indicators[0].loading && indicators[0].visualizerType == 'table' && !indicators[0].hasError">
+            <app-table-template [tableObject]="indicators[0].tableObject"></app-table-template>
           </div>
           <!--error handling-->
-          <div class="lead text-warning" *ngIf="indicator.hasError">
+          <div class="lead text-warning" *ngIf="indicators[0].hasError">
             <i class="fa fa-warning"></i> Sorry, something went wrong while fetching data! make sure you have internet connection and  try to reload the page
           </div>
         </div>

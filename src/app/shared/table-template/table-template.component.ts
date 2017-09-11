@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-table-template',
   templateUrl: './table-template.component.html',
   styleUrls: ['./table-template.component.css']

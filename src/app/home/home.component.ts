@@ -12,6 +12,7 @@ import * as _ from 'lodash';
 import {Subscription} from "rxjs/Subscription";
 
 @Component({
+  moduleId: module.id,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
@@ -53,6 +54,7 @@ export class HomeComponent implements OnInit, OnDestroy  {
               item.hasError = false;
               item.renderId =  _.map(item.data, 'uid').join('_');
               const url = item.url + 'dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
+              item.csv = url.replace('.json', '.csv');
               this.subscriptions.push(
                 this.portalService.getAnalyticsData(url).subscribe(
                   (analytics) => {

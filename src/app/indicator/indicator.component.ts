@@ -13,6 +13,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-indicator',
   templateUrl: './indicator.component.html',
   styleUrls: ['./indicator.component.css']
@@ -65,6 +66,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
               item.hasError = false;
               let url = 'api/analytics.json?dimension=dx:' + item.data;
               url += '&dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
+              item.csv = url.replace('.json', '.csv');
               this.subscriptions.push(
                 this.portalService.getAnalyticsData(url).subscribe(
                   (analytics) => {

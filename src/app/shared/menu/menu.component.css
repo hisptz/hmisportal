@@ -4,6 +4,10 @@
 .nav-link{
   font-size: 12px;
 }
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+}
 .dropdown-item{
   padding-left: 6px;
 }

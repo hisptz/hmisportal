@@ -13,6 +13,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-dataset',
   templateUrl: './dataset.component.html',
   styleUrls: ['./dataset.component.css']
@@ -43,6 +44,13 @@ export class DatasetComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.indicators = [
+      {
+        cardClass: 'col-sm-12 col-md-12',
+        loading: true,
+        hasError: false
+      }
+    ];
     this.activatedRouter.params.subscribe(
       (params: any) => {
         this.dataset = params['dataset'];
