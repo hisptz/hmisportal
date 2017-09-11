@@ -40,7 +40,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
     this.quarters$ = this.store.select(selectors.getQuarters);
     this.organisationUnits$ = this.store.select(selectors.getOrganisationUnits);
     this.store.select(selectors.getSelectedOrgunit).take(1).subscribe( ou => this.selected_ou = ou);
-    this.store.select(selectors.getDashboardPeriod).take(1).subscribe( pe => this.selected_pe = pe);
+    this.store.select(selectors.getNormalPeriod).take(1).subscribe( pe => this.selected_pe = pe);
     this.store.select(selectors.getSelectedOrganisationUnit).subscribe( ou => this.selected_ou_name = ou.name);
   }
 
