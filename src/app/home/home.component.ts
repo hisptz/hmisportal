@@ -53,6 +53,11 @@ export class HomeComponent implements OnInit, OnDestroy  {
             this.indicators = data;
             this.indicators.forEach( (item) => {
               item.loading = true;
+              if (item.hasOwnProperty('identifiers')) {
+                item.identifiers = item.identifiers;
+              }else {
+                item.identifiers = _.map(item.data, ( indicat: any ) => indicat.uid ).join(';');
+              }
               item.showOptions = false;
               item.hasError = false;
               item.renderId =  _.map(item.data, 'uid').join('_');

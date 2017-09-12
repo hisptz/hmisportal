@@ -29,7 +29,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
   selected_ou_name: string;
   selected_pe: string;
   subscriptions: Subscription[] = [];
-  chartTypes = CHART_TYPES;
+
   constructor(
     private store: Store<ApplicationState>,
     private portalService: PortalService,
@@ -66,6 +66,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
             this.indicators.forEach( (item) => {
               item.chart = (item.hasOwnProperty('chart')) ? item.chart : 'column';
               item.loading = true;
+              item.identifiers = item.data;
               item.showOptions = false;
               item.hasError = false;
               let url = 'api/analytics.json?dimension=dx:' + item.data;
@@ -108,25 +109,6 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
     });
   }
 
-  updateType(type, item) {
-    item.visualizerType = type;
-  }
-
-  setOptions(type, item) {
-    item.showOptions = type;
-  }
-
-  updateChartType(type, item) {
-    item.chart = type;
-    const chartConfiguration = {
-      type: item.chart,
-      title: item.title,
-      xAxisType: 'ou',
-      yAxisType: 'dx',
-      show_labels: false
-    };
-    item.chartObject = this.viualizer.drawChart(item.analytics, chartConfiguration);
-  }
 
   updateOrgunit(ou) {
     this.store.dispatch(new dataactions.SetSelectedOuAction(ou));

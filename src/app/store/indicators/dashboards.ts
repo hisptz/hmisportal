@@ -22,6 +22,7 @@ export const dashboards = [
       {'name': '15 - 49', 'uid': 'FfN1mqXvpR7'},
       {'name': '50 - 60', 'uid': 'HKU7NijIEIH'}
     ],
+    'identifiers': 'ykShMtNgDB1',
     'title': 'POPULATION BY AGE',
     'description': 'TOTAL POPULATION BY AGE',
     'chart': 'column',
@@ -34,6 +35,7 @@ export const dashboards = [
       {'name': 'Male', 'uid': 'mtUMlCLFTTz'},
       {'name': 'Female', 'uid': 'syxWmui9UMq'}
     ],
+    'identifiers': 'ykShMtNgDB1',
     'title': 'POPULATION BY GENDER',
     'description': 'TOTAL POPULATION BY GENDER',
     'chart': 'column',

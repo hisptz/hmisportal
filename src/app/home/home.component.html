@@ -24,7 +24,10 @@
     <div class="col-sm-12 mb-3" *ngFor="let indicator of indicators">
       <div class="card" (mouseenter)="setOptions(true,indicator)" (mouseleave)="setOptions(false,indicator)">
         <div class="card-body">
-
+          <app-metadata-dictionary
+            [metadataidentifiers]="indicator.identifiers"
+            *ngIf="!indicator.loading && indicator.visualizerType == 'info' && !indicator.hasError"
+          ></app-metadata-dictionary>
           <div class="lead" *ngIf="indicator.loading">
             <h3 class="lead text-center">{{indicator.title}}</h3>
             <app-placeholder [loadingMessage]="'Getting '+ selected_ou_name + ' ' + indicator.title + ' data ...'"></app-placeholder>
@@ -56,14 +59,17 @@
 
 
         <div class="card-footer text-muted">
-          <button class="btn btn-outline-success btn-sm" (click)="updateType('table', indicator)">
+          <button class="btn btn-outline-success btn-sm cursor" (click)="updateType('table', indicator)">
             <i class="fa fa-table"></i> Table
           </button>
-          <button class="btn btn-outline-success btn-sm" (click)="updateType('chart', indicator)">
+          <button class="btn btn-outline-success btn-sm cursor" (click)="updateType('chart', indicator)">
             <i class="fa fa-bar-chart"></i> Chart
           </button>
-          <a class="btn btn-outline-success btn-sm" href="{{indicator.csv}}">
+          <a class="btn btn-outline-success btn-sm cursor" href="{{indicator.csv}}">
             <i class="fa fa-file-excel-o"></i> Excel
+          </a>
+          <a class="btn btn-outline-info btn-sm pull-right cursor" (click)="updateType('info', indicator)">
+            <i class="fa fa-info-circle"></i>
           </a>
           <footer class="blockquote-footer">
             <small style="font-size: 8px">This data is not for Publication it is used for administrative purpose only, to get data for publication contact  <cite title="Source Title">Permanent secretary ministry of health</cite></small>

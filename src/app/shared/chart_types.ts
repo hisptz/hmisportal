@@ -36,12 +36,12 @@ export const CHART_TYPES = [
   {
     type: 'stacked_column',
     description: 'stacked column chart',
-    icon: 'assets/img/stacked-column.png'
+    icon: 'assets/img/stacked_column.png'
   },
   {
     type: 'stacked_bar',
     description: 'stacked bar chart',
-    icon: 'assets/img/stacked-bar.png'
+    icon: 'assets/img/stacked_bar.png'
   },
   {
     type: 'radar',

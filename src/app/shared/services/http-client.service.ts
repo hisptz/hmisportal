@@ -31,6 +31,13 @@ export class HttpClientService {
     }).map(this.responseHandler()).catch(this.handleError);
   }
 
+  get2(url) {
+    const headers: Headers = this.createAuthorizationHeader();
+    return this.http.get( url, {
+      headers: headers
+    }).map(this.responseHandler()).catch(this.handleError);
+  }
+
   get1(url) {
     return this.http.get('../../../' + url).map(this.responseHandler()).catch(this.handleError);
   }
@@ -40,6 +47,10 @@ export class HttpClientService {
     return this.http.post(this.APIURL + url, data, {
       headers: headers
     }).map(this.responseHandler()).catch(this.handleError);
+  }
+
+  post1(url, data, options?) {
+    return this.http.post(this.APIURL + url, data).map(this.responseHandler()).catch(this.handleError);
   }
   put(url, data, options?) {
     const headers: Headers = this.createAuthorizationHeader();
