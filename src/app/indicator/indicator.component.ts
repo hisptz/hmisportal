@@ -64,6 +64,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
           (data) => {
             this.indicators = data;
             this.indicators.forEach( (item) => {
+              item.chart = (item.hasOwnProperty('chart')) ? item.chart : 'column';
               item.loading = true;
               item.showOptions = false;
               item.hasError = false;
@@ -88,6 +89,7 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
                       displayList: false,
                     };
                     item.visualizerType = (item.visualizerType) ? item.visualizerType : 'chart';
+                    console.log(item.title, chartConfiguration);
                     item.analytics = analytics;
                     item.chartObject = this.viualizer.drawChart(analytics, chartConfiguration);
                     item.tableObject = this.viualizer.drawTable(analytics, tableConfiguration);
