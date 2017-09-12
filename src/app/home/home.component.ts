@@ -101,26 +101,6 @@ export class HomeComponent implements OnInit, OnDestroy  {
     console.log('it works');
   }
 
-  updateType(type, item) {
-    item.visualizerType = type;
-  }
-
-  setOptions(type, item) {
-    item.showOptions = type;
-  }
-
-  updateChartType(type, item) {
-    item.chart = type;
-    const chartConfiguration = {
-      type: item.chart,
-      title: item.title,
-      xAxisType: 'ou',
-      yAxisType: item.yAxisType,
-      show_labels: false
-    };
-    item.chartObject = this.viualizer.drawChart(item.analytics, chartConfiguration);
-  }
-
   updateOrgunit(ou) {
     this.store.dispatch(new dataactions.SetSelectedOuAction(ou));
     this.updatePortal();

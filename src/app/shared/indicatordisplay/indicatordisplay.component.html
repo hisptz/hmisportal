@@ -21,7 +21,7 @@
           <a
             (click)="updateChartType(chartType.type, indicator)"
             title="{{chartType.description}}"
-            [ngClass]="indicator.chart == chartType.type ? 'chart-active' : ''"
+            [ngClass]="{ 'text-success': (indicator.chart == chartType.type) }"
           >
             <img [src]="chartType.icon" class="chart-option-icon" alt="">
           </a>
