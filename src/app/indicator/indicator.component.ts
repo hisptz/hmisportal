@@ -77,13 +77,13 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
                   (analytics) => {
                     const chartConfiguration = {
                       type: item.chart,
-                      title: item.title + ' - ' + orgunit.name + ' - ' + period,
+                      title: item.title + ' - ' + orgunit.name + ' - ' + this.portalService.getPeriodName(period),
                       xAxisType: 'ou',
                       yAxisType: 'dx',
                       show_labels: false
                     };
                     const tableConfiguration = {
-                      title: item.title + ' - ' + orgunit.name + ' - ' + period,
+                      title: item.title + ' - ' + orgunit.name + ' - ' + this.portalService.getPeriodName(period),
                       rows: ['ou'],
                       columns: ['dx'],
                       displayList: false,

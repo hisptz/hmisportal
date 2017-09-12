@@ -29,7 +29,7 @@
 
           <div class="lead" *ngIf="indicators[0].loading">
             <h3 class="lead text-center">{{indicators[0].title}}</h3>
-            <app-placeholder [loadingMessage]="'Getting '+ selected_pe+ ' '+ selected_ou_name + ' ' + indicators[0].title + ' data ...'"></app-placeholder>
+            <app-placeholder [loadingMessage]="'Getting '+ selected_ou_name + ' ' + indicators[0].title + ' data ...'"></app-placeholder>
           </div>
           <div *ngIf="!indicators[0].loading && indicators[0].visualizerType == 'chart' && !indicators[0].hasError" [ng2-highcharts]="indicators[0].chartObject"></div>
           <div *ngIf="!indicators[0].loading && indicators[0].visualizerType == 'table' && !indicators[0].hasError">

@@ -85,7 +85,7 @@ export class DatasetComponent implements OnInit, OnDestroy {
                 this.portalService.getAnalyticsData(url).subscribe(
                   (analytics) => {
                     const tableConfiguration = {
-                      title: item.title + ' - ' + orgunit.name + ' - ' + period,
+                      title: item.title + ' - ' + orgunit.name + ' - ' + this.portalService.getPeriodName(period),
                       rows: ['dx'],
                       columns: ['ou'],
                       displayList: false,

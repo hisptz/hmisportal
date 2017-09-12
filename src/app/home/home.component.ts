@@ -64,13 +64,13 @@ export class HomeComponent implements OnInit, OnDestroy  {
                   (analytics) => {
                     const chartConfiguration = {
                       type: item.chart,
-                      title: item.title + ' - ' + orgunit.name + ' - ' + period,
+                      title: item.title + ' - ' + orgunit.name + ' - ' + this.portalService.getPeriodName(period),
                       xAxisType: 'ou',
                       yAxisType: item.yAxisType,
                       show_labels: false
                     };
                     const tableConfiguration = {
-                      title: item.title + ' - ' + orgunit.name + ' - ' + period,
+                      title: item.title + ' - ' + orgunit.name + ' - ' + this.portalService.getPeriodName(period),
                       rows: ['ou'],
                       columns: ['dx'],
                       displayList: false,
