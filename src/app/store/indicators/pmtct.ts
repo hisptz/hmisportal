@@ -7,7 +7,7 @@ export const pmtct = [
     'denominator': ' ',
     'cardClass': 'col-sm-12 col-md-12',
     'data': 'H8axfw1rcJv',
-    'chart': 'line'
+    'chart': 'column'
   },
   {
     'title': 'Percentage of pregnant women attending ANC whose male partner were tested for HIV',

@@ -7,7 +7,7 @@ export const noncommunicabledisease = [
     'denominator': ' ',
     'cardClass': 'col-sm-12 col-md-12',
     'data': 'leoNoXM9lUV',
-    'chart': 'line'
+    'chart': 'column'
   },
   {
     'title': 'Coverage of Suicide related mortality per 100,000 population',

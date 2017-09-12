@@ -16,7 +16,7 @@ export const ancIntegration = [
     'denominator': '',
     'cardClass': 'col-sm-12 col-md-6',
     'data': 'cbMFAd44Lih',
-    'chart': 'line'
+    'chart': 'column'
 
   },
   {

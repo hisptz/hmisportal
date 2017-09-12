@@ -17,7 +17,7 @@ export const pediatrichiv = [
     'denominator': ' ',
     'cardClass': 'col-sm-12 col-md-12',
     'data': 'A9YN57MipDC',
-    'chart': 'line'
+    'chart': 'column'
   },
   {
     'title': 'Number of Children newly initiated on ART during the reporting period (EXCLUDE Tl)',

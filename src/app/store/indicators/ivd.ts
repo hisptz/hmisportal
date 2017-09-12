@@ -7,7 +7,7 @@ export const ivd = [
     'denominator': ' ',
     'cardClass': 'col-sm-12 col-md-12',
     'data': 'TyXAtTAQxpD',
-    'chart': 'line'
+    'chart': 'column'
   },
   {
     'title': 'Percentage of suriving children who received Penta 3',
@@ -27,7 +27,7 @@ export const ivd = [
     'denominator': ' ',
     'cardClass': 'col-sm-12 col-md-6',
     'data': 'k3lTvIZOnMP',
-    'chart': 'line'
+    'chart': 'column'
   },
   {
     'title': 'Percentage of surviving children received Rotavirus Dose 2',
@@ -37,7 +37,7 @@ export const ivd = [
     'denominator': ' ',
     'cardClass': 'col-sm-12 col-md-6',
     'data': 'zDZ0YxFEpSH',
-    'chart': 'line'
+    'chart': 'column'
   },
   {
     'title': 'Percentage of surviving children who received PCV-1',

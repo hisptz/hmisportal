@@ -7,7 +7,7 @@ export const postnatalCare = [
     'denominator': '',
     'cardClass': 'col-sm-12 col-md-6',
     'data': 'S0cn3ephUSs',
-    'chart': 'line'
+    'chart': 'column'
   },
   {
     'title': 'Postnatal attendance rate',
@@ -35,7 +35,7 @@ export const postnatalCare = [
     'denominator': '',
     'cardClass': 'col-sm-12 col-md-12',
     'data': 'kxWtlmuQjRI',
-    'chart': 'line'
+    'chart': 'column'
   },
   {
     'title': 'Percentage of women who attended postpartum care within 7 days of delivery',

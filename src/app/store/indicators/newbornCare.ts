@@ -25,7 +25,7 @@ export const newbornCare = [
     'icons': '',
     'displayTable': false,
     'displayMap': false,
-    'chart': 'line',
+    'chart': 'column',
     'chartObject': ''
 
   },

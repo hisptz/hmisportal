@@ -16,7 +16,7 @@ export const cervicalCancer = [
     'denominator': '',
     'cardClass': 'col-sm-12 col-md-6',
     'data': 'VQuJu7LuUbf',
-    'chart': 'line'
+    'chart': 'column'
 
   },
   {

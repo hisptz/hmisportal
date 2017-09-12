@@ -15,7 +15,7 @@ export const tracer_medicine = [{
     'denominator': ' ',
     'cardClass': 'col-sm-12 col-md-6',
     'data': 'Y6gfcTiQcis',
-    'chart': 'line'
+    'chart': 'column'
   },
   {
     'title': 'Disposable Syringe Availability',
@@ -84,7 +84,7 @@ export const tracer_medicine = [{
     'denominator': ' ',
     'cardClass': 'col-sm-12 col-md-6',
     'data': 'KxS8b24bAZC',
-    'chart': 'line'
+    'chart': 'column'
   },
   {
     'title': 'Artemether / Lumefantrine Oral Available',
@@ -116,7 +116,7 @@ export const tracer_medicine = [{
     'denominator': ' ',
     'cardClass': 'col-sm-12 col-md-6',
     'data': 'UCmAgEwrtnL',
-    'chart': 'line'
+    'chart': 'column'
   },
 
   {
@@ -213,7 +213,7 @@ export const tracer_medicine = [{
     'denominator': ' ',
     'cardClass': 'col-sm-12 col-md-6',
     'data': 'aoT6ct7Vfel',
-    'chart': 'line'
+    'chart': 'column'
   },
 
   {
@@ -258,7 +258,7 @@ export const tracer_medicine = [{
     'denominator': ' ',
     'cardClass': 'col-sm-12 col-md-6',
     'data': 'UpQjua0Othb',
-    'chart': 'line'
+    'chart': 'column'
   },
 
   {

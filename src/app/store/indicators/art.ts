@@ -7,7 +7,7 @@ export const art = [
     'denominator': ' ',
     'cardClass': 'col-sm-12 col-md-12',
     'data': 'GZHL7cb5NAE',
-    'chart': 'line'
+    'chart': 'column'
   },
 
   {

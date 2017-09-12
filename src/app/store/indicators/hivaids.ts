@@ -16,7 +16,7 @@ export const hivaids = [
     'denominator': '',
     'cardClass': 'col-sm-12 col-md-6',
     'data': 'bSGgVZvFfmH',
-    'chart': 'line'
+    'chart': 'column'
 
   }
 ];

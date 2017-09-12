@@ -16,7 +16,7 @@ export const mortalities = [
     'denominator': '',
     'cardClass': 'col-sm-12 col-md-6',
     'data': 'Y1pkrlq2hWi',
-    'chart': 'line'
+    'chart': 'column'
   },
   {
     'title': 'Under five Growth Monitoring',

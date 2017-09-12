@@ -18,7 +18,7 @@ export const gbvVac = [
     'data': 'rJbmyK2R99I',
     'displayTable': false,
     'displayMap': false,
-    'chart': 'line'
+    'chart': 'column'
 
   },
   {
