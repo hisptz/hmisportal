@@ -36,9 +36,6 @@
   </div>
 
   <div class="card-footer text-muted" style="margin-right: 5px">
-    <button class="btn btn-outline-info btn-sm pull-right cursor" style="border-radius: 50%" (click)="updateType('info', indicator)">
-      <i class="fa fa-info-circle"></i>
-    </button>
     <button class="btn btn-sm cursor"
             [ngClass]="{ 'btn-outline-success': (indicator.visualizerType != 'table'),'btn-secondary':(indicator.visualizerType == 'table') }"
             (click)="updateType('table', indicator)">
@@ -52,6 +49,13 @@
     </button>
     <a class="btn btn-outline-success btn-sm cursor"  href="{{indicator.csv}}">
       <i class="fa fa-file-excel-o"></i> Excel
+    </a>
+    <a
+      class="btn btn-sm pull-right cursor"
+      (click)="updateType('info', indicator)"
+      [ngClass]="{ 'btn-outline-info': (indicator.visualizerType != 'info'),'btn-secondary':(indicator.visualizerType == 'info') }"
+    >
+      <i class="fa fa-info-circle" [ngClass]="{ 'text-white':(indicator.visualizerType == 'info') }"></i>
     </a>
     <footer class="blockquote-footer">
       <small style="font-size: 8px">This data is not for Publication it is used for administrative purpose only, to get data for publication contact  <cite title="Source Title">Permanent secretary ministry of health</cite></small>
