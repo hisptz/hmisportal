@@ -8,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DownloadsComponent implements OnInit {
 
+  linkValue = 'census';
+  heading = 'Census';
   constructor() { }
 
   ngOnInit() {
   }
 
+  activateLink(event, type) {
+    this.heading = event.target.innerText;
+    this.linkValue = type;
+  }
 }
