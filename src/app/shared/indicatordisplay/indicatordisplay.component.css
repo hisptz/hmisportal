@@ -38,17 +38,15 @@
 
 .options-block ul > li > a {
   cursor: pointer;
-  margin-left: 4px;
-  margin-top: 5px;
-  padding-left: 5px;
-  padding-top: 5px;
+  margin: 4px;
+  padding: 5px;
+  padding-top: 12px;
   font-size: 11px;
   /* height: 30px; */
   /* width: 30px; */
   /* border: solid 1px #e0ecfc; */
   border-radius: 15px;
-  background-color: transparent;
-  margin-bottom: 5px;
+  /*background-color: transparent;*/
 }
 
 .options-block a:hover {
@@ -72,5 +70,5 @@
 }
 
 .chart-active {
-  background-color: red;
+  background-color: #e1dede;
 }

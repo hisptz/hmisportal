@@ -131,10 +131,58 @@
       </li>
       <!--Feedback-->
       <li class="nav-item">
-        <a class="nav-item nav-link pull-md-right" [routerLink]="['']">
+        <a class="nav-item nav-link pull-md-right cursor" data-toggle="modal" data-target="#exampleModal">
           <i class="fa fa-commenting-o" aria-hidden="true"></i>
         </a>
       </li>
     </ul>
   </div>
 </nav>
+
+<!--messaging model-->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document"  style="max-width: 80%;margin-left: 10%;margin-right: 10%">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Leave your Comments here..!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 30px">
+            <div class="form-group">
+              <label for="email" class="form-control-label">Email:</label>
+              <input type="text" [(ngModel)]="user.email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+              <label for="phone" class="form-control-label">Contacts phone:</label>
+              <input type="text" class="form-control" [(ngModel)]="user.phone" id="phone">
+            </div>
+
+        <small style="font-size: 8px">Option: Please provide contacts above for return feedback on the comment section</small>
+
+            <div class="form-group">
+              <label for="subject" class="form-control-label">Subject:</label>
+              <input type="text" class="form-control" [(ngModel)]="user.subject" id="subject">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="form-control-label">Message:</label>
+              <textarea class="form-control"  [(ngModel)]="user.message" id="message-text" rows="6"></textarea>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <p *ngIf="showLoading" style="padding-top: 20px" >
+          Saving Comment...
+        </p>
+        <p *ngIf="showError" style="padding-top: 20px" class="text-warning">
+          <i class="fa fa-warning"></i> Something went wrong while sending your comment please try again...
+        </p>
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+        <button type="button" [disabled]="disableds()" class="btn btn-outline-primary" (click)="saveComment()">
+          <i class="fa fa-save"></i> Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

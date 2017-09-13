@@ -15,13 +15,13 @@
     </div>
 
 
-    <div class="options-block" *ngIf="indicator.showOptions && indicator.visualizerType == 'chart' && !indicator.hasError">
+    <div class="options-block" [attr.data-show-ws]="indicator.showOptions && indicator.visualizerType == 'chart' && !indicator.hasError">
       <ul class="nav nav-stacked">
         <li *ngFor="let chartType of chartTypes">
           <a
             (click)="updateChartType(chartType.type, indicator)"
             title="{{chartType.description}}"
-            [ngClass]="{ 'text-success': (indicator.chart == chartType.type) }"
+            [ngClass]="{ 'chart-active': (indicator.chart == chartType.type) }"
           >
             <img [src]="chartType.icon" class="chart-option-icon" alt="">
           </a>
