@@ -13,7 +13,7 @@ export class PortalService {
   }
 
   getAnalyticsData(url) {
-    return this.http.get(url);
+    return this.http.get1(url);
   }
 
   getPeriodName(period) {

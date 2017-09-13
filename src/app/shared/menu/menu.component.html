@@ -117,11 +117,11 @@
         <a class="nav-link dropdown-toggle" href="http://example.com" id="Downloads" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Downloads
         </a>
-        <div class="dropdown-menu" aria-labelledby="Downloads">
-          <a class="dropdown-item" [routerLink]="['downloads']">Health Reports</a>
-          <a target="_blank"  rel="noopener" class="dropdown-item" href="https://hmisportal.moh.go.tz/scorecards">HMIS Scorecards</a>
-          <a target="_blank"  rel="noopener" class="dropdown-item" href="https://hmisportal.moh.go.tz/dhpportal">District Health Profiles</a>
-        </div>
+        <ul class="dropdown-menu" aria-labelledby="Downloads">
+          <li><a class="dropdown-item" [routerLink]="['downloads']">Health Reports</a></li>
+          <li><a class="dropdown-item" [routerLink]="['scorecards']">HMIS Scorecards</a></li>
+          <li><a target="_blank"  rel="noopener" class="dropdown-item" href="https://hmisportal.moh.go.tz/dhpportal">District Health Profiles</a></li>
+        </ul>
       </li>
       <!--updates-->
       <li class="nav-item">

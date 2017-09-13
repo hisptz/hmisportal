@@ -15,9 +15,9 @@ import { DataStoreEffect } from './store/effects/dataStore.effect';
 import { environment } from '../environments/environment';
 import { MenuComponent } from './shared/menu/menu.component';
 import { PortalService } from './shared/services/portal.service';
-import {VisualizerService} from './shared/services/visualizer.service';
-import {HttpClientService} from './shared/services/http-client.service';
-import {SharedModule} from './shared/shared.module';
+import { VisualizerService } from './shared/services/visualizer.service';
+import { HttpClientService } from './shared/services/http-client.service';
+import { SharedModule } from './shared/shared.module';
 import { FamilyPlaningComponent } from './family-planing/family-planing.component';
 
 @NgModule({

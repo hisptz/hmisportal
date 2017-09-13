@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'dataset', loadChildren: 'app/dataset/dataset.module#DatasetModule' },
   { path: 'downloads', loadChildren: 'app/downloads/downloads.module#DownloadsModule' },
   { path: 'updates', loadChildren: 'app/updates/updates.module#UpdatesModule' },
+  { path: 'scorecards', loadChildren: 'app/scorecards/scorecards.module#ScorecardsModule' },
   { path: 'familyPlanningHome',  component: FamilyPlaningComponent },
   { path: '**', redirectTo: 'HomeComponent' }
 ];
