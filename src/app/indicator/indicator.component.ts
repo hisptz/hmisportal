@@ -12,6 +12,7 @@ import * as _ from 'lodash';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {CHART_TYPES} from "../shared/chart_types";
+import {MapServiceService} from "../shared/services/map-services/map-service.service";
 
 @Component({
   moduleId: module.id,
@@ -19,7 +20,7 @@ import {CHART_TYPES} from "../shared/chart_types";
   templateUrl: './indicator.component.html',
   styleUrls: ['./indicator.component.css']
 })
-export class IndicatorComponent implements OnInit, OnDestroy  {
+export class IndicatorComponent implements OnInit, OnDestroy {
 
   years$: Observable<any[]>;
   quarters$: Observable<any[]>;
@@ -30,18 +31,16 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
   selected_pe: string;
   subscriptions: Subscription[] = [];
 
-  constructor(
-    private store: Store<ApplicationState>,
-    private portalService: PortalService,
-    private viualizer: VisualizerService,
-    private activatedRouter: ActivatedRoute,
-  ) {
+  constructor(private store: Store<ApplicationState>,
+              private portalService: PortalService,
+              private viualizer: VisualizerService,
+              private activatedRouter: ActivatedRoute) {
     this.years$ = this.store.select(selectors.getYears);
     this.quarters$ = this.store.select(selectors.getQuarters);
     this.organisationUnits$ = this.store.select(selectors.getOrganisationUnits);
-    this.store.select(selectors.getSelectedOrgunit).take(1).subscribe( ou => this.selected_ou = ou);
-    this.store.select(selectors.getNormalPeriod).take(1).subscribe( pe => this.selected_pe = pe);
-    this.store.select(selectors.getSelectedOrganisationUnit).subscribe( ou => this.selected_ou_name = ou.name);
+    this.store.select(selectors.getSelectedOrgunit).take(1).subscribe(ou => this.selected_ou = ou);
+    this.store.select(selectors.getNormalPeriod).take(1).subscribe(pe => this.selected_pe = pe);
+    this.store.select(selectors.getSelectedOrganisationUnit).subscribe(ou => this.selected_ou_name = ou.name);
   }
 
   ngOnInit() {
@@ -58,12 +57,12 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
         subscr.unsubscribe();
       }
     }
-    this.store.select(selectors.getNormalPeriod).take(1).subscribe( (period) => {
-      this.store.select(selectors.getSelectedOrganisationUnit).take(1).subscribe( (orgunit) => {
+    this.store.select(selectors.getNormalPeriod).take(1).subscribe((period) => {
+      this.store.select(selectors.getSelectedOrganisationUnit).take(1).subscribe((orgunit) => {
         this.store.select(selectors.getPortalItems).take(1).subscribe(
           (data) => {
             this.indicators = data;
-            this.indicators.forEach( (item) => {
+            this.indicators.forEach((item) => {
               item.chart = (item.hasOwnProperty('chart')) ? item.chart : 'column';
               item.loading = true;
               item.identifiers = item.data;
@@ -90,11 +89,13 @@ export class IndicatorComponent implements OnInit, OnDestroy  {
                       displayList: false,
                     };
                     item.visualizerType = (item.visualizerType) ? item.visualizerType : 'chart';
-                    console.log(item.title, chartConfiguration);
                     item.analytics = analytics;
                     item.chartObject = this.viualizer.drawChart(analytics, chartConfiguration);
                     item.tableObject = this.viualizer.drawTable(analytics, tableConfiguration);
-                    item.loading =  false;
+                    this.portalService.getGeoFeatures(this.portalService.getGeoFeatureUrl(analytics.metaData.ou)).subscribe((geoFeatures) => {
+                      item.mapObject = this.viualizer.drawMap(analytics, geoFeatures);
+                    })
+                    item.loading = false;
                   },
                   error => {
                     item.loading = false;

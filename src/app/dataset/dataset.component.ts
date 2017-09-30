@@ -92,6 +92,9 @@ export class DatasetComponent implements OnInit, OnDestroy {
                     };
                     item.visualizerType = 'table';
                     item.tableObject = this.viualizer.drawTable(analytics, tableConfiguration);
+                    this.portalService.getGeoFeatures(this.portalService.getGeoFeatureUrl(analytics.metaData.ou)).subscribe((geoFeatures) => {
+                      item.mapObject = this.viualizer.drawMap(analytics, geoFeatures);
+                    })
                     item.loading =  false;
                   },
                   error => {

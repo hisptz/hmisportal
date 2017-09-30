@@ -19,13 +19,14 @@ import { VisualizerService } from './shared/services/visualizer.service';
 import { HttpClientService } from './shared/services/http-client.service';
 import { SharedModule } from './shared/shared.module';
 import { FamilyPlaningComponent } from './family-planing/family-planing.component';
+import {ColorInterpolationService} from "./shared/services/map-services/color-interpolation.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MenuComponent,
-    FamilyPlaningComponent
+    FamilyPlaningComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +43,8 @@ import { FamilyPlaningComponent } from './family-planing/family-planing.componen
   providers: [
     PortalService,
     VisualizerService,
-    HttpClientService
+    HttpClientService,
+    ColorInterpolationService
   ],
   bootstrap: [AppComponent]
 })

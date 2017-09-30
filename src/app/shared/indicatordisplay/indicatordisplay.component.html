@@ -13,6 +13,13 @@
     <div *ngIf="!indicator.loading && indicator.visualizerType == 'table' && !indicator.hasError">
       <app-table-template [tableObject]="indicator.tableObject"></app-table-template>
     </div>
+    <div *ngIf="!indicator.loading && indicator.visualizerType == 'map' && !indicator.hasError">
+      <app-map-template *ngIf="indicator.mapObject" [mapObject]="indicator.mapObject"></app-map-template>
+      <div class="lead" *ngIf="!indicator.mapObject">
+        <h3 class="lead text-center">{{indicator.title}}</h3>
+        <app-placeholder [loadingMessage]="'Preparing '+ selected_ou_name + ' ' + indicator.title + ' maps ...'"></app-placeholder>
+      </div>
+    </div>
 
 
     <div class="options-block" *ngIf="indicator.showOptions && indicator.visualizerType == 'chart' && !indicator.hasError">
@@ -46,6 +53,12 @@
             (click)="updateType('chart', indicator)">
       <img [src]="'assets/img/'+indicator.chart+'.png'" class="chart-option-icon" alt="" style="margin: 0px">
       Chart
+    </button>
+    <button class="btn btn-sm cursor"
+            [ngClass]="{ 'btn-outline-success': (indicator.visualizerType != 'map'),'btn-secondary':(indicator.visualizerType == 'map') }"
+            (click)="updateType('map', indicator)">
+      <i class="fa fa-map"></i>
+      Map
     </button>
     <a class="btn btn-outline-success btn-sm cursor"  href="{{indicator.csv}}">
       <i class="fa fa-file-excel-o"></i> Excel

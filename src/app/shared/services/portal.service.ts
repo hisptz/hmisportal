@@ -13,7 +13,19 @@ export class PortalService {
   }
 
   getAnalyticsData(url) {
-    return this.http.get(url);
+    return this.http.get1(url);
+  }
+
+  getGeoFeatures(url) {
+    return this.http.get1(url);
+  }
+
+  getGeoFeatureUrl(organisaionUnits) {
+    let orgUnitIds = '';
+    organisaionUnits.map((orgUnit) => {
+      orgUnitIds += orgUnit + ';';
+    })
+    return 'api/geoFeatures.json?ou=ou:' + orgUnitIds + '&displayProperty=SHORTNAME';
   }
 
   getPeriodName(period) {
@@ -21,18 +33,18 @@ export class PortalService {
     if (period.length === 4) {
       names = period;
     } else {
-        const year = period.substring(0, 4);
-        const quater = period.substring(4, 6);
-        const time = '';
-        if (quater === 'Q4') {
-          names = 'Oct - Dec ' + year;
-        } else if (quater === 'Q3') {
-          names = 'July - Sept ' + year;
-        } else if (quater === 'Q2') {
-          names = 'Apr - Jun ' + year;
-        } else if (quater === 'Q1') {
-          names = 'Jan - Mar ' + year;
-        }
+      const year = period.substring(0, 4);
+      const quater = period.substring(4, 6);
+      const time = '';
+      if (quater === 'Q4') {
+        names = 'Oct - Dec ' + year;
+      } else if (quater === 'Q3') {
+        names = 'July - Sept ' + year;
+      } else if (quater === 'Q2') {
+        names = 'Apr - Jun ' + year;
+      } else if (quater === 'Q1') {
+        names = 'Jan - Mar ' + year;
+      }
     }
     return names;
   }

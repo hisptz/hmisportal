@@ -6,6 +6,7 @@ import { Ng2HighchartsModule } from 'ng2-highcharts';
 import {PlaceholderComponent} from './placeholder/placeholder.component';
 import {MetadataDictionaryComponent} from "./metadata-dictionary/metadata-dictionary.component";
 import { IndicatordisplayComponent } from './indicatordisplay/indicatordisplay.component';
+import {MapTemplateComponent} from "./map-template/map-template.component";
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { IndicatordisplayComponent } from './indicatordisplay/indicatordisplay.c
   ],
   declarations: [
     TableTemplateComponent,
+    MapTemplateComponent,
     PlaceholderComponent,
     MetadataDictionaryComponent,
     IndicatordisplayComponent

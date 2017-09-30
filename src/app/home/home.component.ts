@@ -84,8 +84,10 @@ export class HomeComponent implements OnInit, OnDestroy  {
                     item.analytics = analytics;
                     item.chartObject = this.viualizer.drawChart(analytics, chartConfiguration);
                     item.tableObject = this.viualizer.drawTable(analytics, tableConfiguration);
+                    this.portalService.getGeoFeatures(this.portalService.getGeoFeatureUrl(analytics.metaData.ou)).subscribe((geoFeatures) => {
+                      item.mapObject = this.viualizer.drawMap(analytics, geoFeatures);
+                    })
                     item.loading =  false;
-                    console.log('item', this.viualizer.drawChart(analytics, chartConfiguration));
                   },
                   error => {
                     item.loading = false;
