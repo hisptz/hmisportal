@@ -793,7 +793,6 @@ export class VisualizerService {
             });
           }
           if (tableConfiguration.hasOwnProperty('hide_zeros') && tableConfiguration.hide_zeros) {
-            console.log(item.items);
             if (!this.checkZeros(tableConfiguration.rows.length, item.items)) {
               table.rows.push(item);
             }
@@ -821,7 +820,6 @@ export class VisualizerService {
           });
         }
         if (tableConfiguration.hasOwnProperty('hide_zeros') && tableConfiguration.hide_zeros) {
-          console.log(item.items);
           if (!this.checkZeros(tableConfiguration.rows.length, item.items)) {
             table.rows.push(item);
           }
@@ -1000,7 +998,6 @@ export class VisualizerService {
             });
           }
           if (tableConfiguration.hasOwnProperty('hide_zeros') && tableConfiguration.hide_zeros) {
-            console.log(item.items);
             if (!this.checkZeros(tableConfiguration.rows.length, item.items)) {
               table.rows.push(item);
             }
@@ -1028,7 +1025,6 @@ export class VisualizerService {
           });
         }
         if (tableConfiguration.hasOwnProperty('hide_zeros') && tableConfiguration.hide_zeros) {
-          console.log(item.items);
           if (!this.checkZeros(tableConfiguration.rows.length, item.items)) {
             table.rows.push(item);
           }
@@ -1373,9 +1369,10 @@ export class VisualizerService {
       pe.map(periodDimension => {
         const layer = {
           id: dataDimension + '' + periodDimension,
-          name: names[dx] + ' ' + names[periodDimension],
+          name: names[dataDimension] + ' ' + names[periodDimension],
           subtitle: names[periodDimension],
-          displayName: this._prepareDisplayName(names[dx] + ' ' + names[periodDimension]),
+          displayName: this._prepareDisplayName(names[dataDimension] + ' ' + names[periodDimension]),
+          hide: true,
           data: [],
           legend: []
         }
@@ -1390,7 +1387,7 @@ export class VisualizerService {
         layers.push(layer);
       });
     });
-
+    layers[0].hide = false;
     return layers;
   }
 

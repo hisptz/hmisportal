@@ -82,12 +82,14 @@ export class IndicatorComponent implements OnInit, OnDestroy {
                       yAxisType: 'dx',
                       show_labels: false
                     };
+
                     const tableConfiguration = {
                       title: item.title + ' - ' + orgunit.name + ' - ' + this.portalService.getPeriodName(period),
                       rows: ['ou'],
                       columns: ['dx'],
                       displayList: false,
                     };
+
                     item.visualizerType = (item.visualizerType) ? item.visualizerType : 'chart';
                     item.analytics = analytics;
                     item.chartObject = this.viualizer.drawChart(analytics, chartConfiguration);

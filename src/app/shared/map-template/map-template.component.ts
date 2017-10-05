@@ -44,4 +44,10 @@ export class MapTemplateComponent implements OnInit {
 
   }
 
+  toggleLayer(legendItem) {
+    this.legend.map((legendItemSample) => {
+      return legendItemSample.id === legendItem.id ? legendItemSample.hide = !legendItemSample.hide : legendItemSample.hide = true;
+    });
+  }
+
 }

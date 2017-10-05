@@ -1,7 +1,7 @@
 <div>
   <div class="map-legend-container">
     <div id="accordion" role="tablist">
-      <div class="card custom-card" *ngFor="let legendItem of legend">
+      <div class="card custom-card" *ngFor="let legendItem of legend" style="cursor: pointer" (click)="toggleLayer(legendItem)">
         <div class="card-header custom-card-header" role="tab">
           <h5 class="mb-0">
             <a data-toggle="collapse" title="{{legendItem.name}}" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -10,7 +10,7 @@
           </h5>
         </div>
 
-        <div class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="collapse " [ngClass]="{show:!legendItem.hide}" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
           <div class="card-body custom-card-body">
             <span>{{legendItem.subtitle}}</span>
             <br/>
