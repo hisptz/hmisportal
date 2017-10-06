@@ -167,12 +167,13 @@
 
 .feature-label{
   text-align: center;
-  line-height: 12px;
+  line-height: 10px;
   /*color:#ffffff;*/
   text-shadow: -1px 0 #f5f5f5, 0 1px #f5f5f5, 1px 0 #f5f5f5, 0 -1px #f5f5f5;
   min-width: 80px;
-  pointer-events: none;
+  /*pointer-events: none;*/
   display: block;
+  font-size: 10px !important;
 }
 
 
