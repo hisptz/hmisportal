@@ -87,8 +87,8 @@ export class IndicatorComponent implements OnInit, OnDestroy {
               item.hasError = false;
               let url = 'api/analytics.json?dimension=dx:' + item.data;
               url += '&dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
-              item.csv = url.replace('.json', '.csv');
-              item.csv = '../dhis/' + item.csv;
+              // item.csv = url.replace('.json', '.csv');
+              // item.csv = '../dhis/' + item.csv;
               this.subscriptions.push(
                 this.portalService.getAnalyticsData(url).subscribe(
                   (analytics) => {
@@ -111,6 +111,7 @@ export class IndicatorComponent implements OnInit, OnDestroy {
                     item.analytics = analytics;
                     item.chartObject = this.visualizer.drawChart(analytics, chartConfiguration);
                     item.tableObject = this.visualizer.drawTable(analytics, tableConfiguration);
+                    item.csv = this.visualizer.prepareCSVData(analytics);
                     if (item.visualizerType === 'map') {
                       item.loading = true;
                     } else {

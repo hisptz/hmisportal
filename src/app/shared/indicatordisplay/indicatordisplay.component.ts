@@ -30,6 +30,17 @@ export class IndicatordisplayComponent implements OnInit {
 
   }
 
+  getCSV(indicator) {
+    if (indicator) {
+      const hiddenElement = document.createElement('a');
+      hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(indicator.csv);
+      hiddenElement.target = '_blank';
+      hiddenElement.download = indicator.title + '.csv';
+      hiddenElement.click();
+    }
+
+  }
+
   setOptions(type, item) {
     item.showOptions = type;
   }

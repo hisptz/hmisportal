@@ -19,7 +19,7 @@ import { VisualizerService } from './shared/services/visualizer.service';
 import { HttpClientService } from './shared/services/http-client.service';
 import { SharedModule } from './shared/shared.module';
 import { FamilyPlaningComponent } from './family-planing/family-planing.component';
-import {ColorInterpolationService} from "./shared/services/map-services/color-interpolation.service";
+import {ColorInterpolationService} from './shared/services/map-services/color-interpolation.service';
 
 @NgModule({
   declarations: [

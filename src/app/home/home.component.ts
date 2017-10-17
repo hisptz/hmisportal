@@ -81,8 +81,8 @@ export class HomeComponent implements OnInit, OnDestroy {
               item.hasError = false;
               item.renderId = _.map(item.data, 'uid').join('_');
               const url = item.url + 'dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
-              item.csv = url.replace('.json', '.csv');
-              item.csv = '../dhis/' + item.csv;
+              // item.csv = url.replace('.json', '.csv');
+              // item.csv = '../dhis/' + item.csv;
               this.subscriptions.push(
                 this.portalService.getAnalyticsData(url).subscribe(
                   (analytics) => {
@@ -103,6 +103,7 @@ export class HomeComponent implements OnInit, OnDestroy {
                     item.analytics = analytics;
                     item.chartObject = this.visualizer.drawChart(analytics, chartConfiguration);
                     item.tableObject = this.visualizer.drawTable(analytics, tableConfiguration);
+                    item.csv = this.visualizer.prepareCSVData(analytics);
                     if (item.visualizerType === 'map') {
                       item.loading = true;
                     } else {
@@ -125,7 +126,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         );
       });
     });
-    console.log('it works');
   }
 
   updateOrgunit(ou) {

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import 'leaflet';
 import * as _ from 'lodash';
-import {ColorInterpolationService} from "./map-services/color-interpolation.service";
+import {ColorInterpolationService} from './map-services/color-interpolation.service';
 declare var L;
 @Injectable()
 export class VisualizerService {
@@ -1317,7 +1317,7 @@ export class VisualizerService {
 
     return {
       id: defaultMapSettings.id + dx[0],
-      name: names[dx[0]] + " " + names[pe[0]],
+      name: names[dx[0]] + ' ' + names[pe[0]],
       center: [0, 0],
       zoom: 8,
       maxZoom: 18,
@@ -1695,6 +1695,50 @@ export class VisualizerService {
       radiusLow: 5,
       geoFeatures: geoFeatures
     }
+  }
+
+  prepareCSVData(analytics) {
+
+    if (analytics === null) {
+      return null;
+    }
+
+    let result, ctr, keys, columnDelimiter, lineDelimiter;
+    let uids = [];
+    if (analytics.hasOwnProperty('headers')) {
+
+      const orgIndex = _.findIndex(analytics.headers, ['name', 'ou']);
+      const valueIndex = _.findIndex(analytics.headers, ['name', 'value']);
+
+      columnDelimiter = ',';
+      lineDelimiter = '\n';
+      keys = ['Organisation Unit'];
+      analytics.metaData.dx.forEach((dataElement, dataElementIndex) => {
+
+        keys.push(analytics.metaData.names[dataElement]);
+        uids.push(dataElement);
+
+      });
+      result = '';
+      result += keys.join(columnDelimiter);
+      result += lineDelimiter;
+
+      analytics.rows.forEach((item) => {
+        ctr = 0;
+        uids.forEach((key, keyIndex) => {
+          result += analytics.metaData.names[item[orgIndex]];
+          result += columnDelimiter;
+          result += item[valueIndex];
+          result += lineDelimiter = '\n';
+          ctr++;
+        });
+
+      });
+    } else {
+      return '';
+    }
+
+    return result;
   }
 
   /**
