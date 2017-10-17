@@ -1,15 +1,16 @@
-<div class="card"  (mouseenter)="setOptions(true,indicator)" (mouseleave)="setOptions(false,indicator)">
+<div class="card" (mouseenter)="setOptions(true,indicator)" (mouseleave)="setOptions(false,indicator)">
   <div class="card-body">
-
     <div class="lead" *ngIf="indicator.loading">
       <h3 class="lead text-center">{{indicator.title}}</h3>
-      <app-placeholder [loadingMessage]="'Getting '+ selected_ou_name + ' ' + indicator.title + ' data ...'"></app-placeholder>
+      <app-placeholder
+        [loadingMessage]="'Getting '+ selected_ou_name + ' ' + indicator.title + ' data ...'"></app-placeholder>
     </div>
     <app-metadata-dictionary
       [metadataidentifiers]="indicator.identifiers"
       *ngIf="!indicator.loading && indicator.visualizerType == 'info' && !indicator.hasError"
     ></app-metadata-dictionary>
-    <div *ngIf="!indicator.loading && indicator.visualizerType == 'chart' && !indicator.hasError" [ng2-highcharts]="indicator.chartObject"></div>
+    <div *ngIf="!indicator.loading && indicator.visualizerType == 'chart' && !indicator.hasError"
+         [ng2-highcharts]="indicator.chartObject"></div>
     <div *ngIf="!indicator.loading && indicator.visualizerType == 'table' && !indicator.hasError">
       <app-table-template [tableObject]="indicator.tableObject"></app-table-template>
     </div>
@@ -17,12 +18,14 @@
       <app-map-template *ngIf="indicator.mapObject" [mapObject]="indicator.mapObject"></app-map-template>
       <div class="lead" *ngIf="!indicator.mapObject">
         <h3 class="lead text-center">{{indicator.title}}</h3>
-        <app-placeholder [loadingMessage]="'Preparing '+ selected_ou_name + ' ' + indicator.title + ' maps ...'"></app-placeholder>
+        <app-placeholder
+          [loadingMessage]="'Preparing '+ selected_ou_name + ' ' + indicator.title + ' maps ...'"></app-placeholder>
       </div>
     </div>
 
 
-    <div class="options-block" *ngIf="indicator.showOptions && indicator.visualizerType == 'chart' && !indicator.hasError">
+    <div class="options-block"
+         *ngIf="indicator.showOptions && indicator.visualizerType == 'chart' && !indicator.hasError">
       <ul class="nav nav-stacked">
         <li *ngFor="let chartType of chartTypes">
           <a
@@ -38,7 +41,8 @@
 
     <!--error handling-->
     <div class="lead text-warning" *ngIf="indicator.hasError">
-      <i class="fa fa-warning"></i> Sorry, something went wrong while fetching data! make sure you have internet connection and  try to reload the page
+      <i class="fa fa-warning"></i> Sorry, something went wrong while fetching data! make sure you have internet
+      connection and try to reload the page
     </div>
   </div>
 
@@ -55,12 +59,14 @@
       Chart
     </button>
     <button class="btn btn-sm cursor"
-            [ngClass]="{ 'btn-outline-success': (indicator.visualizerType != 'map'),'btn-secondary':(indicator.visualizerType == 'map') }"
-            (click)="updateType('map', indicator)">
+            [ngClass]="{ 'btn-outline-success': (indicator.visualizerType != 'map'),'btn-secondary':(indicator.visualizerType == 'map')}"
+            (click)="updateType('map', indicator)"
+            [disabled]="(indicator.visualizerType == 'map' && geoFeatures.length==0)"
+    >
       <i class="fa fa-map"></i>
       Map
     </button>
-    <a class="btn btn-outline-success btn-sm cursor"  href="{{indicator.csv}}">
+    <a class="btn btn-outline-success btn-sm cursor" href="{{indicator.csv}}">
       <i class="fa fa-file-excel-o"></i> Excel
     </a>
     <a
@@ -71,7 +77,8 @@
       <i class="fa fa-info-circle" [ngClass]="{ 'text-white':(indicator.visualizerType == 'info') }"></i>
     </a>
     <footer class="blockquote-footer">
-      <small style="font-size: 8px">This data is not for Publication it is used for administrative purpose only, to get data for publication contact  <cite title="Source Title">Permanent secretary ministry of health</cite></small>
+      <small style="font-size: 8px">This data is not for Publication it is used for administrative purpose only, to get
+        data for publication contact <cite title="Source Title">Permanent secretary ministry of health</cite></small>
     </footer>
   </div>
 </div>

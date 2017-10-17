@@ -11,8 +11,6 @@ import {VisualizerService} from '../shared/services/visualizer.service';
 import * as _ from 'lodash';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
-import {CHART_TYPES} from "../shared/chart_types";
-import {MapServiceService} from "../shared/services/map-services/map-service.service";
 
 @Component({
   moduleId: module.id,
@@ -30,10 +28,11 @@ export class IndicatorComponent implements OnInit, OnDestroy {
   selected_ou_name: string;
   selected_pe: string;
   subscriptions: Subscription[] = [];
+  geoFeatures: Array<any> = [];
 
   constructor(private store: Store<ApplicationState>,
               private portalService: PortalService,
-              private viualizer: VisualizerService,
+              private visualizer: VisualizerService,
               private activatedRouter: ActivatedRoute) {
     this.years$ = this.store.select(selectors.getYears);
     this.quarters$ = this.store.select(selectors.getQuarters);
@@ -61,6 +60,24 @@ export class IndicatorComponent implements OnInit, OnDestroy {
       this.store.select(selectors.getSelectedOrganisationUnit).take(1).subscribe((orgunit) => {
         this.store.select(selectors.getPortalItems).take(1).subscribe(
           (data) => {
+            this.portalService.getGeoFeatures('api/geoFeatures.json?ou=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id)
+              .subscribe((geoFeatures) => {
+                this.geoFeatures = geoFeatures;
+                this.indicators.forEach((item) => {
+                  if (item.visualizerType === 'map') {
+                    item.loading = true;
+                    let url = 'api/analytics.json?dimension=dx:' + item.data;
+                    url += '&dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
+                    this.portalService.getAnalyticsData(url).subscribe(
+                      (analytics) => {
+                        item.mapObject = this.visualizer.drawMap(analytics, this.geoFeatures);
+                        item.loading = false;
+                      });
+                  }
+                });
+              });
+
+
             this.indicators = data;
             this.indicators.forEach((item) => {
               item.chart = (item.hasOwnProperty('chart')) ? item.chart : 'column';
@@ -92,12 +109,14 @@ export class IndicatorComponent implements OnInit, OnDestroy {
 
                     item.visualizerType = (item.visualizerType) ? item.visualizerType : 'chart';
                     item.analytics = analytics;
-                    item.chartObject = this.viualizer.drawChart(analytics, chartConfiguration);
-                    item.tableObject = this.viualizer.drawTable(analytics, tableConfiguration);
-                    this.portalService.getGeoFeatures(this.portalService.getGeoFeatureUrl(analytics.metaData.ou)).subscribe((geoFeatures) => {
-                      item.mapObject = this.viualizer.drawMap(analytics, geoFeatures);
-                    })
-                    item.loading = false;
+                    item.chartObject = this.visualizer.drawChart(analytics, chartConfiguration);
+                    item.tableObject = this.visualizer.drawTable(analytics, tableConfiguration);
+                    if (item.visualizerType === 'map') {
+                      item.loading = true;
+                    } else {
+                      item.loading = false;
+                    }
+
                   },
                   error => {
                     item.loading = false;
@@ -105,6 +124,12 @@ export class IndicatorComponent implements OnInit, OnDestroy {
                   }
                 )
               );
+              if (item.visualizerType === 'map') {
+                item.loading = true;
+              } else {
+                item.loading = false;
+              }
+
             });
           }
         );

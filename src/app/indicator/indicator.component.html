@@ -23,7 +23,7 @@
 <div class="container-fluid">
   <div class="row">
     <div  *ngFor="let indicator of indicators" [ngClass]="indicator.cardClass" class="col-sm-12 mb-3">
-      <app-indicatordisplay [indicator]="indicator" [selected_ou_name]="selected_ou_name"></app-indicatordisplay>
+      <app-indicatordisplay [indicator]="indicator" [selected_ou_name]="selected_ou_name" [geoFeatures]="geoFeatures"></app-indicatordisplay>
     </div>
   </div>
 </div>
