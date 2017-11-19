@@ -1719,21 +1719,27 @@ export class VisualizerService {
         uids.push(dataElement);
 
       });
+
       result = '';
       result += keys.join(columnDelimiter);
       result += lineDelimiter;
+      console.log(analytics);
+      analytics.metaData.dx.forEach((dataElement, dataElementIndex) => {
 
-      analytics.rows.forEach((item) => {
-        ctr = 0;
-        uids.forEach((key, keyIndex) => {
-          result += analytics.metaData.names[item[orgIndex]];
-          result += columnDelimiter;
-          result += item[valueIndex];
-          result += lineDelimiter = '\n';
-          ctr++;
+        analytics.rows.forEach((item) => {
+          ctr = 0;
+          uids.forEach((key, keyIndex) => {
+            result += analytics.metaData.names[item[orgIndex]];
+            result += columnDelimiter;
+            result += item[valueIndex];
+            result += lineDelimiter = '\n';
+            ctr++;
+          });
         });
 
       });
+
+
     } else {
       return '';
     }
