@@ -58,12 +58,6 @@
     
   },
   {
-    "title":"ANC HIV prevalence (15-24 years)",
-    "description":"ANC HIV prevalence (15-24 years)",
-    "cardClass":"col m6 s12",
-    "data":"TdxVgoa08tn"
-  },
-  {
     "title":"ANC HIV prevalence 1st Test",
     "description":"ANC HIV prevalence 1st Test",
     "cardClass":"col m6 s12",
@@ -86,12 +80,6 @@
     "description":"ANC HIV testing rate(% of Pregnant women tested for HIV)",
     "cardClass":"col m6 s12",
     "data":"bSGgVZvFfmH"
-  },
-  {
-    "title":"ANC HIV+ given ART rate",
-    "description":"ANC HIV+ given ART rate",
-    "cardClass":"col m6 s12",
-    "data":"K4Wu2DaROZR"
   },
   {
     "title":"ANC Iron supplementation rate",
@@ -122,12 +110,6 @@
     "description":"ANC Partners Syphilis +VE prevalance",
     "cardClass":"col m6 s12",
     "data":"BqowH5E3ytQ"
-  },
-  {
-    "title":"ANC Positive women receiving Doses",
-    "description":"ANC Positive women receiving Doses",
-    "cardClass":"col m6 s12",
-    "data":"CkXZ2xEQMSg"
   },
   {
     "title":"ANC Proportion of pregnant women receiving TT2+",
