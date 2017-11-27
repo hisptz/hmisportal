@@ -1,0 +1,288 @@
+<!--<div class="row">-->
+  <!--<iframe id="frame" src="https://hmisportal.moh.go.tz/hmisportalold/#/downloads" data-src="https://hmisportal.moh.go.tz/hmisportalold/#/downloads" width="100%" height="633px">-->
+    <!--[Your user agent does not support frames or is currently configured not to display frames. However, you may visit the related document.]-->
+  <!--</iframe>-->
+<!--</div>-->
+<div class="container-fluid" style="margin-top: 5px">
+
+  <div class="row">
+    <div class="col-sm-4 mb-3">
+      <div id="accordion" role="tablist">
+        <div class="card">
+          <div class="card-header" role="tab" id="headingOne">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Census
+              </a>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item cursor" (click)="activateLink($event,'census')">
+                  Census
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" role="tab" id="headingTwo">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Community Surveys
+              </a>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item cursor" (click)="activateLink($event,'Community')">
+                  Community Surveys
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" role="tab" id="headingThree">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Facility Surveys
+              </a>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item cursor" (click)="activateLink($event,'Facility')">
+                  Facility Surveys
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" role="tab" id="headingFour">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Health Program Report
+              </a>
+            </h5>
+          </div>
+          <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item cursor" (click)="activateLink($event,'HIV')">
+                  HIV &amp; AIDS
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'HMIS')">
+                  HMIS
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'IVD')">
+                  IVD
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'Malaria')">
+                  Malaria
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'TB')">
+                  TB &amp; LP
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'TFNC')">
+                  TFNC
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" role="tab" id="headingFive">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                HMIS Annual Reports
+              </a>
+            </h5>
+          </div>
+          <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordion">
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item cursor" (click)="activateLink($event,'Performance')">
+                  Performance Profile Report
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'Statistics')">
+                  Statistics table &amp; Figures
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" role="tab" id="headingSix">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                Policies,Guidelines and Strategies
+              </a>
+            </h5>
+          </div>
+          <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix" data-parent="#accordion">
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item cursor" (click)="activateLink($event,'Guidelines')">
+                  Guidelines
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'Policies')">
+                  Policies
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'Strategies')">
+                  Strategies
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" role="tab" id="headingSeven">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                Registers
+              </a>
+            </h5>
+          </div>
+          <div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingSeven" data-parent="#accordion">
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item cursor" (click)="activateLink($event,'Death')">
+                  Kitabu kinacho rekodi taarifa za vifo
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'MTUHA')">
+                  Kitabu Namba 1 Mwongozo wa MTUHA
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'Kituo')">
+                  Kitabu Namba 2 Form Kitabu cha Takwimu za Kituo
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'jamii')">
+                  Kitabu Namba 3 Kitabu cha Takwimu za jamii
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'tiba')">
+                  Kitabu Namba 4 cha kumbukumbu za dawa na vifaa tiba
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'nje')">
+                  Kitabu Namba 5 Rejesta ya Wagonjwa wa nje
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'wajawazito')">
+                  Kitabu Namba 6 Rejesta ya wajawazito
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'watoto')">
+                  Kitabu Namba 7 Rejesta ya watoto
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'Mpango')">
+                  Kitabu Namba 8 Rejesta ya Uzazi wa Mpango
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'Kuhara')">
+                  Kitabu Namba 9 Rejesta ya Magonjwa ya Kuhara
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'Afya')">
+                  Kitabu Namba 10 Report ya Kutoa vituo vya huduma ya Afya
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'Meno')">
+                  Kitabu Namba 11 Rejesta ya Magonjwa ya kinywa na Meno
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'Wazazi')">
+                  Kitabu Namba 12 Rejesta ya Wazazi
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'kujifungua')">
+                  Kitabu Namba 13 Rejesta ya mtoto na Mama baada ya kujifungua
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'waliolazwa')">
+                  Kitabu Namba 14 Rejesta ya Wagonjwa waliolazwa
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'Ustawi')">
+                  Kitabu Namba 15 Rejesta ya Watumishi wa Sekta ya Afya na Ustawi wa Jamii
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+                <li class="list-group-item cursor" (click)="activateLink($event,'Tracer')">
+                  Tracer book
+                  <i class="fa fa-chevron-right pull-right"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-8 mb-3">
+      <p class="lead text-center">{{heading}}</p>
+      <div class="container-fluid">
+        <iframe *ngIf="linkValue =='census'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNZlBuNWJxU3NnblE&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Community'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNTXU0YWVHZjBXcDg&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Facility'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNV1VncXlQQUdkTGc&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='HIV'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNcDU0ZkMxMVBfLW8&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='HMIS'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNLUIzOFBYN0RZMk0&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='IVD'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNX0FJT1VXRE9uTnM&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Malaria'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNQlNHTng0LWt0ZzQ&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='TB'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNSkpqX3c4NHNSVTA&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='TFNC'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNcUFreV9rLVdUM3c&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Performance'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNcjY0cXJUZnZ3cEk&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Statistics'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNY1hodzliUFVKOEk&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Guidelines'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNaWQwWHNuUDBnMXM&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Policies'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNWTRpRGo4VkNBWDA&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Strategies'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNTW9XQnJxM0dVT1k&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Death'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNTWlEaVptRmFSMXc&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='MTUHA'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNamFnOTBhODB2ZU0&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Kituo'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNTThBWnJLdGU5YmM&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='jamii'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNXzJLVC10NWpielE&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='tiba'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNb0ZlaVh5ODhOZGM&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='nje'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNVlQ2ZkozdGczY3M&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='wajawazito'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNMmNvd1dsOFlYbGM&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='watoto'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNem5nLVFCQUJxTmM&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Mpango'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNTnRPVU1aYlk5QVk&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Kuhara'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNMkNUckFNNy1va1E&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Afya'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNMHF4MGhfR2ZwdTA&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Meno'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNRzdlVHlYLTlyR2M&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Wazazi'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNTGExVGdHdkNyVkk&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='kujifungua'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNNjM2QUZfdzlnNVE&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='waliolazwa'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNUzV4aE1yYzNsVzQ&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Ustawi'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNSGNWV3k4bHZHd1E&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='Tracer'" src="https://drive.google.com/embeddedfolderview?id=0B3-ZWCM6ZEvNUXRaem1kR3htbVU&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+        <iframe *ngIf="linkValue =='scorecard'" src="https://drive.google.com/embeddedfolderview?id=0B-bCBa5DKlcsVEFIaDk4X3g4dEE&usp=drive_web#grid" width="100%" height="800" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "dir": "ltr",
+  "lang": "en",
+  "name": "HMIS Portal",
+  "scope": "/",
+  "display": "standalone",
+  "start_url": "/index.html",
+  "short_name": "HMIS",
+  "icons": [
+    {
+      "src": "https://hmisportal.moh.go.tz/hmisportal/assets/img/favicon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "https://hmisportal.moh.go.tz/hmisportal/assets/iconx/favicon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "https://hmisportal.moh.go.tz/hmisportal/iconx/android-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#00796b",
+  "description": "HMIS Web portal for displaying DHIS data without access",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "related_applications": [],
+  "prefer_related_applications": false
+}

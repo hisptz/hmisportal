@@ -1,0 +1,18 @@
+{
+  "dynamic": {
+    "group": {
+      "name": "api",
+      "urls": {
+        "https://hmisportal.moh.go.tz/hmisportal/dhis/api": {
+          "match": "prefix"
+        }
+      },
+      "cache": {
+        "optimizeFor": "performance",
+        "maxAgeMs": 3600000,
+        "maxentries": 70,
+        "strategy": "lru"
+      }
+    }
+  }
+}
