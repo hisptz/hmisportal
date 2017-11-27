@@ -18,15 +18,5 @@
     "cardClass":"col m12 s12",
     "data":"Z4lFiisizw0",
     "chart":"combined"
-  },
-  {
-    "title": "Percentage of HEI tested HIV+ by DNA-PCR within two months of age",
-    "description": "Percentage of HEI tested HIV+ by DNA-PCR within two months of age",
-    "indicatorType": "",
-    "numerator": " ",
-    "denominator": " ",
-    "cardClass": "col m6 s12",
-    "data": "tD7tqoxrt1P",
-    "chart": "bar"
   }
 ]

@@ -29,35 +29,7 @@
     "data": "k3lTvIZOnMP",
     "chart": "line"
   },
-  {
-    "title": "Percentage of surviving children received Rotavirus Dose 2",
-    "description": "Percentage of surviving children received Rotavirus Dose 1",
-    "indicatorType": "",
-    "numerator": " ",
-    "denominator": " ",
-    "cardClass": "col m6 s12",
-    "data": "zDZ0YxFEpSH",
-    "chart": "line"
-  },
-  {
-    "title": "Percentage of surviving children who received PCV-1",
-    "description": "Percentage of surviving children who received PCV-1",
-    "indicatorType": "",
-    "numerator": " ",
-    "denominator": " ",
-    "cardClass": "col m6 s12",
-    "data": "HYY867HqOpH"
-  },
-  {
-    "title": "Percentage of surviving children who received PCV-3",
-    "description": "Percentage of surviving children who received PCV-3",
-    "indicatorType": "",
-    "numerator": " ",
-    "denominator": " ",
-    "cardClass": "col m6 s12",
-    "data": "SpCYYHgSjMX",
-    "chart": "pie"
-  },
+
   {
     "title": "Proportional of reported Acute Flaccid Paralysis(Non-polio) cases",
     "description": "Percentage of surviving children who received PCV-3",

@@ -77,16 +77,6 @@
     "data":"EX233CR1k1T"
   },
   {
-    "title":"Amoxycillin Availability",
-    "description":"Amoxycillin Availability",
-    "indicatorType":"",
-    "numerator":" ",
-    "denominator":" ",
-    "cardClass":"col m6 s12",
-    "data":"KxS8b24bAZC",
-    "chart":"line"
-  },
-  {
     "title":"Artemether / Lumefantrine Oral Available",
     "description":"Artemether / Lumefantrine Oral Available",
     "indicatorType":"",
