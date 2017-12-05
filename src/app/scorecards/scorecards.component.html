@@ -19,6 +19,10 @@
           PMTCT
           <i class="fa fa-chevron-right pull-right"></i>
         </li>
+        <li class="list-group-item cursor" [ngClass]="{'active':linkValue =='MEDICINE'}" (click)="activateLink($event,'MEDICINE')">
+          TRACER MEDICINE
+          <i class="fa fa-chevron-right pull-right"></i>
+        </li>
       </ul>
     </div>
 
@@ -94,6 +98,22 @@
           <div class="tab-pane fade" id="pmtct2017" role="tabpanel" aria-labelledby="pmtct2017-tab">
             <iframe src="https://drive.google.com/embeddedfolderview?id=0BwBjVsZKVIY9VXhobU5yX0tVem8&usp=drive_web#grid" width="100%" height="300" frameborder="0"></iframe>
           </div>
+
+        </div>
+      </div>
+      <div class="container-fluid" *ngIf="linkValue =='MEDICINE'">
+        <nav class="nav nav-tabs" id="myTab3" role="tablist">
+          <a class="nav-item nav-link active" id="medicine2016-tab" data-toggle="tab" href="#medicine2016" role="tab" aria-controls="medicine2016" aria-expanded="true">2016</a>
+          <a class="nav-item nav-link" id="medicine2017-tab" data-toggle="tab" href="#medicine2017" role="tab" aria-controls="medicine2017">2017</a>
+        </nav>
+        <div class="tab-content" id="nav-tabContent3">
+          <div class="tab-pane fade show active" id="medicine2016" role="tabpanel" aria-labelledby="medicine2016-tab">
+            <iframe src="https://drive.google.com/embeddedfolderview?id=1wxVp4YAgC7_saI62VnFEeLJAQ3ODJntM&usp=drive_web#grid" width="100%" height="300" frameborder="0"></iframe>
+          </div>
+          <div class="tab-pane fade" id="medicine2017" role="tabpanel" aria-labelledby="medicine2017-tab">
+            <iframe src="https://drive.google.com/embeddedfolderview?id=1jd3UT9n_eU2Qa3299a87pB6wtiDRJQKX&usp=drive_web#grid" width="100%" height="300" frameborder="0"></iframe>
+          </div>
+
         </div>
       </div>
     </div>

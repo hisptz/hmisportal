@@ -13,12 +13,12 @@ export class PortalService {
   }
 
   getAnalyticsData(url) {
-    return this.http.get1(url);
+    return this.http.get(url);
   }
 
   getGeoFeatures(url) {
 
-    return this.http.get1(url);
+    return this.http.get(url);
   }
 
   getGeoFeatureUrl(organisaionUnits) {
