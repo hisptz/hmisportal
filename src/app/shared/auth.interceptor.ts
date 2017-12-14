@@ -10,8 +10,8 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const username = 'kmbwilo';
-    const password = 'DHIS2014';
+    const username = '';
+    const password = '';
     const token = btoa(username + ':' + password);
     const copiedReq = req.clone({headers: req.headers.set('Authorization', 'Basic ' + token)});
     console.log('Intercepted!', copiedReq);
