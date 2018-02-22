@@ -204,6 +204,8 @@ export const INITIAL_STORE_DATA: StoreData = {
     'vmcc': vmcc
   },
   quarters: [
+    {'id': '2017Q4', 'name': 'Oct - Dec 2017'},
+    {'id': '2017Q3', 'name': 'Jul - Sep 2017'},
     {'id': '2017Q2', 'name': 'Apr - Jun 2017'},
     {'id': '2017Q1', 'name': 'Jan - Mar 2017'},
     {'id': '2016Q4', 'name': 'Oct - Dec 2016'},
