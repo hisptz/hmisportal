@@ -1,13 +1,11 @@
 import {Injectable} from '@angular/core';
-import 'leaflet';
 import * as _ from 'lodash';
-import {ColorInterpolationService} from './map-services/color-interpolation.service';
-declare var L;
+
 @Injectable()
 export class VisualizerService {
   enable_labels = false;
 
-  constructor(private colorInterpolation: ColorInterpolationService,) {
+  constructor() {
   }
 
   drawChart(analyticObject: any, chartConfiguration: any) {
@@ -35,6 +33,51 @@ export class VisualizerService {
             }
           }
         };
+        if (chartConfiguration.hasOwnProperty('colors') && chartConfiguration.colors.length !== 0) {
+          chartObject.plotOptions.column['colorByPoint'] = true,
+            chartObject.colors = chartConfiguration.colors;
+        }
+        if ( chartConfiguration.hasOwnProperty('rotation')) {
+          chartObject.xAxis.labels.rotation = chartConfiguration.rotation;
+          if ( chartConfiguration.hasOwnProperty('tooltipItems')) {
+            chartObject.tooltip = {
+              formatter: function () {
+                let s = '<b>' + this.x + '</b>';
+                if (chartConfiguration.tooltipItems[this.x.name + ':' + this.x.parent.name]) {
+                  s = '<b>' + chartConfiguration.tooltipItems[this.x.name + ':' + this.x.parent.name].name + '</b>';
+                }else {
+                  s = '<b>' + this.x + '</b>';
+                }
+                s += '<br/>' + this.series.name + ': ' +
+                  this.y;
+                return s;
+              }
+            };
+
+            chartObject.xAxis.labels.formatter = function () {
+              if ( this.value.hasOwnProperty('parent')) {
+                if (chartConfiguration.tooltipItems[this.value.name + ':' + this.value.parent.name]) {
+                  return '<div class="hastip" title="' + chartConfiguration.tooltipItems[this.value.name + ':' + this.value.parent.name].name + '">' + this.value.name + '</div>';
+                }
+              }if ( !this.value.hasOwnProperty('parent')) {
+                if (!chartConfiguration.titlesItems[this.value + '']) {
+                  return '<div class="hastip" title="' + this.value + '">' + this.value + '</div>';
+                }
+              }
+            };
+          }
+
+          chartObject.xAxis.labels.style = {
+            color: '#666666',
+            cursor: 'default',
+            fontSize: '9px',
+            width: '50px',
+            'word-break': 'break-all'
+          };
+          chartObject.xAxis.labels.step = 1;
+          chartObject.xAxis.labels.useHTML = true;
+
+        }
         break;
       case 'radar':
         chartObject = this.drawSpiderChart(analyticObject, chartConfiguration);
@@ -110,24 +153,56 @@ export class VisualizerService {
     return index;
   }
 
-  _sanitizeIncomingAnalytics(analyticsObject: any) {
-    for (const header of analyticsObject.headers) {
-      if (header.hasOwnProperty('optionSet')) {
-        if (analyticsObject.metaData[header.name].length === 0) {
-          analyticsObject.metaData[header.name] = this._getRowItems(
-            this._getTitleIndex(analyticsObject.headers, header.name), analyticsObject.rows);
-          for (const item of analyticsObject.metaData[header.name]) {
-            analyticsObject.metaData.names[item] = item;
-          }
+  _sanitizeIncomingAnalytics(analyticsObject: any, nameConfiguration: any = null) {
+    // this will fix the analytics call from 27 and above
+    if (analyticsObject.metaData.hasOwnProperty('items')) {
+      const arr = {names: {}};
+      _.forEach(analyticsObject.metaData.items, function(value: any, key) {
+        arr.names[key] = value.name;
+      });
+      const dimensions = analyticsObject.metaData.dimensions;
+      // analyticsObject = {...analyticsObject, metaData: {...analyticsObject.metaData, names: arr.names, ...dimensions }};
+      analyticsObject.metaData.names = arr.names;
+      analyticsObject.metaData.ou = analyticsObject.metaData.dimensions.ou;
+      analyticsObject.metaData.pe = analyticsObject.metaData.dimensions.pe;
+      analyticsObject.metaData.dx = analyticsObject.metaData.dimensions.dx;
+    }
+    if (analyticsObject.hasOwnProperty('headers')) {
 
-        } else {
-          for (const item of analyticsObject.metaData[header.name]) {
-            analyticsObject.metaData.names[item] = item;
+      for (const header of analyticsObject.headers) {
+        if (header.hasOwnProperty('optionSet')) {
+          if (analyticsObject.metaData[header.name].length === 0) {
+            analyticsObject.metaData[header.name] = this._getRowItems(
+              this._getTitleIndex(analyticsObject.headers, header.name), analyticsObject.rows);
+            for (const item of analyticsObject.metaData[header.name]) {
+              analyticsObject.metaData.names[item] = item;
+            }
+
+          } else {
+            for (const item of analyticsObject.metaData[header.name]) {
+              analyticsObject.metaData.names[item] = item;
+            }
           }
         }
       }
     }
+    if (nameConfiguration != null) {
+      analyticsObject = this._updateAnalyticsForOptins(analyticsObject, nameConfiguration);
+    }
+    return analyticsObject;
+  }
 
+  /**
+   * Exchange the names of the analytics objects with custom names
+   * @param analyticsObject
+   * @param nameConfiguration eg { id:'HydhUd32', name:'Some custom name' }
+   */
+  _updateAnalyticsForOptins(analyticsObject, nameConfiguration) {
+    for ( const config of nameConfiguration ){
+      if ( analyticsObject.metaData.names[config.id] ) {
+        analyticsObject.metaData.names[config.id] = config.name;
+      }
+    }
     return analyticsObject;
   }
 
@@ -191,8 +266,8 @@ export class VisualizerService {
    * @param yAxisItems : Array
    * @returns {{xAxisItems: Array, yAxisItems: Array}}
    */
-  prepareCategories(analyticsObject, xAxis: string, yAxis: string, xAxisItems = [], yAxisItems = []) {
-    analyticsObject = this._sanitizeIncomingAnalytics(analyticsObject);
+  prepareCategories(analytics, xAxis: string, yAxis: string, xAxisItems = [], yAxisItems = [], nameConfiguration: any = null) {
+    const analyticsObject = this._sanitizeIncomingAnalytics(analytics, nameConfiguration);
     const structure = {
       'xAxisItems': [],
       'yAxisItems': []
@@ -227,8 +302,8 @@ export class VisualizerService {
    * @param xAxisItems
    * @returns {{xAxisItems: Array, yAxisItems: Array}}
    */
-  prepareSingleCategories(analyticsObject, itemIdentifier, preDefinedItems = []) {
-    analyticsObject = this._sanitizeIncomingAnalytics(analyticsObject);
+  prepareSingleCategories(analyticsObject, itemIdentifier, nameConfiguration: any = null, preDefinedItems = []) {
+    analyticsObject = this._sanitizeIncomingAnalytics(analyticsObject, nameConfiguration);
     const structure = [];
     if (preDefinedItems.length === 0) {
       for (const val of this.getMetadataArray(analyticsObject, itemIdentifier)) {
@@ -291,6 +366,11 @@ export class VisualizerService {
 
   // TODO: Implement the map details here
 
+  drawMap(analytics, geoFeatures) {
+    const defaultMapSettings = this._getDefaultMapSettings(geoFeatures);
+    const mapMapVisualization = this._prepareMapVisualization(analytics, defaultMapSettings);
+    return mapMapVisualization;
+  }
   /**
    * preparing an item to pass on the getDataValue function
    * separated here since it is used by all our chart drawing systems
@@ -317,6 +397,7 @@ export class VisualizerService {
    */
   drawPieChart(analyticsObject, chartConfiguration) {
 
+    const labels = (chartConfiguration.hasOwnProperty('labels')) ? chartConfiguration.labels : null;
     const chartObject = this.getChartConfigurationObject('pieChart', chartConfiguration.show_labels);
     chartObject.title.text = chartConfiguration.title;
     const metaDataObject = this.prepareCategories(
@@ -324,7 +405,8 @@ export class VisualizerService {
       chartConfiguration.xAxisType,
       chartConfiguration.yAxisType,
       chartConfiguration.xAxisItems,
-      chartConfiguration.yAxisItems
+      chartConfiguration.yAxisItems,
+      labels
     );
     const serie = [];
     for (const yAxis of metaDataObject.yAxisItems) {
@@ -355,6 +437,7 @@ export class VisualizerService {
    * @returns {{title, chart, xAxis, yAxis, labels, series}|any}
    */
   drawCombinedChart(analyticsObject, chartConfiguration) {
+    const labels = (chartConfiguration.hasOwnProperty('labels')) ? chartConfiguration.labels : null;
     const chartObject = this.getChartConfigurationObject('defaultChartObject', chartConfiguration.show_labels);
     chartObject.title.text = chartConfiguration.title;
     chartObject.chart.type = '';
@@ -363,7 +446,8 @@ export class VisualizerService {
       chartConfiguration.xAxisType,
       chartConfiguration.yAxisType,
       (chartConfiguration.hasOwnProperty('xAxisItems')) ? chartConfiguration.xAxisItems : [],
-      (chartConfiguration.hasOwnProperty('yAxisItems')) ? chartConfiguration.yAxisItems : []
+      (chartConfiguration.hasOwnProperty('yAxisItems')) ? chartConfiguration.yAxisItems : [],
+      labels
     );
     // set x-axis categories
     chartObject.xAxis.categories = [];
@@ -395,6 +479,7 @@ export class VisualizerService {
    * @returns {{title, chart, xAxis, yAxis, labels, series}|any}
    */
   drawOtherCharts(analyticsObject, chartConfiguration) {
+    const labels = (chartConfiguration.hasOwnProperty('labels')) ? chartConfiguration.labels : null;
     const chartObject = this.getChartConfigurationObject('defaultChartObject', chartConfiguration.show_labels);
     if (chartConfiguration.type === 'bar') {
       chartObject.chart.type = chartConfiguration.type;
@@ -407,7 +492,8 @@ export class VisualizerService {
       chartConfiguration.xAxisType,
       chartConfiguration.yAxisType,
       (chartConfiguration.hasOwnProperty('xAxisItems')) ? chartConfiguration.xAxisItems : [],
-      (chartConfiguration.hasOwnProperty('yAxisItems')) ? chartConfiguration.yAxisItems : []
+      (chartConfiguration.hasOwnProperty('yAxisItems')) ? chartConfiguration.yAxisItems : [],
+      labels
     );
     chartObject.xAxis.categories = [];
     for (const val of metaDataObject.xAxisItems) {
@@ -426,6 +512,55 @@ export class VisualizerService {
         name: yAxis.name, data: chartSeries
       });
     }
+    if (chartConfiguration.hasOwnProperty('dataGroups') && chartConfiguration.dataGroups !== null) {
+      chartObject.xAxis.categories = chartConfiguration.dataGroups;
+    }
+    return chartObject;
+  }
+
+  /**
+   * draw other charts
+   * @param analyticsObject
+   * @param chartConfiguration : Object {'type':'line','title': 'My chart', 'xAxisType': 'pe', 'yAxisType': 'dx' ....}
+   * @returns {{title, chart, xAxis, yAxis, labels, series}|any}
+   */
+  drawBottleneckCharts(analyticsObject, chartConfiguration) {
+    const labels = (chartConfiguration.hasOwnProperty('labels')) ? chartConfiguration.labels : null;
+    const chartObject = this.getChartConfigurationObject('defaultChartObject', chartConfiguration.show_labels);
+    if (chartConfiguration.type === 'bar') {
+      chartObject.chart.type = chartConfiguration.type;
+      chartObject.xAxis.labels.rotation = 0;
+    } else {
+      chartObject.chart.type = '';
+    }
+    chartObject.title.text = chartConfiguration.title;
+    const metaDataObject = this.prepareCategories(analyticsObject,
+      chartConfiguration.xAxisType,
+      chartConfiguration.yAxisType,
+      (chartConfiguration.hasOwnProperty('xAxisItems')) ? chartConfiguration.xAxisItems : [],
+      (chartConfiguration.hasOwnProperty('yAxisItems')) ? chartConfiguration.yAxisItems : [],
+      labels
+    );
+    chartObject.xAxis.categories = [];
+    for (const val of metaDataObject.xAxisItems) {
+      chartObject.xAxis.categories.push(val.name);
+    }
+    chartObject.series = [];
+    for (const yAxis of metaDataObject.yAxisItems) {
+      const chartSeries = [];
+      for (const xAxis of metaDataObject.xAxisItems) {
+        const dataItems = this.getDataObject(chartConfiguration, xAxis, yAxis);
+        const number = this.getDataValue(analyticsObject, dataItems);
+        chartSeries.push(number);
+      }
+      chartObject.series.push({
+        type: chartConfiguration.type,
+        name: yAxis.name, data: chartSeries
+      });
+    }
+    if (chartConfiguration.hasOwnProperty('dataGroups') && chartConfiguration.dataGroups !== null) {
+      chartObject.xAxis.categories = chartConfiguration.dataGroups;
+    }
     return chartObject;
   }
 
@@ -439,7 +574,7 @@ export class VisualizerService {
     const data = [];
     const chartObject = this.drawOtherCharts(analyticsObject, chartConfiguration);
     for (const value of chartObject.series) {
-      const obj = {name: value.name};
+      const obj = {organisationunit: value.name};
       let i = 0;
       for (const val of chartObject.xAxis.categories) {
         obj[val] = value.data[i];
@@ -457,7 +592,7 @@ export class VisualizerService {
    * @returns {any}
    */
   drawStackedChart(analyticsObject, chartConfiguration) {
-
+    const labels = (chartConfiguration.hasOwnProperty('labels')) ? chartConfiguration.labels : null;
     // decide which chart object to use
     const chartObject = ( chartConfiguration.stackingType === 'bar' ) ?
       this.getChartConfigurationObject('barStackedObject', chartConfiguration.show_labels) :
@@ -468,7 +603,8 @@ export class VisualizerService {
       chartConfiguration.xAxisType,
       chartConfiguration.yAxisType,
       (chartConfiguration.hasOwnProperty('xAxisItems')) ? chartConfiguration.xAxisItems : [],
-      (chartConfiguration.hasOwnProperty('yAxisItems')) ? chartConfiguration.yAxisItems : []
+      (chartConfiguration.hasOwnProperty('yAxisItems')) ? chartConfiguration.yAxisItems : [],
+      labels
     );
     chartObject.xAxis.categories = [];
     chartObject.series = [];
@@ -497,13 +633,15 @@ export class VisualizerService {
    * @returns {{chart, title, pane, tooltip, yAxis, plotOptions, credits, series}|any}
    */
   drawGaugeChart(analyticsObject, chartConfiguration) {
+    const labels = (chartConfiguration.hasOwnProperty('labels')) ? chartConfiguration.labels : null;
     const chartObject = this.getChartConfigurationObject('gaugeObject', chartConfiguration.show_labels);
     chartObject.title.text = chartConfiguration.title;
     const metaDataObject = this.prepareCategories(analyticsObject,
       chartConfiguration.xAxisType,
       chartConfiguration.yAxisType,
       (chartConfiguration.hasOwnProperty('xAxisItems')) ? chartConfiguration.xAxisItems : [],
-      (chartConfiguration.hasOwnProperty('yAxisItems')) ? chartConfiguration.yAxisItems : []
+      (chartConfiguration.hasOwnProperty('yAxisItems')) ? chartConfiguration.yAxisItems : [],
+      labels
     );
     let gaugeValue = 0;
     for (const yAxis of metaDataObject.yAxisItems) {
@@ -540,11 +678,13 @@ export class VisualizerService {
    * series: Array}}
    */
   drawSpiderChart(analyticsObject, chartConfiguration) {
+    const labels = (chartConfiguration.hasOwnProperty('labels')) ? chartConfiguration.labels : null;
     const metaDataObject = this.prepareCategories(analyticsObject,
       chartConfiguration.xAxisType,
       chartConfiguration.yAxisType,
       (chartConfiguration.hasOwnProperty('xAxisItems')) ? chartConfiguration.xAxisItems : [],
-      (chartConfiguration.hasOwnProperty('yAxisItems')) ? chartConfiguration.yAxisItems : []
+      (chartConfiguration.hasOwnProperty('yAxisItems')) ? chartConfiguration.yAxisItems : [],
+      labels
     );
     const categories = [];
     for (const val of metaDataObject.xAxisItems) {
@@ -623,6 +763,7 @@ export class VisualizerService {
       titlesAvailable: false,
       hasParentOu: false
     };
+    const labels = (tableConfiguration.hasOwnProperty('labels')) ? tableConfiguration.labels : null;
     if (tableConfiguration.hasOwnProperty('title')) {
       table['title'] = tableConfiguration.title;
     }
@@ -673,7 +814,7 @@ export class VisualizerService {
       }
       for (const columnItem of tableConfiguration.columns) {
         const dimension = this.calculateColSpan(analyticsObject, tableConfiguration.columns, columnItem);
-        const currentColumnItems = this.prepareSingleCategories(analyticsObject, columnItem);
+        const currentColumnItems = this.prepareSingleCategories(analyticsObject, columnItem, labels);
         const headerItem = [];
         for (let i = 0; i < dimension.duplication; i++) {
           for (const currentItem of currentColumnItems) {
@@ -701,7 +842,7 @@ export class VisualizerService {
       const column_length = tableConfiguration.columns.length;
       const column_items_array = [];
       for (let i = 0; i < column_length; i++) {
-        const currentRowItems = this.prepareSingleCategories(analyticsObject, tableConfiguration.columns[i]);
+        const currentRowItems = this.prepareSingleCategories(analyticsObject, tableConfiguration.columns[i], labels);
         column_items_array.push(currentRowItems);
       }
       let table_columns_array = [];
@@ -732,7 +873,7 @@ export class VisualizerService {
       const row_items_array = [];
       for (let i = 0; i < rows_length; i++) {
         const dimension = this.calculateColSpan(analyticsObject, tableConfiguration.rows, tableConfiguration.rows[i]);
-        const currentRowItems = this.prepareSingleCategories(analyticsObject, tableConfiguration.rows[i]);
+        const currentRowItems = this.prepareSingleCategories(analyticsObject, tableConfiguration.rows[i], labels);
         row_items_array.push({'items': currentRowItems, 'dimensions': dimension});
       }
       let table_rows_array = [];
@@ -831,211 +972,6 @@ export class VisualizerService {
     return table;
   }
 
-  drawAutogrowingTable(analyticsObject, tableConfiguration) {
-    const table = {
-      'headers': [],
-      'columns': [],
-      'rows': [],
-      'titles': {
-        'rows': [],
-        'column': []
-      }
-    };
-    if (tableConfiguration.hasOwnProperty('title')) {
-      table['title'] = tableConfiguration.title;
-    }
-    if (tableConfiguration.hasOwnProperty('display_list') && tableConfiguration.display_list) {
-      table.headers[0] = {
-        items: [],
-        style: ''
-      };
-      tableConfiguration.columns[tableConfiguration.columns.indexOf('pe')] = 'eventdate';
-      tableConfiguration.columns[tableConfiguration.columns.indexOf('ou')] = 'ouname';
-      for (const item of tableConfiguration.columns) {
-        table.headers[0].items.push(
-          {
-            name: analyticsObject.headers[this._getTitleIndex(analyticsObject.headers, item)].column,
-            span: 1
-          }
-        );
-      }
-      for (const item of analyticsObject.rows) {
-        const column_items = [];
-        for (const col of tableConfiguration.columns) {
-          const index = this._getTitleIndex(analyticsObject.headers, col);
-          column_items.push({
-            name: '',
-            display: true,
-            row_span: '1',
-            val: item[index]
-          });
-
-        }
-        table.rows.push(
-          {
-            headers: [],
-            items: column_items
-          }
-        );
-      }
-    } else {
-      // add names to titles array
-      for (const item of tableConfiguration.columns) {
-        table.titles.column.push(analyticsObject.headers[this._getTitleIndex(analyticsObject.headers, item)].column);
-      }
-      for (const item of tableConfiguration.rows) {
-        table.titles.rows.push(analyticsObject.headers[this._getTitleIndex(analyticsObject.headers, item)].column);
-      }
-      for (const columnItem of tableConfiguration.columns) {
-        const dimension = this.calculateColSpan(analyticsObject, tableConfiguration.columns, columnItem);
-        const currentColumnItems = this.prepareSingleCategories(analyticsObject, columnItem);
-        const headerItem = [];
-        for (let i = 0; i < dimension.duplication; i++) {
-          for (const currentItem of currentColumnItems) {
-            headerItem.push({'name': currentItem.name, 'span': dimension.col_span});
-          }
-        }
-        let styles = '';
-        if (tableConfiguration.hasOwnProperty('style')) {
-          if (tableConfiguration.styles.hasOwnProperty(columnItem)) {
-            styles = tableConfiguration.styles[columnItem];
-          }
-        }
-        table.headers.push({'items': headerItem, 'style': styles});
-      }
-      for (const rowItem of tableConfiguration.rows) {
-        table.columns.push(rowItem);
-      }
-
-      // Preparing table columns
-      const column_length = tableConfiguration.columns.length;
-      const column_items_array = [];
-      for (let i = 0; i < column_length; i++) {
-        const currentRowItems = this.prepareSingleCategories(analyticsObject, tableConfiguration.columns[i]);
-        column_items_array.push(currentRowItems);
-      }
-      let table_columns_array = [];
-      for (let i = 0; i < column_items_array.length; i++) {
-        if (table_columns_array.length === 0) {
-          for (const item of column_items_array[i]) {
-            table_columns_array.push([item]);
-          }
-        } else {
-          const temp_arr = table_columns_array.concat();
-          table_columns_array = [];
-          for (const item of temp_arr) {
-            for (const val of  column_items_array[i]) {
-              if (item instanceof Array) {
-                const tempArr = Array.from(item);
-                table_columns_array.push(tempArr.concat([val]));
-              } else {
-                table_columns_array.push([item, val]);
-              }
-            }
-          }
-        }
-
-      }
-
-      // Preparing table rows
-      const rows_length = tableConfiguration.rows.length;
-      const row_items_array = [];
-      for (let i = 0; i < rows_length; i++) {
-        const dimension = this.calculateColSpan(analyticsObject, tableConfiguration.rows, tableConfiguration.rows[i]);
-        const currentRowItems = this.prepareSingleCategories(analyticsObject, tableConfiguration.rows[i]);
-        row_items_array.push({'items': currentRowItems, 'dimensions': dimension});
-      }
-      let table_rows_array = [];
-      for (let i = 0; i < row_items_array.length; i++) {
-        if (table_rows_array.length === 0) {
-          for (const item of row_items_array[i].items) {
-            item.dimensions = row_items_array[i].dimensions;
-            table_rows_array.push([item]);
-          }
-        } else {
-          const temp_arr = table_rows_array.concat();
-          table_rows_array = [];
-          for (const item of temp_arr) {
-            for (const val of  row_items_array[i].items) {
-              val.dimensions = row_items_array[i].dimensions;
-              if (item instanceof Array) {
-                const tempArr = Array.from(item);
-                table_rows_array.push(tempArr.concat([val]));
-              } else {
-                table_rows_array.push([item, val]);
-              }
-            }
-          }
-        }
-
-      }
-
-      let counter = 0;
-      if (table_rows_array.length !== 0) {
-        for (const rowItem of table_rows_array) {
-          const item = {
-            'items': [],
-            'headers': rowItem
-          };
-          for (const val of rowItem) {
-            if (counter === 0 || counter % val.dimensions.col_span === 0) {
-              // item.items.push({'name': val.uid, 'val': val.name, 'row_span': val.dimensions.col_span});
-            }
-          }
-          for (const colItem of table_columns_array) {
-            const dataItem = [];
-            for (const val of rowItem) {
-              dataItem.push({'type': val.type, 'value': val.uid});
-            }
-            for (const val of colItem) {
-              dataItem.push({'type': val.type, 'value': val.uid});
-            }
-            item.items.push({
-              'name': '',
-              'val': this.getAutoGrowingDataValue(analyticsObject, dataItem),
-              'row_span': '1',
-              'display': true
-            });
-          }
-          if (tableConfiguration.hasOwnProperty('hide_zeros') && tableConfiguration.hide_zeros) {
-            if (!this.checkZeros(tableConfiguration.rows.length, item.items)) {
-              table.rows.push(item);
-            }
-          } else {
-            table.rows.push(item);
-          }
-
-          counter++;
-        }
-      } else {
-        const item = {
-          'items': [],
-          'headers': []
-        };
-        for (const colItem of table_columns_array) {
-          const dataItem = [];
-          for (const val of colItem) {
-            dataItem.push({'type': val.type, 'value': val.uid});
-          }
-          item.items.push({
-            'name': '',
-            'val': this.getAutoGrowingDataValue(analyticsObject, dataItem),
-            'row_span': '1',
-            'display': true
-          });
-        }
-        if (tableConfiguration.hasOwnProperty('hide_zeros') && tableConfiguration.hide_zeros) {
-          if (!this.checkZeros(tableConfiguration.rows.length, item.items)) {
-            table.rows.push(item);
-          }
-        } else {
-          table.rows.push(item);
-        }
-      }
-    }
-    return table;
-  }
-
   checkZeros(stating_length, array): boolean {
     let checker = true;
     for (let i = stating_length; i < array.length; i++) {
@@ -1107,7 +1043,7 @@ export class VisualizerService {
         plotOptions: {},
         series: []
       };
-    } else if (type === 'stackedChartObject') {
+    }else if (type === 'stackedChartObject') {
       return {
         chart: {
           type: 'column',
@@ -1151,7 +1087,7 @@ export class VisualizerService {
         },
         series: []
       };
-    } else if (type === 'barStackedObject') {
+    }else if (type === 'barStackedObject') {
       return {
         chart: {
           type: 'bar',
@@ -1194,7 +1130,7 @@ export class VisualizerService {
         },
         series: []
       };
-    } else if (type === 'gaugeObject') {
+    }else if (type === 'gaugeObject') {
       return {
         chart: {
           type: 'solidgauge',
@@ -1263,7 +1199,7 @@ export class VisualizerService {
         },
         series: []
       };
-    } else if (type === 'pieChart') {
+    }else if (type === 'pieChart') {
       return {
         chart: {
           plotBackgroundColor: null,
@@ -1295,461 +1231,4 @@ export class VisualizerService {
       };
     }
   }
-
-
-  /**
-   * MAP VISUALIZATION  FUNCTIONS
-   * */
-  drawMap(analytics, geoFeatures) {
-    const defaultMapSettings = this._getDefaultMapSettings(geoFeatures);
-    const mapMapVisualization = this._prepareMapVisualization(analytics, defaultMapSettings);
-    return mapMapVisualization;
-  }
-
-  private _prepareMapVisualization(analytics, defaultMapSettings) {
-    const headers = analytics.headers;
-    const dx = analytics.metaData.dx;
-    const pe = analytics.metaData.pe;
-    const ou = analytics.metaData.ou;
-    const names = analytics.metaData.names;
-    const rows = analytics.rows;
-    const layers = this._prepareLayers(headers, names, dx, pe, rows, defaultMapSettings);
-
-    return {
-      id: defaultMapSettings.id + dx[0],
-      name: names[dx[0]] + ' ' + names[pe[0]],
-      center: [0, 0],
-      zoom: 8,
-      maxZoom: 18,
-      minZoom: 2,
-      zoomControl: true,
-      scrollWheelZoom: false,
-      layers: layers.interfaceLayers,
-      legendInterface: layers.backendLayers
-    }
-  }
-
-  private _getMapLabels(L, features) {
-    const markerLabels = [];
-    const sanitizeColor = (color: any) => {
-
-      if (color && color.indexOf('#') > -1) {
-        const colors = color.split('#');
-        color = '#' + colors[colors.length - 1];
-      }
-      return color;
-    }
-    features.forEach((feature, index) => {
-      let center: any;
-      if (feature.geometry.type === 'Point') {
-        center = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
-      } else {
-        const polygon = L.polygon(feature.geometry.coordinates);
-        center = polygon.getBounds().getCenter();
-      }
-
-      const label = L.marker([center.lng, center.lat], {
-        icon: L.divIcon({
-          iconSize: new L.Point(50, 50),
-          className: 'feature-label',
-          html: feature.properties.name + '  (' + feature.properties['dataElement.value'] + ')'
-        })
-      })
-
-      markerLabels.push(label);
-
-    });
-
-    return L.layerGroup(markerLabels);
-  }
-
-  private _modalLayers(names, dx, pe, rows, dxIndex, ouIndex, valueIndex) {
-    let layers = [];
-    dx.map(dataDimension => {
-      pe.map(periodDimension => {
-        const layer = {
-          id: dataDimension + '' + periodDimension,
-          name: names[dataDimension] + ' ' + names[periodDimension],
-          subtitle: names[periodDimension],
-          displayName: this._prepareDisplayName(names[dataDimension] + ' ' + names[periodDimension]),
-          hide: true,
-          data: [],
-          legend: []
-        }
-        rows.map((row) => {
-          if (row[dxIndex] === dataDimension) {
-            layer.data.push({
-              ou: row[ouIndex],
-              value: row[valueIndex]
-            });
-          }
-        });
-        layers.push(layer);
-      });
-    });
-    layers[0].hide = false;
-    return layers;
-  }
-
-  private _prepareLayers(headers, names, dx, pe, rows, defaultMapSettings) {
-    const interfaceLayers = [];
-    const backendLayers = [];
-    const dxIndex = _.findIndex(headers, ['name', 'dx']);
-    const valueIndex = _.findIndex(headers, ['name', 'value']);
-    const ouIndex = _.findIndex(headers, ['name', 'ou']);
-
-    interfaceLayers.push(
-      L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy;<a href="https://carto.com/attribution">cartoDB</a>'
-      })
-    )
-
-    const modalLayers: Array<any> = this._modalLayers(names, dx, pe, rows, dxIndex, ouIndex, valueIndex);
-    const geofeatures = this._prepareGeoJSONArray(defaultMapSettings.geoFeatures);
-    modalLayers.map(layer => {
-      layer.legend = this._prepareLayerLegends(layer.data, defaultMapSettings);
-      const options = {
-        click: (event) => {
-        },
-        onEachFeature: (feature) => {
-        },
-        mouseover: (event) => {
-          const hoveredFeature: any = event.layer.feature;
-          const properties = hoveredFeature.properties;
-          let toolTipContent: string = '<div style="color:#333!important;font-size: 10px">' +
-            '<table>';
-          toolTipContent += '<tr><td style="color:#333!important;font-weight:bold;" > ' + properties.name + ' </td></tr>';
-          toolTipContent += '</table></div>';
-
-          geoJsonLayer.bindTooltip(toolTipContent, {
-            direction: 'auto',
-            permanent: false,
-            sticky: true,
-            interactive: true,
-            opacity: 1
-          });
-
-          geoJsonLayer.setStyle((feature: GeoJSON.Feature<GeoJSON.GeometryObject>) => {
-            const properties: any = feature.properties;
-            const featureStyle: any =
-              {
-                'stroke': true,
-                'weight': 1
-              }
-            if (hoveredFeature.properties.id === properties.id) {
-              featureStyle.weight = 3;
-            }
-
-
-            return featureStyle;
-          });
-        },
-        mouseout: (event) => {
-
-          const hoveredFeature: any = event.layer.feature;
-          geoJsonLayer.setStyle((feature: GeoJSON.Feature<GeoJSON.GeometryObject>) => {
-            const properties: any = feature.properties;
-            const featureStyle: any =
-              {
-                'stroke': true,
-                'weight': 1
-              }
-            const hov: any = hoveredFeature.properties;
-            if (hov.id === properties.id) {
-              featureStyle.weight = 1;
-            }
-            return featureStyle;
-          });
-        },
-        style: (feature) => {
-          const {properties} = feature;
-          return {
-            'color': properties.stroke,
-            'fillColor': this.getColor(feature, layer),
-            'fillOpacity': properties['fill-opacity'],
-            'weight': 1,
-            'opacity': 0.8,
-            'stroke': true
-          }
-        }
-
-      }
-      const geoJsonLayer: any = L.geoJSON(this._refineLayerFeatures(geofeatures, layer), options);
-      interfaceLayers.push(geoJsonLayer);
-      backendLayers.push(layer);
-    });
-    interfaceLayers.push(this._getMapLabels(L, geofeatures));
-    return {interfaceLayers, backendLayers};
-  }
-
-  private _refineLayerFeatures(geofeatures, layer) {
-    const geos = [];
-    geofeatures.map((feature) => {
-      const dataValue: any = _.find(layer.data, ['ou', feature.properties.id]);
-      feature.properties['dataElement.value'] = dataValue ? dataValue.value : 0;
-      geos.push(feature);
-    })
-    return geos;
-  }
-
-  private _prepareDisplayName(name) {
-    let limit: number = 25;
-    return name.length > limit ? name.substr(0, limit) + '...' : name;
-  }
-
-  private getColor(feature, layer) {
-    let color = '#cccccc';
-    const legend = layer.legend;
-    const data = layer.data;
-    const featureScore: any = _.find(data, ['ou', feature.properties.id]);
-    if (featureScore) {
-      const value = (new Function('return ' + featureScore.value))();
-      legend.forEach(legendItem => {
-        if (legendItem.min <= value && legendItem.max > value) {
-          color = legendItem.color;
-        }
-
-        if (legendItem.max <= value) {
-          color = legendItem.color;
-        }
-      });
-    }
-
-    return color;
-  }
-
-  private _prepareLayerLegends(data, defaultMapSettings) {
-    let legendSetColorArray: any = null;
-
-    legendSetColorArray = this.colorInterpolation.getColorScaleFromHigLow(defaultMapSettings);
-
-
-    let dataArray: any[] = [], legend: any = [];
-    const classLimits = [], classRanges = [];
-    let doneWorkAround = false;
-
-    if (data) {
-      const sortedData = this._getDataSortedArray(data);
-      dataArray = sortedData;
-
-      const interval = +((defaultMapSettings.radiusHigh - defaultMapSettings.radiusLow) / defaultMapSettings.classes).toFixed(0);
-      const radiusArray = [];
-      for (let classNumber = 0; classNumber < defaultMapSettings.classes; classNumber++) {
-        if (classNumber === 0) {
-          radiusArray.push(defaultMapSettings.radiusLow);
-        } else {
-          radiusArray.push(radiusArray[classNumber - 1] + interval);
-        }
-      }
-
-      // Workaround for classess more than values
-      if (sortedData.length < defaultMapSettings.classes) {
-        if (sortedData.length === 0 && doneWorkAround === false) {
-          sortedData.push(0);
-          doneWorkAround = true;
-        }
-        if (sortedData.length === 1 && doneWorkAround === false) {
-          sortedData.push(sortedData[0] + 1);
-          doneWorkAround = true;
-        }
-      }
-
-      for (let classIncr = 0; classIncr <= defaultMapSettings.classes; classIncr++) {
-        if (defaultMapSettings.method === 3) { // equal counts
-          const index = classIncr / defaultMapSettings.classes * (sortedData.length - 1);
-          if (Math.floor(index) === index) {
-            classLimits.push(sortedData[index]);
-          } else {
-            const approxIndex = Math.floor(index);
-            classLimits.push(sortedData[approxIndex] + (sortedData[approxIndex + 1] - sortedData[approxIndex]) * (index - approxIndex));
-          }
-        } else {
-          classLimits.push(Math.min.apply(Math, sortedData) + ( (Math.max.apply(Math, sortedData) - Math.min.apply(Math, sortedData)) / defaultMapSettings.classes ) * classIncr);
-        }
-      }
-
-
-      if (doneWorkAround) {
-        dataArray.pop()
-      }
-      // Offset Workaround
-      // Populate data count into classes
-      classLimits.forEach(function (classLimit, classIndex) {
-        if (classIndex < classLimits.length - 1) {
-          const min = classLimits[classIndex], max = classLimits[classIndex + 1];
-          legend.push({
-            name: '',
-            label: '',
-            description: '',
-            relativeFrequency: '',
-            min: +min.toFixed(1),
-            max: +max.toFixed(1),
-            color: legendSetColorArray[classIndex],
-            count: 0,
-            radius: 0,
-            boundary: false
-          });
-        }
-      });
-
-    }
-    legend = this._getLegendCounts(dataArray, legend);
-    return legend;
-  }
-
-  private _getLegendCounts(dataArray, legend) {
-    let totalCounts = 0;
-    dataArray.forEach(data => {
-      legend.forEach((legendItem, legendIndex) => {
-        if (legendItem.min <= data && data < legendItem.max) {
-          legendItem.count += 1;
-          totalCounts += 1;
-        }
-
-        if (legendIndex === legend.length - 1 && legendItem.min < data && data === legendItem.max) {
-          legendItem.count += 1;
-          totalCounts += 1;
-        }
-      });
-    });
-
-    legend.forEach(leg => {
-      const fraction = (leg.count / totalCounts);
-      leg.percentage = fraction ? (fraction * 100).toFixed(0) + '%' : '';
-    })
-
-    return legend;
-  }
-
-  private _getDataSortedArray(data) {
-    const dataArray = [];
-    let sortedData = [];
-    if (data) {
-      data.map(dataItem => {
-        dataArray.push((new Function('return ' + dataItem.value))());
-      })
-      sortedData = _(dataArray).sortBy().value();
-    }
-    return sortedData;
-  }
-
-  private _prepareGeoJSONArray(geoFeatures) {
-    const features = [];
-
-    geoFeatures.map((feature) => {
-      features.push(
-        {
-          'type': 'Feature',
-          'le': feature.le,
-          'geometry': {
-            'type': feature.le >= 4 ? 'Point' : 'MultiPolygon',
-            'coordinates': (new Function('return ' + feature.co))()
-          },
-          'properties': {
-            'id': feature.id,
-            'name': feature.na,
-            'dataElement.id': '',
-            'dataElement.name': '',
-            'dataElement.value': 0,
-            'classInterval': '',
-            'fill': '',
-            'fill-opacity': 1,
-            'stroke': '#000000',
-            'stroke-opacity': 1,
-            'stroke-width': 1
-          }
-        }
-      );
-    })
-    return features;
-  }
-
-  private _getDefaultMapSettings(geoFeatures) {
-    const text = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const index = Math.floor((Math.random() * (text.length - 11)) + 0);
-    return {
-      id: text.substr(index, 11),
-      method: 3,
-      labels: false,
-      labelFontColor: '#000000',
-      layer: 'thematic1',
-      labelFontStyle: 'normal',
-      radiusHigh: 15,
-      hideTitle: false,
-      eventClustering: false,
-      colorLow: '#ff0000',
-      colorHigh: '#007F00',
-      opacity: 0.8,
-      parentLevel: 0,
-      parentGraphMap: {
-        ImspTQPwCqd: ''
-      },
-      labelFontSize: '11px',
-      completedOnly: false,
-      eventPointRadius: 0,
-      hidden: false,
-      classes: 5,
-      hideSubtitle: false,
-      labelFontWeight: 'normal',
-      radiusLow: 5,
-      geoFeatures: geoFeatures
-    }
-  }
-
-  prepareCSVData(analytics) {
-
-    if (analytics === null) {
-      return null;
-    }
-
-    let result, ctr, keys, columnDelimiter, lineDelimiter;
-    let uids = [];
-    if (analytics.hasOwnProperty('headers')) {
-
-      const orgIndex = _.findIndex(analytics.headers, ['name', 'ou']);
-      const valueIndex = _.findIndex(analytics.headers, ['name', 'value']);
-
-      columnDelimiter = ',';
-      lineDelimiter = '\n';
-      keys = ['Organisation Unit'];
-      analytics.metaData.dx.forEach((dataElement, dataElementIndex) => {
-
-        keys.push(analytics.metaData.names[dataElement]);
-        uids.push(dataElement);
-
-      });
-
-      result = '';
-      result += keys.join(columnDelimiter);
-      result += lineDelimiter;
-      console.log(analytics);
-      analytics.metaData.dx.forEach((dataElement, dataElementIndex) => {
-
-        analytics.rows.forEach((item) => {
-          ctr = 0;
-          uids.forEach((key, keyIndex) => {
-            result += analytics.metaData.names[item[orgIndex]];
-            result += columnDelimiter;
-            result += item[valueIndex];
-            result += lineDelimiter = '\n';
-            ctr++;
-          });
-        });
-
-      });
-
-
-    } else {
-      return '';
-    }
-
-    return result;
-  }
-
-  /**
-   * END OF MAP VISUALIZATION  FUNCTIONS
-   * */
-
-
 }

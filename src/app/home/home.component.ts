@@ -103,7 +103,7 @@ export class HomeComponent implements OnInit, OnDestroy {
                     item.analytics = analytics;
                     item.chartObject = this.visualizer.drawChart(analytics, chartConfiguration);
                     item.tableObject = this.visualizer.drawTable(analytics, tableConfiguration);
-                    item.csv = this.visualizer.prepareCSVData(analytics);
+                    item.csv = this.visualizer.getCsvData(analytics,tableConfiguration);
                     if (item.visualizerType === 'map') {
                       item.loading = true;
                     } else {
