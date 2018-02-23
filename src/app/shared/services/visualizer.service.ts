@@ -1,11 +1,14 @@
 import {Injectable} from '@angular/core';
 import * as _ from 'lodash';
+import 'leaflet';
+import {ColorInterpolationService} from './map-services/color-interpolation.service';
+declare var L;
 
 @Injectable()
 export class VisualizerService {
   enable_labels = false;
 
-  constructor() {
+  constructor(private colorInterpolation: ColorInterpolationService) {
   }
 
   drawChart(analyticObject: any, chartConfiguration: any) {
@@ -365,12 +368,12 @@ export class VisualizerService {
   }
 
   // TODO: Implement the map details here
-
-  drawMap(analytics, geoFeatures) {
-    const defaultMapSettings = this._getDefaultMapSettings(geoFeatures);
-    const mapMapVisualization = this._prepareMapVisualization(analytics, defaultMapSettings);
-    return mapMapVisualization;
-  }
+  //
+  // drawMap(analytics, geoFeatures) {
+  //   const defaultMapSettings = this._getDefaultMapSettings(geoFeatures);
+  //   const mapMapVisualization = this._prepareMapVisualization(analytics, defaultMapSettings);
+  //   return mapMapVisualization;
+  // }
   /**
    * preparing an item to pass on the getDataValue function
    * separated here since it is used by all our chart drawing systems
@@ -1231,4 +1234,460 @@ export class VisualizerService {
       };
     }
   }
+
+  /**
+   * MAP VISUALIZATION  FUNCTIONS
+   * */
+  drawMap(analytics, geoFeatures) {
+    const defaultMapSettings = this._getDefaultMapSettings(geoFeatures);
+    const mapMapVisualization = this._prepareMapVisualization(analytics, defaultMapSettings);
+    return mapMapVisualization;
+  }
+
+  private _prepareMapVisualization(analytics, defaultMapSettings) {
+    const headers = analytics.headers;
+    const dx = analytics.metaData.dx;
+    const pe = analytics.metaData.pe;
+    const ou = analytics.metaData.ou;
+    const names = analytics.metaData.names;
+    const rows = analytics.rows;
+    const layers = this._prepareLayers(headers, names, dx, pe, rows, defaultMapSettings);
+
+    return {
+      id: defaultMapSettings.id + dx[0],
+      name: names[dx[0]] + ' ' + names[pe[0]],
+      center: [0, 0],
+      zoom: 8,
+      maxZoom: 18,
+      minZoom: 2,
+      zoomControl: true,
+      scrollWheelZoom: false,
+      layers: layers.interfaceLayers,
+      legendInterface: layers.backendLayers
+    }
+  }
+
+  private _getMapLabels(L, features) {
+    const markerLabels = [];
+    const sanitizeColor = (color: any) => {
+
+      if (color && color.indexOf('#') > -1) {
+        const colors = color.split('#');
+        color = '#' + colors[colors.length - 1];
+      }
+      return color;
+    }
+    features.forEach((feature, index) => {
+      let center: any;
+      if (feature.geometry.type === 'Point') {
+        center = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
+      } else {
+        const polygon = L.polygon(feature.geometry.coordinates);
+        center = polygon.getBounds().getCenter();
+      }
+
+      const label = L.marker([center.lng, center.lat], {
+        icon: L.divIcon({
+          iconSize: new L.Point(50, 50),
+          className: 'feature-label',
+          html: feature.properties.name + '  (' + feature.properties['dataElement.value'] + ')'
+        })
+      })
+
+      markerLabels.push(label);
+
+    });
+
+    return L.layerGroup(markerLabels);
+  }
+
+  private _modalLayers(names, dx, pe, rows, dxIndex, ouIndex, valueIndex) {
+    let layers = [];
+    dx.map(dataDimension => {
+      pe.map(periodDimension => {
+        const layer = {
+          id: dataDimension + '' + periodDimension,
+          name: names[dataDimension] + ' ' + names[periodDimension],
+          subtitle: names[periodDimension],
+          displayName: this._prepareDisplayName(names[dataDimension] + ' ' + names[periodDimension]),
+          hide: true,
+          data: [],
+          legend: []
+        }
+        rows.map((row) => {
+          if (row[dxIndex] === dataDimension) {
+            layer.data.push({
+              ou: row[ouIndex],
+              value: row[valueIndex]
+            });
+          }
+        });
+        layers.push(layer);
+      });
+    });
+    layers[0].hide = false;
+    return layers;
+  }
+
+  private _prepareLayers(headers, names, dx, pe, rows, defaultMapSettings) {
+    const interfaceLayers = [];
+    const backendLayers = [];
+    const dxIndex = _.findIndex(headers, ['name', 'dx']);
+    const valueIndex = _.findIndex(headers, ['name', 'value']);
+    const ouIndex = _.findIndex(headers, ['name', 'ou']);
+
+    interfaceLayers.push(
+      L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy;<a href="https://carto.com/attribution">cartoDB</a>'
+      })
+    )
+
+    const modalLayers: Array<any> = this._modalLayers(names, dx, pe, rows, dxIndex, ouIndex, valueIndex);
+    const geofeatures = this._prepareGeoJSONArray(defaultMapSettings.geoFeatures);
+    modalLayers.map(layer => {
+      layer.legend = this._prepareLayerLegends(layer.data, defaultMapSettings);
+      const options = {
+        click: (event) => {
+        },
+        onEachFeature: (feature) => {
+        },
+        mouseover: (event) => {
+          const hoveredFeature: any = event.layer.feature;
+          const properties = hoveredFeature.properties;
+          let toolTipContent: string = '<div style="color:#333!important;font-size: 10px">' +
+            '<table>';
+          toolTipContent += '<tr><td style="color:#333!important;font-weight:bold;" > ' + properties.name + ' </td></tr>';
+          toolTipContent += '</table></div>';
+
+          geoJsonLayer.bindTooltip(toolTipContent, {
+            direction: 'auto',
+            permanent: false,
+            sticky: true,
+            interactive: true,
+            opacity: 1
+          });
+
+          geoJsonLayer.setStyle((feature: GeoJSON.Feature<GeoJSON.GeometryObject>) => {
+            const properties: any = feature.properties;
+            const featureStyle: any =
+              {
+                'stroke': true,
+                'weight': 1
+              }
+            if (hoveredFeature.properties.id === properties.id) {
+              featureStyle.weight = 3;
+            }
+
+
+            return featureStyle;
+          });
+        },
+        mouseout: (event) => {
+
+          const hoveredFeature: any = event.layer.feature;
+          geoJsonLayer.setStyle((feature: GeoJSON.Feature<GeoJSON.GeometryObject>) => {
+            const properties: any = feature.properties;
+            const featureStyle: any =
+              {
+                'stroke': true,
+                'weight': 1
+              }
+            const hov: any = hoveredFeature.properties;
+            if (hov.id === properties.id) {
+              featureStyle.weight = 1;
+            }
+            return featureStyle;
+          });
+        },
+        style: (feature) => {
+          const {properties} = feature;
+          return {
+            'color': properties.stroke,
+            'fillColor': this.getColor(feature, layer),
+            'fillOpacity': properties['fill-opacity'],
+            'weight': 1,
+            'opacity': 0.8,
+            'stroke': true
+          }
+        }
+
+      }
+      const geoJsonLayer: any = L.geoJSON(this._refineLayerFeatures(geofeatures, layer), options);
+      interfaceLayers.push(geoJsonLayer);
+      backendLayers.push(layer);
+    });
+    interfaceLayers.push(this._getMapLabels(L, geofeatures));
+    return {interfaceLayers, backendLayers};
+  }
+
+  private _refineLayerFeatures(geofeatures, layer) {
+    const geos = [];
+    geofeatures.map((feature) => {
+      const dataValue: any = _.find(layer.data, ['ou', feature.properties.id]);
+      feature.properties['dataElement.value'] = dataValue ? dataValue.value : 0;
+      geos.push(feature);
+    })
+    return geos;
+  }
+
+  private _prepareDisplayName(name) {
+    let limit: number = 25;
+    return name.length > limit ? name.substr(0, limit) + '...' : name;
+  }
+
+  private getColor(feature, layer) {
+    let color = '#cccccc';
+    const legend = layer.legend;
+    const data = layer.data;
+    const featureScore: any = _.find(data, ['ou', feature.properties.id]);
+    if (featureScore) {
+      const value = (new Function('return ' + featureScore.value))();
+      legend.forEach(legendItem => {
+        if (legendItem.min <= value && legendItem.max > value) {
+          color = legendItem.color;
+        }
+
+        if (legendItem.max <= value) {
+          color = legendItem.color;
+        }
+      });
+    }
+
+    return color;
+  }
+
+  private _prepareLayerLegends(data, defaultMapSettings) {
+    let legendSetColorArray: any = null;
+
+    legendSetColorArray = this.colorInterpolation.getColorScaleFromHigLow(defaultMapSettings);
+
+
+    let dataArray: any[] = [], legend: any = [];
+    const classLimits = [], classRanges = [];
+    let doneWorkAround = false;
+
+    if (data) {
+      const sortedData = this._getDataSortedArray(data);
+      dataArray = sortedData;
+
+      const interval = +((defaultMapSettings.radiusHigh - defaultMapSettings.radiusLow) / defaultMapSettings.classes).toFixed(0);
+      const radiusArray = [];
+      for (let classNumber = 0; classNumber < defaultMapSettings.classes; classNumber++) {
+        if (classNumber === 0) {
+          radiusArray.push(defaultMapSettings.radiusLow);
+        } else {
+          radiusArray.push(radiusArray[classNumber - 1] + interval);
+        }
+      }
+
+      // Workaround for classess more than values
+      if (sortedData.length < defaultMapSettings.classes) {
+        if (sortedData.length === 0 && doneWorkAround === false) {
+          sortedData.push(0);
+          doneWorkAround = true;
+        }
+        if (sortedData.length === 1 && doneWorkAround === false) {
+          sortedData.push(sortedData[0] + 1);
+          doneWorkAround = true;
+        }
+      }
+
+      for (let classIncr = 0; classIncr <= defaultMapSettings.classes; classIncr++) {
+        if (defaultMapSettings.method === 3) { // equal counts
+          const index = classIncr / defaultMapSettings.classes * (sortedData.length - 1);
+          if (Math.floor(index) === index) {
+            classLimits.push(sortedData[index]);
+          } else {
+            const approxIndex = Math.floor(index);
+            classLimits.push(sortedData[approxIndex] + (sortedData[approxIndex + 1] - sortedData[approxIndex]) * (index - approxIndex));
+          }
+        } else {
+          classLimits.push(Math.min.apply(Math, sortedData) + ( (Math.max.apply(Math, sortedData) - Math.min.apply(Math, sortedData)) / defaultMapSettings.classes ) * classIncr);
+        }
+      }
+
+
+      if (doneWorkAround) {
+        dataArray.pop()
+      }
+      // Offset Workaround
+      // Populate data count into classes
+      classLimits.forEach(function (classLimit, classIndex) {
+        if (classIndex < classLimits.length - 1) {
+          const min = classLimits[classIndex], max = classLimits[classIndex + 1];
+          legend.push({
+            name: '',
+            label: '',
+            description: '',
+            relativeFrequency: '',
+            min: +min.toFixed(1),
+            max: +max.toFixed(1),
+            color: legendSetColorArray[classIndex],
+            count: 0,
+            radius: 0,
+            boundary: false
+          });
+        }
+      });
+
+    }
+    legend = this._getLegendCounts(dataArray, legend);
+    return legend;
+  }
+
+  private _getLegendCounts(dataArray, legend) {
+    let totalCounts = 0;
+    dataArray.forEach(data => {
+      legend.forEach((legendItem, legendIndex) => {
+        if (legendItem.min <= data && data < legendItem.max) {
+          legendItem.count += 1;
+          totalCounts += 1;
+        }
+
+        if (legendIndex === legend.length - 1 && legendItem.min < data && data === legendItem.max) {
+          legendItem.count += 1;
+          totalCounts += 1;
+        }
+      });
+    });
+
+    legend.forEach(leg => {
+      const fraction = (leg.count / totalCounts);
+      leg.percentage = fraction ? (fraction * 100).toFixed(0) + '%' : '';
+    })
+
+    return legend;
+  }
+
+  private _getDataSortedArray(data) {
+    const dataArray = [];
+    let sortedData = [];
+    if (data) {
+      data.map(dataItem => {
+        dataArray.push((new Function('return ' + dataItem.value))());
+      })
+      sortedData = _(dataArray).sortBy().value();
+    }
+    return sortedData;
+  }
+
+  private _prepareGeoJSONArray(geoFeatures) {
+    const features = [];
+
+    geoFeatures.map((feature) => {
+      features.push(
+        {
+          'type': 'Feature',
+          'le': feature.le,
+          'geometry': {
+            'type': feature.le >= 4 ? 'Point' : 'MultiPolygon',
+            'coordinates': (new Function('return ' + feature.co))()
+          },
+          'properties': {
+            'id': feature.id,
+            'name': feature.na,
+            'dataElement.id': '',
+            'dataElement.name': '',
+            'dataElement.value': 0,
+            'classInterval': '',
+            'fill': '',
+            'fill-opacity': 1,
+            'stroke': '#000000',
+            'stroke-opacity': 1,
+            'stroke-width': 1
+          }
+        }
+      );
+    })
+    return features;
+  }
+
+  private _getDefaultMapSettings(geoFeatures) {
+    const text = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const index = Math.floor((Math.random() * (text.length - 11)) + 0);
+    return {
+      id: text.substr(index, 11),
+      method: 3,
+      labels: false,
+      labelFontColor: '#000000',
+      layer: 'thematic1',
+      labelFontStyle: 'normal',
+      radiusHigh: 15,
+      hideTitle: false,
+      eventClustering: false,
+      colorLow: '#ff0000',
+      colorHigh: '#007F00',
+      opacity: 0.8,
+      parentLevel: 0,
+      parentGraphMap: {
+        ImspTQPwCqd: ''
+      },
+      labelFontSize: '11px',
+      completedOnly: false,
+      eventPointRadius: 0,
+      hidden: false,
+      classes: 5,
+      hideSubtitle: false,
+      labelFontWeight: 'normal',
+      radiusLow: 5,
+      geoFeatures: geoFeatures
+    }
+  }
+
+  prepareCSVData(analytics) {
+
+    if (analytics === null) {
+      return null;
+    }
+
+    let result, ctr, keys, columnDelimiter, lineDelimiter;
+    let uids = [];
+    if (analytics.hasOwnProperty('headers')) {
+
+      const orgIndex = _.findIndex(analytics.headers, ['name', 'ou']);
+      const valueIndex = _.findIndex(analytics.headers, ['name', 'value']);
+
+      columnDelimiter = ',';
+      lineDelimiter = '\n';
+      keys = ['Organisation Unit'];
+      analytics.metaData.dx.forEach((dataElement, dataElementIndex) => {
+
+        keys.push(analytics.metaData.names[dataElement]);
+        uids.push(dataElement);
+
+      });
+
+      result = '';
+      result += keys.join(columnDelimiter);
+      result += lineDelimiter;
+      console.log(analytics);
+      analytics.metaData.dx.forEach((dataElement, dataElementIndex) => {
+
+        analytics.rows.forEach((item) => {
+          ctr = 0;
+          uids.forEach((key, keyIndex) => {
+            result += analytics.metaData.names[item[orgIndex]];
+            result += columnDelimiter;
+            result += item[valueIndex];
+            result += lineDelimiter = '\n';
+            ctr++;
+          });
+        });
+
+      });
+
+
+    } else {
+      return '';
+    }
+
+    return result;
+  }
+
+  /**
+   * END OF MAP VISUALIZATION  FUNCTIONS
+   * */
+
+
 }
