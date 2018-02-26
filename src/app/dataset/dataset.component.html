@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label class="text-secondary">Period</label>
+        <select [(ngModel)]="selected_pe"  class="form-control form-control-sm filter-selector" (change)="updatePeriod(selected_pe)">
+          <option *ngFor="let year of years$ | async" value="{{year.id}}" >{{year.name}} </option>
+          <option *ngFor="let quarter of quarters$ | async" value="{{quarter.id}}" >{{quarter.name}} </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label class="text-secondary">Organization Unit</label>
+        <select  [(ngModel)]="selected_ou" class="form-control form-control-sm filter-selector" (change)="updateOrgunit(selected_ou)">
+          <option *ngFor="let orgUnit of organisationUnits$ | async" value="{{orgUnit.id}}">{{orgUnit.name}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div [ngClass]="indicators[0].cardClass" class="col-sm-12 mb-3">
+      <div class="card">
+        <div class="card-body">
+
+          <div class="lead" *ngIf="indicators[0].loading">
+            <h3 class="lead text-center">{{indicators[0].title}}</h3>
+            <app-placeholder [loadingMessage]="'Getting '+ selected_ou_name + ' ' + indicators[0].title + ' data ...'"></app-placeholder>
+          </div>
+          <div *ngIf="!indicators[0].loading && indicators[0].visualizerType == 'chart' && !indicators[0].hasError" [ng2-highcharts]="indicators[0].chartObject"></div>
+          <div *ngIf="!indicators[0].loading && indicators[0].visualizerType == 'table' && !indicators[0].hasError">
+            <app-table-template [tableObject]="indicators[0].tableObject"></app-table-template>
+          </div>
+          <!--error handling-->
+          <div class="lead text-warning" *ngIf="indicators[0].hasError">
+            <i class="fa fa-warning"></i> Sorry, something went wrong while fetching data! make sure you have internet connection and  try to reload the page
+          </div>
+        </div>
+
+        <div class="card-footer text-muted">
+          <footer class="blockquote-footer">
+            <small style="font-size: 8px">This data is not for Publication it is used for administrative purpose only, to get data for publication contact  <cite title="Source Title">Permanent secretary ministry of health</cite></small>
+          </footer>        </div>
+      </div>
+    </div>
+  </div>
+</div>

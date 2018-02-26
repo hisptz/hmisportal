@@ -23,5 +23,19 @@
         "/assets/**"
       ]
     }
-  }]
+  }],
+  "dataGroups": [{
+    "name": "api-freshness",
+    "urls": [
+      "https://hmisportal.moh.go.tz/hmisportal/dhis/api"
+    ],
+    "cacheConfig": {
+      "strategy": "freshness",
+      "maxSize": 500,
+      "maxAge": "50d",
+      "timeout": "70s",
+      "match": "prefix"
+    }
+  }
+  ]
 }

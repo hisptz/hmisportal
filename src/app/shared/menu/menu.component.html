@@ -1,0 +1,188 @@
+<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #00796b;padding-top: 0px;padding-bottom: 0px">
+  <a class="navbar-brand" href="#" style="font-size: 2.1rem; color: #ffffff">
+    <img src="assets/img/tanzania1.gif" width="50" height="40" class="d-inline-block align-top" alt="">
+    HMIS Web Portal
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navbarNavDropdown" class="navbar-collapse collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-5">
+      <li class="nav-item">
+        <a class="nav-item nav-link pull-md-right" [routerLink]="['']">
+          <i class="fa fa-home" aria-hidden="true"></i>
+          Dashboard
+        </a>
+      </li>
+      <!--RCH&amp;HMIS Indicators-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="RCH" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          RCH&amp;HMIS Indicators
+        </a>
+        <div class="dropdown-menu" aria-labelledby="RCH" >
+          <a class="dropdown-item" [routerLink]="['indicator','antenatalCare']">ANTENATAL CARE</a>
+          <a class="dropdown-item" [routerLink]="['indicator','ancIntegration']">ANC INTEGRATION</a>
+          <a class="dropdown-item" [routerLink]="['indicator','laborDelivery']">LABOR&amp;DELIVERY</a>
+          <a class="dropdown-item" [routerLink]="['indicator','newbornCare']">NEWBORN CARE</a>
+          <a class="dropdown-item" [routerLink]="['indicator','postnatalCare']">POST NATAL CARE</a>
+          <a class="dropdown-item" [routerLink]="['indicator','gbvVac']">GBV &amp;VAC</a>
+          <a class="dropdown-item" [routerLink]="['indicator','cervicalCancer']">CERVICAL CANCER</a>
+          <a class="dropdown-item" [routerLink]="['indicator','tracer_medicine']">TRACER MEDICINE</a>
+          <a class="dropdown-item" [routerLink]="['familyPlanningHome']">FAMILY PLANNING</a>
+        </div>
+      </li>
+      <!--Program Indicators-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="Program" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Program Indicators
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="Program">
+          <li><a class="dropdown-item" [routerLink]="['indicator','malaria']">MALARIA</a></li>
+          <li><a class="dropdown-item" [routerLink]="['indicator','ivd']">IVD</a></li>
+          <li><a class="dropdown-item" [routerLink]="['indicator','nutrition']">NUTRITION</a></li>
+          <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">HIV/AIDS</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['indicator','pmtct']">PMTCT</a></li>
+              <li><a class="dropdown-item" [routerLink]="['indicator','art']">ART</a></li>
+              <li><a class="dropdown-item" [routerLink]="['indicator','pediatrichiv']">PEDIATRIC HIV</a></li>
+              <li><a class="dropdown-item" [routerLink]="['indicator','sti']">STI</a></li>
+              <li><a class="dropdown-item" [routerLink]="['indicator','vmcc']">VMCC</a></li>
+            </ul>
+          </li>
+          <li><a class="dropdown-item" [routerLink]="['indicator','noncommunicabledisease']">NON-COMMUNICABLE DISEASE</a></li>
+          <li><a class="dropdown-item" [routerLink]="['indicator','tb']">TB&amp;LEPROSY</a></li>
+          <li><a class="dropdown-item" [routerLink]="['familyPlanningHome']">FAMILY PLANNING</a></li>
+        </ul>
+      </li>
+      <!--Raw Data Coverage-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="Raw" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Raw Data Coverage
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="Raw">
+          <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">HMIS&amp;RCH</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['dataset','zeEp4Xu2GOm']">HMIS-Kliniki ya Wajawazito(ANC)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','GzvLb3XVZbR']">HMIS-Kutoka Wodi ya Wazazi(LD)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','cap79mdf6Co']">HMIS-Ufuatiliaji wa Watoto(Child Health)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','qpcwPcj8D6u']">HMIS-Wagonjwa wa Kulaza(IPD)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','v6wdME3ouXu']">HMIS-Wagonjwa wa Nje(OPD)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','rm3y3VHPiFD']">HMIS-Huduma Baada ya Kujifungua(Postnatal)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','TfoI3vTGv1f']">HMIS-Uzazi wa Mpango(FP)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','bHrWIwZaVV2']">HMIS-Report Kutoka Kituo cha Huduma(Book10)</a></li>
+              <!--<li><a class="dropdown-item" [routerLink]="['dataset','ws4ZoC7SC1d']">HMIS-Death Registry</a></li>-->
+              <li><a class="dropdown-item" [routerLink]="['dataset','ZOvFj2vtlor']">HMIS-Tracer Medicine</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','jNsYicUMUDr']">HMIS-Magonjwa ya Kuhara(DTC)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','ExX34Bpv0qN']">HMIS-Wagonjwa wa Macho(Eye)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','GzvLb3XVZbR']">HMIS-Kutoka Wodi ya Wazazi(L&D)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','xQWse025yRw']">HMIS-Wagonjwa wa Kinywa(Dental)</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">NACP</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['dataset','CxaDPrjhmax']">NACP-Home based care(HUWANYU)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','g1oggP7x124']">NACP-PMTCT</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','db4lfMnttc6']">NACP-Sexually Transmitted Infections(STI)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','Dp0VF7ssmcH']">NACP-HIV Care and Treatment(HCT)</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">NTLP</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['dataset','ykDbDeDvTcx']">NTLP-Case Notification report of Leprosy(LEP07)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','mns9UIMI76W']">NTLP-Leprosy patients tratments outcome(LEP09)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','O2V8r4UT8kB']">NTLP-Annual Report on Prevention Disabilities(LEP10)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','IzUZXETYoyB']">NTLP-Tuberculosis and TB/HIV(TB07)</a></li>
+              <li><a class="dropdown-item" [routerLink]="['dataset','ZOkoQ7BtbVQ']">NTLP-Tuberculosis and TB/HIV(TB09)</a></li>
+            </ul>
+          </li>
+          <!--<li class="dropdown-submenu">-->
+            <!--<a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#">RCHS</a>-->
+            <!--<ul class="dropdown-menu">-->
+              <!--<li><a class="dropdown-item" [routerLink]="['dataset','AYmj40WLSo7']">PMTCT</a></li>-->
+            <!--</ul>-->
+          <!--</li>-->
+        </ul>
+      </li>
+      <!--Downloads-->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="Downloads" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Downloads
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="Downloads">
+          <li><a class="dropdown-item" [routerLink]="['downloads']">Health Reports</a></li>
+          <li><a class="dropdown-item" [routerLink]="['scorecards']">HMIS Scorecards</a></li>
+          <li><a target="_blank"  rel="noopener" class="dropdown-item" href="https://hmisportal.moh.go.tz/dhpportal">District Health Profiles</a></li>
+        </ul>
+      </li>
+      <!--updates-->
+      <li class="nav-item">
+        <a class="nav-item nav-link pull-md-right" [routerLink]="['updates']">
+          Updates
+        </a>
+      </li>
+      <!--Feedback-->
+      <li class="nav-item">
+        <a class="nav-item nav-link pull-md-right cursor" data-toggle="modal" data-target="#exampleModal">
+          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!--messaging model-->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document"  style="max-width: 80%;margin-left: 10%;margin-right: 10%">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Leave your Comments here..!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 30px">
+            <div class="form-group">
+              <label for="email" class="form-control-label">Email:</label>
+              <input type="text" [(ngModel)]="user.email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+              <label for="phone" class="form-control-label">Contacts phone:</label>
+              <input type="text" class="form-control" [(ngModel)]="user.phone" id="phone">
+            </div>
+
+        <small style="font-size: 8px">Option: Please provide contacts above for return feedback on the comment section</small>
+
+            <div class="form-group">
+              <label for="subject" class="form-control-label">Subject:</label>
+              <input type="text" class="form-control" [(ngModel)]="user.subject" id="subject">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="form-control-label">Message:</label>
+              <textarea class="form-control"  [(ngModel)]="user.message" id="message-text" rows="6"></textarea>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <p *ngIf="showLoading" style="padding-top: 20px" >
+          Saving Comment...
+        </p>
+        <p *ngIf="showError" style="padding-top: 20px" class="text-warning">
+          <i class="fa fa-warning"></i> Something went wrong while sending your comment please try again...
+        </p>
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+        <button type="button" [disabled]="disableds()" class="btn btn-outline-primary" (click)="saveComment()">
+          <i class="fa fa-save"></i> Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
