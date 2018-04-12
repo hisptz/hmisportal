@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/ng2-dnd/bundles/style.css';
+.cursor {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .dropdown:hover>.dropdown-menu {
+    display: block;
+  }
+}
+.nav-link{
+  font-size: 12px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+}
+.dropdown-item{
+  padding-left: 6px;
+}
+.dropdown-menu {
+  border-radius: 0px;
+  top:90%;
+  font-size: 12px;
+  padding: 0px;
+}
+.dropdown-submenu{
+  position: relative;
+}
+.dropdown-submenu a::after{
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 0px;
+  top: 40%;
+}
+.dropdown-submenu:hover .dropdown-menu, .dropdown-submenu:focus .dropdown-menu{
+  display: flex;
+  flex-direction: column;
+  position: absolute !important;
+  margin-top: -30px;
+  left: 100%;
+}
+@media (max-width: 992px) {
+  .dropdown-menu{
+    width: 50%;
+  }
+  .dropdown-menu .dropdown-submenu{
+    width: auto;
+  }
+}

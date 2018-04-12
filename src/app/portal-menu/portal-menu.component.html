@@ -1,0 +1,98 @@
+<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #00796b;padding-top: 0px;padding-bottom: 0px">
+  <a class="navbar-brand" href="#" style="font-size: 2.1rem; color: #ffffff">
+    <img src="assets/img/tanzania1.gif" width="50" height="40" class="d-inline-block align-top" alt="">
+    <span *ngIf="!showTitleEditor">{{ title }}</span>
+  </a>
+  <button
+    *ngIf="!showTitleEditor"
+    class="btn btn-link cursor"
+    style="color: white"
+    (click)="showTitleEditor = !showTitleEditor">
+    <i class="fa fa-edit"></i>
+  </button>
+  <input
+    *ngIf="showTitleEditor"
+    type="text" class="title-input"
+    placeholder="title"
+    (input)="setTitle($event)"
+    [value]="title">
+  <button
+    *ngIf="showTitleEditor"
+    class="btn btn-link cursor"
+    style="color: white"
+    (click)="showTitleEditor = !showTitleEditor"
+  >
+    <i class="fa fa-check"></i>
+  </button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navbarNavDropdown" class="navbar-collapse collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-5">
+        <li
+          (mouseover)="showMenuEditor[menu.id] = true"
+          (mouseout)="showMenuEditor[menu.id] = false"
+          *ngFor="let menu of mainMenus"
+          class="nav-item cursor"
+          [ngClass]="{'dropdown': menu.has_submenu}"
+        >
+          <a
+            class="nav-item nav-link pull-md-right"
+            (click)="goTo(menu.id, menu.has_submenu, menu.type)"
+            [ngClass]="{'dropdown-toggle': menu.has_submenu}"
+          >
+            <i *ngIf="menu.id == 'dashboard'" class="fa fa-home" aria-hidden="true"></i>
+
+            {{ menu.name }}
+            <button
+              class="btn btn-outline-light cursor"
+              style="color: white"
+              (click)="updateMainMenu(menu)">
+              <i class="fa fa-pencil"></i>
+            </button>
+          </a>
+          <ul *ngIf="menu.has_submenu" class="dropdown-menu" [attr.aria-labelledby]="menu.id" >
+            <li *ngFor="let submenu of menu.submenus" class="cursor" [ngClass]="{'dropdown-submenu': submenu.has_submenu}">
+              <a class="dropdown-item" (click)="goTo(submenu.id ,submenu.has_submenu, submenu.type)" [ngClass]="{'dropdown-toggle': submenu.has_submenu}">
+                {{ submenu.name }}
+              </a>
+              <ul *ngIf="submenu.has_submenu" class="dropdown-menu" [attr.aria-labelledby]="submenu.id" >
+                <li *ngFor="let subitem of submenu.submenus" class="cursor">
+                  <a class="dropdown-item" (click)="goTo(subitem.id, subitem.has_submenu, subitem.type)">
+                    {{ subitem.name }}
+                  </a>
+
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      <!--Feedback-->
+      <li class="nav-item">
+        <a class="nav-item nav-link pull-md-right cursor" data-toggle="modal" data-target="#exampleModal">
+          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="ourmodel"
+       [@visibilityChanged]="hoverState || 'notHovered'"
+  >
+    <p><a class="btn btn-light btn-sm pull-right" (click)="closeModel()"><i class="fa fa-close"></i> </a></p>
+    <app-menu-link
+      *ngIf="selectedMenu$ | async"
+      [menu]="selectedMenu$ | async"
+      [submenu]="selectedSubMenu$ | async"
+    ></app-menu-link>
+  </div>
+</div>
+
+

@@ -1,0 +1,31 @@
+<h4 class="text-center">
+  Indicator Management for {{ indicator_group.title }}
+</h4>
+<div class="container-fluid">
+  <div class="row p-4" dnd-sortable-container [sortableData]="indicators">
+    <div
+      class="card mt-1 p-1"
+      *ngFor="let indicator of indicators;trackBy: trackItem;let i = index"
+      [ngClass]="indicator.cardClass"
+      dnd-sortable
+      [sortableIndex]="i"
+      (onDropSuccess)="onDropSuccess()"
+    >
+      <div class="card-body p-2" style="cursor: all-scroll" title="Drag to rearrange indicators">
+        <span><i class="fa fa-bars" style="cursor: all-scroll"></i></span>
+        {{indicator.title}}
+        <button
+          class="btn btn-outline-secondary btn-sm pull-right rounded cursor"
+          (click)="resizeCard(indicator)"
+          style="border-radius: 50%"
+        >
+          <i
+            class="fa fa-arrows-h"
+            title="Change size between half and full"
+          ></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
