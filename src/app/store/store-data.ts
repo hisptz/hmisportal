@@ -38,8 +38,8 @@ export interface StoreData {
 export const INITIAL_STORE_DATA: StoreData = {
   indicators: [],
   currentpage: 'dashboard',
-  dashboardPeriod: '2016',
-  currentperiod: '2017Q1',
+  dashboardPeriod: '2017',
+  currentperiod: '2017Q4',
   currentperiodtype: 'Year',
   options: null,
   currentorgunit: 'm0frOspS7JY',
@@ -222,6 +222,7 @@ export const INITIAL_STORE_DATA: StoreData = {
     {'id': '2014Q1', 'name': 'Jan - Mar 2014'},
   ],
   years: [
+    {'name': '2018', 'id': '2018'},
     {'name': '2017', 'id': '2017'},
     {'name': '2016', 'id': '2016'},
     {'name': '2015', 'id': '2015'},
