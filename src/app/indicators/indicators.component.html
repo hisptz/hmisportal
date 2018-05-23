@@ -1,7 +1,4 @@
-<button class="btn btn-outline-secondary" (click)="showSorting = !showSorting">
-  {{ showSorting? 'Show Simple Sorting' : 'Hide Simple Sorting' }}
-</button>
-<div *ngIf="showSorting" @fadeInOut>
+<div style="margin-top: 20px;" @fadeInOut>
   <app-sorting
     *ngIf="indicator_group$ | async"
     [indicators]="indicators$ | async"
@@ -10,9 +7,9 @@
   </app-sorting>
 </div>
 <div class="container-fluid">
-  <ul *ngIf="visualizations$ | async">
-    <li *ngFor="let visualization of visualizations$ | async">
-      {{ visualization.name }}
-    </li>
-  </ul>
+  <!--<ul *ngIf="visualizations$ | async">-->
+    <!--<li *ngFor="let visualization of visualizations$ | async">-->
+      <!--{{ visualization.name }}-->
+    <!--</li>-->
+  <!--</ul>-->
 </div>

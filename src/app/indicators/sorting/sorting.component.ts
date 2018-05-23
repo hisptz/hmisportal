@@ -16,7 +16,14 @@ export class SortingComponent implements OnInit {
 
   @Input() indicators: Indicator[] = [];
   @Input() indicator_group: IndicatorGroup;
+  newIndicator: any = {
+    id: 'new',
+    title: 'Untitled Indicator',
+    cardClass: 'col-sm-4'
+  };
   constructor(private store: Store<ApplicationState>) { }
+
+
 
   ngOnInit() {
   }

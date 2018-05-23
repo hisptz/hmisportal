@@ -1,0 +1,13 @@
+.visualization-area {
+  height: 400px;
+  width: 100%;
+  border: dotted thin #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+}
+
+.vis-card {
+  margin: 2px;
+}

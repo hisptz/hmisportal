@@ -21,6 +21,6 @@ export const selectedIndicators = createSelector(
   selectIndicatorEntities,
   selectCurrentIndicatorGroup,
   (indicators, group) => {
-    return group.indicators.map(indicator => indicators[indicator]);
+    return group && group.indicators ?  group.indicators.map(indicator => indicators[indicator]) : []
   }
 );

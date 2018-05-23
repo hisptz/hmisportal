@@ -21,6 +21,6 @@ export const selectedVisualizations = createSelector(
   selectVisualizationEntities,
   selectCurrentIndicatorGroup,
   (visualizations, group) => {
-    return group.indicators.map(indicator => visualizations[indicator]);
+    return group && group.indicators ?  group.indicators.map(indicator => visualizations[indicator]) : [];
   }
 );

@@ -3,27 +3,68 @@
 </h4>
 <div class="container-fluid">
   <div class="row p-4" dnd-sortable-container [sortableData]="indicators">
+    <!--<div-->
+      <!--class="card mt-1 p-1 vis-card"-->
+      <!--[ngClass]="newIndicator.cardClass || 'col-sm-4'"-->
+      <!--dnd-sortable-->
+      <!--[sortableIndex]="0"-->
+      <!--(onDropSuccess)="onDropSuccess()"-->
+    <!--&gt;-->
+      <!--<div class="card-body p-2" style="cursor: all-scroll" title="Drag to rearrange indicators">-->
+        <!--<div>-->
+          <!--<span><i class="fa fa-bars" style="cursor: all-scroll"></i></span>-->
+          <!--{{newIndicator.title}}-->
+          <!--<button-->
+            <!--class="btn btn-outline-secondary btn-sm pull-right rounded cursor"-->
+            <!--(click)="resizeCard(newIndicator)"-->
+            <!--style="border-radius: 50%"-->
+          <!--&gt;-->
+            <!--<i-->
+              <!--class="fa fa-arrows-h"-->
+              <!--title="Change size between half and full"-->
+            <!--&gt;</i>-->
+          <!--</button>-->
+        <!--</div>-->
+        <!--<div class="visualization-area">-->
+          <!--<div class="text-center">-->
+            <!--<i class="fa fa-plus fa-4x"></i>-->
+            <!--<div>Add new indicator card</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
     <div
-      class="card mt-1 p-1"
+      class="card mt-1 p-1 vis-card"
       *ngFor="let indicator of indicators;trackBy: trackItem;let i = index"
-      [ngClass]="indicator.cardClass"
+      [ngClass]="indicator.cardClass || 'col-sm-4'"
       dnd-sortable
       [sortableIndex]="i"
       (onDropSuccess)="onDropSuccess()"
     >
       <div class="card-body p-2" style="cursor: all-scroll" title="Drag to rearrange indicators">
-        <span><i class="fa fa-bars" style="cursor: all-scroll"></i></span>
-        {{indicator.title}}
-        <button
-          class="btn btn-outline-secondary btn-sm pull-right rounded cursor"
-          (click)="resizeCard(indicator)"
-          style="border-radius: 50%"
-        >
-          <i
-            class="fa fa-arrows-h"
-            title="Change size between half and full"
-          ></i>
-        </button>
+        <div>
+          <span><i class="fa fa-bars" style="cursor: all-scroll"></i></span>
+          {{indicator.title}}
+          <button
+            class="btn btn-outline-secondary btn-sm pull-right rounded cursor"
+            (click)="resizeCard(indicator)"
+            style="border-radius: 50%"
+          >
+            <i
+              class="fa fa-arrows-h"
+              title="Change size between half and full"
+            ></i>
+          </button>
+        </div>
+        <div class="visualization-area">
+          <div class="text-center" *ngIf="indicator.id === 'new'">
+            <i class="fa fa-plus fa-4x"></i>
+            <div>Add new indicator card</div>
+          </div>
+          <div class="text-center" *ngIf="indicator.id !== 'new'">
+            Visualization here
+          </div>
+        </div>
       </div>
     </div>
   </div>
