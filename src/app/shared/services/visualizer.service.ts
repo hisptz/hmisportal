@@ -166,9 +166,9 @@ export class VisualizerService {
       const dimensions = analyticsObject.metaData.dimensions;
       // analyticsObject = {...analyticsObject, metaData: {...analyticsObject.metaData, names: arr.names, ...dimensions }};
       analyticsObject.metaData.names = arr.names;
-      analyticsObject.metaData.ou = analyticsObject.metaData.dimensions.ou;
-      analyticsObject.metaData.pe = analyticsObject.metaData.dimensions.pe;
-      analyticsObject.metaData.dx = analyticsObject.metaData.dimensions.dx;
+      Object.keys(analyticsObject.metaData.dimensions).forEach(key => {
+        analyticsObject.metaData[key] = analyticsObject.metaData.dimensions[key];
+      })
     }
     if (analyticsObject.hasOwnProperty('headers')) {
 
@@ -575,16 +575,16 @@ export class VisualizerService {
    */
   getCsvData(analyticsObject, chartConfiguration) {
     const data = [];
-    const chartObject = this.drawOtherCharts(analyticsObject, chartConfiguration);
-    for (const value of chartObject.series) {
-      const obj = {organisationunit: value.name};
-      let i = 0;
-      for (const val of chartObject.xAxis.categories) {
-        obj[val] = value.data[i];
-        i++;
-      }
-      data.push(obj);
-    }
+    // const chartObject = this.drawOtherCharts(analyticsObject, chartConfiguration);
+    // for (const value of chartObject.series) {
+    //   const obj = {organisationunit: value.name};
+    //   let i = 0;
+    //   for (const val of chartObject.xAxis.categories) {
+    //     obj[val] = value.data[i];
+    //     i++;
+    //   }
+    //   data.push(obj);
+    // }
     return data;
   }
 

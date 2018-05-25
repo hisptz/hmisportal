@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.store.select(selectors.getPortalItems).take(1).subscribe(
           (data) => {
 
-            this.portalService.getGeoFeatures('api/geoFeatures.json?ou=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id)
+            this.portalService.getGeoFeatures('api/25/geoFeatures.json?ou=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id)
               .subscribe((geoFeatures) => {
                 this.geoFeatures = geoFeatures;
                 this.indicators.forEach((item) => {

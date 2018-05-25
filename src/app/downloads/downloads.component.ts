@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DownloadsComponent implements OnInit {
 
-  linkValue = 'brn';
-  heading = 'Brn';
+  linkValue = 'census';
+  heading = 'Census';
   constructor() { }
 
   ngOnInit() {
