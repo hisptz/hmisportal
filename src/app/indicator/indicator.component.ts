@@ -60,13 +60,13 @@ export class IndicatorComponent implements OnInit, OnDestroy {
       this.store.select(selectors.getSelectedOrganisationUnit).take(1).subscribe((orgunit) => {
         this.store.select(selectors.getPortalItems).take(1).subscribe(
           (data) => {
-            this.portalService.getGeoFeatures('api/25/geoFeatures.json?ou=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id)
+            this.portalService.getGeoFeatures('api/geoFeatures.json?ou=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id)
               .subscribe((geoFeatures) => {
                 this.geoFeatures = geoFeatures;
                 this.indicators.forEach((item) => {
                   if (item.visualizerType === 'map') {
                     item.loading = true;
-                    let url = 'api/25/analytics.json?dimension=dx:' + item.data;
+                    let url = 'api/analytics.json?dimension=dx:' + item.data;
                     url += '&dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
                     this.portalService.getAnalyticsData(url).subscribe(
                       (analytics) => {
@@ -85,7 +85,7 @@ export class IndicatorComponent implements OnInit, OnDestroy {
               item.identifiers = item.data;
               item.showOptions = false;
               item.hasError = false;
-              let url = 'api/25/analytics.json?dimension=dx:' + item.data;
+              let url = 'api/analytics.json?dimension=dx:' + item.data;
               url += '&dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
               // item.csv = url.replace('.json', '.csv');
               // item.csv = '../dhis/' + item.csv;

@@ -67,19 +67,19 @@ export class DatasetComponent implements OnInit, OnDestroy {
     this.store.select(selectors.getDashboardPeriod).take(1).subscribe( (period) => {
       this.store.select(selectors.getSelectedOrganisationUnit).take(1).subscribe( (orgunit) => {
         this.portalService.getAnalyticsData(
-          'api/25/dataSets/' + this.dataset + '.json?fields=id,name,shortName,dataElements[id,name]').subscribe(
+          'api/dataSets/' + this.dataset + '.json?fields=id,name,shortName,dataSetElements[dataElement[id,name]]').subscribe(
           (data) => {
             this.indicators = [
               {
                 title: data.name,
-                data: _.map(data.dataElements, 'id').join(';'),
+                data: _.map(data.dataSetElements, 'dataElement.id').join(';'),
                 cardClass: 'col-sm-12 col-md-12',
               }
               ];
             this.indicators.forEach( (item) => {
               item.loading = true;
               item.hasError = false;
-              let url = 'api/25/analytics.json?dimension=dx:' + item.data;
+              let url = 'api/analytics.json?dimension=dx:' + item.data;
               url += '&dimension=ou:' + this.portalService.getLevel(orgunit.level) + orgunit.id + '&filter=pe:' + period;
               this.subscriptions.push(
                 this.portalService.getAnalyticsData(url).subscribe(
