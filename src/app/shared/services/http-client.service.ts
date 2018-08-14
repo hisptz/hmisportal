@@ -39,7 +39,7 @@ export class HttpClientService {
   }
 
   get1(url) {
-    return this.http.get('../../../' + url).map(this.responseHandler()).catch(this.handleError);
+    return this.http.get('../../../'+url).map(this.responseHandler()).catch(this.handleError);
   }
 
   post(url, data, options?) {
