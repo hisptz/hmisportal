@@ -38,8 +38,8 @@ export interface StoreData {
 export const INITIAL_STORE_DATA: StoreData = {
   indicators: [],
   currentpage: 'dashboard',
-  dashboardPeriod: '2017',
-  currentperiod: '2017Q4',
+  dashboardPeriod: '2018',
+  currentperiod: '2018Q2',
   currentperiodtype: 'Year',
   options: null,
   currentorgunit: 'm0frOspS7JY',
@@ -204,6 +204,8 @@ export const INITIAL_STORE_DATA: StoreData = {
     'vmcc': vmcc
   },
   quarters: [
+    {'id': '2018Q2', 'name': 'Apr - Jun 2018'},
+    {'id': '2018Q1', 'name': 'Jan - Mar 2018'},
     {'id': '2017Q4', 'name': 'Oct - Dec 2017'},
     {'id': '2017Q3', 'name': 'Jul - Sep 2017'},
     {'id': '2017Q2', 'name': 'Apr - Jun 2017'},

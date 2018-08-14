@@ -26,7 +26,7 @@ export class PortalService {
     organisaionUnits.map((orgUnit) => {
       orgUnitIds += orgUnit + ';';
     });
-    return 'api/25/geoFeatures.json?ou=ou:' + orgUnitIds + '&displayProperty=SHORTNAME';
+    return 'api/geoFeatures.json?ou=ou:' + orgUnitIds + '&displayProperty=SHORTNAME';
   }
 
   getPeriodName(period) {
