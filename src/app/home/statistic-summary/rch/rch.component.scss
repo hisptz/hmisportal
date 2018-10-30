@@ -1,0 +1,49 @@
+.row1 {
+  display: grid;
+  grid-gap: 15px 15px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.card1 {
+  background: #fff;
+  /*background-color: rgba(164,136,97, 0.4);*/
+}
+
+.ttle {
+  // color: rgba(87, 143, 205, 0.9);
+  color: #2a8fd1;
+  text-decoration: underline;
+}
+
+
+.card-1 {
+  border-radius: 5px;
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1) !important;
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(3, 31, 35, 0.12), 0 10px 10px rgba(3, 31, 35, 0.22) !important;
+  transform: scale(1.02) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+
+.image-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-grid-tile>* {
+  width: 100%;
+}
+
+.mat-form-field {
+  width: 80% !important;
+}

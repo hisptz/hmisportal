@@ -1,0 +1,21 @@
+.footer-grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr
+}
+
+.links p a:hover {
+  transform: scale(1.1);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.links p a {
+  // color: rgba(87, 143, 205, 0.9);
+  color: #2a8fd1;
+}
+
+h2 {
+  color: #2a8fd1;
+  font-weight: 600;
+}

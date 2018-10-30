@@ -1,0 +1,57 @@
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 0.9);
+  padding-right: 1em;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-left: rgba(87, 143, 205, 0.2) solid 1px;
+}
+
+.navbar-light .navbar-nav .active > .nav-link {
+  color: rgba(0, 0, 0, 1);
+  font-weight: bolder;
+  transform: scale(1.01);
+  background-color:rgba(87, 143, 205, 0.1);
+  border-radius: 2px;
+  background: -moz-linear-gradient(top, rgba(255,255,255,0.76) 30%, rgba(254,255,255,0.76) 31%, rgba(210,229,239,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(30%, rgba(255,255,255,0.76)), color-stop(31%, rgba(254,255,255,0.76)), color-stop(100%, rgba(210,229,239,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0.76) 30%, rgba(254,255,255,0.76) 31%, rgba(210,229,239,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,0.76) 30%, rgba(254,255,255,0.76) 31%, rgba(210,229,239,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,0.76) 30%, rgba(254,255,255,0.76) 31%, rgba(210,229,239,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.76) 30%, rgba(254,255,255,0.76) 31%, rgba(210,229,239,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d2e5ef', GradientType=0 );
+  //box-shadow: 0 3px 6px rgba(3, 31, 35, 0.12), 0 2px 2px rgba(3, 31, 35, 0.22) !important;
+}
+
+.navbar-light .navbar-nav .not-first {
+  padding-left: 1em!important;
+}
+
+.navbar{
+
+}
+
+.navbar-light .navbar-nav .active {
+  border-bottom: 2px solid rgba(87, 143, 205, 0.5);
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  box-shadow: 0 3px 6px rgba(3, 31, 35, 0.12), 0 2px 2px rgba(3, 31, 35, 0.22) !important;
+  transform: scale(1.02) !important;
+  border-radius: 2px;
+  border-bottom: 2px solid rgba(87, 143, 205, 0.5);
+  background-color: rgba(255, 255, 255, 0.55) !important;
+}
+.help {
+  color: rgba(0, 0, 0, 0.9);
+  padding-left: 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.help:hover {
+  box-shadow: 0 3px 6px rgba(3, 31, 35, 0.12), 0 2px 2px rgba(3, 31, 35, 0.22) !important;
+  transform: scale(1.02) !important;
+  border-radius: 2px;
+  border-bottom: 2px solid rgba(87, 143, 205, 0.5);
+  background-color: rgba(255, 255, 255, 0.55) !important;
+}

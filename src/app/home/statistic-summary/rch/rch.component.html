@@ -1,0 +1,17 @@
+<div class="row1">
+  <ng-container *ngFor="let menu of menus">
+    <mat-card
+      class="cursor card-1"
+      [ngClass]="routeAnimationsElements"
+    >
+      <mat-card-content>
+        <h5 class="text-center mb-0 mt-1">{{ menu.title}}</h5>
+        <hr>
+        <h3 class="text-center ttle">{{ menu.fact }}</h3>
+        <p style="font-size: 1.1rem" class="text-center">
+          {{ menu.description }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</div>

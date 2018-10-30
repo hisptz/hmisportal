@@ -1,1 +1,164 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
 /* You can add global styles to this file, and also import other style files */
+@import 'styles-variables';
+
+@import '../node_modules/bootstrap/scss/bootstrap-reboot';
+@import '../node_modules/bootstrap/scss/bootstrap-grid';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+@import '../node_modules/font-awesome/scss/font-awesome';
+
+@import 'styles-reset';
+
+@import '../node_modules/@angular/material/theming';
+
+// styles for the tree component
+@import '~angular-tree-component/dist/angular-tree-component.css';
+@include mat-core();
+
+$vvs-primary: mat-palette($mat-blue);
+$vvs-accent: mat-palette($mat-deep-orange, A200, A100, A400);
+$vvs-warn: mat-palette($mat-red);
+$vvs-theme: mat-light-theme($vvs-primary, $vvs-accent, $vvs-warn);
+@include angular-material-theme($vvs-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.cursor {
+  cursor: pointer !important;
+}
+
+// model styles for the help model
+
+.model-card {
+  max-height: 95vh !important;
+  overflow: auto !important;
+  border-radius: 10px !important;
+}
+
+.mat-dialog-container {
+  border-radius: 10px !important;
+}
+
+.model-card .mat-form-field-disabled {
+  opacity: 0.5 !important;
+}
+
+.model-card .mat-card-title {
+  margin-bottom: 0 !important;
+}
+
+.model-card::-webkit-scrollbar {
+  width: 10px !important;
+}
+
+.model-card::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 10px !important;
+}
+
+model-card .model-card::-webkit-scrollbar-thumb {
+  border-radius: 10px !important;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.mat-dialog-container {
+  padding: 0 !important;
+}
+
+button {
+  border-radius: 5px !important;
+}
+
+.item-form-grid1 {
+  display: grid !important;
+  grid-gap: 15px 15px !important;
+  grid-template-columns: repeat(auto-fit, 1fr) !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 10px 0 10px 0 !important;
+}
+
+.mat-form-field {
+  width: 100% !important;
+}
+
+.mat-card-actions {
+  margin-right: 5px !important;
+  margin-left: 0 !important;
+}
+
+.mat-tab-label {
+  color: black;
+  opacity: 0.7 !important;
+  font-weight: 500;
+  border: 1px solid rgba($color: #000000, $alpha: 0.1) !important;
+  border-top-right-radius: 8px !important;
+  border-top-left-radius: 8px !important;
+  margin-right: 8px;
+}
+
+.mat-tab-label:hover {
+  transform: scale(1.04);
+  background-color: rgba($color: #000000, $alpha: 0.1) !important;
+  font-weight: bolder !important;
+}
+
+.mat-tab-label-active {
+  font-weight: bolder !important;
+  background-color: rgba($color: #000000, $alpha: 0.1) !important;
+  opacity: 0.9 !important;
+  transform: scale(1.01);
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.76) 30%, rgba(254, 255, 255, 0.76) 31%, rgba(68, 158, 218, 0.6) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(30%, rgba(255, 255, 255, 0.76)), color-stop(31%, rgba(254, 255, 255, 0.76)), color-stop(100%, rgba(68, 158, 218, 0.6)));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.76) 30%, rgba(254, 255, 255, 0.76) 31%, rgba(68, 158, 218, 0.6) 100%);
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.76) 30%, rgba(254, 255, 255, 0.76) 31%, rgba(68, 158, 218, 0.6) 100%);
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.76) 30%, rgba(254, 255, 255, 0.76) 31%, rgba(68, 158, 218, 0.6) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.76) 30%, rgba(254, 255, 255, 0.76) 31%, rgba(68, 158, 218, 0.6) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#d2e5ef', GradientType=0);
+}
+
+.news .mat-card-header-text {
+  margin: 0 0px !important;
+}
+
+
+footer {
+  background: rgba(255, 255, 255, 0.43);
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.43) 51%, rgba(255, 255, 255, 0.44) 52%, rgba(68, 158, 218, 0.6) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(51%, rgba(255, 255, 255, 0.43)), color-stop(52%, rgba(255, 255, 255, 0.44)), color-stop(100%, rgba(68, 158, 218, 0.6)));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.43) 51%, rgba(255, 255, 255, 0.44) 52%, rgba(68, 158, 218, 0.6) 100%);
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.43) 51%, rgba(255, 255, 255, 0.44) 52%, rgba(68, 158, 218, 0.6) 100%);
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.43) 51%, rgba(255, 255, 255, 0.44) 52%, rgba(68, 158, 218, 0.6) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.43) 51%, rgba(255, 255, 255, 0.44) 52%, rgba(68, 158, 218, 0.6) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#d2e5ef', GradientType=0);
+}
+
+.footer-grid {
+  padding: 16px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.reserved {
+  background-color: #2a8fd1;
+  ;
+  color: white;
+}

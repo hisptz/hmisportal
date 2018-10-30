@@ -1,0 +1,49 @@
+<mat-card class="model-card">
+  <mat-card-title>
+    <h4>Have any feedback, suggestion or question?</h4>
+    <h6>We would love to hear from you.</h6>
+  </mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content style="padding-top: 20px">
+
+    <div class="item-form-grid1">
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Your Name (Optional) </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Activity Name">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label class="required" floatLabel="auto">Email (Optional) </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Activity Name">
+        </mat-form-field>
+      </div>
+
+      <div class="grid-item">
+        <mat-form-field appearance="outline">
+          <mat-label>Tell us...</mat-label>
+          <textarea matInput rows="6"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+  </mat-card-content>
+  <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+  <mat-card-actions>
+    <button  mat-raised-button color="primary"  (click)="onClose(true)">
+      <mat-icon>save</mat-icon> Save
+    </button>
+    <button mat-button color="warn" (click)="onClose()">
+      <mat-icon>close</mat-icon> Cancel
+    </button>
+  </mat-card-actions>
+</mat-card>

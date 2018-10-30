@@ -1,0 +1,61 @@
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade mt-3" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <mat-card class="slide-show-card">
+        <mat-card-content>
+          <div class="slide-grid">
+            <div class="slide-text" [ngClass]="routeAnimationsElements">
+              <h2>HIV/AIDS Testing at ANC</h2>
+              <p class="lead">
+                The ANC HIV testing rate(% of Pregnant women tested for HIV)
+                has increased from 84.9 % in 2015 to 95.3 in 2017. The awareness
+                for HIV testing in the community has increased a lot.
+                This is a significant change of more than 10% increase.
+              </p>
+            </div>
+            <div class="slide-image" [ngClass]="routeAnimationsElements">
+              <img src="assets/images/img.png" style="height: 350px; width: 100%" class="img-fluid">
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="carousel-item">
+      <mat-card class="slide-show-card">
+        <mat-card-content>
+          <div class="slide-grid">
+            <div class="slide-text">
+              <h2>Tanzania national health portal</h2>
+              <p class="lead">
+                The integrated and harmonized source of health
+                related information on the Tanzania mainland
+                health sector. Provides various health related data to help
+                the public track and investigate the development
+                in health sector activities across many dimensions.
+              </p>
+            </div>
+            <div class="slide-image">
+              <img src="assets/images/img2.png"  class="img-fluid" style="height: 350px; width: 100%">
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon">
+      <i class="fa fa-arrow-left"></i>
+    </span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon">
+      <i class="fa fa-arrow-right"></i>
+    </span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
